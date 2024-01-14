@@ -4,8 +4,7 @@
 <head>
   <script>
     (function (l) {
-      const parts = l.pathname.split('/')
-      l.replace(l.origin + "/#" + parts.slice(2).join('/'));
+      l.replace(l.origin + "/#" + l.pathname);
     })(window.location);
   </script>
 </head>
