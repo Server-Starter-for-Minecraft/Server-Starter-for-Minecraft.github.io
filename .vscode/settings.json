@@ -15,5 +15,12 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "[svg]": {
     "editor.defaultFormatter": "jock.svg"
-  }
+  },
+  "gitmoji.addCustomEmoji": [
+    {
+      "emoji": "🖌️",
+      "code": ":paintbrush:",
+      "description": "Add or update UI plan"
+    }
+  ]
 }
