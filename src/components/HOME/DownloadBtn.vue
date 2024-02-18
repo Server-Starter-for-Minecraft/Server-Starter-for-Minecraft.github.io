@@ -10,9 +10,9 @@ const prop = defineProps<Prop>();
 function getFileName() {
   switch (prop.osName) {
     case 'windows':
-      return `ServerStarter-v${prop.version}.msi`
+      return `ServerStarter-${prop.version}.msi`
     case 'mac':
-      return `ServerStarter-v${prop.version}.pkg`
+      return `ServerStarter-${prop.version}.pkg`
     case 'linux':
       return ''
     default:
