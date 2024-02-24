@@ -43,7 +43,7 @@ onMounted(async () => {
                   <p>Edgeでは画像のように右側の「・・・」から保存を押し，次の画面で「保持する」をクリックすることで，インストーラーのダウンロードが始まります</p>
                   <p>
                     なお，ServerStarterのソースコードは
-                    <a href="https://github.com/CivilTT/ServerStarter" target="_blank" class="a">GitHub</a>
+                    <a href="https://github.com/CivilTT/ServerStarter2" target="_blank" class="a">GitHub</a>
                     にて公開しておりますので，そちらもご確認いただけますと幸いです
                   </p>
                   <div class="row q-gutter-md items-center">
