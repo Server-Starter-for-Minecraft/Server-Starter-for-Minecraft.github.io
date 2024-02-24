@@ -41,7 +41,7 @@ function getOSName() {
     color="white"
     text-color="primary"
     padding="md"
-    :href="`https://github.com/CivilTT/ServerStarter2/releases/latest/download/${getFileName()}`"
+    :href="`https://github.com/Server-Starter-for-Minecraft/ServerStarter2/releases/latest/download/${getFileName()}`"
     style="width: 10rem"
   >
     <div class="row items-center">
