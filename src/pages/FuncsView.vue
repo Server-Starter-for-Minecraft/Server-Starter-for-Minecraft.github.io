@@ -5,7 +5,7 @@ import MultipleServersDialog from 'src/components/Funcs/dialogs/MultipleServersD
 import PlayerDialog from 'src/components/Funcs/dialogs/PlayerDialog.vue';
 import SinglePlayDialog from 'src/components/Funcs/dialogs/SinglePlayDialog.vue';
 import WorldFolderDialog from 'src/components/Funcs/dialogs/WorldFolderDialog.vue';
-import ShareWorldDialog from 'src/components/Funcs/dialogs/ShareWorldDialog.vue';
+// import ShareWorldDialog from 'src/components/Funcs/dialogs/ShareWorldDialog.vue';
 import ServerIconDialog from 'src/components/Funcs/dialogs/ServerIconDialog.vue';
 import PerfectDialog from 'src/components/Funcs/dialogs/PerfectDialog.vue';
 </script>

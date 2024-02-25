@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import Top from 'src/components/SystemSettings/Top.vue';
-import Server from 'src/components/SystemSettings/Server.vue';
-import Player from '../components/SystemSettings/Player.vue'; // @ is an alias to /src
+import Top from 'src/components/SystemSettings/TopView.vue';
+import Server from 'src/components/SystemSettings/ServerView.vue';
+import Player from '../components/SystemSettings/PlayerView.vue'; // @ is an alias to /src
 </script>
 
 <template>
