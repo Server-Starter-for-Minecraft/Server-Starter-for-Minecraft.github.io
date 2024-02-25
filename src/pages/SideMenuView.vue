@@ -1,15 +1,15 @@
 <script setup lang="ts">
 interface iMenuItem {
-  to: string,
-  caption: string,
-  label: string
+  to: string;
+  caption: string;
+  label: string;
 }
 
 const menuList: iMenuItem[] = [
   {
-    to:'/intro',
-    caption:'Introduction',
-    label:'はじめに'
+    to: '/intro',
+    caption: 'Introduction',
+    label: 'はじめに',
   },
   // {
   //   to:'/main',
@@ -29,7 +29,7 @@ const menuList: iMenuItem[] = [
   {
     to: '/funcs',
     caption: 'Features',
-    label: '主要機能一覧'
+    label: '主要機能一覧',
   },
   // {
   //   to:'/ShareWorld',
@@ -37,16 +37,16 @@ const menuList: iMenuItem[] = [
   //   label:'ShareWorld'
   // },
   {
-    to:'/PortMapping',
-    caption:'PortMapping',
-    label:'ポート開放'
+    to: '/PortMapping',
+    caption: 'PortMapping',
+    label: 'ポート開放',
   },
   {
-    to:'/credit',
-    caption:'credit',
-    label:'利用規約'
+    to: '/credit',
+    caption: 'credit',
+    label: '利用規約',
   },
-]
+];
 </script>
 
 <template>
@@ -56,12 +56,15 @@ const menuList: iMenuItem[] = [
       <template v-for="(menuItem, index) in menuList" :key="index">
         <q-item :to="menuItem.to">
           <q-item-section avatar>
-            <img v-if="$route.path == menuItem.to" src="~assets/icons/menuicon_open.svg" />
+            <img
+              v-if="$route.path == menuItem.to"
+              src="~assets/icons/menuicon_open.svg"
+            />
             <img v-else src="~assets/icons/menuicon.svg" />
           </q-item-section>
           <q-item-section>
-            <q-item-label>{{menuItem.label}}</q-item-label>
-            <q-item-label caption>{{menuItem.caption}}</q-item-label>
+            <q-item-label>{{ menuItem.label }}</q-item-label>
+            <q-item-label caption>{{ menuItem.caption }}</q-item-label>
           </q-item-section>
         </q-item>
       </template>

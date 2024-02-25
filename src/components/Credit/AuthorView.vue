@@ -1,5 +1,5 @@
 <template>
-  <q-card flat style="max-width: 100%;">
+  <q-card flat style="max-width: 100%">
     <q-card-section>
       <h1>制作者</h1>
       <ul>

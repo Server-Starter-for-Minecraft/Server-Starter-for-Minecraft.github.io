@@ -1,9 +1,9 @@
 <template>
-  <q-card flat style="max-width: 100%;">
+  <q-card flat style="max-width: 100%">
     <q-card-section>
       <h1>ShareWorldとは？</h1>
       <p>
-        ShareWorldとはマルチプレイのワールドデータを複数人で共有できる機能のことです<br/>
+        ShareWorldとはマルチプレイのワールドデータを複数人で共有できる機能のことです<br />
         こんな状況になったことはありませんか？
       </p>
       <ul>
@@ -11,9 +11,7 @@
         <li>最新のワールドデータを複数人で共有したい</li>
         <li>ワールドのバックアップを取っておきたい</li>
       </ul>
-      <p>
-        ShareWorldを使ってこれらの問題を解決しましょう！
-      </p>
+      <p>ShareWorldを使ってこれらの問題を解決しましょう！</p>
     </q-card-section>
   </q-card>
 </template>

@@ -7,37 +7,40 @@ interface Props {
 }
 defineProps<Props>();
 
-const versionName = ref('')
+const versionName = ref('');
 
 onMounted(async () => {
   // getting latest version name
-  const jsonObj = await fetch('https://api.github.com/repos/CivilTT/ServerStarter2/releases/latest')
-  versionName.value = (await jsonObj.json()).name
-})
+  const jsonObj = await fetch(
+    'https://api.github.com/repos/CivilTT/ServerStarter2/releases/latest'
+  );
+  versionName.value = (await jsonObj.json()).name;
+});
 </script>
 
 <template>
-  <q-page style="background-color: black;">
-    <div class="row justify-center" style="min-height: inherit;">
-      <q-img src="~assets/titleImg.png" style="opacity: .6;" />
+  <q-page style="background-color: black">
+    <div class="row justify-center" style="min-height: inherit">
+      <q-img src="~assets/titleImg.png" style="opacity: 0.6" />
       <div class="title_box_full row justify-center items-center">
         <div class="title_box">
-          <h1 class="title">
-            <b>Server Starter</b> for <b>Minecraft</b>
-          </h1>
+          <h1 class="title"><b>Server Starter</b> for <b>Minecraft</b></h1>
           <h1 class="row justify-center">
             <span class="title_text">
-              - Start Minecraft Java edition server only <strong class="title_text_strong">ONE</strong> click ! -
+              - Start Minecraft Java edition server only
+              <strong class="title_text_strong">ONE</strong> click ! -
             </span>
           </h1>
 
           <p class="row justify-center download_button text-bold">
-            お使いのプラットフォームに合わせてダウンロードしてください（バージョン：{{versionName}}）
+            お使いのプラットフォームに合わせてダウンロードしてください（バージョン：{{
+              versionName
+            }}）
           </p>
           <div class="row q-gutter-md justify-center">
-            <download-btn :version="versionName" :os-name="'windows'"/>
-            <download-btn :version="versionName" :os-name="'mac'"/>
-            <download-btn :version="versionName" disable :os-name="'linux'"/>
+            <download-btn :version="versionName" :os-name="'windows'" />
+            <download-btn :version="versionName" :os-name="'mac'" />
+            <download-btn :version="versionName" disable :os-name="'linux'" />
           </div>
           <p class="row justify-center text-bold text-yellow">
             Linux版は年度末ごろの長期リリース版に合わせて公開します！
