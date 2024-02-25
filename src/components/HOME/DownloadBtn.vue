@@ -1,20 +1,20 @@
 <script setup lang="ts">
 interface Prop {
   osName: 'windows' | 'mac' | 'linux';
-  version: string
-  disable?: boolean
-  outline?: boolean
+  version: string;
+  disable?: boolean;
+  outline?: boolean;
 }
 const prop = defineProps<Prop>();
 
 function getFileName() {
   switch (prop.osName) {
     case 'windows':
-      return `ServerStarter-${prop.version}.msi`
+      return `ServerStarter-${prop.version}.msi`;
     case 'mac':
-      return `ServerStarter-${prop.version}.pkg`
+      return `ServerStarter-${prop.version}.pkg`;
     case 'linux':
-      return ''
+      return '';
     default:
       break;
   }
@@ -23,11 +23,11 @@ function getFileName() {
 function getOSName() {
   switch (prop.osName) {
     case 'windows':
-      return 'Windows'
+      return 'Windows';
     case 'mac':
-      return 'Mac OS'
+      return 'Mac OS';
     case 'linux':
-      return 'Linux'
+      return 'Linux';
     default:
       break;
   }

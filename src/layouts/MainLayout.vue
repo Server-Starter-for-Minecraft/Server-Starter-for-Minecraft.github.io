@@ -2,7 +2,14 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn flat dense round @click="leftDrawerOpen = !leftDrawerOpen" aria-label="Menu" icon="menu" />
+        <q-btn
+          flat
+          dense
+          round
+          @click="leftDrawerOpen = !leftDrawerOpen"
+          aria-label="Menu"
+          icon="menu"
+        />
 
         <q-btn stretch flat to="/">
           <q-toolbar-title>
@@ -26,6 +33,5 @@
 import { ref } from 'vue';
 import SideMenuView from 'src/pages/SideMenuView.vue';
 
-const leftDrawerOpen = ref(false)
-
+const leftDrawerOpen = ref(false);
 </script>

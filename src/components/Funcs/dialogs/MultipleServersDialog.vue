@@ -3,9 +3,9 @@ import { useDialogPluginComponent } from 'quasar';
 import { funcDialogProp } from './baseDialog/iBaseDialog';
 import BaseDialogCard from './baseDialog/BaseDialogCard.vue';
 
-defineProps<funcDialogProp>()
-defineEmits({ ...useDialogPluginComponent.emitsObject })
-const { dialogRef, onDialogHide, onDialogOK } = useDialogPluginComponent()
+defineProps<funcDialogProp>();
+defineEmits({ ...useDialogPluginComponent.emitsObject });
+const { dialogRef, onDialogHide, onDialogOK } = useDialogPluginComponent();
 </script>
 
 <template>
@@ -22,7 +22,7 @@ const { dialogRef, onDialogHide, onDialogOK } = useDialogPluginComponent()
       </ul>
 
       <p>
-        サーバーの種類を後から変更することも可能！<br>
+        サーバーの種類を後から変更することも可能！<br />
         様々な遊び方に柔軟に対応できます
       </p>
 

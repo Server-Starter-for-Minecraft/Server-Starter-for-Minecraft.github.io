@@ -11,5 +11,3 @@ import Player from '../components/SystemSettings/Player.vue'; // @ is an alias t
     <Player />
   </div>
 </template>
-
-

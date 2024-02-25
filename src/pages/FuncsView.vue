@@ -8,7 +8,6 @@ import WorldFolderDialog from 'src/components/Funcs/dialogs/WorldFolderDialog.vu
 import ShareWorldDialog from 'src/components/Funcs/dialogs/ShareWorldDialog.vue';
 import ServerIconDialog from 'src/components/Funcs/dialogs/ServerIconDialog.vue';
 import PerfectDialog from 'src/components/Funcs/dialogs/PerfectDialog.vue';
-
 </script>
 
 <template>

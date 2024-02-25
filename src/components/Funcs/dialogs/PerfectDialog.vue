@@ -4,18 +4,14 @@ import { funcDialogProp } from './baseDialog/iBaseDialog';
 import BaseDialogCard from './baseDialog/BaseDialogCard.vue';
 import ImgCaption from './baseDialog/ImgCaption.vue';
 
-defineProps<funcDialogProp>()
-defineEmits({...useDialogPluginComponent.emitsObject})
-const { dialogRef, onDialogHide, onDialogOK } = useDialogPluginComponent()
+defineProps<funcDialogProp>();
+defineEmits({ ...useDialogPluginComponent.emitsObject });
+const { dialogRef, onDialogHide, onDialogOK } = useDialogPluginComponent();
 </script>
 
 <template>
   <q-dialog ref="dialogRef" @hide="onDialogHide">
-    <BaseDialogCard
-      :title="title"
-      sec-title="ギャラリー"
-      @close="onDialogOK"
-    >
+    <BaseDialogCard :title="title" sec-title="ギャラリー" @close="onDialogOK">
       <p>ServerStarter2ではマルチプレイに対するあらゆるサポートを行います</p>
       <ul>
         <li>様々な種類のサーバーを起動</li>

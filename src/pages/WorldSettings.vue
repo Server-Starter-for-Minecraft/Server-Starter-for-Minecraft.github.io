@@ -13,5 +13,3 @@ import OpWhiteList from 'src/components/WorldSettings/OpWhiteList.vue'; // @ is 
     <OpWhiteList />
   </div>
 </template>
-
-
