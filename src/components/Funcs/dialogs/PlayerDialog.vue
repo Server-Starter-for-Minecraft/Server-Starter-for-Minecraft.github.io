@@ -3,16 +3,16 @@ import { useDialogPluginComponent } from 'quasar';
 import { funcDialogProp } from './baseDialog/iBaseDialog';
 import BaseDialogCard from './baseDialog/BaseDialogCard.vue';
 
-defineProps<funcDialogProp>()
-defineEmits({ ...useDialogPluginComponent.emitsObject })
-const { dialogRef, onDialogHide, onDialogOK } = useDialogPluginComponent()
+defineProps<funcDialogProp>();
+defineEmits({ ...useDialogPluginComponent.emitsObject });
+const { dialogRef, onDialogHide, onDialogOK } = useDialogPluginComponent();
 </script>
 
 <template>
   <q-dialog ref="dialogRef" @hide="onDialogHide">
     <BaseDialogCard :title="title" @close="onDialogOK">
       <p>
-        難しいコマンドを覚えたり，複雑なファイルを編集したりする作業に別れを告げましょう<br>
+        難しいコマンドを覚えたり，複雑なファイルを編集したりする作業に別れを告げましょう<br />
         ServerStarterでは，OP権限やホワイトリストと言った，プレイヤーの権限を簡単に設定することができます
       </p>
       <p>
@@ -21,7 +21,7 @@ const { dialogRef, onDialogHide, onDialogOK } = useDialogPluginComponent()
       <q-img src="~assets/Funcs/Player/PlayerSettings.png" class="q-mb-md" />
 
       <p>
-        複数のユーザーを登録するときには，グループ機能が便利です<br>
+        複数のユーザーを登録するときには，グループ機能が便利です<br />
         一括でホワイトリストに登録したり，OP権限を設定したりすることができます！
       </p>
       <q-img src="~assets/Funcs/Player/Groups.png" />
@@ -40,8 +40,14 @@ const { dialogRef, onDialogHide, onDialogOK } = useDialogPluginComponent()
 
           右側の操作盤から様々な設定をすることができます！
           <div class="row q-gutter-md q-pr-md q-pt-md justify-center">
-            <q-img src="~assets/Funcs/Player/PlayerOperation.png" style="width: 45%;" />
-            <q-img src="~assets/Funcs/Player/GroupOperation.png" style="width: 45%;" />
+            <q-img
+              src="~assets/Funcs/Player/PlayerOperation.png"
+              style="width: 45%"
+            />
+            <q-img
+              src="~assets/Funcs/Player/GroupOperation.png"
+              style="width: 45%"
+            />
           </div>
         </ol>
       </template>

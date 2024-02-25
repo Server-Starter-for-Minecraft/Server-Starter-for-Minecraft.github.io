@@ -4,12 +4,12 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'home',
-    component: () => import('pages/HomeView.vue')
+    component: () => import('pages/HomeView.vue'),
   },
   {
     path: '/intro',
     name: 'intro',
-    component: () => import('pages/IntroductionView.vue')
+    component: () => import('pages/IntroductionView.vue'),
   },
   {
     path: '/about',
@@ -17,7 +17,7 @@ const routes: RouteRecordRaw[] = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import('pages/AboutView.vue')
+    component: () => import('pages/AboutView.vue'),
   },
   // {
   //   path: '/main',
@@ -36,22 +36,22 @@ const routes: RouteRecordRaw[] = [
   // },
   {
     path: '/funcs',
-    component: () => import('pages/FuncsView.vue')
+    component: () => import('pages/FuncsView.vue'),
   },
   {
     path: '/ShareWorld',
     name: 'sw',
-    component: () => import('pages/ShareWorld.vue')
+    component: () => import('pages/ShareWorld.vue'),
   },
   {
     path: '/PortMapping',
     name: 'apm',
-    component: () => import('pages/AutoPortMapping.vue')
+    component: () => import('pages/AutoPortMapping.vue'),
   },
   {
     path: '/credit',
     name: 'credit',
-    component: () => import('pages/CreditPage.vue')
+    component: () => import('pages/CreditPage.vue'),
   },
 
   // Always leave this as last one,

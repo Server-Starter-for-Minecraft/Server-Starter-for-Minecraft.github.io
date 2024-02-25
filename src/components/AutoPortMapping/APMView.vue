@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import BaseCard from './base/BaseCard.vue'
+import BaseCard from './base/BaseCard.vue';
 
-const slide = ref(1)
+const slide = ref(1);
 </script>
 
 <template>
   <p>
     ServerStarter2ではポート開放不要化を実現するために
-    <a href="https://ngrok.com/" class="text-primary">Ngrok</a>を利用します<br>
+    <a href="https://ngrok.com/" class="text-primary">Ngrok</a
+    >を利用します<br />
     下記の手順に従って，アカウントの登録と設定を完了しましょう！
   </p>
 
@@ -24,8 +25,24 @@ const slide = ref(1)
     class="shadow-1 rounded-borders"
   >
     <template v-slot:navigation-icon="{ active, btnProps, onClick }">
-      <q-btn v-if="active" :icon="btnProps.icon" color="primary" flat round dense @click="onClick" />
-      <q-btn v-else :icon="btnProps.icon" flat round dense @click="onClick" style="opacity: .2;" />
+      <q-btn
+        v-if="active"
+        :icon="btnProps.icon"
+        color="primary"
+        flat
+        round
+        dense
+        @click="onClick"
+      />
+      <q-btn
+        v-else
+        :icon="btnProps.icon"
+        flat
+        round
+        dense
+        @click="onClick"
+        style="opacity: 0.2"
+      />
     </template>
 
     <q-carousel-slide :name="1">
@@ -36,13 +53,17 @@ const slide = ref(1)
       >
         <p>
           Ngrokのアカウント登録は
-          <a target="_blank" href="https://dashboard.ngrok.com/signup" class="text-primary">
+          <a
+            target="_blank"
+            href="https://dashboard.ngrok.com/signup"
+            class="text-primary"
+          >
             こちらの登録画面で行います
           </a>
         </p>
         <p>
-          任意のユーザー名，メールアドレス，パスワードを記入して
-          Sign upをクリックしましょう！
+          任意のユーザー名，メールアドレス，パスワードを記入して Sign
+          upをクリックしましょう！
         </p>
       </BaseCard>
     </q-carousel-slide>
@@ -77,7 +98,8 @@ const slide = ref(1)
       >
         <p>
           ServerStarter2でサーバーを起動すると画面の右上に
-          <b><u>起動ごとに値が変更される</u></b>IPアドレスが表示されます
+          <b><u>起動ごとに値が変更される</u></b
+          >IPアドレスが表示されます
         </p>
         <p>
           このアドレスをMinecraftのマルチプレイサーバーのアドレス欄に入力することで，
