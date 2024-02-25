@@ -7,30 +7,55 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Setup NodeJS Environment 18
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: 'yarn'
+
       - name: Build
         run: |
-          git config --local user.name github-actions[bot]
-          git config --local user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git pull
           yarn install
           yarn build
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/spa
+          path: "dist/spa"
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+
+  notify:
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: always()
+    steps:
+      - uses: technote-space/workflow-conclusion-action@v1
+      - name: notify discord
+        uses: sarisia/actions-status-discord@v1
+        with:
+          title: Build & Deploy
+          description: |
+            Click [here](${{ needs.deploy.outputs.page_url }}) to open Page!
+          url: "${{ needs.deploy.outputs.page_url }}"
+          nocontext: true
+          username: GitHub Actions
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          status: ${{ env.WORKFLOW_CONCLUSION }}
