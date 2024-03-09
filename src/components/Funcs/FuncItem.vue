@@ -5,28 +5,28 @@ import { funcDialogProp } from './dialogs/baseDialog/iBaseDialog';
 import SsImg from '../utils/SsImg.vue';
 
 interface Prop {
-  assetPath: string
-  title: string
-  dialogComponent: Component | string
+  assetPath: string;
+  title: string;
+  dialogComponent: Component | string;
 }
-const prop = defineProps<Prop>()
+const prop = defineProps<Prop>();
 
-const $q = useQuasar()
+const $q = useQuasar();
 
 function openDialog() {
   $q.dialog({
     component: prop.dialogComponent,
     componentProps: {
       title: prop.title,
-      assetPath: prop.assetPath
-    } as funcDialogProp
-  })
+      assetPath: prop.assetPath,
+    } as funcDialogProp,
+  });
 }
 </script>
 
 <template>
   <q-card class="card">
-    <ss-img :path="assetPath" style="aspect-ratio: 16/9;">
+    <ss-img :path="assetPath" style="aspect-ratio: 16/9">
       <div class="absolute-bottom text-h6">
         {{ title }}
       </div>
