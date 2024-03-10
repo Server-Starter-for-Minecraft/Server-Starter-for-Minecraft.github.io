@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import SideMenuView from './pages/SideMenuView.vue';
 
 const leftDrawerOpen = ref(false);
 </script>
