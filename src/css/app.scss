@@ -16,36 +16,40 @@
   src: url(./fonts/SourceHanSans-VF.otf.woff2);
 }
 
-
 * {
   font-family: 'Mamelon';
   font-size: 14px;
 }
 
 
-// TODO: 下記スタイル定義の削除
+// テキストを１行に制限してはみ出した分は省略する
+.text-omit {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-// h1 {
-//   font-size: 1.2rem;
-// }
 
-// p {
-//   font-weight: 300;
-//   line-height: 1.7em;
-//   font-size: 1rem;
-// }
+// dark mode or light mode
+body.body--light {
+  background-color: #fafafa;
+}
 
-// b {
-//   font-size: 1.4rem;
-// }
+body.body--dark {
+  background-color: #262626;
+}
 
-// .a {
-//   color: #1eb000;
-//   font-weight: 700;
-//   font-size: 1.2rem;
-//   text-decoration: none;
-
-//   &:visited {
-//     color: #1eb000;
-//   }
-// }
+// adjust font size
+html {
+  font-size: 100%;
+}
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 110%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  html {
+    font-size: 120%;
+  }
+}
