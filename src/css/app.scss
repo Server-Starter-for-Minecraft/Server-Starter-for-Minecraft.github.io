@@ -30,6 +30,15 @@
 }
 
 
+// コンテンツの表示領域を定義
+.mainField {
+  height: 100%;
+  width: max(85%, 500px);
+  max-width: 97%;
+  margin: 0 auto;
+}
+
+
 // dark mode or light mode
 body.body--light {
   background-color: #fafafa;

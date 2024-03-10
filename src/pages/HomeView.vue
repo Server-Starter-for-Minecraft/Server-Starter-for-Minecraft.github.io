@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import DownloadBtn from 'src/components/HOME/DownloadBtn.vue';
+import ssTitle from 'src/components/utils/base/ssTitle.vue';
+import ssSubTitle from 'src/components/utils/base/ssSubTitle.vue';
 
 interface Props {
   value: string;
@@ -19,8 +21,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <q-page style="background-color: black">
-    <div class="row justify-center" style="min-height: inherit">
+  <q-page>
+    <div class="row justify-center" style="min-height: inherit; background-color: black;">
       <q-img src="assets/titleImg.png" style="opacity: 0.6" />
       <div class="title_box_full row justify-center items-center">
         <div class="title_box">
@@ -47,6 +49,11 @@ onMounted(async () => {
           </p>
         </div>
       </div>
+    </div>
+    
+    <div class="mainField">
+      <ssTitle>Server Starter for Minecraftとは？</ssTitle>
+      <ssSubTitle>マルチプレイを誰でも簡単に</ssSubTitle>
     </div>
   </q-page>
 </template>
