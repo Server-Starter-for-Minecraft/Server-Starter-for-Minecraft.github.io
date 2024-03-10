@@ -5,6 +5,3 @@ node_modules
 # Quasar core related directories
 .quasar
 /dist
-
-# distributed data
-/src/css/fonts/
