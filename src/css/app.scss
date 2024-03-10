@@ -1,32 +1,51 @@
 // app global css in SCSS form
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700&family=PT+Sans&family=Quicksand:wght@500&display=swap');
 
+@font-face {
+  font-family: Mamelon;
+  src: url(./fonts/Mamelon-4HiRegular.woff2);
+}
+
+@font-face {
+  font-family: Simpel;
+  src: url(./fonts/Simpel-Medium.woff);
+}
+
+@font-face {
+  font-family: Genokaku JP;
+  src: url(./fonts/SourceHanSans-VF.otf.woff2);
+}
+
+
 * {
-  font-family: 'Noto Sans JP';
-  font-size: calc(12px + 0.37vw);
+  font-family: 'Mamelon';
+  font-size: 14px;
 }
 
-h1 {
-  font-size: 1.2rem;
-}
 
-p {
-  font-weight: 300;
-  line-height: 1.7em;
-  font-size: 1rem;
-}
+// TODO: 下記スタイル定義の削除
 
-b {
-  font-size: 1.4rem;
-}
+// h1 {
+//   font-size: 1.2rem;
+// }
 
-.a {
-  color: #1eb000;
-  font-weight: 700;
-  font-size: 1.2rem;
-  text-decoration: none;
+// p {
+//   font-weight: 300;
+//   line-height: 1.7em;
+//   font-size: 1rem;
+// }
 
-  &:visited {
-    color: #1eb000;
-  }
-}
+// b {
+//   font-size: 1.4rem;
+// }
+
+// .a {
+//   color: #1eb000;
+//   font-weight: 700;
+//   font-size: 1.2rem;
+//   text-decoration: none;
+
+//   &:visited {
+//     color: #1eb000;
+//   }
+// }
