@@ -21,7 +21,7 @@ onMounted(async () => {
 <template>
   <q-page style="background-color: black">
     <div class="row justify-center" style="min-height: inherit">
-      <q-img src="~assets/titleImg.png" style="opacity: 0.6" />
+      <q-img src="assets/titleImg.png" style="opacity: 0.6" />
       <div class="title_box_full row justify-center items-center">
         <div class="title_box">
           <h1 class="title"><b>Server Starter</b> for <b>Minecraft</b></h1>
