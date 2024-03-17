@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getCssVar } from 'quasar';
+import { getCssVar, useQuasar } from 'quasar';
 import ssTitle from 'src/components/utils/base/texts/ssTitle.vue';
 import ssSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
 import ssStrong from 'src/components/utils/base/texts/ssStrong.vue';
@@ -12,6 +12,8 @@ import ssError from 'src/components/utils/base/expands/ssError.vue';
 import ssInfo from 'src/components/utils/base/expands/ssInfo.vue';
 import SsImg from 'src/components/utils/base/SsImg.vue';
 
+const $q = useQuasar();
+
 const thisWindow = document.getElementsByTagName('body')[0];
 const backgroundColor = () =>
   thisWindow !== null
@@ -22,7 +24,10 @@ const textColor = () =>
 
 const colorThemes: () => { name: string; hexCode: string }[] = () => [
   { name: '背景色', hexCode: rgbToHex(backgroundColor()) },
-  { name: 'ブロック要素', hexCode: rgbToHex(backgroundColor()) },
+  {
+    name: 'ブロック要素',
+    hexCode: $q.dark.isActive ? getCssVar('dark') ?? 'Not Found' : '#ffffff',
+  },
   { name: '強調', hexCode: getCssVar('primary') ?? 'Not Found' },
   { name: '文字', hexCode: rgbToHex(textColor()) },
   { name: 'エラー', hexCode: getCssVar('negative') ?? 'Not Found' },
@@ -98,11 +103,11 @@ function rgbToHex(col: string) {
     <div class="q-py-md">
       <p class="text-h6">サイト内で遷移</p>
       <p>
-        <ssA url="/intro">ServerStarterのはじめかた</ssA>
+        <ssA url="/credit">ServerStarterのはじめかた</ssA>
       </p>
-      <ssRouterBtn to="/intro">ServerStarterのはじめかた</ssRouterBtn>
+      <ssRouterBtn to="/credit">ServerStarterのはじめかた</ssRouterBtn>
     </div>
-    
+
     <ssSubTitle>Error</ssSubTitle>
     <ssError title="ダウンロード時に警告が出た場合" class="q-my-md">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius
@@ -122,7 +127,7 @@ function rgbToHex(col: string) {
       officiis modi facere maiores architecto suscipit iste eveniet doloribus
       ullam aliquid.
     </ssInfo>
-    
+
     <ssSubTitle>Image</ssSubTitle>
     <SsImg path="https://cdn.quasar.dev/img/parallax2.jpg" width="20rem" />
   </div>
