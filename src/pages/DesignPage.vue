@@ -103,9 +103,9 @@ function rgbToHex(col: string) {
     <div class="q-py-md">
       <p class="text-h6">サイト内で遷移</p>
       <p>
-        <ssA url="/credit">ServerStarterのはじめかた</ssA>
+        <ssA url="/terms">ServerStarterのはじめかた</ssA>
       </p>
-      <ssRouterBtn to="/credit">ServerStarterのはじめかた</ssRouterBtn>
+      <ssRouterBtn to="/terms">ServerStarterのはじめかた</ssRouterBtn>
     </div>
 
     <ssSubTitle>Error</ssSubTitle>

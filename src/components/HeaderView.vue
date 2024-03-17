@@ -1,26 +1,83 @@
 <script setup lang="ts">
-interface Page {
-  key: string
-  to: string
+import { ref } from 'vue';
+import { useQuasar } from 'quasar';
+import { useI18n } from 'vue-i18n';
+import TitleView from './HOME/TitleView.vue';
+import SsSelect from './utils/base/expands/ssSelect.vue';
+
+const $q = useQuasar();
+const t = useI18n();
+const lang = ref(t.locale.value);
+
+const pages: string[] = ['intro', 'features', 'q_a', 'terms'];
+type Locale = 'ja' | 'en-US';
+const localeOptions: { value: Locale; label: string }[] = [
+  { value: 'ja', label: '日本語' },
+  { value: 'en-US', label: 'English' },
+];
+
+/**
+ * 呼び出すたびに逆のカラーテーマに変更する
+ */
+function changeColorTheme() {
+  $q.dark.set(!$q.dark.isActive);
 }
-const pages: Page[] = [
-  {
-    key: 'intro',
-    to: 'intro'
-  }
-]
+
+function changeLocale(loc: Locale) {
+  t.locale.value = loc;
+}
 </script>
 
 <template>
-  <q-header elevated>
+  <q-header elevated style="background-color: #1a1a1a">
     <q-toolbar>
-      <q-btn stretch flat to="/">
-        <q-toolbar-title>
-          <span class="title">
-            <b>Server Starter</b> for <b>Minecraft</b>
-          </span>
-        </q-toolbar-title>
+      <q-btn no-caps flat to="/">
+        <div class="row q-gutter-x-sm">
+          <q-img src="icons/systemLogo.svg" width="1.3rem" />
+          <div style="padding-top: 6px">
+            <TitleView fontsize="1.3rem" />
+          </div>
+        </div>
       </q-btn>
+
+      <q-space />
+
+      <template v-for="(page, idx) in pages" :key="page">
+        <span v-if="idx > 0" class="q-mx-sm">/</span>
+        <RouterLink :to="`/${page}`">
+          {{ $t(`layout.header.pages.${page}`) }}
+        </RouterLink>
+      </template>
+
+      <q-btn
+        dense
+        outline
+        color="transparent"
+        class="q-mx-md"
+        @click="changeColorTheme"
+      >
+        <q-avatar square size="2rem" class="q-ma-xs">
+          <q-img src="icons/colorTheme/auto.svg" />
+        </q-avatar>
+      </q-btn>
+
+      <SsSelect
+        dense
+        v-model="lang"
+        @update:model-value="(newVal) => changeLocale(newVal)"
+        :options="localeOptions"
+        option-label="label"
+        option-value="value"
+      />
     </q-toolbar>
   </q-header>
 </template>
+
+<style scoped lang="scss">
+// クリックした後でも色が変わらないように指定
+a,
+a:hover,
+a:visited {
+  color: inherit;
+}
+</style>

@@ -1,8 +1,14 @@
 <script setup lang="ts">
+import { useQuasar } from 'quasar';
 import { initProcess } from './scripts/init';
 import HeaderView from 'src/components/HeaderView.vue';
 
-initProcess()
+const $q = useQuasar();
+
+initProcess();
+
+// 色設定を自動化
+$q.dark.set('auto');
 </script>
 
 <template>
