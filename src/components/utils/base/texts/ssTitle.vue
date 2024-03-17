@@ -1,7 +1,7 @@
 <template>
   <h1 class="row items-center q-my-md q-px-sm">
-    <q-img src="icons/systemLogo.svg" class="icon" />
-    <span class="text">
+    <q-img src="icons/systemLogo.svg" class="icon col-1" />
+    <span class="text col">
       <slot />
     </span>
   </h1>
@@ -18,5 +18,6 @@
   font-size: 1.8rem;
   font-weight: 600;
   letter-spacing: normal;
+  line-height: 1.8rem;
 }
 </style>

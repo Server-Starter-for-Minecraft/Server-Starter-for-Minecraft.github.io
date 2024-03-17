@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import HeaderView from 'src/components/HeaderView.vue';
+import DesignPage from './pages/DesignPage.vue';
 </script>
 
 <template>
@@ -7,7 +8,8 @@ import HeaderView from 'src/components/HeaderView.vue';
     <HeaderView />
 
     <q-page-container>
-      <router-view />
+      <!-- <router-view /> -->
+      <DesignPage />
     </q-page-container>
   </q-layout>
 </template>

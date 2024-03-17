@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { baseDialogProp } from './iBaseDialog';
-import SsBtn from 'src/components/util/base/ssBtn.vue';
+import SsBtn from 'src/components/util/base/btns/ssBtn.vue';
 
 defineProps<baseDialogProp>();
 </script>
