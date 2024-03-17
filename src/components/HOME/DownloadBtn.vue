@@ -1,17 +1,19 @@
 <script setup lang="ts">
+import { useSystemStore } from 'src/stores/SystemStore';
+
 interface Prop {
   osName: 'windows' | 'mac' | 'linux';
-  version: string;
   disable?: boolean;
 }
 const prop = defineProps<Prop>();
+const sysStore = useSystemStore()
 
 function getFileName() {
   switch (prop.osName) {
     case 'windows':
-      return `ServerStarter-${prop.version}.msi`;
+      return `ServerStarter-${sysStore.latestProductVersion}.msi`;
     case 'mac':
-      return `ServerStarter-${prop.version}.pkg`;
+      return `ServerStarter-${sysStore.latestProductVersion}.pkg`;
     case 'linux':
       return '';
     default:
@@ -36,16 +38,17 @@ function getOSName() {
 <template>
   <q-btn
     outline
-    :disable="disable"
+    :loading="sysStore.latestProductVersion === ''"
+    :disable="disable || sysStore.latestProductVersion === ''"
     text-color="primary"
     padding="md"
     :href="`https://github.com/Server-Starter-for-Minecraft/ServerStarter2/releases/latest/download/${getFileName()}`"
     class="dBtn"
   >
-    <div class="row items-center">
-      <q-avatar size="2rem" square class="q-mr-md">
-        <q-img :src="`assets/OS/${osName}.svg`" />
-      </q-avatar>
+    <div class="row items-center q-gutter-md">
+      <svg class="osLogo">
+        <use :xlink:href="`assets/OS/${osName}.svg#osLogo`" />
+      </svg>
       <div class="download text-desc">
         {{ getOSName() }}版をダウンロード
       </div>
@@ -54,6 +57,12 @@ function getOSName() {
 </template>
 
 <style scoped lang="scss">
+.osLogo {
+  width: 2rem;
+  height: 2rem;
+  fill: $primary;
+}
+
 .dBtn {
   width: 20rem;
   background-color: rgba($color: #000000, $alpha: 0.2) !important;
