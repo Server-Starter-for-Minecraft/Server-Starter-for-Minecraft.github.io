@@ -12,19 +12,19 @@ const sysStore = useSystemStore();
 </script>
 
 <template>
-  <div class="column q-pb-md">
+  <div class="column">
     <q-img
       v-if="showIcon"
       src="icons/systemLogo.svg"
       width="7rem"
       class="icon"
     />
-    <div class="title" :style="{ fontSize: fontsize }">
+    <div class="title" :style="{ fontSize: fontsize, lineHeight: fontsize }">
       Server Starter <span class="inTitle">for</span> Minecraft
     </div>
   </div>
 
-  <div v-if="showDesc" class="q-pt-md row q-gutter-x-xl q-gutter-y-md">
+  <div v-if="showDesc" class="q-pt-xl row q-gutter-x-xl q-gutter-y-md">
     <span class="text-h5"> あなたのマイクラサーバーをワンクリックで！</span>
     <span class="version">
       {{ sysStore.latestProductVersion }}
@@ -40,7 +40,6 @@ const sysStore = useSystemStore();
 
 .title {
   font-family: 'Simpel';
-  line-height: 3.5rem;
 }
 
 .inTitle {
