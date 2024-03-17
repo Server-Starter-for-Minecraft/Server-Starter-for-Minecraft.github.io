@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { initProcess } from './scripts/init';
 import HeaderView from 'src/components/HeaderView.vue';
-import DesignPage from './pages/DesignPage.vue';
+
+initProcess()
 </script>
 
 <template>
@@ -8,8 +10,7 @@ import DesignPage from './pages/DesignPage.vue';
     <HeaderView />
 
     <q-page-container>
-      <!-- <router-view /> -->
-      <DesignPage />
+      <router-view />
     </q-page-container>
   </q-layout>
 </template>
