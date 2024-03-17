@@ -1,24 +1,26 @@
 <script setup lang="ts">
-import { onBeforeMount, ref } from 'vue';
+import { useQuasar } from 'quasar';
 
 interface Prop {
   path: string;
   width?: string;
 }
-const prop = defineProps<Prop>();
+defineProps<Prop>();
 
-const img = ref('');
-
-async function loadImg() {
-  const baseURL = window.location.origin + import.meta.env.BASE_URL;
-  img.value = new URL(`${prop.path}`, baseURL).href;
-}
-
-onBeforeMount(loadImg);
+const $q = useQuasar();
+const isDark = () => $q.dark.isActive;
 </script>
 
 <template>
   <q-img :src="path" :width="width">
+    <div v-if="isDark()" class="fit dark" />
     <slot />
   </q-img>
 </template>
+
+<style scoped lang="scss">
+.dark {
+  background-color: white;
+  opacity: .2;
+}
+</style>

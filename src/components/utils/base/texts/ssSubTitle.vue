@@ -7,10 +7,10 @@ const isDark = () => $q.dark.isActive;
 
 <template>
   <h2 class="row items-center q-my-sm q-px-sm" :class="isDark() ? '' : 'marker'">
-    <svg class="icon" :class="isDark() ? 'fill-primary' : ''">
+    <svg class="icon col-1" :class="isDark() ? 'fill-primary' : ''">
       <use xlink:href="icons/systemLogo_filled.svg#filledLogo" />
     </svg>
-    <span class="text">
+    <span class="text col">
       <slot />
     </span>
   </h2>
@@ -37,6 +37,6 @@ const isDark = () => $q.dark.isActive;
   font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: normal;
-  line-height: 1rem;
+  line-height: 1.2rem;
 }
 </style>

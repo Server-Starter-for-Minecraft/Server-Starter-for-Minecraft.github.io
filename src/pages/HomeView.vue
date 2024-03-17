@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import DownloadBtn from 'src/components/HOME/DownloadBtn.vue';
-import ssTitle from 'src/components/utils/base/ssTitle.vue';
-import ssSubTitle from 'src/components/utils/base/ssSubTitle.vue';
 
 interface Props {
   value: string;
@@ -52,8 +50,6 @@ onMounted(async () => {
     </div>
     
     <div class="mainField">
-      <ssTitle>Server Starter for Minecraftとは？</ssTitle>
-      <ssSubTitle>マルチプレイを誰でも簡単に</ssSubTitle>
     </div>
   </q-page>
 </template>
