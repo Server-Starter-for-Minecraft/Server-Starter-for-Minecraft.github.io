@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useQuasar } from 'quasar';
+import { getCssVar, useQuasar } from 'quasar';
 import { useI18n } from 'vue-i18n';
 import TitleView from './HOME/TitleView.vue';
 import SsSelect from './utils/base/expands/ssSelect.vue';
@@ -29,7 +29,7 @@ function changeLocale(loc: Locale) {
 </script>
 
 <template>
-  <q-header elevated style="background-color: #1a1a1a">
+  <q-header bordered :style="{'background-color': getCssVar('dark')}">
     <q-toolbar>
       <q-btn no-caps flat to="/">
         <div class="row q-gutter-x-sm">
@@ -42,18 +42,20 @@ function changeLocale(loc: Locale) {
 
       <q-space />
 
-      <template v-for="(page, idx) in pages" :key="page">
-        <span v-if="idx > 0" class="q-mx-sm">/</span>
-        <RouterLink :to="`/${page}`">
-          {{ $t(`layout.header.pages.${page}`) }}
-        </RouterLink>
-      </template>
+      <div class="gt-sm">
+        <template v-for="(page, idx) in pages" :key="page">
+          <span v-if="idx > 0" class="q-mx-sm">/</span>
+          <RouterLink :to="`/${page}`">
+            {{ $t(`layout.header.pages.${page}`) }}
+          </RouterLink>
+        </template>
+      </div>
 
       <q-btn
         dense
         outline
         color="transparent"
-        class="q-mx-md"
+        class="q-mx-md gt-sm"
         @click="changeColorTheme"
       >
         <q-avatar square size="2rem" class="q-ma-xs">
@@ -68,8 +70,12 @@ function changeLocale(loc: Locale) {
         :options="localeOptions"
         option-label="label"
         option-value="value"
+        class="gt-sm"
       />
+
+      <q-btn dense round icon="menu" class="lt-md" />
     </q-toolbar>
+    <q-separator color="primary" size="3px" />
   </q-header>
 </template>
 

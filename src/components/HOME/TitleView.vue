@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { isMobile } from 'src/scripts/checkDevice';
 import { useSystemStore } from 'src/stores/SystemStore';
 
 interface Prop {
@@ -30,7 +31,7 @@ const sysStore = useSystemStore();
     style="margin-top: 2vw"
   >
     <span class="text-h5"> あなたのマイクラサーバーをワンクリックで！</span>
-    <span class="version">
+    <span v-if="!isMobile()" class="version">
       {{ sysStore.latestProductVersion }}
     </span>
   </div>
