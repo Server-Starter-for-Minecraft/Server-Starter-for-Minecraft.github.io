@@ -2,12 +2,14 @@
 import { ref } from 'vue';
 import { getCssVar, useQuasar } from 'quasar';
 import { useI18n } from 'vue-i18n';
-import TitleView from './HOME/TitleView.vue';
-import SsSelect from './utils/base/expands/ssSelect.vue';
+import { useSystemStore } from 'src/stores/SystemStore';
+import TitleView from '../HOME/TitleView.vue';
+import SsSelect from '../utils/base/expands/ssSelect.vue';
 
 const $q = useQuasar();
 const t = useI18n();
 const lang = ref(t.locale.value);
+const sysStore = useSystemStore();
 
 const pages: string[] = ['intro', 'features', 'q_a', 'terms'];
 type Locale = 'ja' | 'en-US';
@@ -29,7 +31,7 @@ function changeLocale(loc: Locale) {
 </script>
 
 <template>
-  <q-header bordered :style="{'background-color': getCssVar('dark')}">
+  <q-header bordered :style="{ 'background-color': getCssVar('dark') }">
     <q-toolbar>
       <q-btn no-caps flat to="/">
         <div class="row q-gutter-x-sm">
@@ -73,7 +75,13 @@ function changeLocale(loc: Locale) {
         class="gt-sm"
       />
 
-      <q-btn dense round icon="menu" class="lt-md" />
+      <q-btn
+        dense
+        round
+        icon="menu"
+        class="lt-md"
+        @click="sysStore.drawer = true"
+      />
     </q-toolbar>
     <q-separator color="primary" size="3px" />
   </q-header>
