@@ -84,7 +84,7 @@ function changeLocale(loc: Locale) {
         @click="sysStore.drawer = true"
       />
     </q-toolbar>
-    <q-separator color="primary" size="3px" />
+    <q-separator color="primary" size="3px" class="line" />
   </q-header>
 </template>
 
@@ -94,5 +94,10 @@ a,
 a:hover,
 a:visited {
   color: inherit;
+}
+
+.line {
+  position: relative;
+  top: 1px;
 }
 </style>
