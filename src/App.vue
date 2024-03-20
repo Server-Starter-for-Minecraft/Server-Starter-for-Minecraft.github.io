@@ -5,7 +5,7 @@ import HeaderView from 'src/components/HeaderView.vue';
 
 const $q = useQuasar();
 
-initProcess();
+initProcess(window.navigator.userAgent);
 
 // 色設定を自動化
 $q.dark.set('auto');

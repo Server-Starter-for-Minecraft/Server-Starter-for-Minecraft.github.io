@@ -1,7 +1,9 @@
 import { useSystemStore } from 'src/stores/SystemStore';
+import { setUserAgent } from './checkDevice';
 
 /** ホームページの起動時処理を記述 */
-export async function initProcess() {
+export async function initProcess(ua: string) {
+  setUserAgent(ua);
   getProductVersion();
 }
 

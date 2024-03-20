@@ -38,6 +38,6 @@ a:visited {
 }
 
 .dark {
-  color: $primary;
+  color: $primary !important;
 }
 </style>
