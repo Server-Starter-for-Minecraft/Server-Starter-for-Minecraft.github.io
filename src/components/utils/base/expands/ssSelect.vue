@@ -1,6 +1,7 @@
 <script setup lang="ts">
 interface Prop {
   options?: readonly any[];
+  dark?: boolean;
   label?: string;
   disable?: boolean;
   dense?: boolean;
@@ -15,6 +16,7 @@ const model = defineModel();
 <template>
   <q-select
     v-model="model"
+    :dark="dark"
     filled
     :options="options"
     :label="label"

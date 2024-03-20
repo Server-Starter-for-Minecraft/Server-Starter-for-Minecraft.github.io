@@ -67,6 +67,7 @@ function changeLocale(loc: Locale) {
 
       <SsSelect
         dense
+        dark
         v-model="lang"
         @update:model-value="(newVal) => changeLocale(newVal)"
         :options="localeOptions"
