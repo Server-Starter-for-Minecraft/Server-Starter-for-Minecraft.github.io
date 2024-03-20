@@ -15,7 +15,7 @@ import { isLinux, isMac, isWindows } from 'src/scripts/checkDevice';
     </ssStrong>
   </div>
 
-  <SsA url="/intro" class="q-pt-md">
+  <SsA dark url="/intro" class="q-mt-md">
     配布中の全てのインストーラーを確認する
   </SsA>
 </template>

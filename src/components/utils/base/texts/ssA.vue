@@ -2,11 +2,12 @@
 import { useQuasar } from 'quasar';
 interface Prop {
   url: string;
+  dark?: boolean;
 }
 const prop = defineProps<Prop>();
 
 const $q = useQuasar();
-const isDark = () => $q.dark.isActive;
+const isDark = () => $q.dark.isActive || prop.dark;
 
 const isOuterSite = () => prop.url.slice(0, 4) === 'http';
 </script>
