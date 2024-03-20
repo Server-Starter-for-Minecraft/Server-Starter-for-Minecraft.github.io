@@ -30,7 +30,7 @@ const sysStore = useSystemStore();
     class="row q-gutter-x-xl q-gutter-y-sm"
     style="margin-top: 2vw"
   >
-    <span class="text-h5"> あなたのマイクラサーバーをワンクリックで！</span>
+    <span class="text-h5 custom-break"> あなたのマイクラサーバーを<wbr>ワンクリックで！</span>
     <span v-if="!isMobile()" class="version">
       {{ sysStore.latestProductVersion }}
     </span>

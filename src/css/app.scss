@@ -46,6 +46,13 @@
 }
 
 
+// <wbr>によって改行を許可する位置を明示したテキストを囲むタグに使う
+.custom-break {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+
 // dark mode or light mode
 body.body--light {
   background-color: #fafafa;
