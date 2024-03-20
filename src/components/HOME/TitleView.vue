@@ -24,7 +24,11 @@ const sysStore = useSystemStore();
     </div>
   </div>
 
-  <div v-if="showDesc" class="q-pt-xl row q-gutter-x-xl q-gutter-y-md">
+  <div
+    v-if="showDesc"
+    class="row q-gutter-x-xl q-gutter-y-sm"
+    style="margin-top: 2vw"
+  >
     <span class="text-h5"> あなたのマイクラサーバーをワンクリックで！</span>
     <span class="version">
       {{ sysStore.latestProductVersion }}
