@@ -34,9 +34,9 @@ function changeLocale(loc: Locale) {
   <q-header bordered :style="{ 'background-color': getCssVar('dark') }">
     <q-toolbar>
       <q-btn no-caps flat to="/">
-        <div class="row q-gutter-x-sm">
-          <q-img src="icons/systemLogo.svg" width="1.3rem" />
-          <div style="padding-top: 6px">
+        <div class="row items-center text-left">
+          <q-img src="icons/systemLogo.svg" class="col-1 logo" />
+          <div class="col logo-text">
             <TitleView fontsize="1.3rem" />
           </div>
         </div>
@@ -94,6 +94,15 @@ a,
 a:hover,
 a:visited {
   color: inherit;
+}
+
+.logo {
+  margin-right: 1rem;
+  width: 1.3rem;
+}
+
+.logo-text {
+  padding-top: 6px;
 }
 
 .line {
