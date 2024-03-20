@@ -12,7 +12,7 @@ defineProps<Props>();
 <template>
   <q-page>
     <q-img src="assets/titleImg.png" style="min-height: inherit; height: 30rem">
-      <div class="column fit items-center justify-center">
+      <div class="column fit items-center justify-center text-center">
         <q-space />
         <TitleView show-icon show-desc fontsize="4rem" />
 
