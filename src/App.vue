@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { useQuasar } from 'quasar';
 import { initProcess } from './scripts/init';
-import HeaderView from 'src/components/HeaderView.vue';
+import HeaderView from 'src/components/App/HeaderView.vue';
+import DrawerView from './components/App/DrawerView.vue';
 
 const $q = useQuasar();
 
@@ -14,6 +15,7 @@ $q.dark.set('auto');
 <template>
   <q-layout view="lHh Lpr lFf">
     <HeaderView />
+    <DrawerView />
 
     <q-page-container>
       <router-view />
