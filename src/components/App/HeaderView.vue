@@ -31,7 +31,10 @@ const sysStore = useSystemStore();
       <div class="gt-sm">
         <template v-for="(page, idx) in showingPages" :key="page">
           <span v-if="idx > 0" class="q-mx-sm">/</span>
-          <RouterLink :to="`/${page}`">
+          <RouterLink
+            :to="`/${page}`"
+            :class="$route.path.includes(`/${page}`) ? 'select-page' : ''"
+          >
             {{ $t(`layout.header.pages.${page}`) }}
           </RouterLink>
         </template>
@@ -72,5 +75,9 @@ a:visited {
 .line {
   position: relative;
   top: 1px;
+}
+
+.select-page {
+  color: $primary !important;
 }
 </style>
