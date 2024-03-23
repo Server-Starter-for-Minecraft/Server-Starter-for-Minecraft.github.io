@@ -3,8 +3,8 @@ export const jaLayout = {
     pages: {
       intro: 'はじめに',
       features: '機能一覧',
-      q_a: 'Q&A',
-      terms: '規約'
+      'q-a': 'Q&A',
+      terms: '規約',
     },
-  }
-}
+  },
+};
