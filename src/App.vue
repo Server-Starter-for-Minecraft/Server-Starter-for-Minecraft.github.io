@@ -9,7 +9,7 @@ const $q = useQuasar();
 const pages: { key: Page; icon: string }[] = [
   { key: 'intro', icon: 'flag' },
   { key: 'features', icon: 'category' },
-  { key: 'q_a', icon: 'help' },
+  { key: 'q-a', icon: 'help' },
   { key: 'terms', icon: 'gavel' },
 ];
 
@@ -21,7 +21,7 @@ $q.dark.set('auto');
 
 <template>
   <q-layout view="lHh Lpr lFf">
-    <HeaderView :showing-pages="pages.map(val => val.key)" />
+    <HeaderView :showing-pages="pages.map((val) => val.key)" />
     <DrawerView :showing-pages="pages" />
 
     <q-page-container>
