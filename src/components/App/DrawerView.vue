@@ -23,7 +23,12 @@ const sysStore = useSystemStore();
 
       <q-list padding class="full-width">
         <template v-for="page in showingPages" :key="page.key">
-          <q-item clickable :to="`/${page.key}`" style="font-size: 1rem">
+          <q-item
+            clickable
+            :to="`/${page.key}`"
+            :active-class="$q.dark.isActive ? 'page-selected-dark' : 'page-selected-light'"
+            style="font-size: 1rem"
+          >
             <q-item-section avatar>
               <q-icon :name="page.icon" size="1.5rem" />
             </q-item-section>
@@ -46,3 +51,13 @@ const sysStore = useSystemStore();
     </div>
   </q-drawer>
 </template>
+
+<style scoped lang="scss">
+.page-selected-dark {
+  color: $primary;
+}
+
+.page-selected-light {
+  background-color: $primary;
+}
+</style>
