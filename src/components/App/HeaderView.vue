@@ -19,7 +19,7 @@ const sysStore = useSystemStore();
     <q-toolbar>
       <q-btn no-caps flat to="/">
         <div class="row items-center text-left">
-          <q-img src="icons/systemLogo.svg" class="col-1 logo" />
+          <q-img src="/icons/systemLogo.svg" class="col-1 logo" />
           <div class="col logo-text">
             <TitleView fontsize="1.3rem" />
           </div>
