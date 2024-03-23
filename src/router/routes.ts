@@ -1,5 +1,8 @@
 import { RouteRecordRaw } from 'vue-router';
 
+type KeyA2U<T extends object[],K extends keyof T[number]> = { [L in keyof T]: T[L][K] }[number];
+export type Page = KeyA2U<typeof routes, 'path'>
+
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
