@@ -16,7 +16,7 @@ const sysStore = useSystemStore();
   <div class="column">
     <q-img
       v-if="showIcon"
-      src="icons/systemLogo.svg"
+      src="/icons/systemLogo.svg"
       width="7rem"
       class="icon"
     />
@@ -30,7 +30,9 @@ const sysStore = useSystemStore();
     class="row q-gutter-x-xl q-gutter-y-sm"
     style="margin-top: 2vw"
   >
-    <span class="text-h5 custom-break"> あなたのマイクラサーバーを<wbr>ワンクリックで！</span>
+    <span class="text-h5 custom-break">
+      あなたのマイクラサーバーを<wbr />ワンクリックで！</span
+    >
     <span v-if="!isMobile()" class="version">
       {{ sysStore.latestProductVersion }}
     </span>

@@ -1,6 +1,6 @@
 <template>
   <h1 class="row items-center q-my-md q-px-sm">
-    <q-img src="icons/systemLogo.svg" class="icon col-1" />
+    <q-img src="/icons/systemLogo.svg" class="icon col-1" />
     <span class="text col">
       <slot />
     </span>

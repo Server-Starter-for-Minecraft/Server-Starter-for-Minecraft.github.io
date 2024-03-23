@@ -16,7 +16,7 @@ const sysStore = useSystemStore();
   <q-drawer v-model="sysStore.drawer" side="right">
     <div class="vertical-scroll">
       <div class="row items-center q-ma-md">
-        <q-img src="icons/systemLogo.svg" style="width: 1.5rem;" />
+        <q-img src="/icons/systemLogo.svg" style="width: 1.5rem" />
         <q-space />
         <q-btn icon="close" flat dense @click="sysStore.drawer = false" />
       </div>
@@ -38,9 +38,7 @@ const sysStore = useSystemStore();
       <q-separator inset class="q-my-md" />
 
       <div class="row items-center q-mx-md">
-        <span class="col">
-          カラーテーマ変更
-        </span>
+        <span class="col"> カラーテーマ変更 </span>
         <ColorThemeBtn class="col-1" />
       </div>
 
