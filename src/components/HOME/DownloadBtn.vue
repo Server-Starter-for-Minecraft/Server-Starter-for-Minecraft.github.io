@@ -6,7 +6,7 @@ interface Prop {
   disable?: boolean;
 }
 const prop = defineProps<Prop>();
-const sysStore = useSystemStore()
+const sysStore = useSystemStore();
 
 function getFileName() {
   switch (prop.osName) {
@@ -47,11 +47,9 @@ function getOSName() {
   >
     <div class="row items-center q-gutter-md">
       <svg class="osLogo">
-        <use :xlink:href="`assets/OS/${osName}.svg#osLogo`" />
+        <use :xlink:href="`/assets/OS/${osName}.svg#osLogo`" />
       </svg>
-      <div class="download text-desc">
-        {{ getOSName() }}版をダウンロード
-      </div>
+      <div class="download text-desc">{{ getOSName() }}版をダウンロード</div>
     </div>
   </q-btn>
 </template>
