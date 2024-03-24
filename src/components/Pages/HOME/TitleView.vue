@@ -27,7 +27,7 @@ const sysStore = useSystemStore();
 
   <div
     v-if="showDesc"
-    class="row q-gutter-x-xl q-gutter-y-sm"
+    class="row q-gutter-x-xl q-gutter-y-sm justify-center"
     style="margin-top: 2vw"
   >
     <span class="text-h5 custom-break">
