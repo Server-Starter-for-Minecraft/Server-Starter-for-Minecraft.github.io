@@ -25,6 +25,7 @@ defineProps<Props>();
         <q-space />
       </div>
     </q-img>
+    <q-separator color="primary" size="3px" class="line" />
 
     <div class="mainField">
       <!-- HOMEのコンテンツを記述 -->
@@ -32,3 +33,10 @@ defineProps<Props>();
     </div>
   </q-page>
 </template>
+
+<style scoped lang="scss">
+.line {
+  position: relative;
+  bottom: 2px;
+}
+</style>

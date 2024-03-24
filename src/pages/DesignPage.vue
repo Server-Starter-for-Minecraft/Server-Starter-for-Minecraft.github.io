@@ -3,7 +3,7 @@ import { getCssVar, useQuasar } from 'quasar';
 import ssTitle from 'src/components/utils/base/texts/ssTitle.vue';
 import ssSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
 import ssStrong from 'src/components/utils/base/texts/ssStrong.vue';
-import DownloadBtn from 'src/components/Pages/HOME/DownloadBtn.vue';
+import DownloadBtn from 'src/components/Pages/HOME/core/DownloadBtn.vue';
 import ssLinkBtn from 'src/components/utils/base/btns/ssLinkBtn.vue';
 import ssA from 'src/components/utils/base/texts/ssA.vue';
 import ssRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
