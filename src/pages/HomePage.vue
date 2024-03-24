@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import DownloadView from 'src/components/HOME/DownloadView.vue';
-import TitleView from 'src/components/HOME/TitleView.vue';
+import DownloadView from 'src/components/Pages/HOME/DownloadView.vue';
+import TitleView from 'src/components/Pages/HOME/TitleView.vue';
 import DesignPage from 'src/pages/DesignPage.vue';
 
 interface Props {

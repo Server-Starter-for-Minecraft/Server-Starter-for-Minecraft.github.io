@@ -2,7 +2,7 @@
 import { getCssVar } from 'quasar';
 import { useSystemStore } from 'src/stores/SystemStore';
 import { Page } from 'src/router/routes';
-import TitleView from '../HOME/TitleView.vue';
+import TitleView from '../Pages/HOME/TitleView.vue';
 import colorThemeBtn from './core/colorThemeBtn.vue';
 import languageSelecter from './core/languageSelecter.vue';
 
