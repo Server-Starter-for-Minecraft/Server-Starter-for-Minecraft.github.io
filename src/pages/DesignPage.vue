@@ -11,6 +11,7 @@ import ssWarning from 'src/components/utils/base/expands/ssWarning.vue';
 import ssError from 'src/components/utils/base/expands/ssError.vue';
 import ssInfo from 'src/components/utils/base/expands/ssInfo.vue';
 import SsImg from 'src/components/utils/base/SsImg.vue';
+import SsCard from 'src/components/utils/base/ssCard.vue';
 
 const $q = useQuasar();
 
@@ -81,9 +82,18 @@ function rgbToHex(col: string) {
     <p>3行目のテキスト</p>
 
     <ssSubTitle>Cards</ssSubTitle>
-    <p>
-      各ページに依存するコンポーネントとして設定するため，全般UIには含めない
-    </p>
+    <div class="q-ma-md" style="max-width: 20rem;">
+      <SsCard line-color="primary">
+        <ssSubTitle>ワールドをすぐに作成</ssSubTitle>
+        <div class="q-my-md custom-break">
+          ServerStarterで新しいワールドを作り，<wbr>みんなで冒険しましょう！
+        </div>
+
+        <template #actions>
+          <ssRouterBtn to="test">test</ssRouterBtn>
+        </template>
+      </SsCard>
+    </div>
 
     <ssSubTitle>Strong</ssSubTitle>
     <p>
