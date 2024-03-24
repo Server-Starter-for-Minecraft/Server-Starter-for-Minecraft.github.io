@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import DownloadBtn from 'src/components/Pages/HOME/DownloadBtn.vue';
+import DownloadBtn from 'src/components/Pages/HOME/core/DownloadBtn.vue';
 import SsA from 'src/components/utils/base/texts/ssA.vue';
 import SsStrong from 'src/components/utils/base/texts/ssStrong.vue';
 import { isLinux, isMac, isWindows } from 'src/scripts/checkDevice';
