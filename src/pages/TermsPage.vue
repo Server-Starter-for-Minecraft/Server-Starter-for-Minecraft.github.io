@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import Author from '../components/Credit/AuthorView.vue';
-import TermsOfUse from '../components/Credit/TermsOfUse.vue';
+import AuthorView from 'src/components/Pages/Credit/AuthorView.vue';
+import TermsOfUse from 'src/components/Pages/Credit/TermsOfUse.vue';
 </script>
 
 <template>
   <div class="credit">
-    <Author />
+    <AuthorView />
     <TermsOfUse />
   </div>
 </template>
