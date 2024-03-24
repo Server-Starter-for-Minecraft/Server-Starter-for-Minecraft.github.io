@@ -40,6 +40,6 @@ const isDark = () => $q.dark.isActive;
   font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: normal;
-  line-height: 1.2rem;
+  line-height: 1.5rem;
 }
 </style>
