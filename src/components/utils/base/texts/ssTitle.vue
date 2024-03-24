@@ -18,6 +18,6 @@
   font-size: 1.8rem;
   font-weight: 600;
   letter-spacing: normal;
-  line-height: 1.8rem;
+  line-height: 2.1rem;
 }
 </style>
