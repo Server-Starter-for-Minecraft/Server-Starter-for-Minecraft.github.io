@@ -11,6 +11,10 @@ const routes: RouteRecordRaw[] = [
     component: () => import('pages/HomePage.vue'),
   },
   {
+    path: '/design',
+    component: () => import('pages/DesignPage.vue'),
+  },
+  {
     path: '/intro',
     component: () => import('pages/IntroPage.vue'),
     children: [
