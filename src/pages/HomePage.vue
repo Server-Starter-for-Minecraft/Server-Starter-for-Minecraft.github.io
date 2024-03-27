@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import DownloadView from 'src/components/Pages/HOME/DownloadView.vue';
+import ProductIntro from 'src/components/Pages/HOME/ProductIntro.vue';
 import TitleView from 'src/components/Pages/HOME/TitleView.vue';
-import DesignPage from 'src/pages/DesignPage.vue';
 
 interface Props {
   value: string;
@@ -29,7 +29,7 @@ defineProps<Props>();
 
     <div class="mainField">
       <!-- HOMEのコンテンツを記述 -->
-      <DesignPage />
+      <ProductIntro />
     </div>
   </q-page>
 </template>
