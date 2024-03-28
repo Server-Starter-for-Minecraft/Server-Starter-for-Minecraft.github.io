@@ -8,7 +8,7 @@ import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
   <div>
     <SsTitle>Server Starter for Minecraft とは？</SsTitle>
   
-    <p class="q-pt-lg">
+    <p>
       ServerStarter2（Server Starter for Minecraft）はマインクラフトのマルチプレイのためのソフトウェアです．
     </p>
     <p>

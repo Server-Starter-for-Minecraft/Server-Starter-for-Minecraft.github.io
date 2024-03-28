@@ -1,5 +1,5 @@
 <template>
-  <h1 class="row items-center q-my-md q-px-sm">
+  <h1 class="row items-center q-mt-md q-mb-xl">
     <q-img src="/icons/systemLogo.svg" class="icon col-1" />
     <span class="text col">
       <slot />

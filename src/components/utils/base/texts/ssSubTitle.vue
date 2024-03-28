@@ -7,7 +7,7 @@ const isDark = () => $q.dark.isActive;
 
 <template>
   <h2
-    class="row items-center q-my-sm q-px-sm"
+    class="row items-center q-mt-md q-mb-lg"
     :class="isDark() ? '' : 'marker'"
   >
     <svg class="icon col-1" :class="isDark() ? 'fill-primary' : ''">
