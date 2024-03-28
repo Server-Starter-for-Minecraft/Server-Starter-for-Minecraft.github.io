@@ -20,7 +20,7 @@ const routes: RouteRecordRaw[] = [
     children: [
       {
         path: '',
-        component: () => import('pages/Intro/IntroPage.vue')
+        component: () => import('pages/Intro/IntroPage.vue'),
       },
       {
         path: 'install',
@@ -47,6 +47,24 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/terms',
     component: () => import('pages/TermsPage.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('pages/terms/TermsPage.vue'),
+      },
+      {
+        path: 'use',
+        component: () => import('pages/terms/TermsOfUse.vue'),
+      },
+      {
+        path: 'privacy',
+        component: () => import('pages/terms/TermsOfUse.vue'),
+      },
+      {
+        path: 'broadcast',
+        component: () => import('pages/terms/TermsOfUse.vue'),
+      },
+    ],
   },
 
   // Always leave this as last one,
