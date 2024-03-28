@@ -40,6 +40,12 @@
   width: max(85%, 500px);
   max-width: 90%;
   margin: 2rem auto;
+  // 要素を縦に並べるための設定
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  // 縦に並べた要素同士の間隔
+  gap: 3rem;
 }
 
 // <wbr>によって改行を許可する位置を明示したテキストを囲むタグに使う
