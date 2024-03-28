@@ -55,90 +55,104 @@ function rgbToHex(col: string) {
 
 <template>
   <div class="mainField">
-    <ssSubTitle>Theme</ssSubTitle>
-    <table>
-      <template v-for="theme in colorThemes()" :key="theme.name">
-        <tr>
-          <td>{{ theme.name }}</td>
-          <td>
-            <q-icon
-              name="square"
-              size="1rem"
-              :style="{ color: theme.hexCode }"
-            />
-          </td>
-          <td>{{ theme.hexCode.toUpperCase() }}</td>
-        </tr>
-      </template>
-    </table>
-
-    <ssSubTitle>Fonts</ssSubTitle>
-
-    <ssTitle>Server Starter for Minecraftとは？</ssTitle>
-    <ssSubTitle>マルチプレイをだれでも簡単に！！</ssSubTitle>
-    <p><span class="text-desc">本文ではない補足情報</span></p>
-    <p>1行目のテキスト</p>
-    <p>2行目のテキスト<br />改行後の2行目のテキスト</p>
-    <p>3行目のテキスト</p>
-
-    <ssSubTitle>Cards</ssSubTitle>
-    <div class="q-ma-md" style="max-width: 20rem;">
-      <SsCard line-color="primary">
-        <ssSubTitle>ワールドをすぐに作成</ssSubTitle>
-        <div class="q-my-md custom-break">
-          ServerStarterで新しいワールドを作り，<wbr>みんなで冒険しましょう！
-        </div>
-
-        <template #actions>
-          <ssRouterBtn to="test">test</ssRouterBtn>
+    <div>
+      <ssSubTitle>Theme</ssSubTitle>
+      <table>
+        <template v-for="theme in colorThemes()" :key="theme.name">
+          <tr>
+            <td>{{ theme.name }}</td>
+            <td>
+              <q-icon
+                name="square"
+                size="1rem"
+                :style="{ color: theme.hexCode }"
+              />
+            </td>
+            <td>{{ theme.hexCode.toUpperCase() }}</td>
+          </tr>
         </template>
-      </SsCard>
+      </table>
     </div>
 
-    <ssSubTitle>Strong</ssSubTitle>
-    <p>
-      ServerStarter2は<ssStrong>Windows</ssStrong> /
-      <ssStrong>MacOS</ssStrong> / <ssStrong>Linux</ssStrong>で使用できます
-    </p>
+    <div>
+      <ssSubTitle>Fonts</ssSubTitle>
+  
+      <ssTitle>Server Starter for Minecraftとは？</ssTitle>
+      <ssSubTitle>マルチプレイをだれでも簡単に！！</ssSubTitle>
+      <p><span class="text-desc">本文ではない補足情報</span></p>
+      <p>1行目のテキスト</p>
+      <p>2行目のテキスト<br />改行後の2行目のテキスト</p>
+      <p>3行目のテキスト</p>
+    </div>
 
-    <ssSubTitle>Buttons</ssSubTitle>
-    <div class="q-py-md">
-      <p class="text-h6 q-mb-none">DLボタン</p>
-      <DownloadBtn version="000" os-name="windows" />
+    <div>
+      <ssSubTitle>Cards</ssSubTitle>
+      <div class="q-ma-md" style="max-width: 20rem;">
+        <SsCard line-color="primary">
+          <ssSubTitle>ワールドをすぐに作成</ssSubTitle>
+          <div class="q-my-md custom-break">
+            ServerStarterで新しいワールドを作り，<wbr>みんなで冒険しましょう！
+          </div>
+  
+          <template #actions>
+            <ssRouterBtn to="test">test</ssRouterBtn>
+          </template>
+        </SsCard>
+      </div>
     </div>
-    <div class="q-py-md">
-      <p class="text-h6 q-mb-none">外部サイトを開く</p>
-      <ssLinkBtn url="https://github.com/Server-Starter-for-Minecraft/" />
-    </div>
-    <div class="q-py-md">
-      <p class="text-h6">サイト内で遷移</p>
+
+    <div>
+      <ssSubTitle>Strong</ssSubTitle>
       <p>
-        <ssA url="/terms">ServerStarterのはじめかた</ssA>
+        ServerStarter2は<ssStrong>Windows</ssStrong> /
+        <ssStrong>MacOS</ssStrong> / <ssStrong>Linux</ssStrong>で使用できます
       </p>
-      <ssRouterBtn to="/terms">ServerStarterのはじめかた</ssRouterBtn>
     </div>
 
-    <ssSubTitle>Error</ssSubTitle>
-    <ssError title="ダウンロード時に警告が出た場合" class="q-my-md">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius
-      reprehenderit eos corrupti commodi magni quaerat ex numquam, dolorum
-      officiis modi facere maiores architecto suscipit iste eveniet doloribus
-      ullam aliquid.
-    </ssError>
-    <ssWarning title="ダウンロード時に警告が出た場合" class="q-my-md">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius
-      reprehenderit eos corrupti commodi magni quaerat ex numquam, dolorum
-      officiis modi facere maiores architecto suscipit iste eveniet doloribus
-      ullam aliquid.
-    </ssWarning>
-    <ssInfo title="ダウンロード時に警告が出た場合" class="q-my-md">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius
-      reprehenderit eos corrupti commodi magni quaerat ex numquam, dolorum
-      officiis modi facere maiores architecto suscipit iste eveniet doloribus
-      ullam aliquid.
-    </ssInfo>
+    <div>
+      <ssSubTitle>Buttons</ssSubTitle>
+      <div class="q-py-md">
+        <p class="text-h6 q-mb-none">DLボタン</p>
+        <DownloadBtn version="000" os-name="windows" />
+      </div>
+      <div class="q-py-md">
+        <p class="text-h6 q-mb-none">外部サイトを開く</p>
+        <ssLinkBtn url="https://github.com/Server-Starter-for-Minecraft/" />
+      </div>
+      <div class="q-py-md">
+        <p class="text-h6">サイト内で遷移</p>
+        <p>
+          <ssA url="/terms">ServerStarterのはじめかた</ssA>
+        </p>
+        <ssRouterBtn to="/terms">ServerStarterのはじめかた</ssRouterBtn>
+      </div>
+    </div>
 
-    <ssSubTitle>Image</ssSubTitle>
-    <SsImg path="https://cdn.quasar.dev/img/parallax2.jpg" width="20rem" />
+    <div>
+      <ssSubTitle>Error</ssSubTitle>
+      <ssError title="ダウンロード時に警告が出た場合" class="q-my-md">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius
+        reprehenderit eos corrupti commodi magni quaerat ex numquam, dolorum
+        officiis modi facere maiores architecto suscipit iste eveniet doloribus
+        ullam aliquid.
+      </ssError>
+      <ssWarning title="ダウンロード時に警告が出た場合" class="q-my-md">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius
+        reprehenderit eos corrupti commodi magni quaerat ex numquam, dolorum
+        officiis modi facere maiores architecto suscipit iste eveniet doloribus
+        ullam aliquid.
+      </ssWarning>
+      <ssInfo title="ダウンロード時に警告が出た場合" class="q-my-md">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius
+        reprehenderit eos corrupti commodi magni quaerat ex numquam, dolorum
+        officiis modi facere maiores architecto suscipit iste eveniet doloribus
+        ullam aliquid.
+      </ssInfo>
+    </div>
+
+    <div>
+      <ssSubTitle>Image</ssSubTitle>
+      <SsImg path="https://cdn.quasar.dev/img/parallax2.jpg" width="20rem" />
+    </div>
   </div>
 </template>
