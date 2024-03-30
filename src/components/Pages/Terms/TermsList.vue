@@ -29,7 +29,7 @@ const cards: TermsID[] = [
     <template v-for="card in cards" :key="card.key">
       <SsCard>
         <SsSubTitle>{{ $t(`terms.top.${card.key}.title`) }}</SsSubTitle>
-        <div class="q-my-md custom-break" style="white-space: pre-line">
+        <div class="q-my-md" style="white-space: pre-line">
           {{ $t(`terms.top.${card.key}.desc`) }}
         </div>
 

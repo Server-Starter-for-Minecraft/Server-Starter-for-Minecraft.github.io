@@ -58,7 +58,7 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: 'privacy',
-        component: () => import('pages/terms/TermsOfUse.vue'),
+        component: () => import('pages/terms/PrivacyPolicy.vue'),
       },
       {
         path: 'broadcast',
