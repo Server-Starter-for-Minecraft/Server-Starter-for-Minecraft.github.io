@@ -9,7 +9,7 @@ export function isWindows() {
 }
 
 export function isMac() {
-  return userAgent.indexOf('Macintosh') !== -1;
+  return userAgent.indexOf('macintosh') !== -1;
 }
 
 export function isLinux() {
