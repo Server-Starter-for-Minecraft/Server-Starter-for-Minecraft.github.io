@@ -1,0 +1,100 @@
+<script setup lang="ts">
+import SsImg from 'src/components/utils/base/SsImg.vue';
+import SsLinkBtn from 'src/components/utils/base/btns/ssLinkBtn.vue';
+import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
+import SsCard from 'src/components/utils/base/ssCard.vue';
+import SsStrong from 'src/components/utils/base/texts/ssStrong.vue';
+import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
+
+interface Prop {
+  btnTitle: string;
+  btnTo: string;
+}
+
+defineProps<Prop>();
+
+const ServerTypes: () => {
+  name: string;
+  display: string;
+  desc: string;
+  url: string;
+}[] = () => [
+  {
+    name: 'vanilla',
+    display: 'バニラ(公式)サーバー',
+    desc: 'Minecraftの公式サーバー.標準的なマルチプレイの機能を提供する.',
+    url: 'https://github.com/Server-Starter-for-Minecraft/',
+  },
+  {
+    name: 'forge',
+    display: 'Forgeサーバー',
+    desc: 'Minecraftの公式サーバー.標準的なマルチプレイの機能を提供する.',
+    url: 'https://github.com/Server-Starter-for-Minecraft/',
+  },
+  {
+    name: 'spigot',
+    display: 'Spigotサーバー',
+    desc: 'Minecraftの公式サーバー.標準的なマルチプレイの機能を提供する.',
+    url: 'https://github.com/Server-Starter-for-Minecraft/',
+  },
+  {
+    name: 'mohistmc',
+    display: 'MohistMCサーバー',
+    desc: 'Minecraftの公式サーバー.標準的なマルチプレイの機能を提供する.',
+    url: 'https://github.com/Server-Starter-for-Minecraft/',
+  },
+  {
+    name: 'papermc',
+    display: 'PaperMCサーバー',
+    desc: 'Minecraftの公式サーバー.標準的なマルチプレイの機能を提供する.',
+    url: 'https://github.com/Server-Starter-for-Minecraft/',
+  },
+  {
+    name: 'fabric',
+    display: 'Fabricサーバー',
+    desc: 'Minecraftの公式サーバー.標準的なマルチプレイの機能を提供する.',
+    url: 'https://github.com/Server-Starter-for-Minecraft/',
+  },
+];
+
+function imgPath(name: string) {
+  return 'public/assets/servers/' + name + '.png';
+}
+</script>
+
+<template>
+  <div>
+    <SsSubTitle> 6種類のサーバーに対応 !! </SsSubTitle>
+    <p>
+      ServerStarterは6種類のサーバーに対応しています!<br />
+      バニラのサーバーだけでなく<SsStrong>Mod</SsStrong>や
+      <span class="text-primary"> プラグイン </span
+      >を使って,もっとマルチプレイを楽しみましょう.
+    </p>
+    <div class="row">
+      <template v-for="server in ServerTypes()" :key="server.name">
+        <div class="col-md-6">
+          <SsCard class="q-ma-md">
+            <div class="row">
+              <div class="col-auto q-ma-md">
+                <SsImg :path="imgPath(server.name)" class="blockWidth" style="min-width:4rem"/>
+              </div>
+              <div class="col q-ma-md blockWidth">
+                <p class="text-h6 q-mb-none">
+                  {{ server.display }}
+                  <SsLinkBtn :url="server.url" />
+                </p>
+                <p>{{ server.desc }}</p>
+              </div>
+            </div>
+          </SsCard>
+        </div>
+      </template>
+    </div>
+    <div class="flex justify-end">
+      <SsRouterBtn :to="btnTo">
+        {{ btnTitle }}
+      </SsRouterBtn>
+    </div>
+  </div>
+</template>
