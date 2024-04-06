@@ -11,7 +11,7 @@ import IndentLine from 'src/components/Pages/Terms/IndentLine.vue';
     <SsTitle>プライバシーポリシー</SsTitle>
     <p>
       Server Starter for
-      Minecraftプロジェクトでは，お客様の個人情報を必要以上に収集せず，自由なプロジェクト成果の利用と利用者並びに製作者の匿名性の保持を最優先事項の１つとしています．<br />
+      Minecraftプロジェクト（以下，「本プロジェクト」）では，お客様の個人情報を必要以上に収集せず，自由なプロジェクト成果の利用と利用者並びに製作者の匿名性の保持を最優先事項の１つとしています．<br />
       この規約は、本ウェブサイト並びにServerStarter2が収集するデータとその利用方法について定めるものとなります．
     </p>
   </div>
@@ -19,8 +19,7 @@ import IndentLine from 'src/components/Pages/Terms/IndentLine.vue';
   <div>
     <SsSubTitle>第１条（収集するデータの種類）</SsSubTitle>
     <p>
-      Server Starter for
-      Minecraftプロジェクト（以下，「本プロジェクト」）ではWebページや
+      本プロジェクトではWebページや
       ServerStarter2本体等のエンドユーザー向け製品（以下，「プロジェクト成果品」）において，
       収集するデータはすべて，CivilTT（以下，「作者」）が個人を特定することができない，または作者がデータを閲覧することができない形で収集されます．
     </p>
