@@ -5,7 +5,7 @@ export const jaTerms = {
       desc: '\
         ServerStarter2はMIT Licenseによって保護されています．\n\
         （ライセンスの要約を提示）',
-      btn: 'ライセンスの原文を開く'
+      btn: 'ライセンスの原文を開く',
     },
     use: {
       title: '利用規約',
@@ -31,9 +31,9 @@ export const jaTerms = {
     specs: {
       title: '仕様書類',
       desc: '\
-        ServerStarter2の製作にあたり，制定された仕様書類を全編公開しています．\n\
+        ServerStarter2の制作にあたり，制定された仕様書類を全編公開しています．\n\
         本ソフトの各機能の詳細や技術的な取り組みの詳細を文書としてまとめました．',
-      btn: '仕様書類を開く'
-    }
+      btn: '仕様書類を開く',
+    },
   },
 };

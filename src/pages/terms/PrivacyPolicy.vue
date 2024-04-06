@@ -11,7 +11,7 @@ import IndentLine from 'src/components/Pages/Terms/IndentLine.vue';
     <SsTitle>プライバシーポリシー</SsTitle>
     <p>
       Server Starter for
-      Minecraftプロジェクト（以下，「本プロジェクト」）では，お客様の個人情報を必要以上に収集せず，自由なプロジェクト成果の利用と利用者並びに製作者の匿名性の保持を最優先事項の１つとしています．<br />
+      Minecraftプロジェクト（以下，「本プロジェクト」）では，お客様の個人情報を必要以上に収集せず，自由なプロジェクト成果の利用と利用者並びに制作者の匿名性の保持を最優先事項の１つとしています．<br />
       この規約は、本ウェブサイト並びにServerStarter2が収集するデータとその利用方法について定めるものとなります．
     </p>
   </div>
@@ -87,9 +87,9 @@ import IndentLine from 'src/components/Pages/Terms/IndentLine.vue';
   <div>
     <SsSubTitle>第３条（データの閲覧制限）</SsSubTitle>
     <p>
-      プロジェクト成果品が収集したデータのうち，作者を含む製作者が閲覧できるデータはWebページによって収集されたデータのみであり，
-      ServerStarter2本体によって収集されたデータはインストールされたPC内にのみ保存され，作者を含む製作者が閲覧することはできません．<br />
-      Webページより収集されたデータは製作者のうち，作者並びに作者が認めた製作者のみに閲覧が制限されています．
+      プロジェクト成果品が収集したデータのうち，作者を含む制作者が閲覧できるデータはWebページによって収集されたデータのみであり，
+      ServerStarter2本体によって収集されたデータはインストールされたPC内にのみ保存され，作者を含む制作者が閲覧することはできません．<br />
+      Webページより収集されたデータは制作者のうち，作者並びに作者が認めた制作者のみに閲覧が制限されています．
     </p>
   </div>
   <div>
@@ -144,7 +144,7 @@ import IndentLine from 'src/components/Pages/Terms/IndentLine.vue';
     <p>
       このプライバシーポリシー並びに収集データに関するお問い合わせは
       <SsA url="https://twitter.com/CivilT_T">
-        製作者CivilTTのTwitterアカウント
+        制作者CivilTTのTwitterアカウント
       </SsA>
       にお願いいたします．
     </p>
