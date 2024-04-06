@@ -3,6 +3,7 @@ import { Page } from 'src/router/routes';
 import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
 import SsCard from 'src/components/utils/base/ssCard.vue';
 import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
+import SsLinkBtn from 'src/components/utils/base/btns/ssLinkBtn.vue';
 
 type TermsID =
   | { type: 'page'; key: Page }
@@ -34,11 +35,13 @@ const cards: TermsID[] = [
         </div>
 
         <template #actions>
-          <SsRouterBtn
-            :to="card.type === 'page' ? `/terms/${card.key}` : card.url"
-          >
+          <SsRouterBtn v-if="card.type === 'page'" :to="`/terms/${card.key}`">
             {{ $t(`terms.top.${card.key}.btn`) }}
           </SsRouterBtn>
+          <div v-else-if="card.type === 'link'">
+            {{ $t(`terms.top.${card.key}.btn`) }}
+            <SsLinkBtn :url="card.url" />
+          </div>
         </template>
       </SsCard>
     </template>
