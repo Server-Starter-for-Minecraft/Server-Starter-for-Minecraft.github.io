@@ -62,7 +62,7 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: 'broadcast',
-        component: () => import('pages/terms/TermsOfUse.vue'),
+        component: () => import('pages/terms/TermsOfBroadcast.vue'),
       },
     ],
   },
