@@ -2,6 +2,7 @@
 import SsA from 'src/components/utils/base/texts/ssA.vue';
 import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
 import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
+import IndentLine from 'src/components/Pages/Terms/IndentLine.vue';
 </script>
 
 <template>
@@ -16,21 +17,36 @@ import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
   <div>
     <SsSubTitle>第１条（定義）</SsSubTitle>
     <p>本規約上で使用する用語の定義は、次に掲げるとおりとします。</p>
-    <ol>
-      <li>本ソフトウェア 作者が運営するサービス及び関連するサービス</li>
-      <li>本サイト 本ソフトウェアのコンテンツが掲載されたウェブサイト</li>
+    <ol class="column q-gutter-sm">
       <li>
-        本コンテンツ
-        本ソフトウェア上で提供される文字、音、静止画、動画、ソフトウェアプログラム、コード等の総称（投稿情報を含む）
-      </li>
-      <li>利用者 本ソフトウェアを利用する全ての方</li>
-      <li>
-        個人情報
-        住所、氏名、職業、電話番号等個人を特定することのできる情報の総称
+        <IndentLine title="本ソフトウェア">
+          作者が運営するサービス及び関連するサービス
+        </IndentLine>
       </li>
       <li>
-        知的財産
-        発明、考案、植物の新品種、意匠、著作物その他の人間の創造的活動により生み出されるもの（発見または解明がされた自然の法則または現象であって、産業上の利用可能性があるものを含む）、商標、商号その他事業活動に用いられる商品または役務を表示するもの及び営業秘密その他の事業活動に有用な技術上または営業上の情報
+        <IndentLine title="本サイト">
+          本ソフトウェアのコンテンツが掲載されたウェブサイト
+        </IndentLine>
+      </li>
+      <li>
+        <IndentLine title="本コンテンツ">
+          本ソフトウェア上で提供される文字、音、静止画、動画、ソフトウェアプログラム、コード等の総称（投稿情報を含む）
+        </IndentLine>
+      </li>
+      <li>
+        <IndentLine title="利用者">
+          本ソフトウェアを利用する全ての方
+        </IndentLine>
+      </li>
+      <li>
+        <IndentLine title="個人情報">
+          住所、氏名、職業、電話番号等個人を特定することのできる情報の総称
+        </IndentLine>
+      </li>
+      <li>
+        <IndentLine title="知的財産">
+          発明、考案、植物の新品種、意匠、著作物その他の人間の創造的活動により生み出されるもの（発見または解明がされた自然の法則または現象であって、産業上の利用可能性があるものを含む）、商標、商号その他事業活動に用いられる商品または役務を表示するもの及び営業秘密その他の事業活動に有用な技術上または営業上の情報
+        </IndentLine>
       </li>
     </ol>
   </div>

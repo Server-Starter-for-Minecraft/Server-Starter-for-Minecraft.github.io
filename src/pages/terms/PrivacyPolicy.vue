@@ -35,7 +35,7 @@ import IndentLine from 'src/components/Pages/Terms/IndentLine.vue';
     <p>
       <SsStrong>ServerStarter2本体</SsStrong>
     </p>
-    <ul class="flex q-gutter-sm">
+    <ul class="column q-gutter-sm">
       <li>
         <IndentLine title="収集データ">
           配色テーマや表示言語等の画面表示に関するデータ，ゲームプレイヤーデータ，Ngrokのトークン等，連携アプリケーションに関連するデータ
@@ -59,11 +59,14 @@ import IndentLine from 'src/components/Pages/Terms/IndentLine.vue';
       <li>
         <IndentLine title="収集方法">
           <span class="custom-break">
-            <SsA url="https://support.google.com/analytics/answer/12017362?hl=en&ref_topic=2919631&sjid=11352357860114196865-AP">
-              <span style="white-space: nowrap;">Google Analytics 4</span>
-            </SsA> ，<wbr>
+            <SsA
+              url="https://support.google.com/analytics/answer/12017362?hl=en&ref_topic=2919631&sjid=11352357860114196865-AP"
+            >
+              <span style="white-space: nowrap">Google Analytics 4</span>
+            </SsA>
+            ，<wbr />
             <SsA url="https://support.google.com/tagmanager/answer/11994839">
-              <span style="white-space: nowrap;">Google Tag Manager</span>
+              <span style="white-space: nowrap">Google Tag Manager</span>
             </SsA>
           </span>
         </IndentLine>
@@ -109,7 +112,10 @@ import IndentLine from 'src/components/Pages/Terms/IndentLine.vue';
       本プロジェクトで収集されたデータは，裁判所等の法執行機関より要求される場合を除き，いかなる場合においても第三者にデータを提供することはありません．
     </p>
     <p>
-      ServerStarter2本体は<SsA url="https://github.com">GitHub</SsA>
+      ServerStarter2本体は
+      <SsA url="https://github.com/Server-Starter-for-Minecraft/ServerStarter2">
+        GitHub
+      </SsA>
       上にて配布しており，依存データをGoogle
       Drive等のクラウドストレージ上より配布することがあります．<br />
       これらのサービスはプライバシーポリシーの制定等により情報管理が適切に行われていると作者が判断し，利用しています．<br />
