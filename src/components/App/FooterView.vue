@@ -2,7 +2,6 @@
 import { getCssVar } from 'quasar';
 import SsLinkBtn from '../utils/base/btns/ssLinkBtn.vue';
 
-
 type Page = {
   type: 'url' | 'link';
   key: string;
@@ -16,7 +15,7 @@ const showingPages: Page[] = [
 </script>
 
 <template>
-  <div :style="{ 'background-color': getCssVar('dark') ?? '' }">
+  <q-footer reveal :style="{ 'background-color': getCssVar('dark') ?? '' }">
     <q-separator color="primary" size="3px" class="line" />
     <div class="row q-gutter-md q-pt-xl q-pb-md">
       <div class="col row">
@@ -36,14 +35,12 @@ const showingPages: Page[] = [
         </template>
       </div>
 
-      <div class="col- text-desc" style="min-width: 20rem;">
+      <div class="col- text-desc" style="min-width: 20rem">
         ©Server Starter for Minecraft Project All rights reserved.
       </div>
-
     </div>
-  </div>
+  </q-footer>
 </template>
-
 
 <style scoped lang="scss">
 // クリックした後でも色が変わらないように指定
@@ -57,4 +54,3 @@ a:visited {
   color: $primary !important;
 }
 </style>
-
