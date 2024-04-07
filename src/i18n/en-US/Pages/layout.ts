@@ -9,4 +9,11 @@ export const enUSLayout: MessageSchema['layout'] = {
       terms: 'Terms',
     },
   },
+  footer: {
+    pages: {
+      repo: 'Develop Repository',
+      contact: 'Contact',
+      map: 'Sitemap'
+    }
+  }
 };

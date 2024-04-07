@@ -7,4 +7,11 @@ export const jaLayout = {
       terms: '規約',
     },
   },
+  footer: {
+    pages: {
+      repo: '開発リポジトリ',
+      contact: 'お問い合わせ',
+      map: 'サイトマップ'
+    }
+  }
 };

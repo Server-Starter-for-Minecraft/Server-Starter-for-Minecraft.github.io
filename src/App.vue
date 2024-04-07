@@ -4,6 +4,7 @@ import { initProcess } from './scripts/init';
 import { Page } from './router/routes';
 import HeaderView from 'src/components/App/HeaderView.vue';
 import DrawerView from './components/App/DrawerView.vue';
+import FooterView from './components/App/FooterView.vue';
 
 const $q = useQuasar();
 const pages: { key: Page; icon: string }[] = [
@@ -27,5 +28,7 @@ $q.dark.set('auto');
     <q-page-container>
       <router-view />
     </q-page-container>
+
+    <FooterView />
   </q-layout>
 </template>
