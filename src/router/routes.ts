@@ -20,7 +20,7 @@ const routes: RouteRecordRaw[] = [
     children: [
       {
         path: '',
-        component: () => import('pages/Intro/IntroPage.vue')
+        component: () => import('pages/Intro/IntroPage.vue'),
       },
       {
         path: 'install',
@@ -39,6 +39,20 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/features',
     component: () => import('pages/FeaturesPage.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('pages/features/FeaturesPage.vue'),
+      },
+      {
+        path: 'create-world',
+        component: () => import('pages/features/CreateWorldPage.vue'),
+      },
+      {
+        path: 'world-settings',
+        component: () => import('pages/features/WorldSettingsPage.vue'),
+      },
+    ],
   },
   {
     path: '/q-a',
