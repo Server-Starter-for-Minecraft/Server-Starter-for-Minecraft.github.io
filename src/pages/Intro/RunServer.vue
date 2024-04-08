@@ -10,13 +10,13 @@ import ImageTextBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
   <div>
     <SsTitle>ワールドを起動しよう</SsTitle>
     <p>
-      ServerStarter2ではワンクリックでサーバーの起動 / 停止 / 再起動ができます
+      ServerStarter2では「ワンクリック」でサーバーの起動 / 停止 / 再起動ができます
     </p>
     <p>
-      <SsA url="/features/create-world"> ワールドの作成 </SsA>と
-      <SsA url="/features/world-settings"> ワールドの設定 </SsA
-      >はできましたか？<br />
-      作成と設定が完了したら，さっそくワールドを起動してみましょう！
+      ワールドの起動になれてきたら，
+      <SsA url="/features/create-world"> ワールドの作成 </SsA>や
+      <SsA url="/features/world-settings"> ワールドの設定 </SsA>
+      もこだわることで，ワールドをさらにカスタマイズすることができます！
     </p>
   </div>
 
