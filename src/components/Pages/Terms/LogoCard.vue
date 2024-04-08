@@ -29,12 +29,7 @@ function openLink() {
         style="white-space: pre-line; min-width: 250px"
       >
         {{ $t(`terms.broadcast.logo.${textKey}.desc`) }}
-        <SsBtn
-          outline
-          icon="download"
-          label="ダウンロード"
-          @click="openLink"
-        >
+        <SsBtn outline icon="download" label="ダウンロード" @click="openLink">
         </SsBtn>
       </q-card-section>
     </q-card-section>
