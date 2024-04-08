@@ -52,6 +52,10 @@ const routes: RouteRecordRaw[] = [
         path: 'world-settings',
         component: () => import('pages/features/WorldSettingsPage.vue'),
       },
+      {
+        path: 'auto-port-mapping',
+        component: () => import('pages/features/AutoPortMappingPage.vue'),
+      },
     ],
   },
   {

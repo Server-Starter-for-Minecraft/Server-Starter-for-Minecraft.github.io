@@ -6,8 +6,8 @@ import ssSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
 interface Prop {
   title: string;
   imgPath: string;
-  btnTitle: string;
-  btnTo: string;
+  btnTitle?: string;
+  btnTo?: string;
 }
 
 defineProps<Prop>();
@@ -27,7 +27,7 @@ defineProps<Prop>();
         <slot />
         <q-space />
         <div class="flex justify-end">
-          <SsRouterBtn :to="btnTo">
+          <SsRouterBtn v-if="btnTo && btnTitle" :to="btnTo">
             {{ btnTitle }}
           </SsRouterBtn>
         </div>
