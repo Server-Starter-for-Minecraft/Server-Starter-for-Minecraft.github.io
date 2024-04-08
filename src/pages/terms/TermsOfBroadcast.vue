@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
 import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
+import LogoCard from 'src/components/Pages/Terms/LogoCard.vue';
 </script>
 
 <template>
@@ -17,6 +18,21 @@ import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
     <p>
       本プロジェクトロゴは、利用規約が適用される本プロジェクトのプロジェクト成果品です。
     </p>
+  </div>
+
+  <div class="row q-gutter-lg">
+    <LogoCard
+      text-key="base"
+      img-path="/icons/systemLogo.svg"
+      link="https://drive.google.com/drive/folders/1yCqolfrWV5czxLI872viBhGc1rWYHL1-?usp=sharing"
+      class="col"
+    />
+    <LogoCard
+      text-key="withText"
+      img-path="/icons/systemLogo.svg"
+      link="https://drive.google.com/drive/folders/1gGlbQKx5TsdtmUz0qeA-DP8lu16bUTSf?usp=sharing"
+      class="col"
+    />
   </div>
 
   <div>

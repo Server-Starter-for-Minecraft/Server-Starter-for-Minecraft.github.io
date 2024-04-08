@@ -38,4 +38,20 @@ export const enUSTerms: MessageSchema['terms'] = {
       btn: 'Open the specs',
     },
   },
+  broadcast: {
+    logo: {
+      base: {
+        title: 'Basic logos',
+        desc: '\
+          This package is including the basic logo and the simple one.\n\
+          You can use them to a material for your video as a best choice.',
+      },
+      withText: {
+        title: 'Logos with the title',
+        desc: '\
+          Audience will know this project at a glance when you use this package.\n\
+          We would like you to use them to introduce this project.',
+      },
+    },
+  },
 };
