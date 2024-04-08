@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import { useQuasar } from 'quasar';
 interface Prop {
   icon?: string;
   label?: string;
   dense?: boolean;
   color?: string;
   width?: string;
-  freeWidth?: boolean;
   disable?: boolean;
   loading?: boolean;
   isCapital?: boolean;
@@ -13,6 +13,9 @@ interface Prop {
   onClick?: () => void;
 }
 defineProps<Prop>();
+
+const $q = useQuasar();
+const isDark = () => $q.dark.isActive;
 </script>
 
 <template>
@@ -21,14 +24,31 @@ defineProps<Prop>();
     :dense="dense"
     :icon="icon"
     :label="label"
-    :color="color"
     :disable="loading || disable"
     :loading="loading"
     :no-caps="!isCapital"
     :to="to"
     @click="onClick"
-    :style="{ width: freeWidth ? '' : width ?? '13rem' }"
+    :color="isDark() ? 'primary' : ''"
+    :class="isDark() ? '' : 'light'"
+    class="btn text"
   >
     <slot />
   </q-btn>
 </template>
+
+<style scoped lang="scss">
+.light {
+  background-color: $primary !important;
+}
+
+.text {
+  font-family: 'Genokaku JP';
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.btn {
+  border-radius: 5px;
+}
+</style>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SsBtn from 'src/components/utils/base/btns/ssBtn.vue';
 import SsCard from 'src/components/utils/base/ssCard.vue';
 import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
 
@@ -28,13 +29,13 @@ function openLink() {
         style="white-space: pre-line; min-width: 250px"
       >
         {{ $t(`terms.broadcast.logo.${textKey}.desc`) }}
-        <q-btn
+        <SsBtn
           outline
-          color="primary"
           icon="download"
           label="ダウンロード"
           @click="openLink"
-        />
+        >
+        </SsBtn>
       </q-card-section>
     </q-card-section>
   </SsCard>
