@@ -23,7 +23,7 @@ function openLink() {
       <div class="flex" style="width: 7rem">
         <q-img :src="imgPath" />
       </div>
-      
+
       <q-card-section
         class="column q-gutter-md items-end col"
         style="white-space: pre-line; min-width: 250px"
