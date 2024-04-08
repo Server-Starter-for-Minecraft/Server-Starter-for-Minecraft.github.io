@@ -44,23 +44,21 @@ const borderLineStyle = () => {
       </div>
     </q-card-section>
 
-    <q-card-actions>
-      <div class="row q-gutter-xs q-pl-md">
-        <LinkBtn
-          v-if="githubLink"
-          name="github"
-          color="white"
-          :link="githubLink"
-          icon-path=""
-        />
-        <LinkBtn
-          v-if="twitterLink"
-          name="twitter"
-          color="black"
-          :link="twitterLink"
-          icon-path=""
-        />
-      </div>
+    <q-card-actions align="right" class="q-gutter-sm q-pr-md q-pb-md">
+      <LinkBtn
+        v-if="githubLink"
+        name="GitHub"
+        :color="defaultColor()"
+        :link="githubLink"
+        icon-path="/icons/outers/github-mark-white.svg"
+      />
+      <LinkBtn
+        v-if="twitterLink"
+        name="X (Twitter)"
+        :color="defaultColor()"
+        :link="twitterLink"
+        icon-path="/icons/outers/x-logo.svg"
+      />
     </q-card-actions>
   </q-card>
 </template>

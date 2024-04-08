@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import SsTooltip from 'src/components/utils/base/ssTooltip.vue';
+
 interface Prop {
   name: string;
   color: string;
@@ -13,12 +15,18 @@ function openLink() {
 </script>
 
 <template>
-  <q-chip square dense outline clickable :color="color" @click="openLink">
-    <q-img :src="iconPath" />
-    <span class="name">
+  <q-btn dense outline no-caps @click="openLink">
+    <svg
+      class="q-px-xs q-my-xs"
+      style="width: 1.7rem; height: 1.7rem"
+      :style="{ fill: color }"
+    >
+      <use :xlink:href="`${iconPath}#logo`" />
+    </svg>
+    <SsTooltip anchor="center middle" self="top start">
       {{ name }}
-    </span>
-  </q-chip>
+    </SsTooltip>
+  </q-btn>
 </template>
 
 <style scoped lang="scss">
