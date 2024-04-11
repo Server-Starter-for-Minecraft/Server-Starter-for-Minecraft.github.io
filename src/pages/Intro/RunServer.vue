@@ -45,7 +45,7 @@ import ImageTextBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
       を使用している場合は数字の部分が
       <SsStrong>0.tcp.jp.ngrok.io:12345</SsStrong>
       のようになります<br>
-      （この文字は起動するたびに変更されますので，招待プレイヤーが更新を忘れないようにお気をつけください）
+      （この文字は起動するたびに変更されますので，お気をつけください）
     </p>
     <p>上記をプレイヤーに伝えることで，ワールドに招待することができます</p>
     <p>
@@ -76,11 +76,11 @@ import ImageTextBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
     </p>
   </ImageTextBlock>
 
-  <ImageTextBlock title="サーバーログを確認する" img-path="">
+  <ImageTextBlock title="サーバログを確認する" img-path="">
     <p>
       ワールドが停止した状態で
-      <SsStrong>直前んサーバーログを確認</SsStrong>
-      ボタンを押すことで，前回起動時のサーバーログを確認できます
+      <SsStrong>直前のサーバログを表示</SsStrong>
+      ボタンを押すことで，前回起動時のサーバログを確認できます
     </p>
     <p>
       サーバーの起動がうまくいかなかった場合は，サーバーのログを確認することで，エラー原因を特定していきましょう
