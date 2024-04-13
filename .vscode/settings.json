@@ -26,6 +26,9 @@
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
   "gitmoji.addCustomEmoji": [
     {
       "code": ":sparkles:",
@@ -105,6 +108,11 @@
       "code": ":memo:",
       "emoji": "📝",
       "description": "ドキュメントを追加 / Add or update documentation."
+    },
+    {
+      "code": ":paintbrush:",
+      "emoji": "🖌️",
+      "description": "UI案を追加 / Add or update UI plan"
     },
     {
       "emoji": "",
