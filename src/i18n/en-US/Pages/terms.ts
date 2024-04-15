@@ -4,9 +4,7 @@ export const enUSTerms: MessageSchema['terms'] = {
   top: {
     license: {
       title: 'MIT License',
-      desc: '\
-        ServerStarter2 is licensed under the MIT License．\n\
-        （ライセンスの要約を提示）',
+      desc: 'ServerStarter2 is licensed under the MIT License．',
       btn: 'Open the license text',
     },
     use: {

@@ -2,9 +2,7 @@ export const jaTerms = {
   top: {
     license: {
       title: 'MIT License',
-      desc: '\
-        ServerStarter2はMIT Licenseによって保護されています．\n\
-        （ライセンスの要約を提示）',
+      desc: 'ServerStarter2はMIT Licenseによって保護されています．',
       btn: 'ライセンスの原文を開く',
     },
     use: {
