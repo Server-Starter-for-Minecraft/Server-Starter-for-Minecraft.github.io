@@ -14,7 +14,7 @@ function openLink(link: string) {
 </script>
 
 <template>
-  <footer reveal :style="{ 'background-color': getCssVar('dark') ?? '' }">
+  <footer :style="{ 'background-color': getCssVar('dark') ?? '' }">
     <q-separator color="primary" size="3px" class="line" />
     <div class="column q-gutter-y-sm q-pa-md">
       <div class="col row q-gutter-x-md">
