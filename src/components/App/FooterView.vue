@@ -40,6 +40,7 @@ function openLink(link: string) {
           dense
           icon="contact_support"
           size="2rem"
+          color="white"
           @click="openURL('https://twitter.com/CivilT_T')"
         />
 
@@ -48,11 +49,12 @@ function openLink(link: string) {
           dense
           icon="lan"
           size="2rem"
+          color="white"
           @click="openLink('/site-map')"
         />
       </div>
 
-      <div class="col text-desc text-right">
+      <div class="col text-desc text-right text-white">
         ©Server Starter for Minecraft Project All rights reserved.
       </div>
     </div>
