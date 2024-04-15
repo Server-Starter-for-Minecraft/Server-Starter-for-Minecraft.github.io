@@ -1,45 +1,62 @@
 <script setup lang="ts">
 import { getCssVar } from 'quasar';
-import SsLinkBtn from '../utils/base/btns/ssLinkBtn.vue';
+import { useRouter } from 'vue-router';
 
-type Page = {
-  type: 'url' | 'link';
-  key: string;
-  value: string;
-};
-const showingPages: Page[] = [
-  { type: 'url', key: 'repo', value: '' },
-  { type: 'url', key: 'contact', value: '' },
-  { type: 'link', key: 'map', value: 'site-map' },
-];
+const router = useRouter();
+
+function openURL(url: string) {
+  window.open(url, '_blank');
+}
+
+function openLink(link: string) {
+  router.push(link);
+}
 </script>
 
 <template>
-  <q-footer reveal :style="{ 'background-color': getCssVar('dark') ?? '' }">
+  <footer reveal :style="{ 'background-color': getCssVar('dark') ?? '' }">
     <q-separator color="primary" size="3px" class="line" />
-    <div class="row q-gutter-md q-pt-xl q-pb-md">
-      <div class="col row">
-        <template v-for="(page, idx) in showingPages" :key="page.key">
-          <span v-if="idx > 0" class="q-mx-sm">/</span>
-          <RouterLink
-            v-if="page.type === 'link'"
-            :to="`/${page.value}`"
-            :class="$route.path.includes(`/${page.value}`) ? 'select-page' : ''"
+    <div class="column q-gutter-y-sm q-pa-md">
+      <div class="col row q-gutter-x-md">
+        <q-btn
+          flat
+          dense
+          @click="
+            openURL(
+              'https://github.com/Server-Starter-for-Minecraft/ServerStarter2'
+            )
+          "
+        >
+          <svg
+            class="q-px-xs q-my-xs"
+            style="width: 2rem; height: 2rem; fill: white"
           >
-            {{ $t(`layout.footer.pages.${page.key}`) }}
-          </RouterLink>
-          <div v-if="page.type === 'url'">
-            {{ $t(`layout.footer.pages.${page.key}`) }}
-            <SsLinkBtn :url="page.value" />
-          </div>
-        </template>
+            <use xlink:href="/icons/outers/github-mark-white.svg#logo" />
+          </svg>
+        </q-btn>
+
+        <q-btn
+          flat
+          dense
+          icon="contact_support"
+          size="2rem"
+          @click="openURL('https://twitter.com/CivilT_T')"
+        />
+
+        <q-btn
+          flat
+          dense
+          icon="lan"
+          size="2rem"
+          @click="openLink('/site-map')"
+        />
       </div>
 
-      <div class="col- text-desc" style="min-width: 20rem">
+      <div class="col text-desc text-right">
         ©Server Starter for Minecraft Project All rights reserved.
       </div>
     </div>
-  </q-footer>
+  </footer>
 </template>
 
 <style scoped lang="scss">
