@@ -13,7 +13,7 @@ export const enUSLayout: MessageSchema['layout'] = {
     pages: {
       repo: 'Develop Repository',
       contact: 'Contact',
-      map: 'Sitemap'
-    }
-  }
+      map: 'Sitemap',
+    },
+  },
 };

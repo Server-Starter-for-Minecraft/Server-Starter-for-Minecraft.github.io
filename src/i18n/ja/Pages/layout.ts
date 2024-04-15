@@ -11,7 +11,7 @@ export const jaLayout = {
     pages: {
       repo: '開発リポジトリ',
       contact: 'お問い合わせ',
-      map: 'サイトマップ'
-    }
-  }
+      map: 'サイトマップ',
+    },
+  },
 };

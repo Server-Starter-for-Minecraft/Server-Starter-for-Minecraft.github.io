@@ -25,7 +25,7 @@ $q.dark.set('auto');
     <HeaderView :showing-pages="pages.map((val) => val.key)" />
     <DrawerView :showing-pages="pages" />
 
-    <q-page-container style="flex: 1 1 0;">
+    <q-page-container style="flex: 1 1 0">
       <router-view />
     </q-page-container>
 
