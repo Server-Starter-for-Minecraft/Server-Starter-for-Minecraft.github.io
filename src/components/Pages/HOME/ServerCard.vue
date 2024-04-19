@@ -28,31 +28,31 @@ const ServerTypes: () => {
   {
     name: 'forge',
     display: 'Forgeサーバー',
-    desc: 'Minecraftの公式サーバー.標準的なマルチプレイの機能を提供する.',
+    desc: 'MODの前提サーバーとして,最も一般的なMODサーバー.',
     url: 'https://github.com/Server-Starter-for-Minecraft/',
   },
   {
     name: 'spigot',
     display: 'Spigotサーバー',
-    desc: 'Minecraftの公式サーバー.標準的なマルチプレイの機能を提供する.',
+    desc: '代表的なサードパーティーサーバー.プラグインの導入ができるようになる.',
     url: 'https://github.com/Server-Starter-for-Minecraft/',
   },
   {
     name: 'mohistmc',
     display: 'MohistMCサーバー',
-    desc: 'Minecraftの公式サーバー.標準的なマルチプレイの機能を提供する.',
+    desc: 'Forgeをベースとしつつ,MODとプラグインの両者を導入可能としたサーバー.',
     url: 'https://github.com/Server-Starter-for-Minecraft/',
   },
   {
     name: 'papermc',
     display: 'PaperMCサーバー',
-    desc: 'Minecraftの公式サーバー.標準的なマルチプレイの機能を提供する.',
+    desc: 'Spigotをより軽量にしたサーバー.',
     url: 'https://github.com/Server-Starter-for-Minecraft/',
   },
   {
     name: 'fabric',
     display: 'Fabricサーバー',
-    desc: 'Minecraftの公式サーバー.標準的なマルチプレイの機能を提供する.',
+    desc: 'MODの前提サーバー.Forgeとは別のシステムとなっている.',
     url: 'https://github.com/Server-Starter-for-Minecraft/',
   },
 ];
