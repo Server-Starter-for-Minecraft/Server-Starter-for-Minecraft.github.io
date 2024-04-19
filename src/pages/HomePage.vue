@@ -51,7 +51,7 @@ import SummaryView from 'src/components/Pages/HOME/SummaryView.vue';
         </p>
       </ImageBlock>
       <!--  6種類のサーバーに対応-->
-      <ServerCard btnTitle="サーバーの種類" btnTo="/intro"/>
+      <ServerCard btnTitle="サーバーの種類" btnTo="/intro" />
       <!--  ポート開放-->
       <PortMappingView />
       <ImageBlock
@@ -68,7 +68,7 @@ import SummaryView from 'src/components/Pages/HOME/SummaryView.vue';
         </p>
         <p>簡単操作で好きなワールドをプレイしましょう!</p>
       </ImageBlock>
-      <SummaryView/>
+      <SummaryView />
     </div>
   </q-page>
 </template>

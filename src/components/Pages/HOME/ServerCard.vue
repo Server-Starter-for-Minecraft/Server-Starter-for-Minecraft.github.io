@@ -68,7 +68,8 @@ function imgPath(name: string) {
     <p>
       ServerStarterは6種類のサーバーに対応しています!<br />
       バニラのサーバーだけでなく<SsA url="/intro">Mod</SsA>や
-      <SsA url="/intro">プラグイン</SsA>を使って,もっとマルチプレイを楽しみましょう.
+      <SsA url="/intro">プラグイン</SsA
+      >を使って,もっとマルチプレイを楽しみましょう.
     </p>
     <div class="row">
       <template v-for="server in ServerTypes()" :key="server.name">
@@ -76,7 +77,11 @@ function imgPath(name: string) {
           <SsCard class="q-ma-md">
             <div class="row">
               <div class="col-auto q-ma-md">
-                <SsImg :path="imgPath(server.name)" class="blockWidth" style="min-width:4rem"/>
+                <SsImg
+                  :path="imgPath(server.name)"
+                  class="blockWidth"
+                  style="min-width: 4rem"
+                />
               </div>
               <div class="col q-ma-md blockWidth">
                 <p class="text-h6 q-mb-none">
