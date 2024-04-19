@@ -3,7 +3,7 @@ import SsImg from 'src/components/utils/base/SsImg.vue';
 import SsLinkBtn from 'src/components/utils/base/btns/ssLinkBtn.vue';
 import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
 import SsCard from 'src/components/utils/base/ssCard.vue';
-import SsStrong from 'src/components/utils/base/texts/ssStrong.vue';
+import SsA from 'src/components/utils/base/texts/ssA.vue';
 import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
 
 interface Prop {
@@ -67,9 +67,8 @@ function imgPath(name: string) {
     <SsSubTitle> 6種類のサーバーに対応 !! </SsSubTitle>
     <p>
       ServerStarterは6種類のサーバーに対応しています!<br />
-      バニラのサーバーだけでなく<SsStrong>Mod</SsStrong>や
-      <span class="text-primary"> プラグイン </span
-      >を使って,もっとマルチプレイを楽しみましょう.
+      バニラのサーバーだけでなく<SsA url="/intro">Mod</SsA>や
+      <SsA url="/intro">プラグイン</SsA>を使って,もっとマルチプレイを楽しみましょう.
     </p>
     <div class="row">
       <template v-for="server in ServerTypes()" :key="server.name">
