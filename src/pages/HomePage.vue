@@ -31,7 +31,7 @@ import SummaryView from 'src/components/Pages/HOME/SummaryView.vue';
       <ProductIntro />
       <ImageBlock
         title="マルチプレイをだれでも簡単に !!"
-        imgPath="public/assets/titleImg.png"
+        imgPath="/assets/titleImg.png"
         btnTitle="使い方を詳しく"
         btnTo="/intro"
       >
@@ -56,7 +56,7 @@ import SummaryView from 'src/components/Pages/HOME/SummaryView.vue';
       <PortMappingView />
       <ImageBlock
         title="個人ワールドや配布マップもみんなで冒険 !!"
-        imgPath="public/assets/titleImg.png"
+        imgPath="/assets/titleImg.png"
         btnTitle="ワールドのつくりかた"
         btnTo="/intro"
       >

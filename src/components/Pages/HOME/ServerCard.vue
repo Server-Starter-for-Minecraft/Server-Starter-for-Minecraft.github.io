@@ -58,7 +58,7 @@ const ServerTypes: () => {
 ];
 
 function imgPath(name: string) {
-  return 'public/assets/servers/' + name + '.png';
+  return '/assets/servers/' + name + '.png';
 }
 </script>
 
