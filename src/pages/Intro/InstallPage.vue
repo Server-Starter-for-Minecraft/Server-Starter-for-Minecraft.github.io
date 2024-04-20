@@ -45,6 +45,7 @@ import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
   <ImgTxtBlock
     title="インストーラーを起動してみよう"
     img-path="/assets/introduction/install/WelcomeWindow.png"
+    :img-style="{'max-width': '8rem'}"
   >
     <p>
       ダウンロードしたインストーラーをダブルクリックで起動してみましょう<br />
@@ -102,6 +103,7 @@ import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
   <ImgTxtBlock
     title="ServerStarter2を起動"
     img-path="/assets/introduction/install/WelcomeWindow.png"
+    :img-style="{'max-width': '5rem'}"
   >
     <p>インストールが完了するとServerStarter2が自動的に起動します</p>
     <p>利用規約を確認したら，いざ，マルチプレイの世界へ！</p>

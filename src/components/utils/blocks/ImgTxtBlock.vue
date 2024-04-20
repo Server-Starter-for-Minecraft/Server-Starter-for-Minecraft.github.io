@@ -6,6 +6,8 @@ import ssSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
 interface Prop {
   title: string;
   imgPath: string;
+  imgClass?: string;
+  imgStyle?: Record<string, string>;
   btnTitle?: string;
   btnTo?: string;
 }
@@ -20,7 +22,12 @@ defineProps<Prop>();
     </ssSubTitle>
     <div class="row">
       <!-- 画像部分 -->
-      <SsImg :path="imgPath" class="col q-ma-md blockWidth" />
+      <SsImg
+        :path="imgPath"
+        class="col q-ma-md blockWidth"
+        :class="imgClass"
+        :style="imgStyle"
+      />
 
       <!-- テキストとボタン -->
       <div class="col column q-ma-md blockWidth">
