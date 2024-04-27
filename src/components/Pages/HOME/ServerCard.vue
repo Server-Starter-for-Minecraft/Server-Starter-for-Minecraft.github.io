@@ -43,7 +43,7 @@ const ServerTypes: ServerList[] = [
       バニラのサーバーだけでなく
       <SsA url="/intro">Mod</SsA>や
       <SsA url="/intro">プラグイン</SsA>
-      を使って,もっとマルチプレイを楽しみましょう。
+      を使って、もっとマルチプレイを楽しみましょう。
     </p>
     <div class="row q-gutter-lg justify-center">
       <template v-for="server in ServerTypes" :key="server.name">

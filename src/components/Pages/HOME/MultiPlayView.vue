@@ -5,7 +5,7 @@ import ImgTxtBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
 <template>
   <div class="q-pr-md">
     <ImgTxtBlock
-      title="マルチプレイをだれでも簡単に !!"
+      title="マルチプレイをだれでも簡単に ！！"
       imgPath="/assets/titleImg.png"
       btnTitle="使い方を詳しく"
       btnTo="/intro"
