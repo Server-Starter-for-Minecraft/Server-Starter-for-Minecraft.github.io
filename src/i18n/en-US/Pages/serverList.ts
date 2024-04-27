@@ -1,6 +1,6 @@
 import { MessageSchema } from 'src/boot/i18n';
 
-export const enUSServerList:MessageSchema['serverList'] = {
+export const enUSServerList: MessageSchema['serverList'] = {
   serverType: {
     vanilla: 'Vanilla (Official)',
     spigot: 'Spigot',
@@ -19,4 +19,4 @@ export const enUSServerList:MessageSchema['serverList'] = {
     fabric:
       'The server that the base for mods, which is a different system from Forge.',
   },
-}
+};

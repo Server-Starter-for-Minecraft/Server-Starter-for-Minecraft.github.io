@@ -8,7 +8,8 @@ export const jaServerList = {
     fabric: 'Fabric',
   },
   serverDescription: {
-    vanilla: 'Minecraft公式のサーバー。\n標準的なマルチプレイの機能を提供する。',
+    vanilla:
+      'Minecraft公式のサーバー。\n標準的なマルチプレイの機能を提供する。',
     spigot:
       '代表的なサードパーティーサーバー。\nプラグインの導入ができるようになる。',
     papermc: 'Spigotをより軽量にしたサーバー。',
@@ -17,4 +18,4 @@ export const jaServerList = {
       'Forgeをベースとしつつ、MODとプラグインの両者を導入可能としたサーバー。',
     fabric: 'MODの前提サーバー。\nForgeとは別のシステムとなっている。',
   },
-}
+};

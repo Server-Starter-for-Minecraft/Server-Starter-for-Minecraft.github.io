@@ -7,4 +7,4 @@ export const enUS: MessageSchema = {
   general: enUSGeneral,
   layout: enUSLayout,
   serverList: enUSServerList,
-}
+};

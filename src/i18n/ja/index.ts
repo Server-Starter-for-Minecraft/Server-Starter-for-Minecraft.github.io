@@ -6,4 +6,4 @@ export const ja = {
   general: jaGeneral,
   layout: jaLayout,
   serverList: jaServerList,
-}
+};
