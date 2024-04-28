@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useQuasar } from 'quasar';
 import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
 import ssSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
 
@@ -12,6 +13,9 @@ interface Prop {
 }
 
 defineProps<Prop>();
+
+const $q = useQuasar();
+const isDark = () => $q.dark.isActive;
 </script>
 
 <template>
@@ -21,7 +25,11 @@ defineProps<Prop>();
     </ssSubTitle>
     <div class="row">
       <!-- 画像部分 -->
-      <div class="col blockWidth" style="height: 20rem">
+      <div
+        class="col blockWidth"
+        :class="isDark() ? 'dark' : ''"
+        style="height: 20rem"
+      >
         <img
           :src="imgPath"
           class="fit"
@@ -48,5 +56,10 @@ defineProps<Prop>();
 <style scoped lang="scss">
 .blockWidth {
   min-width: 20rem;
+}
+
+.dark {
+  // SsImgにおける画像に白いフィルタをかける処理を疑似的に再現
+  filter: contrast(0.8);
 }
 </style>
