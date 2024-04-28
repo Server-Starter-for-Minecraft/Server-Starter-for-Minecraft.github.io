@@ -5,7 +5,7 @@ import ImgTxtBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
 <template>
   <ImgTxtBlock
     title="個人ワールドや配布マップもみんなで冒険 ！！"
-    imgPath="/assets/HOME/SingleWorld.png"
+    imgPath="/assets/HOME/singleWorld.png"
     btnTitle="ワールドのつくりかた"
     btnTo="/intro"
   >
