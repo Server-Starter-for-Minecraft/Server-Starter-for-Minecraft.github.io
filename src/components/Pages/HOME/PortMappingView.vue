@@ -12,9 +12,9 @@ import ssSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
       ServerStarterは面倒なポート開放の設定いらずで、マルチプレイができます。<br />
       「ルーターの設定ができない」<br />
       「 設定したのに参加できない」<br />
-      そんな悩みも<SsA url="/features/auto-port-mapping"
-        >ポート開放不要化機能</SsA
-      >で一気に解決 ！！
+      そんな悩みも
+      <SsA url="/features/auto-port-mapping">ポート開放不要化機能</SsA>
+      で一気に解決 ！！
     </p>
     <p>
       Ngrok
