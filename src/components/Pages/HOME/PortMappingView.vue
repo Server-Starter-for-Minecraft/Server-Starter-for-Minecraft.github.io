@@ -6,7 +6,7 @@ import ssSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
 </script>
 
 <template>
-  <div class="q-pr-md">
+  <div>
     <ssSubTitle> ポート開放の設定も不要 ！！ </ssSubTitle>
     <p>
       ServerStarterは面倒なポート開放の設定いらずで、マルチプレイができます。<br />

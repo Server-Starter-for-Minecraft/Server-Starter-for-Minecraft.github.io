@@ -5,7 +5,7 @@ import ssTitle from 'src/components/utils/base/texts/ssTitle.vue';
 </script>
 
 <template>
-  <div class="q-pr-md">
+  <div>
     <ssTitle> ServerStarterでマルチプレイを始めましょう ！！ </ssTitle>
     <p>ServerStarterは Windows / MacOS / Linux で使用できます。</p>
     <p>

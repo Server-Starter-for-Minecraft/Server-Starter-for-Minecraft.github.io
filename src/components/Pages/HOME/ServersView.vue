@@ -36,7 +36,7 @@ const serverTypes: ServerList[] = [
 </script>
 
 <template>
-  <div class="q-pr-md">
+  <div>
     <SsSubTitle> 6種類のサーバーに対応 ！！ </SsSubTitle>
     <p>
       ServerStarterは6種類のサーバーに対応しています！<br />

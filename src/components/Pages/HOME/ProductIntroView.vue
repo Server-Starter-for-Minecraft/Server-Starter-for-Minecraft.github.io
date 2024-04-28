@@ -4,7 +4,7 @@ import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
 </script>
 
 <template>
-  <div class="q-pr-md">
+  <div>
     <SsTitle>Server Starter for Minecraft とは？</SsTitle>
 
     <p>
