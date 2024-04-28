@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { isMobile } from 'src/scripts/checkDevice';
 import SsLinkBtn from 'src/components/utils/base/btns/ssLinkBtn.vue';
 import SsCard from 'src/components/utils/base/ssCard.vue';
 
@@ -10,7 +11,11 @@ defineProps<Prop>();
 </script>
 
 <template>
-  <SsCard class="flex items-center card">
+  <SsCard v-if="isMobile()" style="width: fit-content;">
+    <q-img :src="`/assets/servers/${name}.png`" class="icon" />
+  </SsCard>
+  
+  <SsCard v-else class="flex items-center card">
     <div class="row q-gutter-x-md items-center">
       <q-img :src="`/assets/servers/${name}.png`" class="icon" />
       <div class="col">
