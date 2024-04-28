@@ -48,10 +48,6 @@ const routes: RouteRecordRaw[] = [
     path: '/terms',
     component: () => import('pages/TermsPage.vue'),
   },
-  {
-    path: '/site-map',
-    component: () => import('pages/SitemapPage.vue'),
-  },
 
   // Always leave this as last one,
   // but you can also remove it
