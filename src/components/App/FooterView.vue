@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { getCssVar } from 'quasar';
 import { useRouter } from 'vue-router';
+import SsTooltip from '../utils/base/ssTooltip.vue';
 
 const router = useRouter();
 
@@ -33,25 +34,26 @@ function openLink(link: string) {
           >
             <use xlink:href="/icons/outers/github-mark-white.svg#logo" />
           </svg>
+          <SsTooltip anchor="center middle" self="top start">
+            GitHub
+          </SsTooltip>
         </q-btn>
 
         <q-btn
           flat
           dense
-          icon="contact_support"
-          size="2rem"
-          color="white"
           @click="openURL('https://twitter.com/CivilT_T')"
-        />
-
-        <q-btn
-          flat
-          dense
-          icon="lan"
-          size="2rem"
-          color="white"
-          @click="openLink('/site-map')"
-        />
+        >
+          <svg
+            class="q-px-xs q-my-xs"
+            style="width: 2rem; height: 2rem; fill: white"
+          >
+            <use xlink:href="/icons/outers/x-logo.svg#logo" />
+          </svg>
+          <SsTooltip anchor="center middle" self="top start">
+            X (Twitter)
+          </SsTooltip>
+        </q-btn>
       </div>
 
       <div class="col text-desc text-right text-white">
@@ -60,16 +62,3 @@ function openLink(link: string) {
     </div>
   </footer>
 </template>
-
-<style scoped lang="scss">
-// クリックした後でも色が変わらないように指定
-a,
-a:hover,
-a:visited {
-  color: inherit;
-}
-
-.select-page {
-  color: $primary !important;
-}
-</style>
