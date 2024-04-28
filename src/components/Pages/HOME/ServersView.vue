@@ -7,7 +7,7 @@ import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
 
 type ServerList = { name: string; url: string };
 
-const ServerTypes: ServerList[] = [
+const serverTypes: ServerList[] = [
   {
     name: 'vanilla',
     url: 'https://github.com/Server-Starter-for-Minecraft/',
@@ -46,7 +46,7 @@ const ServerTypes: ServerList[] = [
       を使って、もっとマルチプレイを楽しみましょう。
     </p>
     <div class="row q-gutter-lg justify-center">
-      <template v-for="server in ServerTypes" :key="server.name">
+      <template v-for="server in serverTypes" :key="server.name">
         <SsCard class="flex items-center" style="width: min(30rem, 90vw)">
           <div class="row q-gutter-x-md items-center">
             <q-img
