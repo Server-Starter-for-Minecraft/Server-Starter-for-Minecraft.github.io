@@ -23,8 +23,8 @@ import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
       <download-btn :os-name="'windows'" />
       <download-btn :os-name="'mac'" />
       <download-btn :os-name="'linux'" />
-      <SsRouterBtn to="/intro/install">インストールの詳細</SsRouterBtn>
     </div>
+    <SsRouterBtn to="/intro/install" class="q-mt-lg">インストールの詳細</SsRouterBtn>
   </div>
 
   <div>
