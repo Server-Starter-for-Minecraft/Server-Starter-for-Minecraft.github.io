@@ -32,7 +32,7 @@ defineProps<Prop>();
       </div>
 
       <!-- テキストとボタン -->
-      <div class="col column q-ma-md blockWidth">
+      <div class="col column q-my-md blockWidth">
         <slot />
         <q-space />
         <div class="flex justify-end">
