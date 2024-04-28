@@ -39,8 +39,7 @@ const serverTypes: ServerList[] = [
     <SsSubTitle> 6種類のサーバーに対応 ！！ </SsSubTitle>
     <p>
       ServerStarterは6種類のサーバーに対応しています！<br />
-      <SsStrong>バニラ</SsStrong>のサーバーだけでなく
-      <SsStrong>Mod</SsStrong>や
+      <SsStrong>バニラ</SsStrong>のサーバーだけでなく <SsStrong>Mod</SsStrong>や
       <SsStrong>プラグイン</SsStrong>
       を使って、もっとマルチプレイを楽しみましょう。
     </p>

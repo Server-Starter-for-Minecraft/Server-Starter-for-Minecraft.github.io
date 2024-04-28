@@ -11,10 +11,10 @@ defineProps<Prop>();
 </script>
 
 <template>
-  <SsCard v-if="isMobile()" style="width: fit-content;">
+  <SsCard v-if="isMobile()" style="width: fit-content">
     <q-img :src="`/assets/servers/${name}.png`" class="icon" />
   </SsCard>
-  
+
   <SsCard v-else class="flex items-center card">
     <div class="row q-gutter-x-md items-center">
       <q-img :src="`/assets/servers/${name}.png`" class="icon" />
