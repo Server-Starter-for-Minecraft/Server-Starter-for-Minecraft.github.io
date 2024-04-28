@@ -10,27 +10,27 @@ type ServerList = { name: string; url: string };
 const serverTypes: ServerList[] = [
   {
     name: 'vanilla',
-    url: 'https://github.com/Server-Starter-for-Minecraft/',
+    url: 'https://www.minecraft.net/ja-jp/download/server',
   },
   {
     name: 'forge',
-    url: 'https://github.com/Server-Starter-for-Minecraft/',
+    url: 'https://files.minecraftforge.net/net/minecraftforge/forge/',
   },
   {
     name: 'spigot',
-    url: 'https://github.com/Server-Starter-for-Minecraft/',
+    url: 'https://www.spigotmc.org',
   },
   {
     name: 'mohistmc',
-    url: 'https://github.com/Server-Starter-for-Minecraft/',
+    url: 'https://mohistmc.com',
   },
   {
     name: 'papermc',
-    url: 'https://github.com/Server-Starter-for-Minecraft/',
+    url: 'https://papermc.io',
   },
   {
     name: 'fabric',
-    url: 'https://github.com/Server-Starter-for-Minecraft/',
+    url: 'https://fabricmc.net',
   },
 ];
 </script>
