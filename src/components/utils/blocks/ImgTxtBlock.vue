@@ -6,6 +6,7 @@ import ssSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
 interface Prop {
   title: string;
   imgPath: string;
+  imgHeight?: string;
   imgClass?: string;
   imgStyle?: Record<string, string>;
   btnTitle?: string;
@@ -28,7 +29,7 @@ const isDark = () => $q.dark.isActive;
       <div
         class="col blockWidth"
         :class="isDark() ? 'dark' : ''"
-        style="height: 20rem"
+        :style="{'height': imgHeight ?? '20rem'}"
       >
         <img
           :src="imgPath"

@@ -23,6 +23,7 @@ import ImageTextBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
   <ImageTextBlock
     title="ワールドをワンクリックで起動する"
     img-path="/assets/Introduction/RunServer/startBtn.png"
+    img-height=""
   >
     <p>
       ホームタブやサーバータブから<br />
