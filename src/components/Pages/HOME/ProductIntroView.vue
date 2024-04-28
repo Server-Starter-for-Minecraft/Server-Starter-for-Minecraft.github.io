@@ -13,8 +13,8 @@ import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
     </p>
     <p>
       導入はとても簡単！<br />
-      <SsA url="/intro">ServerStarter2のはじめかた</SsA
-      >を見れば誰でも利用することができます。
+      <SsA url="/intro">ServerStarter2のはじめかた</SsA>
+      を見れば誰でも利用することができます。
     </p>
     <p>
       ワンクリックでマルチプレイ用のワールドを起動し、みんなでマインクラフトを楽しみましょう！！
