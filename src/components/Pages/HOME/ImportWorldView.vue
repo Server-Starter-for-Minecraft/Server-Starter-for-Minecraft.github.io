@@ -7,7 +7,7 @@ import ImgTxtBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
     title="個人ワールドや配布マップもみんなで冒険 ！！"
     imgPath="/assets/HOME/singleWorld.png"
     btnTitle="ワールドのつくりかた"
-    btnTo="/intro"
+    btnTo="/features/create-world"
   >
     <p>
       「シングルプレイのワールドに友達を招待したい」<br />

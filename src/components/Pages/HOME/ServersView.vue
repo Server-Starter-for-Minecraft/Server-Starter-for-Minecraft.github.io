@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
-import SsA from 'src/components/utils/base/texts/ssA.vue';
 import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
 import ServerCard from './core/ServerCard.vue';
+import SsStrong from 'src/components/utils/base/texts/ssStrong.vue';
 
 type ServerList = { name: string; url: string };
 
@@ -39,9 +39,9 @@ const serverTypes: ServerList[] = [
     <SsSubTitle> 6種類のサーバーに対応 ！！ </SsSubTitle>
     <p>
       ServerStarterは6種類のサーバーに対応しています！<br />
-      バニラのサーバーだけでなく
-      <SsA url="/intro">Mod</SsA>や
-      <SsA url="/intro">プラグイン</SsA>
+      <SsStrong>バニラ</SsStrong>のサーバーだけでなく
+      <SsStrong>Mod</SsStrong>や
+      <SsStrong>プラグイン</SsStrong>
       を使って、もっとマルチプレイを楽しみましょう。
     </p>
     <div class="row q-gutter-lg justify-center">
@@ -50,7 +50,7 @@ const serverTypes: ServerList[] = [
       </template>
     </div>
     <div class="flex justify-end q-py-md">
-      <SsRouterBtn to="/intro"> サーバーの種類 </SsRouterBtn>
+      <SsRouterBtn to="/features/servers"> サーバーの種類 </SsRouterBtn>
     </div>
   </div>
 </template>

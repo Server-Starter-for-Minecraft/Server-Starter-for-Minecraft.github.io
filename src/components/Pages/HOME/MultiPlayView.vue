@@ -7,7 +7,7 @@ import ImgTxtBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
     title="マルチプレイをだれでも簡単に ！！"
     imgPath="/assets/HOME/mainWindow.png"
     btnTitle="使い方を詳しく"
-    btnTo="/intro"
+    btnTo="/intro/run-server"
   >
     <p>
       マインクラフトのマルチプレイで遊びたいけど、<br />
