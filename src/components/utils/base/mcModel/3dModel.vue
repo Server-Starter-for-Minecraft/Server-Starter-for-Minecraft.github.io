@@ -1,18 +1,18 @@
 <script setup lang="ts">
 import { ref, onUnmounted, onMounted } from 'vue';
-import BlockFace, {
-  type Prop,
-} from 'src/components/utils/base/mcModel/BlockFace.vue';
-import { resolveModelFaces } from './scripts/main';
+import type { ModelFaces } from './scripts/main';
+
+export interface Props {
+  duration: number /** 一回転するまでの秒数 */;
+  paused: boolean /** アニメーション一時停止状態 */;
+  faces: ModelFaces /** アニメーション一時停止状態 */;
+}
+defineProps<Props>();
 
 const mounted = ref(false);
 
 const container = ref();
 const size = ref(0);
-
-const duration = ref(4);
-
-const paused = ref(false);
 
 const updateSize = () => {
   const width = container.value?.clientWidth;
@@ -27,130 +27,6 @@ onMounted(() => {
 
 addEventListener('resize', updateSize);
 onUnmounted(() => removeEventListener('resize', updateSize));
-
-const model = {
-  elements: [
-    {
-      from: [0, 0, 0],
-      to: [16, 16, 16],
-      faces: {
-        north: {
-          uv: [0, 0, 16, 16],
-          texture: 'block/crafting_table_front',
-        },
-        south: {
-          uv: [0, 0, 16, 16],
-          texture: 'block/crafting_table_front',
-        },
-        west: {
-          uv: [0, 0, 16, 16],
-          texture: 'block/crafting_table_side',
-        },
-        east: {
-          uv: [0, 0, 16, 16],
-          texture: 'block/crafting_table_side',
-        },
-        up: {
-          uv: [0, 0, 16, 16],
-          texture: 'block/crafting_table_top',
-        },
-        down: {
-          uv: [0, 0, 16, 16],
-          texture: 'block/crafting_table_top',
-        },
-      },
-    },
-  ],
-};
-
-const model2 = {
-  parent: 'block/block',
-  display: {
-    firstperson_righthand: {
-      rotation: [0, 135, 0],
-      translation: [0, 0, 0],
-      scale: [0.4, 0.4, 0.4],
-    },
-  },
-  textures: {
-    particle: 'block/lectern_sides',
-    bottom: 'block/oak_planks',
-    base: 'block/lectern_base',
-    front: 'block/lectern_front',
-    sides: 'block/lectern_sides',
-    top: 'block/lectern_top',
-  },
-  elements: [
-    {
-      from: [0, 0, 0],
-      to: [16, 2, 16],
-      faces: {
-        north: {
-          uv: [0, 14, 16, 16],
-          texture: 'block/lectern_base',
-          cullface: 'north',
-        },
-        east: {
-          uv: [0, 6, 16, 8],
-          texture: 'block/lectern_base',
-          cullface: 'east',
-        },
-        south: {
-          uv: [0, 6, 16, 8],
-          texture: 'block/lectern_base',
-          cullface: 'south',
-        },
-        west: {
-          uv: [0, 6, 16, 8],
-          texture: 'block/lectern_base',
-          cullface: 'west',
-        },
-        up: {
-          uv: [0, 0, 16, 16],
-          rotation: 180,
-          texture: 'block/lectern_base',
-        },
-        down: {
-          uv: [0, 0, 16, 16],
-          texture: 'block/oak_planks',
-          cullface: 'down',
-        },
-      },
-    },
-    {
-      from: [4, 2, 4],
-      to: [12, 15, 12],
-      faces: {
-        north: { uv: [0, 0, 8, 13], texture: 'block/lectern_front' },
-        east: {
-          uv: [2, 16, 15, 8],
-          rotation: 90,
-          texture: 'block/lectern_sides',
-        },
-        south: { uv: [8, 3, 16, 16], texture: 'block/lectern_front' },
-        west: {
-          uv: [2, 8, 15, 16],
-          rotation: 90,
-          texture: 'block/lectern_sides',
-        },
-      },
-    },
-    {
-      from: [0.0125, 12, 3],
-      to: [15.9875, 16, 16],
-      rotation: { angle: -22.5, axis: 'x', origin: [8, 8, 8] },
-      faces: {
-        north: { uv: [0, 0, 16, 4], texture: 'block/lectern_sides' },
-        east: { uv: [0, 4, 13, 8], texture: 'block/lectern_sides' },
-        south: { uv: [0, 4, 16, 8], texture: 'block/lectern_sides' },
-        west: { uv: [0, 4, 13, 8], texture: 'block/lectern_sides' },
-        up: { uv: [0, 1, 16, 14], rotation: 180, texture: 'block/lectern_top' },
-        down: { uv: [0, 0, 16, 13], texture: 'block/oak_planks' },
-      },
-    },
-  ],
-};
-const faces = resolveModelFaces(model2);
 </script>
 
 <template>
@@ -171,14 +47,25 @@ const faces = resolveModelFaces(model2);
           animation-play-state: ${paused ? 'paused' : 'running'};
         `"
           >
-            <BlockFace
+            <img
               v-for="(face, i) in faces"
               :key="i"
-              :texture="face.texture"
-              :matrix3d="face.matrix3d"
-              :brightness="face.brightness"
-              :xywh="face.xywh"
-              :duration="duration"
+              class="face"
+              :src="face.texture"
+              alt=""
+              :style="
+                `
+      transform:matrix3d(${face.matrix3d.join(',')});
+      --brightnessBase:${face.brightness.base}%;
+      --brightnessAmp:${face.brightness.amp}%;
+      animation-duration: ${duration}s;
+      animation-delay: ${duration * (face.brightness.phase - 1)}s;
+      clip-path:xywh(` +
+                face.xywh
+                  .map((x) => (x === 0 ? '0' : `${x * 16}px`))
+                  .join(' ') +
+                ');'
+              "
             />
           </div>
         </div>
@@ -196,6 +83,18 @@ const faces = resolveModelFaces(model2);
   }
   100% {
     transform: rotate3d(0, 1, 0, -342deg);
+  }
+}
+
+@keyframes light {
+  0% {
+    filter: brightness(calc(var(--brightnessBase) - var(--brightnessAmp)));
+  }
+  50% {
+    filter: brightness(calc(var(--brightnessBase) + var(--brightnessAmp)));
+  }
+  100% {
+    filter: brightness(calc(var(--brightnessBase) - var(--brightnessAmp)));
   }
 }
 
@@ -227,6 +126,17 @@ const faces = resolveModelFaces(model2);
   animation-name: turn;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+}
+
+.face {
+  position: absolute;
+  animation-name: light;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  image-rendering: pixelated;
+  backface-visibility: hidden;
+  width: 16px;
+  height: 16px;
   animation-play-state: inherit;
 }
 </style>
