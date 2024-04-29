@@ -13,14 +13,7 @@ export type McFace = {
   rotation?: McFaceAngle;
 };
 
-export type McFaces = {
-  down: McFace;
-  up: McFace;
-  north: McFace;
-  south: McFace;
-  west: McFace;
-  east: McFace;
-};
+export type McFaces = Partial<Record<McFaceing, McFace>>;
 
 export type McRotation = {
   origin: McPosition;
@@ -38,7 +31,7 @@ export type McElement = {
 };
 
 export type McModel = {
-  parent: string;
-  textures: Record<string, string>;
+  parent?: string;
+  textures?: Record<string, string>;
   elements?: McElement[];
 };

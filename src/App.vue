@@ -21,17 +21,9 @@ $q.dark.set('auto');
 </script>
 
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <HeaderView :showing-pages="pages.map((val) => val.key)" />
-    <DrawerView :showing-pages="pages" />
-    <h1></h1>
-    <div class="test">
-      <Model />
-    </div>
-    <q-page-container>
-      <router-view />
-    </q-page-container>
-  </q-layout>
+  <div class="test">
+    <Model />
+  </div>
 </template>
 <style>
 .test {

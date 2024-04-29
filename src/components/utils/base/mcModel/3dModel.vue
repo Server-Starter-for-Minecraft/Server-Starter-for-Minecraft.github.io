@@ -3,6 +3,7 @@ import { ref, onUnmounted, onMounted } from 'vue';
 import BlockFace, {
   type Prop,
 } from 'src/components/utils/base/mcModel/BlockFace.vue';
+import { resolveModelFaces } from './scripts/main';
 
 const mounted = ref(false);
 
@@ -28,14 +29,28 @@ onMounted(() => {
 addEventListener('resize', updateParentWidth);
 onUnmounted(() => removeEventListener('resize', updateParentWidth));
 
-const faces: Omit<Prop, 'duration'>[] = [
-  {
-    texture: '/assets/minecraft/textures/block/crafting_table_top.png',
-    matrix3d: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0.5, 1],
-    brightness: { base: 100, amp: 100, phase: 0.25 },
-    xywh: [0, 0.25, 1, 0.5],
-  },
-];
+const model = {
+  elements: [
+    {
+      from: [4, 4, 4],
+      to: [12, 12, 12],
+      faces: {
+        north: {
+          uv: [0, 0, 16, 16],
+          texture: 'block/crafting_table_front',
+        },
+        up: {
+          uv: [0, 0, 16, 16],
+          texture: 'block/crafting_table_top',
+        },
+      },
+    },
+  ],
+};
+
+const faces = resolveModelFaces(model);
+
+console.log(faces);
 </script>
 
 <template>
@@ -90,7 +105,7 @@ const faces: Omit<Prop, 'duration'>[] = [
   width: 1px;
   height: 1px;
   transform-style: preserve-3d;
-  animation-name: turn;
+  // animation-name: turn;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-play-state: inherit;
@@ -102,7 +117,7 @@ const faces: Omit<Prop, 'duration'>[] = [
   align-items: center;
   justify-content: center;
   image-rendering: pixelated;
-  backface-visibility: hidden;
+  // backface-visibility: hidden;
   width: 1px;
   height: 1px;
   animation-play-state: inherit;
