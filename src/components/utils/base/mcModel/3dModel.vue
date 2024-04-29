@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onUnmounted, onMounted } from 'vue';
-import type { ModelFaces } from '../../../../../util/McModel/src/main';
+import type { ModelFaces } from '../../../../../util/McModel/src/solver';
 
 export interface Props {
   duration: number /** 一回転するまでの秒数 */;
@@ -53,19 +53,12 @@ onUnmounted(() => removeEventListener('resize', updateSize));
               class="face"
               :src="face.texture"
               alt=""
-              :style="
-                `
+              :style="`
       transform:matrix3d(${face.matrix3d.join(',')});
       --brightnessBase:${face.brightness.base}%;
       --brightnessAmp:${face.brightness.amp}%;
       animation-duration: ${duration}s;
-      animation-delay: ${duration * (face.brightness.phase - 1)}s;
-      clip-path:xywh(` +
-                face.xywh
-                  .map((x) => (x === 0 ? '0' : `${x * 16}px`))
-                  .join(' ') +
-                ');'
-              "
+      animation-delay: ${duration * (face.brightness.phase - 1)}s;`"
             />
           </div>
         </div>

@@ -1,0 +1,149 @@
+[
+  {
+    "texture": "/assets/minecraft/textures/block/lectern_base.0EGG.png",
+    "matrix3d": [
+      0.0625, 0, 0, 0, 0, 0.0078125, 0, 0, 0, 0, 0.0625, 0, -8, -7.5625, 0.5, 1
+    ],
+    "brightness": { "base": 80, "amp": 30, "phase": 0.25 }
+  },
+  {
+    "texture": "/assets/minecraft/textures/block/lectern_base.06G8.png",
+    "matrix3d": [
+      0, 0, 0.0625, 0, 0, 0.0078125, 0, 0, -0.0625, 0, 0, 0, -8.5, -7.5625, 0, 1
+    ],
+    "brightness": { "base": 80, "amp": 30, "phase": 0 }
+  },
+  {
+    "texture": "/assets/minecraft/textures/block/lectern_base.06G8.png",
+    "matrix3d": [
+      -0.0625, 0, 0, 0, 0, 0.0078125, 0, 0, 0, 0, -0.0625, 0, -8, -7.5625, -0.5,
+      1
+    ],
+    "brightness": { "base": 80, "amp": 30, "phase": -0.25 }
+  },
+  {
+    "texture": "/assets/minecraft/textures/block/lectern_base.06G8.png",
+    "matrix3d": [
+      0, 0, -0.0625, 0, 0, 0.0078125, 0, 0, 0.0625, 0, 0, 0, -7.5, -7.5625, 0, 1
+    ],
+    "brightness": { "base": 80, "amp": 30, "phase": -0.5 }
+  },
+  {
+    "texture": "/assets/minecraft/textures/block/lectern_base.00GG.png",
+    "matrix3d": [
+      0.0625, 0, -7.654042494670958e-18, 0, 7.654042494670958e-18, 0, 0.0625, 0,
+      0, -0.0078125, 0, 0, -8, -7.625, -5.551115123125783e-17, 1
+    ],
+    "brightness": { "base": 120, "amp": 1.83697019872103e-15, "phase": 0 }
+  },
+  {
+    "texture": "/assets/minecraft/textures/block/oak_planks.00GG.png",
+    "matrix3d": [
+      -0.0625, 0, 0, 0, 0, 0, 0.0625, 0, 0, 0.0078125, 0, 0, -8, -7.5, 0, 1
+    ],
+    "brightness": { "base": 40, "amp": 1.83697019872103e-15, "phase": 0 }
+  },
+  {
+    "texture": "/assets/minecraft/textures/block/lectern_front.008D.png",
+    "matrix3d": [
+      0.03125, 0, 0, 0, 0, 0.05078125, 0, 0, 0, 0, 0.03125, 0, -8, -8.03125,
+      0.25, 1
+    ],
+    "brightness": { "base": 80, "amp": 30, "phase": 0.25 }
+  },
+  {
+    "texture": "/assets/minecraft/textures/block/lectern_sides.28FG.png",
+    "matrix3d": [
+      0, 0.05078125, 1.9135106236677394e-18, 0, 0, -3.1094547634600764e-18,
+      0.03125, 0, -0.03125, 0, 0, 0, -8.25, -8.03125, 2.7755575615628914e-17, 1
+    ],
+    "brightness": { "base": 80, "amp": 30, "phase": 0 }
+  },
+  {
+    "texture": "/assets/minecraft/textures/block/lectern_front.83GG.png",
+    "matrix3d": [
+      -0.03125, 0, 0, 0, 0, 0.05078125, 0, 0, 0, 0, -0.03125, 0, -8, -8.03125,
+      -0.25, 1
+    ],
+    "brightness": { "base": 80, "amp": 30, "phase": -0.25 }
+  },
+  {
+    "texture": "/assets/minecraft/textures/block/lectern_sides.28FG.png",
+    "matrix3d": [
+      0, 0.05078125, -1.9135106236677394e-18, 0, 0, 3.1094547634600764e-18,
+      0.03125, 0, 0.03125, 0, 0, 0, -7.75, -8.03125, -2.7755575615628914e-17, 1
+    ],
+    "brightness": { "base": 80, "amp": 30, "phase": -0.5 }
+  },
+  {
+    "texture": "/assets/minecraft/textures/block/lectern_sides.00G4.png",
+    "matrix3d": [
+      0.062402343750000006, 0, 0, 0, 0, 0.014435617695488855,
+      -0.005979428630704528, 0, 0, 0.019433143049789714, 0.04691575751033878, 0,
+      -8, -8.226866252077642, 0.4322186410466857, 1
+    ],
+    "brightness": {
+      "base": 64.6926627053964,
+      "amp": 27.716385975338603,
+      "phase": 0.25
+    }
+  },
+  {
+    "texture": "/assets/minecraft/textures/block/lectern_sides.04D8.png",
+    "matrix3d": [
+      0, 0.019433143049789714, 0.04691575751033878, 0, 0, 0.014435617695488855,
+      -0.005979428630704528, 0, -0.062402343750000006, 0, 0, 0, -8.49921875,
+      -8.38233139647596, 0.056892580963975425, 1
+    ],
+    "brightness": { "base": 80, "amp": 30, "phase": 0 }
+  },
+  {
+    "texture": "/assets/minecraft/textures/block/lectern_sides.04G8.png",
+    "matrix3d": [
+      -0.062402343750000006, 0, 0, 0, 0, 0.014435617695488855,
+      -0.005979428630704528, 0, 0, -0.019433143049789714, -0.04691575751033878,
+      0, -8, -8.537796540874277, -0.31843347911873476, 1
+    ],
+    "brightness": {
+      "base": 95.3073372946036,
+      "amp": 27.716385975338603,
+      "phase": -0.25
+    }
+  },
+  {
+    "texture": "/assets/minecraft/textures/block/lectern_sides.04D8.png",
+    "matrix3d": [
+      0, -0.019433143049789714, -0.04691575751033878, 0, 0,
+      0.014435617695488855, -0.005979428630704528, 0, 0.062402343750000006, 0,
+      0, 0, -7.50078125, -8.382331396475958, 0.056892580963975536, 1
+    ],
+    "brightness": { "base": 80, "amp": 30, "phase": -0.5 }
+  },
+  {
+    "texture": "/assets/minecraft/textures/block/lectern_top.01GE.png",
+    "matrix3d": [
+      0.062402343750000006, -2.379873643329761e-18, -5.745523226460978e-18, 0,
+      7.642083053273035e-18, 0.019433143049789714, 0.04691575751033878, 0, 0,
+      -0.014435617695488855, 0.005979428630704528, 0, -8, -8.49781633803987,
+      0.10472801000961157, 1
+    ],
+    "brightness": {
+      "base": 116.95518130045147,
+      "amp": 11.480502970952696,
+      "phase": 0.25
+    }
+  },
+  {
+    "texture": "/assets/minecraft/textures/block/oak_planks.00GD.png",
+    "matrix3d": [
+      -0.062402343750000006, 0, 0, 0, 0, 0.019433143049789714,
+      0.04691575751033878, 0, 0, 0.014435617695488855, -0.005979428630704528, 0,
+      -8, -8.266846454912049, 0.009057151918339224, 1
+    ],
+    "brightness": {
+      "base": 43.04481869954853,
+      "amp": 11.480502970952696,
+      "phase": -0.25
+    }
+  }
+]

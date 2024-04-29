@@ -7,7 +7,7 @@ export type McFaceAngle = 0 | 90 | 180 | 270;
 export type McPosition = [number, number, number];
 
 export type McFace = {
-  uv: [8, 1, 12, 5];
+  uv: [number, number, number, number];
   texture: string;
   cullface?: McFaceing; // 今回は無関係
   rotation?: McFaceAngle;

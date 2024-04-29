@@ -5,7 +5,7 @@ import { Page } from './router/routes';
 import HeaderView from 'src/components/App/HeaderView.vue';
 import DrawerView from './components/App/DrawerView.vue';
 import Model from './components/utils/base/mcModel/3dModel.vue';
-import { resolveModelFaces } from '../util/McModel/src/main';
+import { convertModelProps } from 'app/util/McModel/src/main';
 
 const $q = useQuasar();
 const pages: { key: Page; icon: string }[] = [
@@ -20,129 +20,157 @@ initProcess(window.navigator.userAgent);
 // 色設定を自動化
 $q.dark.set('auto');
 
-const model = {
-  elements: [
-    {
-      from: [0, 0, 0],
-      to: [16, 16, 16],
-      faces: {
-        north: {
-          uv: [0, 0, 16, 16],
-          texture: 'block/crafting_table_front',
-        },
-        south: {
-          uv: [0, 0, 16, 16],
-          texture: 'block/crafting_table_front',
-        },
-        west: {
-          uv: [0, 0, 16, 16],
-          texture: 'block/crafting_table_side',
-        },
-        east: {
-          uv: [0, 0, 16, 16],
-          texture: 'block/crafting_table_side',
-        },
-        up: {
-          uv: [0, 0, 16, 16],
-          texture: 'block/crafting_table_top',
-        },
-        down: {
-          uv: [0, 0, 16, 16],
-          texture: 'block/crafting_table_top',
-        },
-      },
-    },
-  ],
-};
-
-const model2 = {
-  parent: 'block/block',
-  display: {
-    firstperson_righthand: {
-      rotation: [0, 135, 0],
-      translation: [0, 0, 0],
-      scale: [0.4, 0.4, 0.4],
+const faces = [
+  {
+    texture: '/assets/minecraft/textures/block/lectern_base.0EGG.png',
+    matrix3d: [
+      0.0625, 0, 0, 0, 0, 0.0078125, 0, 0, 0, 0, 0.0625, 0, -8, -7.5625, 0.5, 1,
+    ],
+    brightness: { base: 80, amp: 30, phase: 0.25 },
+  },
+  {
+    texture: '/assets/minecraft/textures/block/lectern_base.06G8.png',
+    matrix3d: [
+      0, 0, 0.0625, 0, 0, 0.0078125, 0, 0, -0.0625, 0, 0, 0, -8.5, -7.5625, 0,
+      1,
+    ],
+    brightness: { base: 80, amp: 30, phase: 0 },
+  },
+  {
+    texture: '/assets/minecraft/textures/block/lectern_base.06G8.png',
+    matrix3d: [
+      -0.0625, 0, 0, 0, 0, 0.0078125, 0, 0, 0, 0, -0.0625, 0, -8, -7.5625, -0.5,
+      1,
+    ],
+    brightness: { base: 80, amp: 30, phase: -0.25 },
+  },
+  {
+    texture: '/assets/minecraft/textures/block/lectern_base.06G8.png',
+    matrix3d: [
+      0, 0, -0.0625, 0, 0, 0.0078125, 0, 0, 0.0625, 0, 0, 0, -7.5, -7.5625, 0,
+      1,
+    ],
+    brightness: { base: 80, amp: 30, phase: -0.5 },
+  },
+  {
+    texture: '/assets/minecraft/textures/block/lectern_base.00GG.png',
+    matrix3d: [
+      0.0625, 0, -7.654042494670958e-18, 0, 7.654042494670958e-18, 0, 0.0625, 0,
+      0, -0.0078125, 0, 0, -8, -7.625, -5.551115123125783e-17, 1,
+    ],
+    brightness: { base: 120, amp: 1.83697019872103e-15, phase: 0 },
+  },
+  {
+    texture: '/assets/minecraft/textures/block/oak_planks.00GG.png',
+    matrix3d: [
+      -0.0625, 0, 0, 0, 0, 0, 0.0625, 0, 0, 0.0078125, 0, 0, -8, -7.5, 0, 1,
+    ],
+    brightness: { base: 40, amp: 1.83697019872103e-15, phase: 0 },
+  },
+  {
+    texture: '/assets/minecraft/textures/block/lectern_front.008D.png',
+    matrix3d: [
+      0.03125, 0, 0, 0, 0, 0.05078125, 0, 0, 0, 0, 0.03125, 0, -8, -8.03125,
+      0.25, 1,
+    ],
+    brightness: { base: 80, amp: 30, phase: 0.25 },
+  },
+  {
+    texture: '/assets/minecraft/textures/block/lectern_sides.28FG.png',
+    matrix3d: [
+      0, 0.05078125, 1.9135106236677394e-18, 0, 0, -3.1094547634600764e-18,
+      0.03125, 0, -0.03125, 0, 0, 0, -8.25, -8.03125, 2.7755575615628914e-17, 1,
+    ],
+    brightness: { base: 80, amp: 30, phase: 0 },
+  },
+  {
+    texture: '/assets/minecraft/textures/block/lectern_front.83GG.png',
+    matrix3d: [
+      -0.03125, 0, 0, 0, 0, 0.05078125, 0, 0, 0, 0, -0.03125, 0, -8, -8.03125,
+      -0.25, 1,
+    ],
+    brightness: { base: 80, amp: 30, phase: -0.25 },
+  },
+  {
+    texture: '/assets/minecraft/textures/block/lectern_sides.28FG.png',
+    matrix3d: [
+      0, 0.05078125, -1.9135106236677394e-18, 0, 0, 3.1094547634600764e-18,
+      0.03125, 0, 0.03125, 0, 0, 0, -7.75, -8.03125, -2.7755575615628914e-17, 1,
+    ],
+    brightness: { base: 80, amp: 30, phase: -0.5 },
+  },
+  {
+    texture: '/assets/minecraft/textures/block/lectern_sides.00G4.png',
+    matrix3d: [
+      0.062402343750000006, 0, 0, 0, 0, 0.014435617695488855,
+      -0.005979428630704528, 0, 0, 0.019433143049789714, 0.04691575751033878, 0,
+      -8, -8.226866252077642, 0.4322186410466857, 1,
+    ],
+    brightness: {
+      base: 64.6926627053964,
+      amp: 27.716385975338603,
+      phase: 0.25,
     },
   },
-  textures: {
-    particle: 'block/lectern_sides',
-    bottom: 'block/oak_planks',
-    base: 'block/lectern_base',
-    front: 'block/lectern_front',
-    sides: 'block/lectern_sides',
-    top: 'block/lectern_top',
+  {
+    texture: '/assets/minecraft/textures/block/lectern_sides.04D8.png',
+    matrix3d: [
+      0, 0.019433143049789714, 0.04691575751033878, 0, 0, 0.014435617695488855,
+      -0.005979428630704528, 0, -0.062402343750000006, 0, 0, 0, -8.49921875,
+      -8.38233139647596, 0.056892580963975425, 1,
+    ],
+    brightness: { base: 80, amp: 30, phase: 0 },
   },
-  elements: [
-    {
-      from: [0, 0, 0],
-      to: [16, 2, 16],
-      faces: {
-        north: {
-          uv: [0, 14, 16, 16],
-          texture: 'block/lectern_base',
-          cullface: 'north',
-        },
-        east: {
-          uv: [0, 6, 16, 8],
-          texture: 'block/lectern_base',
-          cullface: 'east',
-        },
-        south: {
-          uv: [0, 6, 16, 8],
-          texture: 'block/lectern_base',
-          cullface: 'south',
-        },
-        west: {
-          uv: [0, 6, 16, 8],
-          texture: 'block/lectern_base',
-          cullface: 'west',
-        },
-        up: {
-          uv: [0, 0, 16, 16],
-          rotation: 180,
-          texture: 'block/lectern_base',
-        },
-        down: {
-          uv: [0, 0, 16, 16],
-          texture: 'block/oak_planks',
-          cullface: 'down',
-        },
-      },
+  {
+    texture: '/assets/minecraft/textures/block/lectern_sides.04G8.png',
+    matrix3d: [
+      -0.062402343750000006, 0, 0, 0, 0, 0.014435617695488855,
+      -0.005979428630704528, 0, 0, -0.019433143049789714, -0.04691575751033878,
+      0, -8, -8.537796540874277, -0.31843347911873476, 1,
+    ],
+    brightness: {
+      base: 95.3073372946036,
+      amp: 27.716385975338603,
+      phase: -0.25,
     },
-    {
-      from: [4, 2, 4],
-      to: [12, 15, 12],
-      faces: {
-        north: { uv: [0, 0, 8, 13], texture: 'block/lectern_front' },
-        east: {
-          uv: [2, 16, 15, 8],
-          rotation: 90,
-          texture: 'block/lectern_sides',
-        },
-        south: { uv: [8, 3, 16, 16], texture: 'block/lectern_front' },
-        west: {
-          uv: [2, 8, 15, 16],
-          rotation: 90,
-          texture: 'block/lectern_sides',
-        },
-      },
+  },
+  {
+    texture: '/assets/minecraft/textures/block/lectern_sides.04D8.png',
+    matrix3d: [
+      0, -0.019433143049789714, -0.04691575751033878, 0, 0,
+      0.014435617695488855, -0.005979428630704528, 0, 0.062402343750000006, 0,
+      0, 0, -7.50078125, -8.382331396475958, 0.056892580963975536, 1,
+    ],
+    brightness: { base: 80, amp: 30, phase: -0.5 },
+  },
+  {
+    texture: '/assets/minecraft/textures/block/lectern_top.01GE.png',
+    matrix3d: [
+      0.062402343750000006, -2.379873643329761e-18, -5.745523226460978e-18, 0,
+      7.642083053273035e-18, 0.019433143049789714, 0.04691575751033878, 0, 0,
+      -0.014435617695488855, 0.005979428630704528, 0, -8, -8.49781633803987,
+      0.10472801000961157, 1,
+    ],
+    brightness: {
+      base: 116.95518130045147,
+      amp: 11.480502970952696,
+      phase: 0.25,
     },
-    {
-      from: [0.0125, 12, 3],
-      to: [15.9875, 16, 16],
-      rotation: { angle: -22.5, axis: 'x', origin: [8, 8, 8] },
-      faces: {
-        north: { uv: [0, 0, 16, 4], texture: 'block/lectern_sides' },
-        east: { uv: [0, 4, 13, 8], texture: 'block/lectern_sides' },
-        south: { uv: [0, 4, 16, 8], texture: 'block/lectern_sides' },
-        west: { uv: [0, 4, 13, 8], texture: 'block/lectern_sides' },
-        up: { uv: [0, 1, 16, 14], rotation: 180, texture: 'block/lectern_top' },
-        down: { uv: [0, 0, 16, 13], texture: 'block/oak_planks' },
-      },
+  },
+  {
+    texture: '/assets/minecraft/textures/block/oak_planks.00GD.png',
+    matrix3d: [
+      -0.062402343750000006, 0, 0, 0, 0, 0.019433143049789714,
+      0.04691575751033878, 0, 0, 0.014435617695488855, -0.005979428630704528, 0,
+      -8, -8.266846454912049, 0.009057151918339224, 1,
+    ],
+    brightness: {
+      base: 43.04481869954853,
+      amp: 11.480502970952696,
+      phase: -0.25,
     },
-  ],
-};
-const faces = resolveModelFaces(model2);
+  },
+];
 </script>
 
 <template>
