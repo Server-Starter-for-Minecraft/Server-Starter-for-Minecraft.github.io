@@ -35,23 +35,14 @@ const props = defineProps<Prop>();
 
 const delay = computed(() => props.duration * (props.brightness.phase - 1));
 
-const clip_path = ref('none');
-
-onMounted(() => {
-  clip_path.value =
-    'xywh(' +
-    props.xywh.map((x) => (x === 0 ? '0' : `${x * 256}px`)).join(' ') +
-    ')';
-  // const [x, y, w, h] = props.xywh;
-  // clip_path.value = `polygon(${x}px ${y}px, ${x + w}px ${y}px, ${x + w}px ${
-  //   y + h
-  // }px, ${x}px ${y + h}px)`;
-
-  getCurrentInstance()?.proxy?.$forceUpdate();
-});
+const clip_path =
+  'xywh(' +
+  props.xywh.map((x) => (x === 0 ? '0' : `${x * 16}px`)).join(' ') +
+  ')';
 </script>
 <template>
   <img
+    class="face"
     :src="texture"
     alt=""
     :style="`
@@ -60,36 +51,32 @@ onMounted(() => {
       --brightnessAmp:${brightness.amp}%;
       animation-duration: ${duration}s;
       animation-delay: ${delay}s;
-      clip-path: ${clip_path};
+      clip-path:${clip_path};
       `"
   />
 </template>
 
 <style scoped lang="scss">
-@keyframes light {
-  0% {
-    filter: brightness(calc(var(--brightnessBase) - var(--brightnessAmp)));
-  }
-  50% {
-    filter: brightness(calc(var(--brightnessBase) + var(--brightnessAmp)));
-  }
-  100% {
-    filter: brightness(calc(var(--brightnessBase) - var(--brightnessAmp)));
-  }
-}
-img {
+// @keyframes light {
+//   0% {
+//     filter: brightness(calc(var(--brightnessBase) - var(--brightnessAmp)));
+//   }
+//   50% {
+//     filter: brightness(calc(var(--brightnessBase) + var(--brightnessAmp)));
+//   }
+//   100% {
+//     filter: brightness(calc(var(--brightnessBase) - var(--brightnessAmp)));
+//   }
+// }
+.face {
   position: absolute;
-  animation-name: light;
+  // animation-name: light;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   image-rendering: pixelated;
   // backface-visibility: hidden;
-  width: 256px;
-  height: 256px;
+  width: 16px;
+  height: 16px;
   animation-play-state: inherit;
 }
 </style>

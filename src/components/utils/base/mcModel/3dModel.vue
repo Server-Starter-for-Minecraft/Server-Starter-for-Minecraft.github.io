@@ -14,19 +14,19 @@ const duration = ref(4);
 
 const paused = ref(false);
 
-const updateParentWidth = () => {
+const updateSize = () => {
   const width = container.value?.clientWidth;
   const height = container.value?.clientHeight;
   size.value = Math.min(width, height);
 };
 
 onMounted(() => {
-  updateParentWidth();
+  updateSize();
   mounted.value = true;
 });
 
-addEventListener('resize', updateParentWidth);
-onUnmounted(() => removeEventListener('resize', updateParentWidth));
+addEventListener('resize', updateSize);
+onUnmounted(() => removeEventListener('resize', updateSize));
 
 const model = {
   elements: [
@@ -155,55 +155,74 @@ const faces = resolveModelFaces(model2);
 
 <template>
   <div class="container" ref="container">
-    <div v-if="mounted" class="viewport">
-      <div
-        class="model"
-        :style="`
+    <q-intersection :margin="`${size * 0.4}px`">
+      <div class="wrap">
+        <div
+          v-if="mounted"
+          class="viewport"
+          :style="`transform: scale3d(${size * 0.65}, ${size * 0.65}, ${
+            size * 0.65
+          }) rotateX(-30deg);`"
+        >
+          <div
+            class="model"
+            :style="`
           animation-duration: ${duration}s;
           animation-play-state: ${paused ? 'paused' : 'running'};
         `"
-      >
-        <BlockFace
-          v-for="(face, i) in faces"
-          :key="i"
-          :texture="face.texture"
-          :matrix3d="face.matrix3d"
-          :brightness="face.brightness"
-          :xywh="face.xywh"
-          :duration="duration"
-        />
+          >
+            <BlockFace
+              v-for="(face, i) in faces"
+              :key="i"
+              :texture="face.texture"
+              :matrix3d="face.matrix3d"
+              :brightness="face.brightness"
+              :xywh="face.xywh"
+              :duration="duration"
+            />
+          </div>
+        </div>
       </div>
-    </div>
+    </q-intersection>
   </div>
 </template>
 <style scoped lang="scss">
 @keyframes turn {
   0% {
-    transform: rotate3d(0, 1, 0, 0);
+    transform: rotate3d(0, 1, 0, 18deg);
+  }
+  5% {
+    transform: rotate3d(0, 1, 0, 0deg);
   }
   100% {
-    transform: rotate3d(0, 1, 0, -360deg);
+    transform: rotate3d(0, 1, 0, -342deg);
   }
 }
 
 .container {
+  position: relative;
   width: 100%;
   height: 100%;
+  background-color: #fff;
+}
+
+.wrap {
   position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
 }
 
 .viewport {
-  perspective: 1000px;
+  position: absolute;
+  perspective: none;
   top: 50%;
   left: 50%;
-  position: absolute;
+  width: 0;
+  height: 0;
   transform-style: preserve-3d;
-  transform: scale3d(400, 400, 400) rotateX(-30deg);
 }
 
 .model {
-  width: 0px;
-  height: 0px;
   transform-style: preserve-3d;
   animation-name: turn;
   animation-timing-function: linear;

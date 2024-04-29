@@ -145,7 +145,7 @@ function elementMatrix(element: McElement) {
   return faces;
 }
 
-const scale = 256;
+const scale = 16;
 
 /** elementMatrixの結果をBlockFaceのPropに変換 */
 function modelFaceToModelProp(face: {

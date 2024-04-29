@@ -23,6 +23,13 @@ $q.dark.set('auto');
 <template>
   <div class="test">
     <Model />
+    <Model />
+    <Model />
+    <Model />
+    <Model />
+    <Model />
+    <Model />
+    <Model />
   </div>
   <!-- <img
     class="face"
@@ -32,8 +39,10 @@ $q.dark.set('auto');
 </template>
 <style>
 .test {
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
+  margin-top: 100px;
+  margin-left: 100px;
 }
 .face {
   width: 400px;
