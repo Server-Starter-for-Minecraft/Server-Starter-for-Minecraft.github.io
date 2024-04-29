@@ -5,7 +5,7 @@ import { Page } from './router/routes';
 import HeaderView from 'src/components/App/HeaderView.vue';
 import DrawerView from './components/App/DrawerView.vue';
 import Model from './components/utils/base/mcModel/3dModel.vue';
-import { resolveModelFaces } from './components/utils/base/mcModel/scripts/main';
+import { resolveModelFaces } from '../util/McModel/src/main';
 
 const $q = useQuasar();
 const pages: { key: Page; icon: string }[] = [
