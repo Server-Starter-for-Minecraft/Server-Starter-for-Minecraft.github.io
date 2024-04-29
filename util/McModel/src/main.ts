@@ -3,7 +3,8 @@ import { crop } from './crop';
 import { Matrix } from './matrix';
 import { resolveModelFaces } from './solver';
 import { McModel } from './type';
-const scale = 16;
+
+const scale = 64;
 
 /** elementMatrixの結果をBlockFaceのPropに変換 */
 async function modelFaceToModelProp(face: {
@@ -132,10 +133,9 @@ const model2: McModel = {
   ],
 };
 
-
-export async function run(){
+export async function run() {
   const result = await convertModelProps(model2);
   writeFileSync('./result.json', JSON.stringify(result));
 }
 
-run()
+run();

@@ -128,8 +128,8 @@ onUnmounted(() => removeEventListener('resize', updateSize));
   animation-iteration-count: infinite;
   image-rendering: pixelated;
   backface-visibility: hidden;
-  width: 16px;
-  height: 16px;
+  width: 64px;
+  height: 64px;
   animation-play-state: inherit;
 }
 </style>
