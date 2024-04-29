@@ -18,7 +18,6 @@ const updateParentWidth = () => {
   const width = container.value?.clientWidth;
   const height = container.value?.clientHeight;
   size.value = Math.min(width, height);
-  console.log(width, height);
 };
 
 onMounted(() => {
@@ -33,8 +32,7 @@ const model = {
   elements: [
     {
       from: [0, 0, 0],
-      to: [8, 8, 8],
-      rotation: { angle: 45, axis: 'x', origin: [0, 0, 0] },
+      to: [16, 16, 16],
       faces: {
         north: {
           uv: [0, 0, 16, 16],
@@ -54,7 +52,7 @@ const model = {
         },
         up: {
           uv: [0, 0, 16, 16],
-          texture: 'block/crafting_table_front',
+          texture: 'block/crafting_table_top',
         },
         down: {
           uv: [0, 0, 16, 16],
@@ -65,9 +63,94 @@ const model = {
   ],
 };
 
-const faces = resolveModelFaces(model);
-
-console.log(faces);
+const model2 = {
+  parent: 'block/block',
+  display: {
+    firstperson_righthand: {
+      rotation: [0, 135, 0],
+      translation: [0, 0, 0],
+      scale: [0.4, 0.4, 0.4],
+    },
+  },
+  textures: {
+    particle: 'block/lectern_sides',
+    bottom: 'block/oak_planks',
+    base: 'block/lectern_base',
+    front: 'block/lectern_front',
+    sides: 'block/lectern_sides',
+    top: 'block/lectern_top',
+  },
+  elements: [
+    {
+      from: [0, 0, 0],
+      to: [16, 2, 16],
+      faces: {
+        north: {
+          uv: [0, 14, 16, 16],
+          texture: 'block/lectern_base',
+          cullface: 'north',
+        },
+        east: {
+          uv: [0, 6, 16, 8],
+          texture: 'block/lectern_base',
+          cullface: 'east',
+        },
+        south: {
+          uv: [0, 6, 16, 8],
+          texture: 'block/lectern_base',
+          cullface: 'south',
+        },
+        west: {
+          uv: [0, 6, 16, 8],
+          texture: 'block/lectern_base',
+          cullface: 'west',
+        },
+        up: {
+          uv: [0, 0, 16, 16],
+          rotation: 180,
+          texture: 'block/lectern_base',
+        },
+        down: {
+          uv: [0, 0, 16, 16],
+          texture: 'block/oak_planks',
+          cullface: 'down',
+        },
+      },
+    },
+    {
+      from: [4, 2, 4],
+      to: [12, 15, 12],
+      faces: {
+        north: { uv: [0, 0, 8, 13], texture: 'block/lectern_front' },
+        east: {
+          uv: [2, 16, 15, 8],
+          rotation: 90,
+          texture: 'block/lectern_sides',
+        },
+        south: { uv: [8, 3, 16, 16], texture: 'block/lectern_front' },
+        west: {
+          uv: [2, 8, 15, 16],
+          rotation: 90,
+          texture: 'block/lectern_sides',
+        },
+      },
+    },
+    {
+      from: [0.0125, 12, 3],
+      to: [15.9875, 16, 16],
+      rotation: { angle: -22.5, axis: 'x', origin: [8, 8, 8] },
+      faces: {
+        north: { uv: [0, 0, 16, 4], texture: 'block/lectern_sides' },
+        east: { uv: [0, 4, 13, 8], texture: 'block/lectern_sides' },
+        south: { uv: [0, 4, 16, 8], texture: 'block/lectern_sides' },
+        west: { uv: [0, 4, 13, 8], texture: 'block/lectern_sides' },
+        up: { uv: [0, 1, 16, 14], rotation: 180, texture: 'block/lectern_top' },
+        down: { uv: [0, 0, 16, 13], texture: 'block/oak_planks' },
+      },
+    },
+  ],
+};
+const faces = resolveModelFaces(model2);
 </script>
 
 <template>
@@ -104,13 +187,13 @@ console.log(faces);
 }
 
 .container {
-  background-color: #00f;
   width: 100%;
   height: 100%;
   position: relative;
 }
 
 .viewport {
+  perspective: 1000px;
   top: 50%;
   left: 50%;
   position: absolute;
@@ -119,24 +202,12 @@ console.log(faces);
 }
 
 .model {
-  width: 1px;
-  height: 1px;
+  width: 0px;
+  height: 0px;
   transform-style: preserve-3d;
-  // animation-name: turn;
+  animation-name: turn;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  animation-play-state: inherit;
-}
-
-.face {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  image-rendering: pixelated;
-  backface-visibility: hidden;
-  width: 1px;
-  height: 1px;
   animation-play-state: inherit;
 }
 </style>

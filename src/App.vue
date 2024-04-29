@@ -24,10 +24,20 @@ $q.dark.set('auto');
   <div class="test">
     <Model />
   </div>
+  <!-- <img
+    class="face"
+    src="/assets/minecraft/textures/block/crafting_table_side.png"
+    alt=""
+  /> -->
 </template>
 <style>
 .test {
   width: 400px;
   height: 400px;
+}
+.face {
+  width: 400px;
+  height: 400px;
+  transform: scale(1, 1);
 }
 </style>

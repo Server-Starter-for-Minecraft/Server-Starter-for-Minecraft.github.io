@@ -23,6 +23,8 @@ function faceRotMatrix(angle: McFaceAngle): Matrix<3, 3> {
 function faceMatrix(face: McFace) {
   const [x, y, w, h] = face.uv;
 
+  const m9_8 = Matrix.translation(3, [0, 0]);
+
   const m0_9 = Matrix.scale(3, [16, 16]);
   const m1_0 = Matrix.translation(3, [0.5, 0.5]);
 
@@ -35,7 +37,12 @@ function faceMatrix(face: McFace) {
   // 切り取り領域を回転
   const m4_3 = faceRotMatrix(face.rotation ?? 0);
 
-  const matrix = m4_3.matmul(m3_2).matmul(m2_1).matmul(m1_0).matmul(m0_9);
+  const matrix = m4_3
+    .matmul(m3_2)
+    .matmul(m2_1)
+    .matmul(m1_0)
+    .matmul(m0_9)
+    .matmul(m9_8);
 
   return matrix;
 }
@@ -138,24 +145,26 @@ function elementMatrix(element: McElement) {
   return faces;
 }
 
+const scale = 256;
+
+/** elementMatrixの結果をBlockFaceのPropに変換 */
 function modelFaceToModelProp(face: {
   matrix: Matrix<4, 4>;
   texture: string;
   uv: [number, number, number, number];
 }) {
-  const matrix3d = [
-    ...Matrix.scale(4, [-1 / 16, -1 / 16, -1 / 16])
-      .matmul(Matrix.translation(4, [-8, -8, -8]))
-      .matmul(face.matrix)
-      .matmul(Matrix.translation(4, [15 / 32, 15 / 32, 0]))
-      .t().value,
-  ];
+  //Faceの行列をcssのmatrix3dの値に変換
+  const matrix3d = Matrix.scale(4, [-1 / 16, -1 / 16, -1 / 16])
+    .matmul(Matrix.translation(4, [(scale - 1) * 8, (scale - 1) * 8, -8]))
+    .matmul(face.matrix)
+    .matmul(Matrix.translation(4, [15 / 32, 15 / 32, 0]))
+    .matmul(Matrix.scale(4, [1 / scale, 1 / scale, 1 / scale]))
+    .t().value;
 
+  //uvからxywhを算出
   const [a, b, c, d] = face.uv;
-
   const [x0, x1] = a < c ? [a, c] : [c, a];
   const [y0, y1] = b < d ? [b, d] : [d, b];
-
   const xywh = [x0, y0, x1 - x0, y1 - y0].map((x) => x / 16) as [
     number,
     number,
@@ -163,10 +172,28 @@ function modelFaceToModelProp(face: {
     number
   ];
 
+  // 面の法線方向を取得
+  const [x, y, z, _] = face.matrix.vecmul([0, 0, 1, 0]);
+  const yaw = Math.atan2(z, x);
+  const pitch = Math.atan2(y, Math.sqrt(x ** 2 + z ** 2));
+
+  console.log('yaw', yaw, 'pitch', pitch, face.matrix.vecmul([0, 0, 1, 0]));
+
+  // 水平角に応じて明暗の位相を決める
+  const phase = (-yaw / (Math.PI * 2)) % 1;
+
+  // 垂直角に応じて明暗の中心値を決める
+  const base = 80 + Math.sin(pitch) * 40;
+
+  console.log('phase', phase, 'base', base);
+
+  // 垂直角に応じて明暗の振幅値を決める
+  const amp = Math.cos(pitch) * 30;
+
   return {
     texture: `/assets/minecraft/textures/${face.texture}.png`,
     matrix3d,
-    brightness: { base: 100, amp: 0, phase: 0 },
+    brightness: { base, amp, phase: phase },
     xywh: xywh,
   };
 }

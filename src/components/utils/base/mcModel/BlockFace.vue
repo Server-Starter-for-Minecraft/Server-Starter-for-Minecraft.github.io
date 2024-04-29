@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref, onMounted, getCurrentInstance } from 'vue';
 type Matrix3d = [
   number,
   number,
@@ -34,10 +34,24 @@ export interface Prop {
 const props = defineProps<Prop>();
 
 const delay = computed(() => props.duration * (props.brightness.phase - 1));
+
+const clip_path = ref('none');
+
+onMounted(() => {
+  clip_path.value =
+    'xywh(' +
+    props.xywh.map((x) => (x === 0 ? '0' : `${x * 256}px`)).join(' ') +
+    ')';
+  // const [x, y, w, h] = props.xywh;
+  // clip_path.value = `polygon(${x}px ${y}px, ${x + w}px ${y}px, ${x + w}px ${
+  //   y + h
+  // }px, ${x}px ${y + h}px)`;
+
+  getCurrentInstance()?.proxy?.$forceUpdate();
+});
 </script>
 <template>
   <img
-    class="face"
     :src="texture"
     alt=""
     :style="`
@@ -46,7 +60,7 @@ const delay = computed(() => props.duration * (props.brightness.phase - 1));
       --brightnessAmp:${brightness.amp}%;
       animation-duration: ${duration}s;
       animation-delay: ${delay}s;
-      clip-path: xywh(${xywh.map((x) => `${x}px`).join(' ')});
+      clip-path: ${clip_path};
       `"
   />
 </template>
@@ -68,5 +82,14 @@ img {
   animation-name: light;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  image-rendering: pixelated;
+  // backface-visibility: hidden;
+  width: 256px;
+  height: 256px;
+  animation-play-state: inherit;
 }
 </style>

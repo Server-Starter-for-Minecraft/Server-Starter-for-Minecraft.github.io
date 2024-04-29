@@ -20,11 +20,12 @@ type MatrixValue<X extends number, Y extends number> = Flatten<
   NestedTuple<X, Y>
 >;
 
-type VactorValue<X extends number> = ToTupleNum<X, number>;
+type VectorValue<X extends number> = ToTupleNum<X, number>;
 
 type Pop<X extends number[]> = X extends [number, ...infer R] ? R : never;
 
-const deg2rad = (deg: number) => (deg * Math.PI) / 180;
+export const deg2rad = (deg: number) => (deg * Math.PI) / 180;
+export const rad2deg = (rad: number) => (rad * 180) / Math.PI;
 
 export const cos = (deg: number) => Math.cos(deg2rad(deg));
 export const sin = (deg: number) => Math.sin(deg2rad(deg));
@@ -48,7 +49,7 @@ export class Matrix<X extends number, Y extends number> {
   }
 
   /** 移動行列 */
-  static translation<X extends number>(x: X, translation: Pop<VactorValue<X>>) {
+  static translation<X extends number>(x: X, translation: Pop<VectorValue<X>>) {
     const result = new Array<number>(x ** 2).fill(0);
     const trans = translation as number[];
     for (let i = 0; i < x; i++) {
@@ -59,7 +60,7 @@ export class Matrix<X extends number, Y extends number> {
   }
 
   /** 拡大行列 */
-  static scale<X extends number>(x: X, translation: Pop<VactorValue<X>>) {
+  static scale<X extends number>(x: X, translation: Pop<VectorValue<X>>) {
     const result = new Array<number>(x ** 2).fill(0);
     const trans = translation as number[];
     for (let i = 0; i < x; i++) {
@@ -128,6 +129,22 @@ export class Matrix<X extends number, Y extends number> {
     }
 
     return new Matrix([u, y], result as MatrixValue<U, Y>);
+  }
+
+  /** ベクトル積 */
+  vecmul(vector: VectorValue<X>): VectorValue<Y> {
+    const [x, y] = this.size;
+    const result = new Array<number>(y).fill(0);
+
+    const left = this.value as number[];
+    const right = vector as number[];
+
+    for (let iy = 0; iy < y; iy++) {
+      for (let ix = 0; ix < x; ix++) {
+        result[iy] += left[iy * x + ix] * right[ix];
+      }
+    }
+    return result as VectorValue<Y>;
   }
 
   /** スカラー積 */
