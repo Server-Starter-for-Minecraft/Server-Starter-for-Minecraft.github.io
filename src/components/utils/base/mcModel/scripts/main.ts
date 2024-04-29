@@ -37,10 +37,7 @@ function faceMatrix(face: McFace) {
 
   const matrix = m4_3.matmul(m3_2).matmul(m2_1).matmul(m1_0).matmul(m0_9);
 
-  return {
-    matrix,
-    texture: face.texture,
-  };
+  return matrix;
 }
 
 /** テクスチャをモデルに張り付けるための座標変換 */
@@ -52,8 +49,8 @@ const textureFaceMap = {
   south: new Matrix([4, 4], [1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1]),
   east: new Matrix([4, 4], [0, 0, 1, 1, 0, -1, 0, 1, -1, 0, 0, 1, 0, 0, 0, 1]),
   west: new Matrix([4, 4], [0, 0, -1, 0, 0, -1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1]),
-  up: new Matrix([4, 4], [1, 0, 0, 0, 0, 0, -1, 1, 0, 1, 0, 0, 0, 0, 0, 1]),
-  down: new Matrix([4, 4], [1, 0, 0, 0, 0, 0, -1, 0, 0, -1, 0, 0, 0, 0, 0, 1]),
+  up: new Matrix([4, 4], [1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1]),
+  down: new Matrix([4, 4], [1, 0, 0, 0, 0, 0, -1, 0, 0, -1, 0, 1, 0, 0, 0, 1]),
 };
 
 /** エレメントの回転を表す行列 */
@@ -101,7 +98,7 @@ function elementMatrix(element: McElement) {
   console.log('$$$$$', elementMatrix);
   const faces = (Object.entries(element.faces) as [McFaceing, McFace][]).map(
     ([facing, face]) => {
-      const { matrix, texture } = faceMatrix(face);
+      const matrix = faceMatrix(face);
       const value = matrix.value;
 
       const matrix4d = new Matrix(
@@ -133,14 +130,19 @@ function elementMatrix(element: McElement) {
       );
       return {
         matrix: elementMatrix.matmul(textureFaceMap[facing]).matmul(matrix4d),
-        texture,
+        texture: face.texture,
+        uv: face.uv,
       };
     }
   );
   return faces;
 }
 
-function modelFaceToModelProp(face: { matrix: Matrix<4, 4>; texture: string }) {
+function modelFaceToModelProp(face: {
+  matrix: Matrix<4, 4>;
+  texture: string;
+  uv: [number, number, number, number];
+}) {
   const matrix3d = [
     ...Matrix.scale(4, [-1 / 16, -1 / 16, -1 / 16])
       .matmul(Matrix.translation(4, [-8, -8, -8]))
@@ -148,11 +150,24 @@ function modelFaceToModelProp(face: { matrix: Matrix<4, 4>; texture: string }) {
       .matmul(Matrix.translation(4, [15 / 32, 15 / 32, 0]))
       .t().value,
   ];
+
+  const [a, b, c, d] = face.uv;
+
+  const [x0, x1] = a < c ? [a, c] : [c, a];
+  const [y0, y1] = b < d ? [b, d] : [d, b];
+
+  const xywh = [x0, y0, x1 - x0, y1 - y0].map((x) => x / 16) as [
+    number,
+    number,
+    number,
+    number
+  ];
+
   return {
     texture: `/assets/minecraft/textures/${face.texture}.png`,
     matrix3d,
     brightness: { base: 100, amp: 0, phase: 0 },
-    xywh: [0, 0, 1, 1],
+    xywh: xywh,
   };
 }
 

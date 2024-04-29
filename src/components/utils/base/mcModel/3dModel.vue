@@ -32,14 +32,31 @@ onUnmounted(() => removeEventListener('resize', updateParentWidth));
 const model = {
   elements: [
     {
-      from: [4, 4, 4],
-      to: [12, 12, 12],
+      from: [0, 0, 0],
+      to: [8, 8, 8],
+      rotation: { angle: 45, axis: 'x', origin: [0, 0, 0] },
       faces: {
         north: {
           uv: [0, 0, 16, 16],
           texture: 'block/crafting_table_front',
         },
+        south: {
+          uv: [0, 0, 16, 16],
+          texture: 'block/crafting_table_front',
+        },
+        west: {
+          uv: [0, 0, 16, 16],
+          texture: 'block/crafting_table_side',
+        },
+        east: {
+          uv: [0, 0, 16, 16],
+          texture: 'block/crafting_table_side',
+        },
         up: {
+          uv: [0, 0, 16, 16],
+          texture: 'block/crafting_table_front',
+        },
+        down: {
           uv: [0, 0, 16, 16],
           texture: 'block/crafting_table_top',
         },
@@ -117,7 +134,7 @@ console.log(faces);
   align-items: center;
   justify-content: center;
   image-rendering: pixelated;
-  // backface-visibility: hidden;
+  backface-visibility: hidden;
   width: 1px;
   height: 1px;
   animation-play-state: inherit;

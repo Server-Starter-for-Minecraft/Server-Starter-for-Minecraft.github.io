@@ -1,14 +1,18 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"1": "block/blast_furnace_front"
+		"2": "block/acacia_door_bottom",
+		"3": "block/crafting_table_front",
+		"particle": "block/acacia_door_bottom"
 	},
 	"elements": [
 		{
 			"from": [0, 0, 0],
-			"to": [16, 16, 16],
+			"to": [8, 8, 8],
+			"rotation": {"angle": 22.5, "axis": "y", "origin": [0, 0, 0], "rescale": true},
 			"faces": {
-				"north": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#1"}
+				"north": {"uv": [0, 0, 16, 8], "rotation": 270, "texture": "#3"},
+				"east": {"uv": [10, 9, 10, 9], "texture": "#2"}
 			}
 		}
 	]
