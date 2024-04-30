@@ -61,6 +61,16 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/q-a',
     component: () => import('pages/QAPage.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('pages/q-a/QAPage.vue'),
+      },
+      {
+        path: 'failed-join-server',
+        component: () => import('pages/q-a/FailedJoinServerPage.vue'),
+      },
+    ],
   },
   {
     path: '/terms',
