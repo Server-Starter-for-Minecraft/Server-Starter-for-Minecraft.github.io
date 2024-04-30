@@ -29,7 +29,8 @@ export async function crop(
   uv: [number, number, number, number]
 ) {
   const image = sharp(srcPath + filename + '.png'); // トリミング
-  const tgtfilename = filename + '.' + uv.map(hex).join('') + '.png';
+  const tgtfilename =
+    filename + '.' + uv.map(Math.floor).map(hex).join('') + '.webp';
   await image
     .extract({
       left: uv[0],
@@ -37,6 +38,7 @@ export async function crop(
       width: uv[2] - uv[0],
       height: uv[3] - uv[1],
     })
+    .toFormat('webp', { lossless: true })
     .toFile(tgtPath + tgtfilename);
 
   return tgtfilename;

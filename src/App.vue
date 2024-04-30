@@ -22,7 +22,7 @@ $q.dark.set('auto');
 
 const faces = [
   {
-    texture: '/assets/minecraft/textures/block/lectern_base.0EGG.png',
+    texture: '/assets/minecraft/textures/block/lectern_base.0EGG.webp',
     matrix3d: [
       0.015625, 0, 0, 0, 0, 0.001953125, 0, 0, 0, 0, 0.015625, 0, -32, -31.5625,
       0.5, 1,
@@ -30,7 +30,7 @@ const faces = [
     brightness: { base: 80, amp: 30, phase: 0.25 },
   },
   {
-    texture: '/assets/minecraft/textures/block/lectern_base.06G8.png',
+    texture: '/assets/minecraft/textures/block/lectern_base.06G8.webp',
     matrix3d: [
       0, 0, 0.015625, 0, 0, 0.001953125, 0, 0, -0.015625, 0, 0, 0, -32.5,
       -31.5625, 0, 1,
@@ -38,7 +38,7 @@ const faces = [
     brightness: { base: 80, amp: 30, phase: 0 },
   },
   {
-    texture: '/assets/minecraft/textures/block/lectern_base.06G8.png',
+    texture: '/assets/minecraft/textures/block/lectern_base.06G8.webp',
     matrix3d: [
       -0.015625, 0, 0, 0, 0, 0.001953125, 0, 0, 0, 0, -0.015625, 0, -32,
       -31.5625, -0.5, 1,
@@ -46,7 +46,7 @@ const faces = [
     brightness: { base: 80, amp: 30, phase: -0.25 },
   },
   {
-    texture: '/assets/minecraft/textures/block/lectern_base.06G8.png',
+    texture: '/assets/minecraft/textures/block/lectern_base.06G8.webp',
     matrix3d: [
       0, 0, -0.015625, 0, 0, 0.001953125, 0, 0, 0.015625, 0, 0, 0, -31.5,
       -31.5625, 0, 1,
@@ -54,7 +54,7 @@ const faces = [
     brightness: { base: 80, amp: 30, phase: -0.5 },
   },
   {
-    texture: '/assets/minecraft/textures/block/lectern_base.00GG.png',
+    texture: '/assets/minecraft/textures/block/lectern_base.00GG.webp',
     matrix3d: [
       0.015625, 0, -1.9135106236677394e-18, 0, 1.9135106236677394e-18, 0,
       0.015625, 0, 0, -0.001953125, 0, 0, -32, -31.625, -5.551115123125783e-17,
@@ -63,7 +63,7 @@ const faces = [
     brightness: { base: 120, amp: 1.83697019872103e-15, phase: 0 },
   },
   {
-    texture: '/assets/minecraft/textures/block/oak_planks.00GG.png',
+    texture: '/assets/minecraft/textures/block/oak_planks.00GG.webp',
     matrix3d: [
       -0.015625, 0, 0, 0, 0, 0, 0.015625, 0, 0, 0.001953125, 0, 0, -32, -31.5,
       0, 1,
@@ -71,7 +71,7 @@ const faces = [
     brightness: { base: 40, amp: 1.83697019872103e-15, phase: 0 },
   },
   {
-    texture: '/assets/minecraft/textures/block/lectern_front.008D.png',
+    texture: '/assets/minecraft/textures/block/lectern_front.008D.webp',
     matrix3d: [
       0.0078125, 0, 0, 0, 0, 0.0126953125, 0, 0, 0, 0, 0.0078125, 0, -32,
       -32.03125, 0.25, 1,
@@ -79,7 +79,7 @@ const faces = [
     brightness: { base: 80, amp: 30, phase: 0.25 },
   },
   {
-    texture: '/assets/minecraft/textures/block/lectern_sides.28FG.png',
+    texture: '/assets/minecraft/textures/block/lectern_sides.28FG.webp',
     matrix3d: [
       0, 0.0126953125, 4.783776559169348e-19, 0, 0, -7.773636908650191e-19,
       0.0078125, 0, -0.0078125, 0, 0, 0, -32.25, -32.03125,
@@ -88,7 +88,7 @@ const faces = [
     brightness: { base: 80, amp: 30, phase: 0 },
   },
   {
-    texture: '/assets/minecraft/textures/block/lectern_front.83GG.png',
+    texture: '/assets/minecraft/textures/block/lectern_front.83GG.webp',
     matrix3d: [
       -0.0078125, 0, 0, 0, 0, 0.0126953125, 0, 0, 0, 0, -0.0078125, 0, -32,
       -32.03125, -0.25, 1,
@@ -96,7 +96,7 @@ const faces = [
     brightness: { base: 80, amp: 30, phase: -0.25 },
   },
   {
-    texture: '/assets/minecraft/textures/block/lectern_sides.28FG.png',
+    texture: '/assets/minecraft/textures/block/lectern_sides.28FG.webp',
     matrix3d: [
       0, 0.0126953125, -4.783776559169348e-19, 0, 0, 7.773636908650191e-19,
       0.0078125, 0, 0.0078125, 0, 0, 0, -31.75, -32.03125,
@@ -105,7 +105,7 @@ const faces = [
     brightness: { base: 80, amp: 30, phase: -0.5 },
   },
   {
-    texture: '/assets/minecraft/textures/block/lectern_sides.00G4.png',
+    texture: '/assets/minecraft/textures/block/lectern_sides.00G4.webp',
     matrix3d: [
       0.015600585937500001, 0, 0, 0, 0, 0.003608904423872214,
       -0.001494857157676132, 0, 0, 0.0048582857624474285, 0.011728939377584695,
@@ -118,7 +118,7 @@ const faces = [
     },
   },
   {
-    texture: '/assets/minecraft/textures/block/lectern_sides.04D8.png',
+    texture: '/assets/minecraft/textures/block/lectern_sides.04D8.webp',
     matrix3d: [
       0, 0.0048582857624474285, 0.011728939377584695, 0, 0,
       0.003608904423872214, -0.001494857157676132, 0, -0.015600585937500001, 0,
@@ -127,7 +127,7 @@ const faces = [
     brightness: { base: 80, amp: 30, phase: 0 },
   },
   {
-    texture: '/assets/minecraft/textures/block/lectern_sides.04G8.png',
+    texture: '/assets/minecraft/textures/block/lectern_sides.04G8.webp',
     matrix3d: [
       -0.015600585937500001, 0, 0, 0, 0, 0.003608904423872214,
       -0.001494857157676132, 0, 0, -0.0048582857624474285,
@@ -141,7 +141,7 @@ const faces = [
     },
   },
   {
-    texture: '/assets/minecraft/textures/block/lectern_sides.04D8.png',
+    texture: '/assets/minecraft/textures/block/lectern_sides.04D8.webp',
     matrix3d: [
       0, -0.0048582857624474285, -0.011728939377584695, 0, 0,
       0.003608904423872214, -0.001494857157676132, 0, 0.015600585937500001, 0,
@@ -150,7 +150,7 @@ const faces = [
     brightness: { base: 80, amp: 30, phase: -0.5 },
   },
   {
-    texture: '/assets/minecraft/textures/block/lectern_top.01GE.png',
+    texture: '/assets/minecraft/textures/block/lectern_top.01GE.webp',
     matrix3d: [
       0.015600585937500001, -5.949684108324402e-19, -1.4363808066152445e-18, 0,
       1.9105207633182588e-18, 0.0048582857624474285, 0.011728939377584695, 0, 0,
@@ -164,7 +164,7 @@ const faces = [
     },
   },
   {
-    texture: '/assets/minecraft/textures/block/oak_planks.00GD.png',
+    texture: '/assets/minecraft/textures/block/oak_planks.00GD.webp',
     matrix3d: [
       -0.015600585937500001, 0, 0, 0, 0, 0.0048582857624474285,
       0.011728939377584695, 0, 0, 0.003608904423872214, -0.001494857157676132,
