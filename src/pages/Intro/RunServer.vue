@@ -10,7 +10,8 @@ import ImgTxtBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
   <div>
     <SsTitle>ワールドを起動しよう</SsTitle>
     <p>
-      ServerStarter2では「ワンクリック」でサーバーの起動 / 停止 / 再起動ができます
+      ServerStarter2では「ワンクリック」でサーバーの起動 / 停止 /
+      再起動ができます
     </p>
     <p>
       ワールドの起動になれてきたら，

@@ -24,7 +24,9 @@ import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
       <download-btn :os-name="'mac'" />
       <download-btn :os-name="'linux'" />
     </div>
-    <SsRouterBtn to="/intro/install" class="q-mt-lg">インストールの詳細</SsRouterBtn>
+    <SsRouterBtn to="/intro/install" class="q-mt-lg"
+      >インストールの詳細</SsRouterBtn
+    >
   </div>
 
   <div>
@@ -42,9 +44,7 @@ import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
   <div>
     <SsSubTitle>起動したワールドに参加</SsSubTitle>
     <p>ワールドが立ち上がったら，いよいよみんなで遊ぶ準備が整いました！</p>
-    <p>
-      必要な情報をプレイヤーに案内し，マルチプレイを楽しみましょう！
-    </p>
+    <p>必要な情報をプレイヤーに案内し，マルチプレイを楽しみましょう！</p>
     <SsRouterBtn to="/intro/join-server">ワールドへの参加方法</SsRouterBtn>
   </div>
 </template>

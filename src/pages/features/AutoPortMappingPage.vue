@@ -6,5 +6,4 @@ import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
   <SsTitle>ポート開放不要化機能</SsTitle>
 </template>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

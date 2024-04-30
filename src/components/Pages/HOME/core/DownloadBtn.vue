@@ -5,7 +5,7 @@ import { useSystemStore } from 'src/stores/SystemStore';
 interface Prop {
   osName: 'windows' | 'mac' | 'linux';
   disable?: boolean;
-  dark?: boolean
+  dark?: boolean;
 }
 const prop = defineProps<Prop>();
 const sysStore = useSystemStore();
