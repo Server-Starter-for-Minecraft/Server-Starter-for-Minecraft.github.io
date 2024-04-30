@@ -1,8 +1,9 @@
 import { writeFileSync } from 'fs';
 import { crop } from './crop';
 import { Matrix } from './matrix';
-import { resolveModelFaces } from './solver';
-import { McModel } from './type';
+import { resolveModelFaces } from './convert';
+import { resolveMcModel } from './resolve';
+import { ResourceLocation } from './resourceLocation';
 
 const scale = 64;
 
@@ -21,7 +22,7 @@ async function modelFaceToModelProp(face: {
     .t().value;
 
   //uvで切り取った画像を保存
-  const texture = await crop(face.texture, face.uv);
+  const texture = await crop(new ResourceLocation(face.texture), face.uv);
 
   // 面の法線方向を取得
   const [x, y, z, _] = face.matrix.vecmul([0, 0, 1, 0]);
@@ -42,99 +43,19 @@ async function modelFaceToModelProp(face: {
   const amp = Math.cos(pitch) * 30;
 
   return {
-    texture: `/assets/minecraft/textures/${texture}`,
+    texture: `/assets/${texture}`,
     matrix3d,
     brightness: { base, amp, phase: phase },
   };
 }
 
-export async function convertModelProps(model: McModel) {
-  return Promise.all(resolveModelFaces(model).map(modelFaceToModelProp));
+export async function convertModelProps(modelPath: string) {
+  const elements = await resolveMcModel(new ResourceLocation(modelPath));
+  return Promise.all(resolveModelFaces(elements).map(modelFaceToModelProp));
 }
 
-const model2: McModel = {
-  parent: 'block/block',
-  textures: {
-    particle: 'block/lectern_sides',
-    bottom: 'block/oak_planks',
-    base: 'block/lectern_base',
-    front: 'block/lectern_front',
-    sides: 'block/lectern_sides',
-    top: 'block/lectern_top',
-  },
-  elements: [
-    {
-      from: [0, 0, 0],
-      to: [16, 2, 16],
-      faces: {
-        north: {
-          uv: [0, 14, 16, 16],
-          texture: 'block/lectern_base',
-          cullface: 'north',
-        },
-        east: {
-          uv: [0, 6, 16, 8],
-          texture: 'block/lectern_base',
-          cullface: 'east',
-        },
-        south: {
-          uv: [0, 6, 16, 8],
-          texture: 'block/lectern_base',
-          cullface: 'south',
-        },
-        west: {
-          uv: [0, 6, 16, 8],
-          texture: 'block/lectern_base',
-          cullface: 'west',
-        },
-        up: {
-          uv: [0, 0, 16, 16],
-          rotation: 180,
-          texture: 'block/lectern_base',
-        },
-        down: {
-          uv: [0, 0, 16, 16],
-          texture: 'block/oak_planks',
-          cullface: 'down',
-        },
-      },
-    },
-    {
-      from: [4, 2, 4],
-      to: [12, 15, 12],
-      faces: {
-        north: { uv: [0, 0, 8, 13], texture: 'block/lectern_front' },
-        east: {
-          uv: [2, 16, 15, 8],
-          rotation: 90,
-          texture: 'block/lectern_sides',
-        },
-        south: { uv: [8, 3, 16, 16], texture: 'block/lectern_front' },
-        west: {
-          uv: [2, 8, 15, 16],
-          rotation: 90,
-          texture: 'block/lectern_sides',
-        },
-      },
-    },
-    {
-      from: [0.0125, 12, 3],
-      to: [15.9875, 16, 16],
-      rotation: { angle: -22.5, axis: 'x', origin: [8, 8, 8] },
-      faces: {
-        north: { uv: [0, 0, 16, 4], texture: 'block/lectern_sides' },
-        east: { uv: [0, 4, 13, 8], texture: 'block/lectern_sides' },
-        south: { uv: [0, 4, 16, 8], texture: 'block/lectern_sides' },
-        west: { uv: [0, 4, 13, 8], texture: 'block/lectern_sides' },
-        up: { uv: [0, 1, 16, 14], rotation: 180, texture: 'block/lectern_top' },
-        down: { uv: [0, 0, 16, 13], texture: 'block/oak_planks' },
-      },
-    },
-  ],
-};
-
 export async function run() {
-  const result = await convertModelProps(model2);
+  const result = await convertModelProps('block/acacia_slab');
   writeFileSync('./result.json', JSON.stringify(result));
 }
 

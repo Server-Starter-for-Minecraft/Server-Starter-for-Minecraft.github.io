@@ -30,8 +30,10 @@ export type McElement = {
   faces: McFaces;
 };
 
+export type McTextures = Record<string, string>;
+
 export type McModel = {
   parent?: string;
-  textures?: Record<string, string>;
+  textures?: McTextures;
   elements?: McElement[];
 };

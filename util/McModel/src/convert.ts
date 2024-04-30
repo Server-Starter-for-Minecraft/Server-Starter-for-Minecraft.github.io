@@ -170,34 +170,11 @@ export type ModelFace = {
   uv: [number, number, number, number];
 };
 
-export function resolveModelFaces(model: McModel): ModelFace[] {
-  // TODO: ここでparentとtexture変数を解決
-
-  /*
-  * この時点で以下の形にしておく
-  * - parent を 'block/block' | undefined になるまで辿る
-  * - faces.*.texture は '#.*' ではなく 'block/.*'
-
-  const a = {
-    parent: 'block/block',
-    elements: [
-      {
-        from: [0, 0, 0],
-        to: [16, 16, 16],
-        faces: {
-          north: {
-            uv: [0, 0, 16, 16],
-            rotation: 90,
-            texture: 'block/blast_furnace_front',
-          },
-        },
-      },
-    ],
-  };
-  **/
-
+/**
+ * テクスチャ埋め込み済みのMcElement[]から各面の移動を表す行列を計算
+ */
+export function resolveModelFaces(elements: McElement[]): ModelFace[] {
   // モデル内のすべての面の位置を計算
-  const elements = model.elements ?? [];
   const faces = elements.flatMap(elementMatrix);
   return faces;
 }
