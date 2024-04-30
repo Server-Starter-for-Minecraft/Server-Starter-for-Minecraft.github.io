@@ -3,7 +3,7 @@ import SsA from 'src/components/utils/base/texts/ssA.vue';
 import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
 import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
 import SsStrong from 'src/components/utils/base/texts/ssStrong.vue';
-import IndentLine from 'src/components/Pages/Terms/IndentLine.vue';
+import IndentLine from 'src/components/utils/blocks/IndentLine.vue';
 </script>
 
 <template>
