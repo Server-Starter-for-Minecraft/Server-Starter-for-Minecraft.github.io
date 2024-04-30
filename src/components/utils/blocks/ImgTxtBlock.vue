@@ -29,7 +29,7 @@ const isDark = () => $q.dark.isActive;
       <div
         class="col blockWidth"
         :class="isDark() ? 'dark' : ''"
-        :style="{'height': imgHeight ?? '20rem'}"
+        :style="{ height: imgHeight ?? '20rem' }"
       >
         <img
           :src="imgPath"
