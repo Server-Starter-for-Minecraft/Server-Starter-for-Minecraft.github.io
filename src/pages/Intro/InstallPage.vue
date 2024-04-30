@@ -44,7 +44,8 @@ import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
 
   <ImgTxtBlock
     title="インストーラーを起動してみよう"
-    img-path="/assets/introduction/install/WelcomeWindow.png"
+    img-path="/assets/introduction/install/installer.png"
+    img-height=""
   >
     <p>
       ダウンロードしたインストーラーをダブルクリックで起動してみましょう<br />

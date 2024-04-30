@@ -34,7 +34,10 @@ import ImgTxtBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
     </p>
   </ImgTxtBlock>
 
-  <ImgTxtBlock title="サーバーからコマンドを実行する" img-path="">
+  <ImgTxtBlock
+    title="サーバーからコマンドを実行する"
+    img-path="/assets/Introduction/RunServer/console.png"
+  >
     <p>起動した後に少し経過すると，コンソールの画面が立ち上がります</p>
     <p>
       下の入力欄にコマンドを入力することで，サーバー上でいろいろな操作を実行できます
@@ -46,7 +49,11 @@ import ImgTxtBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
     </p>
   </ImgTxtBlock>
 
-  <ImgTxtBlock title="ワールドを停止する" img-path="">
+  <ImgTxtBlock
+    title="ワールドを停止する"
+    img-path="/assets/Introduction/RunServer/stopBtns.png"
+    img-height=""
+  >
     <p>
       サーバー画面の左下にある<SsStrong>停止</SsStrong>ボタンからワールドを停止できます
     </p>
@@ -55,7 +62,10 @@ import ImgTxtBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
     </p>
   </ImgTxtBlock>
 
-  <ImgTxtBlock title="サーバログを確認する" img-path="">
+  <ImgTxtBlock
+    title="サーバログを確認する"
+    img-path="/assets/Introduction/RunServer/logBtn.png"
+  >
     <p>
       ワールドが停止した状態で
       <SsStrong>直前のサーバログを表示</SsStrong>

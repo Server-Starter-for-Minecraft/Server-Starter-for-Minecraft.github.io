@@ -19,7 +19,11 @@ import IndentLine from 'src/components/utils/blocks/IndentLine.vue';
     </p>
   </div>
 
-  <ImgTxtBlock title="IPアドレスを教えてもらう" img-path="">
+  <ImgTxtBlock
+    title="IPアドレスを教えてもらう"
+    img-path="/assets/Introduction/JoinServer/inputIP.svg"
+    img-height=""
+  >
     <p>
       プレイヤーがワールドに参加するためには，ワールドを起動したサーバーのIPアドレスが必要です！
     </p>
@@ -38,7 +42,10 @@ import IndentLine from 'src/components/utils/blocks/IndentLine.vue';
     </p>
   </ImgTxtBlock>
 
-  <ImgTxtBlock title="Minecraft上での設定方法" img-path="">
+  <ImgTxtBlock
+    title="Minecraft上での設定方法"
+    img-path="/assets/Introduction/JoinServer/editServerSettings.png"
+  >
     <p>ワールドに参加するための設定の手順を解説します</p>
     <ol class="column q-gutter-sm">
       <li>
@@ -77,7 +84,10 @@ import IndentLine from 'src/components/utils/blocks/IndentLine.vue';
     </ol>
   </ImgTxtBlock>
 
-  <ImgTxtBlock title="OP権限の付与　※任意" img-path="">
+  <ImgTxtBlock
+    title="OP権限の付与　※任意"
+    img-path="/assets/Introduction/JoinServer/opRights.png"
+  >
     <p>
       ServerStarter2では，参加しているプレイヤーに特別な行動を許可するOP権限の管理が簡単にできる機能を提供しています！
     </p>
