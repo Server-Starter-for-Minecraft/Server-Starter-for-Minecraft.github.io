@@ -11,9 +11,9 @@ defineProps<Prop>();
   <q-card
     :flat="$q.dark.isActive"
     class="card"
-    :style="{
-      'border-left': `.5rem solid ${getCssVar(lineColor ?? '') ?? lineColor}`,
-    }"
+    :style="lineColor ? {
+      'border-left': `.5rem solid ${getCssVar(lineColor) ?? lineColor}`,
+    } : {}"
   >
     <q-card-section>
       <slot />
