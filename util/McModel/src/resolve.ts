@@ -32,13 +32,17 @@ function resolveElement(element: McElement, textures: McTextures): McElement {
   return { ...element, faces };
 }
 
-/** McModelのparentを解決して、テクスチャ変数を埋め込む
- * @param modelPath ./util/McModel/minecraft/models/からの相対パス(拡張子なし) */
+/**
+ * McModelのparentを解決して、テクスチャ変数を埋め込む
+ * @param modelLocation モデルファイルのResourceLocation e.g. block/stone mynamespace:block/mymodel
+ * @param sourceBasePath modelLocationの名前空間の親ディレクトリ 末尾の"/"は不要
+ */
 export async function resolveMcModel(
-  modelPath: ResourceLocation,
+  modelLocation: ResourceLocation,
+  sourceBasePath: string,
   textures: McTextures = {}
 ): Promise<McElement[]> {
-  const path = `./util/McModel/${modelPath.namespace}/models/${modelPath.path}`;
+  const path = `${sourceBasePath}/${modelLocation.namespace}/models/${modelLocation.path}`;
 
   /** ファイルからモデルを読み込み */
   const model: McModel = JSON.parse(
@@ -64,6 +68,7 @@ export async function resolveMcModel(
   if (model.parent) {
     const parentElements = await resolveMcModel(
       new ResourceLocation(model.parent),
+      sourceBasePath,
       embeddedTextures
     );
     elements.push(...(parentElements ?? []));

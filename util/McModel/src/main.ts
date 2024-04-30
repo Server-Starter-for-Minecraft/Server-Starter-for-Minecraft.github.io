@@ -1,18 +1,23 @@
-import { writeFileSync } from 'fs';
+import { promises as fs } from 'fs';
 import { crop } from './crop';
 import { Matrix } from './matrix';
-import { resolveModelFaces } from './convert';
+import { ModelFace, resolveModelFaces } from './convert';
 import { resolveMcModel } from './resolve';
 import { ResourceLocation } from './resourceLocation';
 
 const scale = 64;
 
-/** elementMatrixの結果をBlockFaceのPropに変換 */
-async function modelFaceToModelProp(face: {
-  matrix: Matrix<4, 4>;
-  texture: string;
-  uv: [number, number, number, number];
-}) {
+/**
+ * elementMatrixの結果をBlockFaceのPropに変換
+ *
+ * @param sourceBasePath modelLocationの名前空間の親ディレクトリ 末尾の"/"は不要
+ * @param targetBasePath 出力先の名前空間の親ディレクトリ 末尾の"/"は不要
+ */
+async function modelFaceToModelProp(
+  face: ModelFace,
+  sourceBasePath: string,
+  targetBasePath: string
+) {
   //Faceの行列をcssのmatrix3dの値に変換
   const matrix3d = Matrix.scale(4, [-1 / 16, -1 / 16, -1 / 16])
     .matmul(Matrix.translation(4, [(scale - 1) * 8, (scale - 1) * 8, -8]))
@@ -22,41 +27,63 @@ async function modelFaceToModelProp(face: {
     .t().value;
 
   //uvで切り取った画像を保存
-  const texture = await crop(new ResourceLocation(face.texture), face.uv);
+  const texture = await crop(
+    new ResourceLocation(face.texture),
+    face.uv,
+    sourceBasePath,
+    targetBasePath
+  );
 
   // 面の法線方向を取得
   const [x, y, z, _] = face.matrix.vecmul([0, 0, 1, 0]);
   const yaw = Math.atan2(z, x);
   const pitch = Math.atan2(y, Math.sqrt(x ** 2 + z ** 2));
 
-  console.log('yaw', yaw, 'pitch', pitch, face.matrix.vecmul([0, 0, 1, 0]));
-
-  // 水平角に応じて明暗の位相を決める
   const phase = (-yaw / (Math.PI * 2)) % 1;
 
   // 垂直角に応じて明暗の中心値を決める
-  const base = 80 + Math.sin(pitch) * 40;
-
-  console.log('phase', phase, 'base', base);
+  // face.shade === false の場合は30を加算
+  const base = (face.shade ? 80 : 110) + Math.sin(pitch) * 40;
 
   // 垂直角に応じて明暗の振幅値を決める
-  const amp = Math.cos(pitch) * 30;
+  // face.shade === false の場合は常に0
+  const amp = face.shade ? Math.cos(pitch) * 30 : 0;
 
   return {
-    texture: `/assets/${texture}`,
+    texture: `/assets/McModel/${texture}`,
     matrix3d,
     brightness: { base, amp, phase: phase },
   };
 }
 
-export async function convertModelProps(modelPath: string) {
-  const elements = await resolveMcModel(new ResourceLocation(modelPath));
-  return Promise.all(resolveModelFaces(elements).map(modelFaceToModelProp));
+export async function convertModelProps(modelLocation: ResourceLocation) {
+  const elements = await resolveMcModel(modelLocation, srcBasePath);
+  const faces = await Promise.all(
+    resolveModelFaces(elements).map((x) =>
+      modelFaceToModelProp(x, srcBasePath, tgtBasePath)
+    )
+  );
+
+  const mcmodelData = `./src/mcmodel/${modelLocation.namespace}/mcmodels/${modelLocation.path}.json`;
+  await fs.writeFile(mcmodelData, JSON.stringify(faces));
 }
 
-export async function run() {
-  const result = await convertModelProps('block/acacia_slab');
-  writeFileSync('./result.json', JSON.stringify(result));
+const srcBasePath = './util/McModel/assets';
+const tgtBasePath = './public/assets/McModel';
+
+export async function run(models: string[]) {
+  await Promise.all(
+    models.map((model) => convertModelProps(new ResourceLocation(model)))
+  );
 }
 
-run();
+run([
+  'block/acacia_slab',
+  'block/stone',
+  'block/brewing_stand_bottle0',
+  'block/slime_block',
+  'block/lantern_hanging',
+  'block/lectern',
+  'block/lily_of_the_valley',
+  'block/campfire',
+]);

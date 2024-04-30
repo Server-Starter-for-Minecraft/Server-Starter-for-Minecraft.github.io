@@ -1,12 +1,5 @@
 import { Matrix, cos } from './matrix';
-import {
-  McElement,
-  McFace,
-  McFaceAngle,
-  McFaceing,
-  McModel,
-  McRotation,
-} from './type';
+import { McElement, McFace, McFaceAngle, McFaceing, McRotation } from './type';
 
 /** 面の回転を表す行列 */
 function faceRotMatrix(angle: McFaceAngle): Matrix<3, 3> {
@@ -21,8 +14,9 @@ function faceRotMatrix(angle: McFaceAngle): Matrix<3, 3> {
 
 /** テクスチャと切り取り領域の関係を表す行列 */
 function faceMatrix(face: McFace) {
-  const [a, b, c, d] = face.uv;
-  const uv: [number, number, number, number] = [...face.uv];
+  console.log('FACE', face);
+  const [a, b, c, d] = face.uv ?? [0, 0, 16, 16];
+  const uv: [number, number, number, number] = [a, b, c, d];
 
   if (a > c) [uv[0], uv[2]] = [c, a];
   if (b > d) [uv[1], uv[3]] = [d, b];
@@ -81,11 +75,17 @@ function elemenRotMatrix(rotation?: McRotation) {
   return fromOrigin.matmul(rescale).matmul(rot).matmul(toOrigin);
 }
 
+/**
+ * Elementの一辺が0の場合detが0になっておかしくなるので
+ * 一辺の最小値を指定
+ */
+const minBlockDim = 0.01;
+
 function elementMatrix(element: McElement): ModelFace[] {
   const scale = Matrix.scale(4, [
-    element.to[0] - element.from[0],
-    element.to[1] - element.from[1],
-    element.to[2] - element.from[2],
+    Math.max(element.to[0] - element.from[0], minBlockDim),
+    Math.max(element.to[1] - element.from[1], minBlockDim),
+    Math.max(element.to[2] - element.from[2], minBlockDim),
   ]);
 
   const trans = Matrix.translation(4, element.from);
@@ -93,7 +93,7 @@ function elementMatrix(element: McElement): ModelFace[] {
   const rotation = elemenRotMatrix(element.rotation);
 
   const elementMatrix = rotation.matmul(trans).matmul(scale);
-  console.log('$$$$$', elementMatrix);
+
   const faces = (Object.entries(element.faces) as [McFaceing, McFace][]).map(
     ([facing, face]) => {
       const { matrix, uv } = faceMatrix(face);
@@ -121,14 +121,10 @@ function elementMatrix(element: McElement): ModelFace[] {
         ]
       );
 
-      // elementMatrix.matmul(textureFaceMap[facing]).matmul(matrix)
-      console.log(
-        '###',
-        elementMatrix.matmul(textureFaceMap[facing]).matmul(matrix4d)
-      );
       return {
         matrix: elementMatrix.matmul(textureFaceMap[facing]).matmul(matrix4d),
         texture: face.texture,
+        shade: element.shade ?? true,
         uv,
       };
     }
@@ -168,6 +164,7 @@ export type ModelFace = {
   matrix: Matrix<4, 4>;
   texture: string;
   uv: [number, number, number, number];
+  shade: boolean;
 };
 
 /**

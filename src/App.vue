@@ -7,6 +7,26 @@ import DrawerView from './components/App/DrawerView.vue';
 import Model from './components/utils/base/McModel.vue';
 import { convertModelProps } from 'app/util/McModel/src/main';
 
+import acacia_slab from 'src/mcmodel/minecraft/mcmodels/block/acacia_slab.json';
+import stone from 'src/mcmodel/minecraft/mcmodels/block/stone.json';
+import brewing_stand_bottle0 from 'src/mcmodel/minecraft/mcmodels/block/brewing_stand_bottle0.json';
+import slime_block from 'src/mcmodel/minecraft/mcmodels/block/slime_block.json';
+import lantern_hanging from 'src/mcmodel/minecraft/mcmodels/block/lantern_hanging.json';
+import lectern from 'src/mcmodel/minecraft/mcmodels/block/lectern.json';
+import lily_of_the_valley from 'src/mcmodel/minecraft/mcmodels/block/lily_of_the_valley.json';
+import campfire from 'src/mcmodel/minecraft/mcmodels/block/campfire.json';
+
+const models = [
+  acacia_slab,
+  stone,
+  brewing_stand_bottle0,
+  slime_block,
+  lantern_hanging,
+  lectern,
+  lily_of_the_valley,
+  campfire
+];
+
 const $q = useQuasar();
 const pages: { key: Page; icon: string }[] = [
   { key: 'intro', icon: 'flag' },
@@ -19,74 +39,17 @@ initProcess(window.navigator.userAgent);
 
 // 色設定を自動化
 $q.dark.set('auto');
-
-const faces = [
-  {
-    texture: '/assets/minecraft/textures/block/acacia_planks.00gg.webp',
-    matrix3d: [
-      -0.015625, 0, 0, 0, 0, 0, 0.015625, 0, 0, 0.0078125, 0, 0, -32, -31.5, 0,
-      1,
-    ],
-    brightness: { base: 40, amp: 1.83697019872103e-15, phase: 0 },
-  },
-  {
-    texture: '/assets/minecraft/textures/block/acacia_planks.00gg.webp',
-    matrix3d: [
-      -0.015625, 0, 0, 0, 0, 0, -0.015625, 0, 0, -0.0078125, 0, 0, -32, -32, 0,
-      1,
-    ],
-    brightness: { base: 120, amp: 1.83697019872103e-15, phase: 0 },
-  },
-  {
-    texture: '/assets/minecraft/textures/block/acacia_planks.08gg.webp',
-    matrix3d: [
-      0.015625, 0, 0, 0, 0, 0.0078125, 0, 0, 0, 0, 0.015625, 0, -32, -31.75,
-      0.5, 1,
-    ],
-    brightness: { base: 80, amp: 30, phase: 0.25 },
-  },
-  {
-    texture: '/assets/minecraft/textures/block/acacia_planks.08gg.webp',
-    matrix3d: [
-      -0.015625, 0, 0, 0, 0, 0.0078125, 0, 0, 0, 0, -0.015625, 0, -32, -31.75,
-      -0.5, 1,
-    ],
-    brightness: { base: 80, amp: 30, phase: -0.25 },
-  },
-  {
-    texture: '/assets/minecraft/textures/block/acacia_planks.08gg.webp',
-    matrix3d: [
-      0, 0, -0.015625, 0, 0, 0.0078125, 0, 0, 0.015625, 0, 0, 0, -31.5, -31.75,
-      0, 1,
-    ],
-    brightness: { base: 80, amp: 30, phase: -0.5 },
-  },
-  {
-    texture: '/assets/minecraft/textures/block/acacia_planks.08gg.webp',
-    matrix3d: [
-      0, 0, 0.015625, 0, 0, 0.0078125, 0, 0, -0.015625, 0, 0, 0, -32.5, -31.75,
-      0, 1,
-    ],
-    brightness: { base: 80, amp: 30, phase: 0 },
-  },
-];
 </script>
 
 <template>
   <div class="test">
-    <Model :duration="4" :paused="false" :faces="faces" />
-    <Model :duration="4" :paused="false" :faces="faces" />
-    <Model :duration="4" :paused="false" :faces="faces" />
-    <Model :duration="4" :paused="false" :faces="faces" />
-    <Model :duration="4" :paused="false" :faces="faces" />
-    <Model :duration="4" :paused="false" :faces="faces" />
-    <Model :duration="4" :paused="false" :faces="faces" />
-    <Model :duration="4" :paused="false" :faces="faces" />
-    <Model :duration="4" :paused="false" :faces="faces" />
-    <Model :duration="4" :paused="false" :faces="faces" />
-    <Model :duration="4" :paused="false" :faces="faces" />
-    <Model :duration="4" :paused="false" :faces="faces" />
-    <Model :duration="4" :paused="false" :faces="faces" />
+    <Model
+      v-for="(model, i) in models"
+      :duration="4"
+      :paused="false"
+      :faces="model"
+      :key="i"
+    />
   </div>
 </template>
 <style>
