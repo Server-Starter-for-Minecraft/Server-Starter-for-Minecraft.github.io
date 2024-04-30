@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
 import SsA from 'src/components/utils/base/texts/ssA.vue';
 import SsStrong from 'src/components/utils/base/texts/ssStrong.vue';
 import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
@@ -64,4 +65,15 @@ import ImgTxtBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
       サーバーの起動がうまくいかなかった場合は，サーバーのログを確認することで，エラー原因を特定していきましょう
     </p>
   </ImgTxtBlock>
+
+  <div>
+    <SsTitle>ゴールは目前です！</SsTitle>
+    <p>
+      ここまでで，ワールドを正常に起動することができました！<br />
+      最後にいよいよ，起動したワールドにプレイヤーの皆様をご招待しましょう！
+    </p>
+    <div class="flex justify-end">
+      <SsRouterBtn to="/intro/join-server"> ワールドの参加方法 </SsRouterBtn>
+    </div>
+  </div>
 </template>
