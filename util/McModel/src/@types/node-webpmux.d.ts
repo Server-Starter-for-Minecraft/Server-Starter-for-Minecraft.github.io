@@ -545,8 +545,8 @@ declare module 'node-webpmux' {
     // Public static functions
     static initLib(): Promise<void>;
 
-    static save(path: string, options: SaveOptions): Promise<void>;
-    static save(path: null, options: SaveOptions): Promise<Buffer>;
+    static save(path: string, options?: Partial<SaveOptions>): Promise<void>;
+    static save(path: null, options?: Partial<SaveOptions>): Promise<Buffer>;
 
     static getEmptyImage(ext?: boolean): Promise<Image>;
 

@@ -76,10 +76,6 @@ async function cropStatic(
 ) {
   const image = sharp(sourcePath.str()); // トリミング
 
-  sharp({
-    animated: true,
-  });
-
   await image
     .extract({
       left: uv[0],
@@ -99,8 +95,19 @@ async function cropAnimation(
 ) {
   const image = sharp(sourcePath.str()); // トリミング
 
-  sharp({
-    animated: true,
+  const buffer = await image
+    .extract({
+      left: uv[0],
+      top: uv[1],
+      width: uv[2] - uv[0],
+      height: uv[3] - uv[1],
+    })
+    .toBuffer();
+
+  const frame = await Image.generateFrame({ buffer });
+
+  await Image.save(targetPath.str(), {
+    frames: [frame],
   });
 
   await image
