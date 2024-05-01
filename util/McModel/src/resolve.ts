@@ -1,6 +1,6 @@
 import { promises as fs } from 'fs';
-import { McElement, McFaces, McModel, McTextures } from './type';
-import { ResourceLocation } from './resourceLocation';
+import { McElement, McFaces, McModel, McTextures } from './mcreource/model';
+import { ResourceLocation } from './mcreource/resourceLocation';
 
 /**
  * texture が # で始まる場合 texturesの中から該当する値を抜き出す。

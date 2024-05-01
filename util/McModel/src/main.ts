@@ -3,7 +3,7 @@ import { crop } from './crop';
 import { Matrix } from './matrix';
 import { ModelFace, resolveModelFaces } from './convert';
 import { resolveMcModel } from './resolve';
-import { ResourceLocation } from './resourceLocation';
+import { ResourceLocation } from './mcreource/resourceLocation';
 
 const scale = 64;
 

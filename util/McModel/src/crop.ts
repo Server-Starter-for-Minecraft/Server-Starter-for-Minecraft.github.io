@@ -1,5 +1,10 @@
 import sharp from 'sharp';
-import { ResourceLocation } from './resourceLocation';
+import { Image } from 'node-webpmux';
+import {
+  ResourceLocation,
+  ResourceLocator,
+} from './mcreource/resourceLocation';
+import { Path } from './util/path';
 
 const hex = (val: number) =>
   [
@@ -37,16 +42,39 @@ const hex = (val: number) =>
 export async function crop(
   fileLocation: ResourceLocation,
   uv: [number, number, number, number],
-  sourceBasePath: string,
-  targetBasePath: string
+  sourceResourceLocator: ResourceLocator,
+  targetBasePath: Path
 ) {
-  const srcPath = `${sourceBasePath}/${fileLocation.namespace}/textures/${fileLocation.path}.png`;
+  const sourcePath = sourceResourceLocator.getPath('texture', fileLocation);
+
+  const srcMemetaPath = sourceResourceLocator.getPath(
+    'texture.mcmeta',
+    fileLocation
+  );
+
+  const isAnimation = srcMemetaPath.exists();
 
   const tgtfilenameSuffix = uv.map(Math.floor).map(hex).join('');
 
   const tgtfile = `${fileLocation.namespace}/textures/${fileLocation.path}.${tgtfilenameSuffix}.webp`;
 
-  const image = sharp(srcPath); // トリミング
+  const targetPath = targetBasePath.child(tgtfile);
+
+  if (isAnimation) {
+    await cropAnimation(uv, sourcePath, srcMemetaPath, targetPath);
+  } else {
+    cropStatic(uv, sourcePath, targetPath);
+  }
+
+  return tgtfile;
+}
+
+async function cropStatic(
+  uv: [number, number, number, number],
+  sourcePath: Path,
+  targetPath: Path
+) {
+  const image = sharp(sourcePath.str()); // トリミング
 
   sharp({
     animated: true,
@@ -60,6 +88,28 @@ export async function crop(
       height: uv[3] - uv[1],
     })
     .toFormat('webp', { lossless: true })
-    .toFile(`${targetBasePath}/${tgtfile}`);
-  return tgtfile;
+    .toFile(targetPath.str());
+}
+
+async function cropAnimation(
+  uv: [number, number, number, number],
+  sourcePath: Path,
+  sourceMcmetaPath: Path,
+  targetPath: Path
+) {
+  const image = sharp(sourcePath.str()); // トリミング
+
+  sharp({
+    animated: true,
+  });
+
+  await image
+    .extract({
+      left: uv[0],
+      top: uv[1],
+      width: uv[2] - uv[0],
+      height: uv[3] - uv[1],
+    })
+    .toFormat('webp', { lossless: true })
+    .toFile(targetPath.str());
 }

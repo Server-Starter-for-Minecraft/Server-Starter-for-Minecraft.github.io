@@ -1,5 +1,11 @@
 import { Matrix, cos } from './matrix';
-import { McElement, McFace, McFaceAngle, McFaceing, McRotation } from './type';
+import {
+  McElement,
+  McFace,
+  McFaceAngle,
+  McFaceing,
+  McRotation,
+} from './mcreource/model';
 
 /** 面の回転を表す行列 */
 function faceRotMatrix(angle: McFaceAngle): Matrix<3, 3> {
