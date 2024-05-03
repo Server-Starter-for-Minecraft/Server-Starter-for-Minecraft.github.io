@@ -3,36 +3,12 @@ import { useSystemStore } from 'src/stores/SystemStore';
 
 interface Prop {
   osName: 'windows' | 'mac' | 'linux';
+  fileName: (version: string) => string;
   disable?: boolean;
 }
-const prop = defineProps<Prop>();
+defineProps<Prop>();
+
 const sysStore = useSystemStore();
-
-function getFileName() {
-  switch (prop.osName) {
-    case 'windows':
-      return `ServerStarter-${sysStore.latestProductVersion}.msi`;
-    case 'mac':
-      return `ServerStarter-${sysStore.latestProductVersion}.pkg`;
-    case 'linux':
-      return '';
-    default:
-      break;
-  }
-}
-
-function getOSName() {
-  switch (prop.osName) {
-    case 'windows':
-      return 'Windows';
-    case 'mac':
-      return 'Mac OS';
-    case 'linux':
-      return 'Linux';
-    default:
-      break;
-  }
-}
 </script>
 
 <template>
@@ -42,14 +18,18 @@ function getOSName() {
     :disable="disable || sysStore.latestProductVersion === ''"
     text-color="primary"
     padding="md"
-    :href="`https://github.com/Server-Starter-for-Minecraft/ServerStarter2/releases/latest/download/${getFileName()}`"
+    :href="`https://github.com/Server-Starter-for-Minecraft/ServerStarter2/releases/latest/download/${fileName(
+      sysStore.latestProductVersion
+    )}`"
     class="dBtn"
   >
     <div class="row items-center q-gutter-md">
       <svg class="osLogo">
         <use :xlink:href="`/assets/OS/${osName}.svg#osLogo`" />
       </svg>
-      <div class="download text-desc">{{ getOSName() }}版をダウンロード</div>
+      <div class="download text-desc">
+        {{ $t(`home.download_btn.${osName}`) }}
+      </div>
     </div>
   </q-btn>
 </template>
