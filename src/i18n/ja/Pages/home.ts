@@ -24,5 +24,5 @@ export const jaHome = {
         'Forgeをベースとしつつ、MODとプラグインの両者を導入可能としたサーバー。',
       fabric: 'MODの前提サーバー。\nForgeとは別のシステムとなっている。',
     },
-  }
-}
+  },
+};

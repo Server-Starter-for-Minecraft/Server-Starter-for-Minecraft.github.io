@@ -16,7 +16,8 @@ export const enHome: MessageSchema['home'] = {
       fabric: 'Fabric',
     },
     serverDescription: {
-      vanilla: 'Official Minecraft server. \nProvides standard multiplay server.',
+      vanilla:
+        'Official Minecraft server. \nProvides standard multiplay server.',
       spigot: 'Typical third party server. \nAllows plugins to be installed.',
       papermc: 'A server that makes Spigot run more lightly.',
       forge: 'Most common servers that the base for mods.',
@@ -25,5 +26,5 @@ export const enHome: MessageSchema['home'] = {
       fabric:
         'The server that the base for mods, which is a different system from Forge.',
     },
-  }
+  },
 };
