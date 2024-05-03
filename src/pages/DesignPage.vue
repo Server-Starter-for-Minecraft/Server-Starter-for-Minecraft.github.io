@@ -12,6 +12,16 @@ import ssError from 'src/components/utils/base/expands/ssError.vue';
 import ssInfo from 'src/components/utils/base/expands/ssInfo.vue';
 import SsImg from 'src/components/utils/base/SsImg.vue';
 import SsCard from 'src/components/utils/base/ssCard.vue';
+import McModel from 'src/components/utils/blocks/McModel.vue';
+
+import acacia_slab from 'src/mcmodel/minecraft/mcmodels/block/acacia_slab.json';
+import stone from 'src/mcmodel/minecraft/mcmodels/block/stone.json';
+import brewing_stand_bottle0 from 'src/mcmodel/minecraft/mcmodels/block/brewing_stand_bottle0.json';
+import slime_block from 'src/mcmodel/minecraft/mcmodels/block/slime_block.json';
+import lantern_hanging from 'src/mcmodel/minecraft/mcmodels/block/lantern_hanging.json';
+import lectern from 'src/mcmodel/minecraft/mcmodels/block/lectern.json';
+import lily_of_the_valley from 'src/mcmodel/minecraft/mcmodels/block/lily_of_the_valley.json';
+import campfire from 'src/mcmodel/minecraft/mcmodels/block/campfire.json';
 
 const $q = useQuasar();
 
@@ -34,6 +44,17 @@ const colorThemes: () => { name: string; hexCode: string }[] = () => [
   { name: 'エラー', hexCode: getCssVar('negative') ?? 'Not Found' },
   { name: '警告', hexCode: getCssVar('warning') ?? 'Not Found' },
   { name: 'お知らせ', hexCode: getCssVar('info') ?? 'Not Found' },
+];
+
+const models = [
+  acacia_slab,
+  stone,
+  brewing_stand_bottle0,
+  slime_block,
+  lantern_hanging,
+  lectern,
+  lily_of_the_valley,
+  campfire,
 ];
 
 function rgbToHex(col: string) {
@@ -76,7 +97,7 @@ function rgbToHex(col: string) {
 
     <div>
       <ssSubTitle>Fonts</ssSubTitle>
-  
+
       <ssTitle>Server Starter for Minecraftとは？</ssTitle>
       <ssSubTitle>マルチプレイをだれでも簡単に！！</ssSubTitle>
       <p><span class="text-desc">本文ではない補足情報</span></p>
@@ -93,7 +114,7 @@ function rgbToHex(col: string) {
           <div class="q-my-md custom-break">
             ServerStarterで新しいワールドを作り，<wbr>みんなで冒険しましょう！
           </div>
-  
+
           <template #actions>
             <ssRouterBtn to="test">test</ssRouterBtn>
           </template>
@@ -153,6 +174,21 @@ function rgbToHex(col: string) {
     <div>
       <ssSubTitle>Image</ssSubTitle>
       <SsImg path="https://cdn.quasar.dev/img/parallax2.jpg" width="20rem" />
+    </div>
+
+    <div>
+      <ssSubTitle>3D models</ssSubTitle>
+      <div class="row q-gutter-md">
+        <McModel
+          v-for="(model, i) in models"
+          :duration="4"
+          :paused="false"
+          :faces="model"
+          :key="i"
+          class="col"
+          style="min-width: 10rem;"
+        />
+      </div>
     </div>
   </div>
 </template>
