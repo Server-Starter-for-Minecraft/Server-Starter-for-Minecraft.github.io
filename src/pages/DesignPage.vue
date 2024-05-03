@@ -108,11 +108,11 @@ function rgbToHex(col: string) {
 
     <div>
       <ssSubTitle>Cards</ssSubTitle>
-      <div class="q-ma-md" style="max-width: 20rem;">
+      <div class="q-ma-md" style="max-width: 20rem">
         <SsCard line-color="primary">
           <ssSubTitle>ワールドをすぐに作成</ssSubTitle>
           <div class="q-my-md custom-break">
-            ServerStarterで新しいワールドを作り，<wbr>みんなで冒険しましょう！
+            ServerStarterで新しいワールドを作り，<wbr />みんなで冒険しましょう！
           </div>
 
           <template #actions>
@@ -186,7 +186,7 @@ function rgbToHex(col: string) {
           :faces="model"
           :key="i"
           class="col"
-          style="min-width: 10rem;"
+          style="min-width: 10rem"
         />
       </div>
     </div>
