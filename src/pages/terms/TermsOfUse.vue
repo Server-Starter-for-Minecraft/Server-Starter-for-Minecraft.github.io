@@ -283,7 +283,7 @@ import IndentLine from 'src/components/utils/blocks/IndentLine.vue';
       ２０２１年８月１９日　　　施行
     </div>
     <div class="full-width text-right text-desc">
-      ２０２４年４月３０日　最終改訂
+      ２０２４年５月５日　　最終改訂
     </div>
   </div>
 </template>

@@ -122,18 +122,5 @@ import LogoCard from 'src/components/Pages/Terms/LogoCard.vue';
     </ol>
   </div>
 
-  <div class="full-width text-right text-desc">２０２４年４月３０日　施行</div>
-
-  <!-- <q-separator inset class="q-my-lg"/>
-
-    <h1>ロゴのダウンロード</h1>
-    <div class="row justify-center">
-      <q-card class="q-pa-md" style="width: min(80%, 400px);">
-        <q-img src="@/assets/logo/footer_black.svg"/>
-
-        <q-card-actions align="center" class="q-pt-xl">
-          <q-btn label="ダウンロード" color="primary" size="1.5rem" href="/download/斜向ロゴ.zip"/>
-        </q-card-actions>
-      </q-card>      
-    </div> -->
+  <div class="full-width text-right text-desc">２０２４年５月５日　施行</div>
 </template>

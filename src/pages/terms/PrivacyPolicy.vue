@@ -150,5 +150,5 @@ import IndentLine from 'src/components/utils/blocks/IndentLine.vue';
     </p>
   </div>
 
-  <div class="full-width text-right text-desc">２０２４年４月３０日　施行</div>
+  <div class="full-width text-right text-desc">２０２４年５月５日　施行</div>
 </template>
