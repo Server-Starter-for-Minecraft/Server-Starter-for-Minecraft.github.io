@@ -49,7 +49,7 @@ export async function resolveMcModel(
 
   /** ファイルからモデルを読み込み */
   const model: McModel = JSON.parse(
-    await fs.readFile(path + '.json', { encoding: 'utf8' })
+    await fs.readFile(path, { encoding: 'utf8' })
   );
 
   /** 変数埋め込み済みの model.textures */
@@ -62,8 +62,6 @@ export async function resolveMcModel(
     ),
     ...textures,
   };
-  console.log(embeddedTextures);
-
   // ここに親のElementと子のElementを統合する
   const elements: McElement[] = [];
 

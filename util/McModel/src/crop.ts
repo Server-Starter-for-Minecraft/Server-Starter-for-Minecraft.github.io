@@ -66,7 +66,7 @@ export async function crop(
 
   const tgtfile = `${fileLocation.namespace}/textures/${fileLocation.path}.${tgtfilenameSuffix}.webp`;
 
-  const targetPath = `${fileLocation.namespace}/${tgtfile}`;
+  const targetPath = `./public/assets/McModel/${tgtfile}`;
 
   if (animationMeta !== undefined) {
     await cropAnimation(uv, sourcePath, animationMeta, targetPath);
@@ -108,25 +108,29 @@ async function cropAnimation(
 
   const webpframes: Frame[] = [];
 
+  const area = {
+    left: uv[0],
+    top: uv[1],
+    width: uv[2] - uv[0],
+    height: uv[3] - uv[1],
+  };
+
   for (const { image, time } of frames) {
-    const buf = await image
-      .extract({
-        left: uv[0],
-        top: uv[1],
-        width: uv[2] - uv[0],
-        height: uv[3] - uv[1],
-      })
-      .toFormat('webp')
-      .toBuffer();
+    const buf = await image.extract(area).toFormat('webp').toBuffer();
 
     const frame = await Image.generateFrame({
       buffer: buf,
       delay: time * 50,
+      blend: false,
+      dispose: true,
     });
     webpframes.push(frame);
   }
 
   await Image.save(targetPath, {
+    bgColor: [0, 0, 0, 0],
     frames: webpframes,
+    width: area.width,
+    height: area.height,
   });
 }

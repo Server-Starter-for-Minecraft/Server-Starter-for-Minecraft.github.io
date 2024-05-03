@@ -57,10 +57,10 @@ export class TextureAnimation {
     if (height === undefined) throw new Error('assertion');
 
     const splitWidth = meta.width ?? width;
-    const splitHeight = meta.height ?? height;
+    const splitHeight = meta.height ?? splitWidth;
 
-    if (width % splitWidth === 0) throw new Error('assertion');
-    if (height % splitHeight === 0) throw new Error('assertion');
+    if (width % splitWidth !== 0) throw new Error('assertion');
+    if (height % splitHeight !== 0) throw new Error('assertion');
 
     const frametime = meta.frametime ?? 1;
     const interpolate = meta.interpolate ?? false;
@@ -74,10 +74,11 @@ export class TextureAnimation {
         .map((_, x) => ({ index: x, time: frametime }));
 
     const images: Sharp[] = [];
+
     for (let top = 0; top < height; top += splitHeight) {
       for (let left = 0; left < width; left += splitWidth) {
         images.push(
-          image.extract({
+          image.clone().extract({
             height: splitHeight,
             width: splitWidth,
             top,
@@ -111,7 +112,6 @@ export class TextureAnimation {
     this.frames = frames;
     this.interpolate = interpolate;
     this.metadata = metadata;
-    images[0].ensureAlpha().raw().toBuffer();
   }
 
   async interpolateImage(before: Sharp, after: Sharp, t: number) {

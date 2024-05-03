@@ -20,7 +20,6 @@ function faceRotMatrix(angle: McFaceAngle): Matrix<3, 3> {
 
 /** テクスチャと切り取り領域の関係を表す行列 */
 function faceMatrix(face: McFace) {
-  console.log('FACE', face);
   const [a, b, c, d] = face.uv ?? [0, 0, 16, 16];
   const uv: [number, number, number, number] = [a, b, c, d];
 
