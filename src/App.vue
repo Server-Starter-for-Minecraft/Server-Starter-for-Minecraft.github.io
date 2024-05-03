@@ -24,7 +24,7 @@ const models = [
   lantern_hanging,
   lectern,
   lily_of_the_valley,
-  campfire
+  campfire,
 ];
 
 const $q = useQuasar();

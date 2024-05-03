@@ -4,7 +4,7 @@ export type TextureMetaFrame = {
 };
 
 export type TextureMeta = {
-  animation?: TextureMetaAnimation
+  animation?: TextureMetaAnimation;
 };
 
 export type TextureMetaAnimation = {
