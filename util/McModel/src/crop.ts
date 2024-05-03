@@ -1,10 +1,12 @@
 import sharp from 'sharp';
-import { Image } from 'node-webpmux';
+import { Frame, Image } from 'node-webpmux';
 import {
   ResourceLocation,
   ResourceLocator,
 } from './mcreource/resourceLocation';
 import { Path } from './util/path';
+import { TextureMeta, TextureMetaAnimation } from './mcreource/texture';
+import { TextureAnimation } from './texture';
 
 const hex = (val: number) =>
   [
@@ -52,7 +54,9 @@ export async function crop(
     fileLocation
   );
 
-  const isAnimation = srcMemetaPath.exists();
+  const animationMeta = srcMemetaPath.exists()
+    ? (await srcMemetaPath.readJson<TextureMeta>()).animation
+    : undefined;
 
   const tgtfilenameSuffix = uv.map(Math.floor).map(hex).join('');
 
@@ -60,10 +64,10 @@ export async function crop(
 
   const targetPath = targetBasePath.child(tgtfile);
 
-  if (isAnimation) {
-    await cropAnimation(uv, sourcePath, srcMemetaPath, targetPath);
+  if (animationMeta !== undefined) {
+    await cropAnimation(uv, sourcePath, animationMeta, targetPath);
   } else {
-    cropStatic(uv, sourcePath, targetPath);
+    await cropStatic(uv, sourcePath, targetPath);
   }
 
   return tgtfile;
@@ -90,33 +94,35 @@ async function cropStatic(
 async function cropAnimation(
   uv: [number, number, number, number],
   sourcePath: Path,
-  sourceMcmetaPath: Path,
+  meta: TextureMetaAnimation,
   targetPath: Path
 ) {
   const image = sharp(sourcePath.str()); // トリミング
 
-  const buffer = await image
-    .extract({
-      left: uv[0],
-      top: uv[1],
-      width: uv[2] - uv[0],
-      height: uv[3] - uv[1],
-    })
-    .toBuffer();
+  const anim = await TextureAnimation.load(image, meta);
+  const frames = await anim.flatten();
 
-  const frame = await Image.generateFrame({ buffer });
+  const webpframes: Frame[] = [];
+
+  for (const { image, time } of frames) {
+    const buf = await image
+      .extract({
+        left: uv[0],
+        top: uv[1],
+        width: uv[2] - uv[0],
+        height: uv[3] - uv[1],
+      })
+      .toFormat('webp')
+      .toBuffer();
+
+    const frame = await Image.generateFrame({
+      buffer: buf,
+      delay: time * 50,
+    });
+    webpframes.push(frame);
+  }
 
   await Image.save(targetPath.str(), {
-    frames: [frame],
+    frames: webpframes,
   });
-
-  await image
-    .extract({
-      left: uv[0],
-      top: uv[1],
-      width: uv[2] - uv[0],
-      height: uv[3] - uv[1],
-    })
-    .toFormat('webp', { lossless: true })
-    .toFile(targetPath.str());
 }

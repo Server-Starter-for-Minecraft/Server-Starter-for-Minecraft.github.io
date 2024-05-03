@@ -3,7 +3,11 @@ import { crop } from './crop';
 import { Matrix } from './matrix';
 import { ModelFace, resolveModelFaces } from './convert';
 import { resolveMcModel } from './resolve';
-import { ResourceLocation } from './mcreource/resourceLocation';
+import {
+  ResourceLocation,
+  ResourceLocator,
+} from './mcreource/resourceLocation';
+import { Path } from './util/path';
 
 const scale = 64;
 
@@ -15,8 +19,8 @@ const scale = 64;
  */
 async function modelFaceToModelProp(
   face: ModelFace,
-  sourceBasePath: string,
-  targetBasePath: string
+  sourceLocator: ResourceLocator,
+  targetBasePath: Path
 ) {
   //Faceの行列をcssのmatrix3dの値に変換
   const matrix3d = Matrix.scale(4, [-1 / 16, -1 / 16, -1 / 16])
@@ -30,7 +34,7 @@ async function modelFaceToModelProp(
   const texture = await crop(
     new ResourceLocation(face.texture),
     face.uv,
-    sourceBasePath,
+    sourceLocator,
     targetBasePath
   );
 
@@ -57,10 +61,10 @@ async function modelFaceToModelProp(
 }
 
 export async function convertModelProps(modelLocation: ResourceLocation) {
-  const elements = await resolveMcModel(modelLocation, srcBasePath);
+  const elements = await resolveMcModel(modelLocation, srcLocator);
   const faces = await Promise.all(
     resolveModelFaces(elements).map((x) =>
-      modelFaceToModelProp(x, srcBasePath, tgtBasePath)
+      modelFaceToModelProp(x, srcLocator, tgtBasePath)
     )
   );
 
@@ -68,8 +72,8 @@ export async function convertModelProps(modelLocation: ResourceLocation) {
   await fs.writeFile(mcmodelData, JSON.stringify(faces));
 }
 
-const srcBasePath = './util/McModel/assets';
-const tgtBasePath = './public/assets/McModel';
+const srcLocator = new ResourceLocator(new Path('./util/McModel/assets'));
+const tgtBasePath = new Path('./public/assets/McModel');
 
 export async function run(models: string[]) {
   await Promise.all(

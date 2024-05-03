@@ -1,6 +1,9 @@
 import { promises as fs } from 'fs';
 import { McElement, McFaces, McModel, McTextures } from './mcreource/model';
-import { ResourceLocation } from './mcreource/resourceLocation';
+import {
+  ResourceLocation,
+  ResourceLocator,
+} from './mcreource/resourceLocation';
 
 /**
  * texture が # で始まる場合 texturesの中から該当する値を抜き出す。
@@ -39,10 +42,10 @@ function resolveElement(element: McElement, textures: McTextures): McElement {
  */
 export async function resolveMcModel(
   modelLocation: ResourceLocation,
-  sourceBasePath: string,
+  sourceLocator: ResourceLocator,
   textures: McTextures = {}
 ): Promise<McElement[]> {
-  const path = `${sourceBasePath}/${modelLocation.namespace}/models/${modelLocation.path}`;
+  const path = sourceLocator.getPath('models', modelLocation);
 
   /** ファイルからモデルを読み込み */
   const model: McModel = JSON.parse(
@@ -68,7 +71,7 @@ export async function resolveMcModel(
   if (model.parent) {
     const parentElements = await resolveMcModel(
       new ResourceLocation(model.parent),
-      sourceBasePath,
+      sourceLocator,
       embeddedTextures
     );
     elements.push(...(parentElements ?? []));

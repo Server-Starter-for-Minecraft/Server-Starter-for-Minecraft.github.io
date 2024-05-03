@@ -479,9 +479,9 @@ declare module 'node-webpmux' {
   };
 
   type GenerateFrameOptions = {
-    x: undefined;
-    y: undefined;
-    delay: undefined;
+    x: number;
+    y: number;
+    delay: number;
     blend: undefined;
     dispose: undefined;
   } & (

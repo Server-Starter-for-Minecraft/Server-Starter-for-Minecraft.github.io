@@ -145,7 +145,7 @@ export class TextureAnimation {
       if (frame.time === 1) {
         const image = this.rawImages[frame.index];
         frames.push({ image, time: 1 });
-        return;
+        continue;
       }
       const nextFrame = this.frames[index + 1] ?? this.frames[0];
 

@@ -43,9 +43,9 @@ export class ResourceLocator<
   /**
    * @param basePath assets,dataの親ディレクトリのパス
    */
-  constructor(basePath: Path, resourceInfo: T = resourceTypeMap) {
+  constructor(basePath: Path, resourceInfo?: T) {
     this.basePath = basePath;
-    this.resourceInfo = resourceInfo;
+    this.resourceInfo = resourceInfo ?? (resourceTypeMap as unknown as T);
   }
 
   getPath(type: keyof T, resourceLocation: ResourceLocation) {
