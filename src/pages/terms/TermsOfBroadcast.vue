@@ -29,7 +29,7 @@ import LogoCard from 'src/components/Pages/Terms/LogoCard.vue';
     />
     <LogoCard
       text-key="withText"
-      img-path="/icons/systemLogo.svg"
+      img-path="/icons/systemLogo_text.svg"
       link="https://drive.google.com/drive/folders/1gGlbQKx5TsdtmUz0qeA-DP8lu16bUTSf?usp=sharing"
       class="col"
     />
@@ -57,7 +57,7 @@ import LogoCard from 'src/components/Pages/Terms/LogoCard.vue';
     <SsSubTitle>第２条（配信手法）</SsSubTitle>
     <ol>
       <li>
-        プロジェクト成果品の映像や画像等を配信等する際に利用する共有サイトは、本団体が適切であると考えるものに限ります（例：YouTube、Twitter等）。
+        プロジェクト成果品の映像や画像等を配信等する際に利用する共有サイトは、本団体が適切であると考えるものに限ります（例：YouTube、X (旧 Twitter) 等）。
       </li>
       <li>
         前項に規定する共有サイトへの配信であっても、本団体がその内容が不適切であると判断した配信等については、削除することがあります。

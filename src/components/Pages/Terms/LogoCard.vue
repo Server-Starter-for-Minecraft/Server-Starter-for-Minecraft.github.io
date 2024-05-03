@@ -21,7 +21,9 @@ function openLink() {
 
     <q-card-section class="row q-pa-lg q-gutter-lg justify-center items-center">
       <div class="flex" style="width: 7rem">
-        <q-img :src="imgPath" />
+        <svg :style="{ fill: $q.dark.isActive ? 'white' : 'black' }">
+          <use :xlink:href="`${imgPath}#logo`" />
+        </svg>
       </div>
 
       <q-card-section

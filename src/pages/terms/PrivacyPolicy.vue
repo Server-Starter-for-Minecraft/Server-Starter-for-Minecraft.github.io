@@ -144,7 +144,7 @@ import IndentLine from 'src/components/utils/blocks/IndentLine.vue';
     <p>
       このプライバシーポリシー並びに収集データに関するお問い合わせは
       <SsA url="https://twitter.com/CivilT_T">
-        制作者CivilTTのTwitterアカウント
+        制作者CivilTTのX (旧 Twitter)アカウント
       </SsA>
       にお願いいたします．
     </p>
