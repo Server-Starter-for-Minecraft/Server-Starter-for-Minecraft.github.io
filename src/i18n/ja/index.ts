@@ -1,9 +1,9 @@
 import { jaGeneral } from './Other/general';
 import { jaLayout } from './Pages/layout';
-import { jaServerList } from './Pages/serverList';
+import { jaHome } from './Pages/home';
 
 export const ja = {
   general: jaGeneral,
   layout: jaLayout,
-  serverList: jaServerList,
+  home: jaHome,
 };
