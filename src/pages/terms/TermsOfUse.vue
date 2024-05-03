@@ -261,7 +261,7 @@ import IndentLine from 'src/components/utils/blocks/IndentLine.vue';
     <SsSubTitle>第１２条（作者への連絡方法）</SsSubTitle>
     <p>
       本ソフトウェアに関する利用者の作者へのご連絡・お問い合わせは、作者の
-      <SsA url="https://twitter.com/CivilT_T">Twitterアカウント</SsA>
+      <SsA url="https://twitter.com/CivilT_T">X (旧 Twitter)アカウント</SsA>
       に対するダイレクトメッセージまたは作者が別途指定する方法により行うものとします。
     </p>
   </div>
