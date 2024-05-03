@@ -4,9 +4,9 @@ import {
   ResourceLocation,
   ResourceLocator,
 } from './mcreource/resourceLocation';
-import { Path } from './util/path';
 import { TextureMeta, TextureMetaAnimation } from './mcreource/texture';
 import { TextureAnimation } from './texture';
+import { existsSync, promises } from 'fs';
 
 const hex = (val: number) =>
   [
@@ -45,7 +45,7 @@ export async function crop(
   fileLocation: ResourceLocation,
   uv: [number, number, number, number],
   sourceResourceLocator: ResourceLocator,
-  targetBasePath: Path
+  targetBasePath: string
 ) {
   const sourcePath = sourceResourceLocator.getPath('texture', fileLocation);
 
@@ -54,15 +54,19 @@ export async function crop(
     fileLocation
   );
 
-  const animationMeta = srcMemetaPath.exists()
-    ? (await srcMemetaPath.readJson<TextureMeta>()).animation
+  const animationMeta = existsSync(srcMemetaPath)
+    ? (
+        JSON.parse(
+          await promises.readFile(srcMemetaPath, { encoding: 'utf8' })
+        ) as TextureMeta
+      ).animation
     : undefined;
 
   const tgtfilenameSuffix = uv.map(Math.floor).map(hex).join('');
 
   const tgtfile = `${fileLocation.namespace}/textures/${fileLocation.path}.${tgtfilenameSuffix}.webp`;
 
-  const targetPath = targetBasePath.child(tgtfile);
+  const targetPath = `${fileLocation.namespace}/${tgtfile}`;
 
   if (animationMeta !== undefined) {
     await cropAnimation(uv, sourcePath, animationMeta, targetPath);
@@ -75,10 +79,10 @@ export async function crop(
 
 async function cropStatic(
   uv: [number, number, number, number],
-  sourcePath: Path,
-  targetPath: Path
+  sourcePath: string,
+  targetPath: string
 ) {
-  const image = sharp(sourcePath.str()); // トリミング
+  const image = sharp(sourcePath); // トリミング
 
   await image
     .extract({
@@ -88,16 +92,16 @@ async function cropStatic(
       height: uv[3] - uv[1],
     })
     .toFormat('webp', { lossless: true })
-    .toFile(targetPath.str());
+    .toFile(targetPath);
 }
 
 async function cropAnimation(
   uv: [number, number, number, number],
-  sourcePath: Path,
+  sourcePath: string,
   meta: TextureMetaAnimation,
-  targetPath: Path
+  targetPath: string
 ) {
-  const image = sharp(sourcePath.str()); // トリミング
+  const image = sharp(sourcePath); // トリミング
 
   const anim = await TextureAnimation.load(image, meta);
   const frames = await anim.flatten();
@@ -122,7 +126,7 @@ async function cropAnimation(
     webpframes.push(frame);
   }
 
-  await Image.save(targetPath.str(), {
+  await Image.save(targetPath, {
     frames: webpframes,
   });
 }

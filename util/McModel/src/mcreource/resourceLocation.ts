@@ -1,5 +1,3 @@
-import { Path } from '../util/path';
-
 export class ResourceLocation {
   readonly namespace: string;
   readonly path: string;
@@ -37,22 +35,19 @@ const resourceTypeMap = {
 export class ResourceLocator<
   T extends Record<string, ResourceInfo> = typeof resourceTypeMap
 > {
-  readonly basePath: Path;
+  readonly basePath: string;
   readonly resourceInfo: T;
 
   /**
    * @param basePath assets,dataの親ディレクトリのパス
    */
-  constructor(basePath: Path, resourceInfo?: T) {
+  constructor(basePath: string, resourceInfo?: T) {
     this.basePath = basePath;
     this.resourceInfo = resourceInfo ?? (resourceTypeMap as unknown as T);
   }
 
   getPath(type: keyof T, resourceLocation: ResourceLocation) {
     const { dir, ext } = this.resourceInfo[type];
-    return this.basePath
-      .child(`${resourceLocation.namespace}`)
-      .child(dir)
-      .child(`${resourceLocation.path}${ext}`);
+    return `${this.basePath}/${resourceLocation.namespace}/${dir}/${resourceLocation.path}${ext}`;
   }
 }

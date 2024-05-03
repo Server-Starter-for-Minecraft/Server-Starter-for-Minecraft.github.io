@@ -7,7 +7,6 @@ import {
   ResourceLocation,
   ResourceLocator,
 } from './mcreource/resourceLocation';
-import { Path } from './util/path';
 
 const scale = 64;
 
@@ -20,7 +19,7 @@ const scale = 64;
 async function modelFaceToModelProp(
   face: ModelFace,
   sourceLocator: ResourceLocator,
-  targetBasePath: Path
+  targetBasePath: string
 ) {
   //Faceの行列をcssのmatrix3dの値に変換
   const matrix3d = Matrix.scale(4, [-1 / 16, -1 / 16, -1 / 16])
@@ -72,8 +71,8 @@ export async function convertModelProps(modelLocation: ResourceLocation) {
   await fs.writeFile(mcmodelData, JSON.stringify(faces));
 }
 
-const srcLocator = new ResourceLocator(new Path('./util/McModel/assets'));
-const tgtBasePath = new Path('./public/assets/McModel');
+const srcLocator = new ResourceLocator('./util/McModel/assets');
+const tgtBasePath = './public/assets/McModel';
 
 export async function run(models: string[]) {
   await Promise.all(

@@ -8,6 +8,7 @@ import {
   TextureMetaAnimation,
   TextureMetaFrame,
 } from './mcreource/texture';
+import { existsSync, promises } from 'fs';
 
 export class Texture {
   image: Sharp;
@@ -16,13 +17,13 @@ export class Texture {
   static async load(location: ResourceLocation, locator: ResourceLocator) {
     const texturePath = locator.getPath('texture', location);
     const textureMcmetaPath = locator.getPath('texture.mcmeta', location);
-    const meta = textureMcmetaPath.exists()
-      ? await textureMcmetaPath.readJson<TextureMeta>()
+    const meta = existsSync(textureMcmetaPath)
+      ? (JSON.parse(
+          await promises.readFile(textureMcmetaPath, { encoding: 'utf8' })
+        ) as TextureMeta)
       : undefined;
 
-    const image = sharp(texturePath.str());
-    await texturePath.read();
-
+    const image = sharp(texturePath);
     return new Texture(image, meta);
   }
 
