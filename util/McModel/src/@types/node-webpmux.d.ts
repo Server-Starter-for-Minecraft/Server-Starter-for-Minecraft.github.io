@@ -91,8 +91,8 @@ declare module 'node-webpmux' {
   };
 
   type SaveOptions = {
-    width: string;
-    height: string;
+    width: number;
+    height: number;
     frames: Frame[];
     bgColor: Color;
     loops: number;
@@ -482,8 +482,8 @@ declare module 'node-webpmux' {
     x: number;
     y: number;
     delay: number;
-    blend: undefined;
-    dispose: undefined;
+    blend: boolean;
+    dispose: boolean;
   } & (
     | {
         path: string;
