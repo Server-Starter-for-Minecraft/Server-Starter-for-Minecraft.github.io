@@ -22,9 +22,9 @@ import LinuxBtn from 'src/components/Pages/HOME/core/btns/LinuxBtn.vue';
     <p>インストールボタンを押してインストーラーをダウンロードしましょう！</p>
     <p>うまくいかない場合は「インストールの詳細」をご確認ください</p>
     <div class="row q-gutter-md">
-    <WindowsBtn/>
-    <MacBtn/>
-    <LinuxBtn/>
+      <WindowsBtn />
+      <MacBtn />
+      <LinuxBtn />
     </div>
     <SsRouterBtn to="/intro/install" class="q-mt-lg"
       >インストールの詳細</SsRouterBtn
