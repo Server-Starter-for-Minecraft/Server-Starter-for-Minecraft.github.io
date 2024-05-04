@@ -5,7 +5,11 @@ defineProps<OsProp>();
 </script>
 
 <template>
-  <DownloadBtn :dark="dark" osName="mac" :file-name="(v) => `ServerStarter-${v}.pkg`" />
+  <DownloadBtn
+    :dark="dark"
+    osName="mac"
+    :file-name="(v) => `ServerStarter-${v}.pkg`"
+  />
 </template>
 
 <style scoped lang="scss"></style>

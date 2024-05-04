@@ -9,9 +9,9 @@ import LinuxBtn from './core/btns/LinuxBtn.vue';
 
 <template>
   <div class="column q-gutter-md">
-    <WindowsBtn v-if="isWindows()" dark/>
-    <MacBtn v-else-if="isMac()" dark/>
-    <LinuxBtn v-else-if="isLinux()" dark/>
+    <WindowsBtn v-if="isWindows()" dark />
+    <MacBtn v-else-if="isMac()" dark />
+    <LinuxBtn v-else-if="isLinux()" dark />
     <SsStrong v-else class="q-my-md text-desc" style="font-size: 1rem">
       本ソフトはPCにてご利用下さい！
     </SsStrong>

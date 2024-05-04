@@ -6,4 +6,4 @@ export type BtnProp = {
 
 export type OsProp = {
   dark?: boolean;
-}
+};

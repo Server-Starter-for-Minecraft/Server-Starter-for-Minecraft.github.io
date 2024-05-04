@@ -2,9 +2,11 @@
 import { useSystemStore } from 'src/stores/SystemStore';
 import { BtnProp } from './iBtn';
 
-defineProps<BtnProp & {
-  fileName: (version: string) => string;
-}>();
+defineProps<
+  BtnProp & {
+    fileName: (version: string) => string;
+  }
+>();
 
 const sysStore = useSystemStore();
 </script>
