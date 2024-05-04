@@ -1,40 +1,28 @@
 <script setup lang="ts">
-import { ref, onUnmounted, onMounted } from 'vue';
+import { ref } from 'vue';
 import type { ModelFaces } from '../../../../util/McModel/src/convert';
 
 export interface Props {
   duration: number /** 一回転するまでの秒数 */;
   paused: boolean /** アニメーション一時停止状態 */;
-  faces: ModelFaces /** アニメーション一時停止状態 */;
+  faces: ModelFaces /** util/Mcmodelを使用して出力したモデルの情報 */;
 }
 defineProps<Props>();
-
-const mounted = ref(false);
-
-const container = ref();
+const container = ref<HTMLDivElement>();
 const size = ref(0);
-
-const updateSize = () => {
-  const width = container.value?.clientWidth;
-  const height = container.value?.clientHeight;
+const onResize = () => {
+  const width = container.value?.clientWidth ?? 0;
+  const height = container.value?.clientHeight ?? 0;
   size.value = Math.min(width, height);
 };
-
-onMounted(() => {
-  updateSize();
-  mounted.value = true;
-});
-
-addEventListener('resize', updateSize);
-onUnmounted(() => removeEventListener('resize', updateSize));
 </script>
 
 <template>
   <div class="container" ref="container">
     <q-intersection :margin="`${size * 0.4}px`">
+      <q-resize-observer @resize="onResize" />
       <div class="wrap">
         <div
-          v-if="mounted"
           class="viewport"
           :style="`transform: scale3d(${size * 0.65}, ${size * 0.65}, ${
             size * 0.65
@@ -95,7 +83,6 @@ onUnmounted(() => removeEventListener('resize', updateSize));
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: #fff;
 }
 
 .wrap {
