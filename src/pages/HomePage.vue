@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import DownloadView from 'src/components/Pages/HOME/DownloadView.vue';
-import ProductIntro from 'src/components/Pages/HOME/ProductIntro.vue';
+import ProductIntroView from 'src/components/Pages/HOME/ProductIntroView.vue';
 import TitleView from 'src/components/Pages/HOME/TitleView.vue';
+import MultiPlayView from 'src/components/Pages/HOME/MultiPlayView.vue';
+import ImportWorldView from 'src/components/Pages/HOME/ImportWorldView.vue';
+import ServersView from 'src/components/Pages/HOME/ServersView.vue';
+import PortMappingView from 'src/components/Pages/HOME/PortMappingView.vue';
+import SummaryView from 'src/components/Pages/HOME/SummaryView.vue';
 </script>
 
 <template>
@@ -23,8 +28,12 @@ import TitleView from 'src/components/Pages/HOME/TitleView.vue';
     <q-separator color="primary" size="3px" class="line" />
 
     <div class="mainField">
-      <!-- HOMEのコンテンツを記述 -->
-      <ProductIntro />
+      <ProductIntroView />
+      <MultiPlayView />
+      <ServersView />
+      <PortMappingView />
+      <ImportWorldView />
+      <SummaryView />
     </div>
   </q-page>
 </template>
