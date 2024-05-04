@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { useQuasar } from 'quasar';
 import { useSystemStore } from 'src/stores/SystemStore';
 
 interface Prop {
   osName: 'windows' | 'mac' | 'linux';
   fileName: (version: string) => string;
   disable?: boolean;
-  dark?: boolean;
 }
 defineProps<Prop>();
 
@@ -18,6 +16,7 @@ const sysStore = useSystemStore();
     outline
     :loading="sysStore.latestProductVersion === ''"
     :disable="disable || sysStore.latestProductVersion === ''"
+    text-color="primary"
     padding="md"
     :href="`https://github.com/Server-Starter-for-Minecraft/ServerStarter2/releases/latest/download/${fileName(
       sysStore.latestProductVersion
@@ -39,23 +38,16 @@ const sysStore = useSystemStore();
 .osLogo {
   width: 2rem;
   height: 2rem;
+  fill: $primary;
 }
 
 .dBtn {
   width: 20rem;
+  background-color: rgba($color: #000000, $alpha: 0.2) !important;
 }
 
 .download {
   text-transform: none;
   font-size: 1rem;
-}
-
-.light {
-  background-color: $primary !important;
-}
-
-.dark {
-  fill: $primary;
-  background-color: rgba($color: #000000, $alpha: 0.2) !important;
 }
 </style>
