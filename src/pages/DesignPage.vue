@@ -14,14 +14,14 @@ import SsImg from 'src/components/utils/base/SsImg.vue';
 import SsCard from 'src/components/utils/base/ssCard.vue';
 import McModel from 'src/components/utils/blocks/McModel.vue';
 
-import { acacia_slab } from 'src/mcmodel/minecraft/mcmodels/block/acacia_slab';
-import { stone } from 'src/mcmodel/minecraft/mcmodels/block/stone';
-import { brewing_stand_bottle0 } from 'src/mcmodel/minecraft/mcmodels/block/brewing_stand_bottle0';
-import { slime_block } from 'src/mcmodel/minecraft/mcmodels/block/slime_block';
-import { lantern_hanging } from 'src/mcmodel/minecraft/mcmodels/block/lantern_hanging';
-import { lectern } from 'src/mcmodel/minecraft/mcmodels/block/lectern';
-import { lily_of_the_valley } from 'src/mcmodel/minecraft/mcmodels/block/lily_of_the_valley';
+import { crafting_table } from 'src/mcmodel/minecraft/mcmodels/block/crafting_table';
 import { campfire } from 'src/mcmodel/minecraft/mcmodels/block/campfire';
+import { grindstone } from 'src/mcmodel/minecraft/mcmodels/block/grindstone';
+import { anvil } from 'src/mcmodel/minecraft/mcmodels/block/anvil';
+import { command_block } from 'src/mcmodel/minecraft/mcmodels/block/command_block';
+import { bookshelf } from 'src/mcmodel/minecraft/mcmodels/block/bookshelf';
+
+import { creeper } from 'src/mcmodel/serverstarter/mcmodels/block/creeper';
 
 const $q = useQuasar();
 
@@ -47,14 +47,13 @@ const colorThemes: () => { name: string; hexCode: string }[] = () => [
 ];
 
 const models = [
-  acacia_slab,
-  stone,
-  brewing_stand_bottle0,
-  slime_block,
-  lantern_hanging,
-  lectern,
-  lily_of_the_valley,
+  crafting_table,
   campfire,
+  creeper,
+  grindstone,
+  anvil,
+  command_block,
+  bookshelf,
 ];
 
 function rgbToHex(col: string) {
