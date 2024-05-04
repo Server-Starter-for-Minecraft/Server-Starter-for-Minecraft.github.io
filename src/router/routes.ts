@@ -75,6 +75,24 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/terms',
     component: () => import('pages/TermsPage.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('pages/terms/TermsPage.vue'),
+      },
+      {
+        path: 'use',
+        component: () => import('pages/terms/TermsOfUse.vue'),
+      },
+      {
+        path: 'privacy',
+        component: () => import('pages/terms/PrivacyPolicy.vue'),
+      },
+      {
+        path: 'broadcast',
+        component: () => import('pages/terms/TermsOfBroadcast.vue'),
+      },
+    ],
   },
 
   // Always leave this as last one,

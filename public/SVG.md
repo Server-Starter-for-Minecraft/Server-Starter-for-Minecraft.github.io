@@ -33,9 +33,7 @@ SVGデータはベクター画像の一種であり，HTMLなどと同じよう�
     width="100%"
     height="100%"
     viewBox="【SVGデータに合わせて記入】"
-    xml:space="preserve"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
   >
   ```
 5. WEBページをリロードし，赤色のSVGデータが表示されていることを確認する
