@@ -19,66 +19,40 @@ const onResize = () => {
 
 <template>
   <div class="container" ref="container">
-    <q-intersection :margin="`${size * 0.4}px`">
-      <q-resize-observer @resize="onResize" />
-      <div class="wrap">
+    <q-resize-observer @resize="onResize" />
+    <div class="wrap">
+      <div
+        class="viewport"
+        :style="`transform: scale3d(${size * 0.65}, ${size * 0.65}, ${
+          size * 0.65
+        }) rotateX(-30deg);`"
+      >
         <div
-          class="viewport"
-          :style="`transform: scale3d(${size * 0.65}, ${size * 0.65}, ${
-            size * 0.65
-          }) rotateX(-30deg);`"
-        >
-          <div
-            class="model"
-            :style="`
+          class="model"
+          :style="`
           animation-duration: ${duration}s;
           animation-play-state: ${paused ? 'paused' : 'running'};
         `"
-          >
-            <img
-              v-for="(face, i) in faces"
-              :key="i"
-              class="face"
-              :src="face.texture"
-              alt=""
-              :style="`
+        >
+          <img
+            v-for="(face, i) in faces"
+            :key="i"
+            class="mcModelFace"
+            :src="face.texture"
+            alt=""
+            :style="`
       transform:matrix3d(${face.matrix3d.join(',')});
       --brightnessBase:${face.brightness.base}%;
       --brightnessAmp:${face.brightness.amp}%;
       animation-duration: ${duration}s;
       animation-delay: ${duration * (face.brightness.phase - 1)}s;`"
-            />
-          </div>
+          />
         </div>
       </div>
-    </q-intersection>
+    </div>
   </div>
 </template>
 <style scoped lang="scss">
-@keyframes turn {
-  0% {
-    transform: rotate3d(0, 1, 0, 18deg);
-  }
-  5% {
-    transform: rotate3d(0, 1, 0, 0deg);
-  }
-  100% {
-    transform: rotate3d(0, 1, 0, -342deg);
-  }
-}
-
-@keyframes light {
-  0% {
-    filter: brightness(calc(var(--brightnessBase) - var(--brightnessAmp)));
-  }
-  50% {
-    filter: brightness(calc(var(--brightnessBase) + var(--brightnessAmp)));
-  }
-  100% {
-    filter: brightness(calc(var(--brightnessBase) - var(--brightnessAmp)));
-  }
-}
-
 .container {
   position: relative;
   width: 100%;
@@ -104,20 +78,45 @@ const onResize = () => {
 
 .model {
   transform-style: preserve-3d;
-  animation-name: turn;
+  animation-name: mcModelTurn;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-
-.face {
+</style>
+<style lang="scss">
+.mcModelFace {
   position: absolute;
-  animation-name: light;
-  animation-timing-function: ease-in-out;
+  animation-name: mcModeLight;
+  animation-timing-function: linear;
   animation-iteration-count: infinite;
   image-rendering: pixelated;
   backface-visibility: hidden;
+  animation-play-state: inherit;
   width: 64px;
   height: 64px;
-  animation-play-state: inherit;
+}
+
+@keyframes mcModelTurn {
+  0% {
+    transform: rotate3d(0, 1, 0, 18deg);
+  }
+  5% {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+  100% {
+    transform: rotate3d(0, 1, 0, -342deg);
+  }
+}
+
+@keyframes mcModeLight {
+  0% {
+    filter: brightness(calc(var(--brightnessBase) - var(--brightnessAmp)));
+  }
+  50% {
+    filter: brightness(calc(var(--brightnessBase) + var(--brightnessAmp)));
+  }
+  100% {
+    filter: brightness(calc(var(--brightnessBase) - var(--brightnessAmp)));
+  }
 }
 </style>
