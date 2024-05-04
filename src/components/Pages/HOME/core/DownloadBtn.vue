@@ -1,12 +1,16 @@
 <script setup lang="ts">
+import { useQuasar } from 'quasar';
 import { useSystemStore } from 'src/stores/SystemStore';
 
 interface Prop {
   osName: 'windows' | 'mac' | 'linux';
   disable?: boolean;
+  dark?: boolean;
 }
 const prop = defineProps<Prop>();
 const sysStore = useSystemStore();
+const $q = useQuasar();
+const isDark = () => $q.dark.isActive;
 
 function getFileName() {
   switch (prop.osName) {
@@ -40,9 +44,10 @@ function getOSName() {
     outline
     :loading="sysStore.latestProductVersion === ''"
     :disable="disable || sysStore.latestProductVersion === ''"
-    text-color="primary"
     padding="md"
     :href="`https://github.com/Server-Starter-for-Minecraft/ServerStarter2/releases/latest/download/${getFileName()}`"
+    :color="dark || isDark() ? 'primary' : ''"
+    :class="dark || isDark() ? 'dark' : 'light'"
     class="dBtn"
   >
     <div class="row items-center q-gutter-md">
@@ -58,16 +63,23 @@ function getOSName() {
 .osLogo {
   width: 2rem;
   height: 2rem;
-  fill: $primary;
 }
 
 .dBtn {
   width: 20rem;
-  background-color: rgba($color: #000000, $alpha: 0.2) !important;
 }
 
 .download {
   text-transform: none;
   font-size: 1rem;
+}
+
+.light {
+  background-color: $primary !important;
+}
+
+.dark {
+  fill: $primary;
+  background-color: rgba($color: #000000, $alpha: 0.2) !important;
 }
 </style>
