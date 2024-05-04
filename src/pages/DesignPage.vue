@@ -78,7 +78,7 @@ function rgbToHex(col: string) {
 
     <div>
       <ssSubTitle>Fonts</ssSubTitle>
-  
+
       <ssTitle>Server Starter for Minecraftとは？</ssTitle>
       <ssSubTitle>マルチプレイをだれでも簡単に！！</ssSubTitle>
       <p><span class="text-desc">本文ではない補足情報</span></p>
@@ -89,13 +89,13 @@ function rgbToHex(col: string) {
 
     <div>
       <ssSubTitle>Cards</ssSubTitle>
-      <div class="q-ma-md" style="max-width: 20rem;">
+      <div class="q-ma-md" style="max-width: 20rem">
         <SsCard line-color="primary">
           <ssSubTitle>ワールドをすぐに作成</ssSubTitle>
           <div class="q-my-md custom-break">
-            ServerStarterで新しいワールドを作り，<wbr>みんなで冒険しましょう！
+            ServerStarterで新しいワールドを作り，<wbr />みんなで冒険しましょう！
           </div>
-  
+
           <template #actions>
             <ssRouterBtn to="test">test</ssRouterBtn>
           </template>
@@ -116,9 +116,9 @@ function rgbToHex(col: string) {
       <div class="q-py-md">
         <p class="text-h6 q-mb-none">DLボタン</p>
         <div class="row q-gutter-md">
-          <WindowsBtn/>
-          <MacBtn/>
-          <LinuxBtn/>
+          <WindowsBtn />
+          <MacBtn />
+          <LinuxBtn />
         </div>
       </div>
       <div class="q-py-md">
