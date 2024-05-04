@@ -10,7 +10,7 @@ const $q = useQuasar();
 const pages: { key: Page; icon: string }[] = [
   { key: 'intro', icon: 'flag' },
   { key: 'features', icon: 'category' },
-  { key: 'q-a', icon: 'help' },
+  // { key: 'q-a', icon: 'help' },
   { key: 'terms', icon: 'gavel' },
 ];
 

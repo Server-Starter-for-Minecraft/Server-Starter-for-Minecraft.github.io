@@ -39,10 +39,38 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/features',
     component: () => import('pages/FeaturesPage.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('pages/features/FeaturesPage.vue'),
+      },
+      {
+        path: 'create-world',
+        component: () => import('pages/features/CreateWorldPage.vue'),
+      },
+      {
+        path: 'world-settings',
+        component: () => import('pages/features/WorldSettingsPage.vue'),
+      },
+      {
+        path: 'auto-port-mapping',
+        component: () => import('pages/features/AutoPortMappingPage.vue'),
+      },
+    ],
   },
   {
     path: '/q-a',
     component: () => import('pages/QAPage.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('pages/q-a/QAPage.vue'),
+      },
+      {
+        path: 'failed-join-server',
+        component: () => import('pages/q-a/FailedJoinServerPage.vue'),
+      },
+    ],
   },
   {
     path: '/terms',

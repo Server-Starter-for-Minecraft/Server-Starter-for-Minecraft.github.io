@@ -1,7 +1,7 @@
-<script setup lang="ts">
-import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <SsTitle>機能一覧</SsTitle>
+  <div class="mainField">
+    <RouterView />
+  </div>
 </template>
