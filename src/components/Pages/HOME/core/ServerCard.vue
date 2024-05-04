@@ -20,11 +20,11 @@ defineProps<Prop>();
       <q-img :src="`/assets/servers/${name}.png`" class="icon" />
       <div class="col">
         <span class="server-name">
-          {{ $t(`serverList.serverType.${name}`) }}
+          {{ $t(`home.servers.serverType.${name}`) }}
           <SsLinkBtn :url="link" />
         </span>
         <p class="q-mt-md desc">
-          {{ $t(`serverList.serverDescription.${name}`) }}
+          {{ $t(`home.servers.serverDescription.${name}`) }}
         </p>
       </div>
     </div>

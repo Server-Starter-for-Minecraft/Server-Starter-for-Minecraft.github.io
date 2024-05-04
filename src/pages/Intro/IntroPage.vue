@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import DownloadBtn from 'src/components/Pages/HOME/core/DownloadBtn.vue';
 import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
 import SsStrong from 'src/components/utils/base/texts/ssStrong.vue';
 import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
 import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
+import WindowsBtn from 'src/components/Pages/HOME/core/btns/WindowsBtn.vue';
+import MacBtn from 'src/components/Pages/HOME/core/btns/MacBtn.vue';
+import LinuxBtn from 'src/components/Pages/HOME/core/btns/LinuxBtn.vue';
 </script>
 
 <template>
@@ -20,9 +22,9 @@ import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
     <p>インストールボタンを押してインストーラーをダウンロードしましょう！</p>
     <p>うまくいかない場合は「インストールの詳細」をご確認ください</p>
     <div class="row q-gutter-md">
-      <download-btn :os-name="'windows'" />
-      <download-btn :os-name="'mac'" />
-      <download-btn :os-name="'linux'" />
+      <WindowsBtn />
+      <MacBtn />
+      <LinuxBtn />
     </div>
     <SsRouterBtn to="/intro/install" class="q-mt-lg"
       >インストールの詳細</SsRouterBtn
