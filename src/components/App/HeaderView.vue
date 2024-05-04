@@ -15,7 +15,7 @@ const sysStore = useSystemStore();
 </script>
 
 <template>
-  <q-header bordered :style="{ 'background-color': getCssVar('dark') }">
+  <q-header reveal :style="{ 'background-color': getCssVar('dark') }">
     <q-toolbar>
       <q-btn no-caps flat to="/">
         <div class="row items-center text-left">
