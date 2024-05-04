@@ -18,6 +18,9 @@ import IndentLine from 'src/components/utils/blocks/IndentLine.vue';
       また、本ソフトウェアはMojang
       ABまたはMinecraftが作成または承認したものではなく、非商業目的物に該当するものです。
     </p>
+    <p>
+      なお、本規約及び、ライセンス間に矛盾・抵触する規定がある場合には、本規約が優先します。
+    </p>
   </div>
 
   <div>
