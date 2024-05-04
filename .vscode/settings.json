@@ -304,5 +304,8 @@
       "description": "プロジェクトを開始 / Begin a project."
     }
   ],
-  "gitmoji.onlyUseCustomEmoji": true
+  "gitmoji.onlyUseCustomEmoji": true,
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  }
 }
