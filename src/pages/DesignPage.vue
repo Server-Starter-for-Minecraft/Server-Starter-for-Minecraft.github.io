@@ -14,14 +14,14 @@ import SsImg from 'src/components/utils/base/SsImg.vue';
 import SsCard from 'src/components/utils/base/ssCard.vue';
 import McModel from 'src/components/utils/blocks/McModel.vue';
 
-import acacia_slab from 'src/mcmodel/minecraft/mcmodels/block/acacia_slab.json';
-import stone from 'src/mcmodel/minecraft/mcmodels/block/stone.json';
-import brewing_stand_bottle0 from 'src/mcmodel/minecraft/mcmodels/block/brewing_stand_bottle0.json';
-import slime_block from 'src/mcmodel/minecraft/mcmodels/block/slime_block.json';
-import lantern_hanging from 'src/mcmodel/minecraft/mcmodels/block/lantern_hanging.json';
-import lectern from 'src/mcmodel/minecraft/mcmodels/block/lectern.json';
-import lily_of_the_valley from 'src/mcmodel/minecraft/mcmodels/block/lily_of_the_valley.json';
-import campfire from 'src/mcmodel/minecraft/mcmodels/block/campfire.json';
+import { acacia_slab } from 'src/mcmodel/minecraft/mcmodels/block/acacia_slab';
+import { stone } from 'src/mcmodel/minecraft/mcmodels/block/stone';
+import { brewing_stand_bottle0 } from 'src/mcmodel/minecraft/mcmodels/block/brewing_stand_bottle0';
+import { slime_block } from 'src/mcmodel/minecraft/mcmodels/block/slime_block';
+import { lantern_hanging } from 'src/mcmodel/minecraft/mcmodels/block/lantern_hanging';
+import { lectern } from 'src/mcmodel/minecraft/mcmodels/block/lectern';
+import { lily_of_the_valley } from 'src/mcmodel/minecraft/mcmodels/block/lily_of_the_valley';
+import { campfire } from 'src/mcmodel/minecraft/mcmodels/block/campfire';
 
 const $q = useQuasar();
 
