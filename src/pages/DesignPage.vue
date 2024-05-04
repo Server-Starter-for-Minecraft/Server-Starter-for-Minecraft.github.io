@@ -3,7 +3,9 @@ import { getCssVar, useQuasar } from 'quasar';
 import ssTitle from 'src/components/utils/base/texts/ssTitle.vue';
 import ssSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
 import ssStrong from 'src/components/utils/base/texts/ssStrong.vue';
-import DownloadBtn from 'src/components/Pages/HOME/core/DownloadBtn.vue';
+import WindowsBtn from 'src/components/Pages/HOME/core/btns/WindowsBtn.vue';
+import MacBtn from 'src/components/Pages/HOME/core/btns/MacBtn.vue';
+import LinuxBtn from 'src/components/Pages/HOME/core/btns/LinuxBtn.vue';
 import ssLinkBtn from 'src/components/utils/base/btns/ssLinkBtn.vue';
 import ssA from 'src/components/utils/base/texts/ssA.vue';
 import ssRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
@@ -135,7 +137,11 @@ function rgbToHex(col: string) {
       <ssSubTitle>Buttons</ssSubTitle>
       <div class="q-py-md">
         <p class="text-h6 q-mb-none">DLボタン</p>
-        <DownloadBtn version="000" os-name="windows" />
+        <div class="row q-gutter-md">
+          <WindowsBtn />
+          <MacBtn />
+          <LinuxBtn />
+        </div>
       </div>
       <div class="q-py-md">
         <p class="text-h6 q-mb-none">外部サイトを開く</p>

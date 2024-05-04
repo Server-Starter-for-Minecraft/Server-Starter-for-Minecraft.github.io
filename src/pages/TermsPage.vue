@@ -1,11 +1,14 @@
-<script lang="ts" setup>
-import AuthorView from 'src/components/Pages/Credit/AuthorView.vue';
-import TermsOfUse from 'src/components/Pages/Credit/TermsOfUse.vue';
-</script>
+<script lang="ts" setup></script>
 
 <template>
-  <div class="credit">
-    <AuthorView />
-    <TermsOfUse />
+  <div class="mainField">
+    <!-- <q-btn
+      v-if="$route.path !== '/terms'"
+      dense
+      color="primary"
+      label="back"
+      @click="$router.go(-1)"
+    /> -->
+    <RouterView />
   </div>
 </template>

@@ -4,7 +4,7 @@ import { ref } from 'vue';
 
 export interface Props {
   duration: number /** 一回転するまでの秒数 */;
-  paused: boolean /** アニメーション一時停止状態 */;
+  paused?: boolean /** アニメーション一時停止状態 */;
   faces: ModelFaces /** util/Mcmodelを使用して出力したモデルの情報 */;
 }
 defineProps<Props>();

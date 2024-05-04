@@ -16,7 +16,7 @@
   src: url(./fonts/SourceHanSans-VF.otf.woff2);
 }
 
-* {
+body {
   font-family: 'Mamelon';
   font-size: 18px;
 }
@@ -39,7 +39,8 @@
   height: 100%;
   width: max(85%, 500px);
   max-width: 90%;
-  margin: 2rem auto;
+  margin: 0 auto;
+  padding: 2rem 0;
   // 要素を縦に並べるための設定
   display: flex;
   flex-wrap: wrap;
