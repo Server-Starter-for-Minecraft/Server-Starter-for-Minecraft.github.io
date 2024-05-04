@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import DownloadExpandBtn from './DownloadExpandBtn.vue';
+import type { OsProp } from './iBtn';
+defineProps<OsProp>();
 </script>
 
 <template>
   <DownloadExpandBtn
     osName="linux"
+    :dark="dark"
     :distributions="[
       {
         showingText: 'Debian (.deb)',
@@ -17,5 +20,3 @@ import DownloadExpandBtn from './DownloadExpandBtn.vue';
     ]"
   />
 </template>
-
-<style scoped lang="scss"></style>

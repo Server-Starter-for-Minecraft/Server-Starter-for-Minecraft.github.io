@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import DownloadBtn from './DownloadBtn.vue';
+import type { OsProp } from './iBtn';
+defineProps<OsProp>();
 </script>
 
 <template>
-  <DownloadBtn osName="mac" :file-name="(v) => `ServerStarter-${v}.pkg`" />
+  <DownloadBtn :dark="dark" osName="mac" :file-name="(v) => `ServerStarter-${v}.pkg`" />
 </template>
 
 <style scoped lang="scss"></style>

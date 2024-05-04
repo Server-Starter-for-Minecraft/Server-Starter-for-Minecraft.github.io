@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import { useSystemStore } from 'src/stores/SystemStore';
+import { BtnProp } from './iBtn';
 
-interface Prop {
-  osName: 'windows' | 'mac' | 'linux';
+defineProps<BtnProp & {
   fileName: (version: string) => string;
-  disable?: boolean;
-}
-defineProps<Prop>();
+}>();
 
 const sysStore = useSystemStore();
 </script>
@@ -21,7 +19,7 @@ const sysStore = useSystemStore();
     :href="`https://github.com/Server-Starter-for-Minecraft/ServerStarter2/releases/latest/download/${fileName(
       sysStore.latestProductVersion
     )}`"
-    class="dBtn"
+    :class="$q.dark.isActive || dark ? 'dBtn-dark' : 'dBtn-light'"
   >
     <div class="row items-center q-gutter-md">
       <svg class="osLogo">
@@ -41,9 +39,14 @@ const sysStore = useSystemStore();
   fill: $primary;
 }
 
-.dBtn {
+.dBtn-dark {
   width: 20rem;
   background-color: rgba($color: #000000, $alpha: 0.2) !important;
+}
+
+.dBtn-light {
+  width: 20rem;
+  background-color: rgba($color: #000000, $alpha: 0.8) !important;
 }
 
 .download {
