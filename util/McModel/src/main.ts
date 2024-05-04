@@ -8,6 +8,7 @@ import {
   ResourceLocator,
 } from './mcreource/resourceLocation';
 import { formatToTs } from './format';
+import path from 'path';
 
 const scale = 64;
 
@@ -69,7 +70,10 @@ export async function convertModelProps(modelLocation: ResourceLocation) {
   );
 
   const mcmodelData = `./src/mcmodel/${modelLocation.namespace}/mcmodels/${modelLocation.path}.ts`;
-  await fs.writeFile(mcmodelData, formatToTs(faces));
+  await fs.writeFile(
+    mcmodelData,
+    formatToTs(path.basename(modelLocation.path), faces)
+  );
 }
 
 const srcLocator = new ResourceLocator('./util/McModel/assets');

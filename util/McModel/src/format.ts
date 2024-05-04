@@ -1,4 +1,4 @@
-export function formatToTs(obj: unknown) {
+export function formatToTs(exportName:string, obj: unknown) {
   return `import type { ModelFaces } from 'src/mcmodel/mcmodel';
-export const campfire: ModelFaces = ${JSON.stringify(obj)};`;
+export const ${exportName}: ModelFaces = ${JSON.stringify(obj)};`;
 }
