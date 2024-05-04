@@ -8,11 +8,11 @@ import DownloadExpandBtn from './DownloadExpandBtn.vue';
     :distributions="[
       {
         showingText: 'Debian (.deb)',
-        fileName: (v) => `ServerStarter2_${v}_amd64.deb`,
+        fileName: (v) => `ServerStarter-${v}.deb`,
       },
       {
         showingText: 'Red Hat (.rpm)',
-        fileName: (v) => `ServerStarter2-${v}.x86_64.rpm`,
+        fileName: (v) => `ServerStarter-${v}.rpm`,
       },
     ]"
   />
