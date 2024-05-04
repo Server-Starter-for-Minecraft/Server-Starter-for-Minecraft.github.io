@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ModelFaces } from 'src/mcmodel/mcmodel';
 import { ref } from 'vue';
-import type { ModelFaces } from '../../../../util/McModel/src/convert';
 
 export interface Props {
   duration: number /** 一回転するまでの秒数 */;
