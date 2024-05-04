@@ -20,7 +20,7 @@ const routes: RouteRecordRaw[] = [
     children: [
       {
         path: '',
-        component: () => import('pages/Intro/IntroPage.vue')
+        component: () => import('pages/Intro/IntroPage.vue'),
       },
       {
         path: 'install',
