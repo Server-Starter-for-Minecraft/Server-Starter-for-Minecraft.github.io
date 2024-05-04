@@ -1,32 +1,88 @@
 // app global css in SCSS form
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700&family=PT+Sans&family=Quicksand:wght@500&display=swap');
 
+@font-face {
+  font-family: Mamelon;
+  src: url(./fonts/Mamelon-4HiRegular.woff2);
+}
+
+@font-face {
+  font-family: Simpel;
+  src: url(./fonts/Simpel-Medium.woff);
+}
+
+@font-face {
+  font-family: Genokaku JP;
+  src: url(./fonts/SourceHanSans-VF.otf.woff2);
+}
+
 * {
-  font-family: 'Noto Sans JP';
-  font-size: calc(12px + 0.37vw);
+  font-family: 'Mamelon';
+  font-size: 18px;
 }
 
-h1 {
-  font-size: 1.2rem;
+// 本文ではない補足情報
+.text-desc {
+  font-family: 'Genokaku JP';
+  font-size: 0.8rem;
 }
 
-p {
-  font-weight: 300;
-  line-height: 1.7em;
-  font-size: 1rem;
+// テキストを１行に制限してはみ出した分は省略する
+.text-omit {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-b {
-  font-size: 1.4rem;
+// コンテンツの表示領域を定義
+.mainField {
+  height: 100%;
+  width: max(85%, 500px);
+  max-width: 90%;
+  margin: 2rem auto;
+  // 要素を縦に並べるための設定
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  // 縦に並べた要素同士の間隔
+  gap: 3rem;
 }
 
-.a {
-  color: #1EB000;
-  font-weight: 700;
-  font-size: 1.2rem;
-  text-decoration: none;
+// <wbr>によって改行を許可する位置を明示したテキストを囲むタグに使う
+.custom-break {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
 
-  &:visited {
-    color: #1EB000;
+// コンテンツを鉛直方向にのみスクロールさせるエリアを生成
+.vertical-scroll {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+// dark mode or light mode
+body.body--light {
+  background-color: #fafafa;
+}
+
+body.body--dark {
+  background-color: #262626;
+}
+
+// adjust font size
+html {
+  font-size: 100%;
+}
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 110%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  html {
+    font-size: 120%;
   }
 }

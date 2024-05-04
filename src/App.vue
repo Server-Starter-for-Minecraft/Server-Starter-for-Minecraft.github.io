@@ -1,46 +1,31 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import SideMenuView from './pages/SideMenuView.vue'
+import { useQuasar } from 'quasar';
+import { initProcess } from './scripts/init';
+import { Page } from './router/routes';
+import HeaderView from 'src/components/App/HeaderView.vue';
+import DrawerView from './components/App/DrawerView.vue';
 
-const leftDrawerOpen = ref(false)
+const $q = useQuasar();
+const pages: { key: Page; icon: string }[] = [
+  { key: 'intro', icon: 'flag' },
+  { key: 'features', icon: 'category' },
+  { key: 'q-a', icon: 'help' },
+  { key: 'terms', icon: 'gavel' },
+];
+
+initProcess(window.navigator.userAgent);
+
+// 色設定を自動化
+$q.dark.set('auto');
 </script>
 
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn flat dense round @click="leftDrawerOpen = !leftDrawerOpen" aria-label="Menu" icon="menu" />
-
-        <q-btn stretch flat to="/">
-          <q-toolbar-title>
-            <span class="title">
-              <b>Server Starter</b> for <b>Minecraft</b>
-            </span>
-          </q-toolbar-title>
-        </q-btn>
-      </q-toolbar>
-    </q-header>
-
-    <SideMenuView v-model="leftDrawerOpen" />
+    <HeaderView :showing-pages="pages.map((val) => val.key)" />
+    <DrawerView :showing-pages="pages" />
 
     <q-page-container>
-      <router-view></router-view>
+      <router-view />
     </q-page-container>
   </q-layout>
 </template>
-
-<style scoped lang="scss">
-.title{
-  text-transform: none;
-  font-size: 1.2rem;
-  line-height: 1rem;
-  font-family: 'Quicksand';
-  font-weight: 400;
-  
-  b {
-    font-size: 1.5rem;
-    font-family: 'PT Sans', sans-serif;
-    font-weight: 900;
-  }
-}
-</style>
