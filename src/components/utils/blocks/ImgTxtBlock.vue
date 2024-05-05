@@ -24,7 +24,7 @@ const isDark = () => $q.dark.isActive;
     <ssSubTitle>
       {{ title }}
     </ssSubTitle>
-    <div class="row">
+    <div class="row q-gutter-x-md">
       <!-- 画像部分 -->
       <div
         class="col blockWidth"

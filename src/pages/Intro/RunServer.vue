@@ -24,7 +24,7 @@ import ImgTxtBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
   <ImgTxtBlock
     title="ワールドをワンクリックで起動する"
     img-path="/assets/Introduction/RunServer/startBtn.png"
-    img-height=""
+    img-height="15rem"
   >
     <p>
       ホームタブやサーバータブから<br />
@@ -53,7 +53,7 @@ import ImgTxtBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
   <ImgTxtBlock
     title="ワールドを停止する"
     img-path="/assets/Introduction/RunServer/stopBtns.png"
-    img-height=""
+    img-height="10rem"
   >
     <p>
       サーバー画面の左下にある<SsStrong>停止</SsStrong>ボタンからワールドを停止できます
