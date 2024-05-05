@@ -19,12 +19,12 @@ import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
     <SsError title="ダウンロード時に警告が出た場合">
       <div class="row items-center justify-center">
         <SsImg
-          path="/assets/introduction/install/Edge_Save1.png"
+          path="/assets/Introduction/Install/Edge_Save1.png"
           class="flex q-ma-md"
           style="width: max(7rem, 18vw)"
         />
         <SsImg
-          path="/assets/introduction/install/Edge_Save2.png"
+          path="/assets/Introduction/Install/Edge_Save2.png"
           class="flex q-ma-md"
           style="width: max(6rem, 15vw)"
         />
@@ -44,7 +44,7 @@ import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
 
   <ImgTxtBlock
     title="インストーラーを起動してみよう"
-    img-path="/assets/introduction/install/installer.png"
+    img-path="/assets/Introduction/Install/installer.png"
     img-height=""
   >
     <p>
@@ -63,14 +63,14 @@ import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
           <li>
             表示された画面中部にある「詳細設定」をクリック
             <SsImg
-              path="/assets/introduction/install/defender1.png"
+              path="/assets/Introduction/Install/defender1.png"
               style="width: 60%; min-width: 13rem"
             />
           </li>
           <li>
             「実行」をクリックするとインストールが開始されます
             <SsImg
-              path="/assets/introduction/install/defender2.png"
+              path="/assets/Introduction/Install/defender2.png"
               style="width: 60%; min-width: 13rem"
             />
           </li>
@@ -81,14 +81,14 @@ import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
           <li>
             この画面はOKを押して閉じる
             <SsImg
-              path="/assets/introduction/install/unopen.png"
+              path="/assets/Introduction/Install/unopen.png"
               style="width: 60%; min-width: 13rem"
             />
           </li>
           <li>
             「システム環境設定」＞「セキュリティとプライバシー」＞「一般」の順に開き，「このまま開く」を押すとインストールが開始されます
             <SsImg
-              path="/assets/introduction/install/privacy.png"
+              path="/assets/Introduction/Install/privacy.png"
               style="width: 60%; min-width: 13rem"
             />
           </li>
@@ -102,14 +102,14 @@ import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
 
   <ImgTxtBlock
     title="ServerStarter2を起動"
-    img-path="/assets/introduction/install/WelcomeWindow.png"
+    img-path="/assets/Introduction/Install/WelcomeWindow.png"
   >
     <p>インストールが完了するとServerStarter2が自動的に起動します</p>
     <p>利用規約を確認したら，いざ，マルチプレイの世界へ！</p>
 
     <SsError title="自動的に起動しない場合">
       <div class="row items-center q-gutter-md">
-        <SsImg path="/assets/introduction/install/icon.png" class="col-3" />
+        <SsImg path="/assets/Introduction/Install/icon.png" class="col-3" />
         <p class="col">
           デスクトップにServerStarter2のアイコンがありますので，ダブルクリックで起動しましょう！
         </p>
@@ -119,7 +119,7 @@ import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
 
   <ImgTxtBlock
     title="オーナープレイヤーの設定　※任意"
-    img-path="/assets/introduction/install/OwnerPlayerSetting.png"
+    img-path="/assets/Introduction/Install/OwnerPlayerSetting.png"
   >
     <p>
       Minecraftのプレイヤーアカウントを持っている場合は，画像のようにゲーム内でのプレイヤー名を登録しましょう！
@@ -134,7 +134,7 @@ import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
 
   <ImgTxtBlock
     title="ポート開放不要化の設定　※任意"
-    img-path="/assets/introduction/install/autoPortMapping.png"
+    img-path="/assets/Introduction/Install/autoPortMapping.png"
   >
     <div class="column full-height">
       <div class="q-pb-md">
