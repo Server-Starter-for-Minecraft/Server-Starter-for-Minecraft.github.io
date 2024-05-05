@@ -20,10 +20,8 @@ const hovered = ref(false);
 
     <div
       class="absolute-bottom q-pa-md"
-      style="
-        background: linear-gradient(0deg, rgb(0, 0, 0) 40%, transparent);
-        border-radius: 5px;
-      "
+      :class="$q.dark.isActive ? 'textField-dark' : 'textField-light'"
+      style="border-radius: 5px"
     >
       <SsSubTitle>
         {{ $t(`features.cards.${i18nKey}.title`) }}
@@ -40,3 +38,13 @@ const hovered = ref(false);
     </div>
   </SsCard>
 </template>
+
+<style scoped lang="scss">
+.textField-light {
+  background: linear-gradient(0deg, rgb(255, 255, 255) 40%, transparent);
+}
+
+.textField-dark {
+  background: linear-gradient(0deg, rgb(0, 0, 0) 40%, transparent);
+}
+</style>
