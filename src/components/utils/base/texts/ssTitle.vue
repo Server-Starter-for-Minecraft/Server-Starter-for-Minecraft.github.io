@@ -11,6 +11,7 @@
 .icon {
   margin-right: 1rem;
   width: 3.2rem;
+  aspect-ratio: 57/72;
 }
 
 .text {

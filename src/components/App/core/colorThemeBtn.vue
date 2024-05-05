@@ -20,7 +20,7 @@ function changeColorTheme() {
     @click="changeColorTheme"
   >
     <q-avatar square size="2rem" class="q-ma-xs">
-      <q-img src="/icons/colorTheme/auto.svg" />
+      <q-img src="/icons/colorTheme/auto.svg" class="fit" />
     </q-avatar>
   </q-btn>
 </template>

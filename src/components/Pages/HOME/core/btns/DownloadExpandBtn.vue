@@ -14,6 +14,10 @@ defineProps<
 >();
 
 const sysStore = useSystemStore();
+
+function openURL(url: string) {
+  window.open(url);
+}
 </script>
 
 <template>
@@ -36,20 +40,26 @@ const sysStore = useSystemStore();
       </div>
     </template>
 
-    <div class="column text-left">
-      <template v-for="dist in distributions" :key="dist.showingText">
-        <q-btn
-          flat
-          no-caps
-          :href="`https://github.com/Server-Starter-for-Minecraft/ServerStarter2/releases/latest/download/${dist.fileName(
-            sysStore.latestProductVersion
-          )}`"
-          class="q-py-md"
-        >
+    <q-list>
+      <q-item
+        v-for="dist in distributions"
+        :key="dist.showingText"
+        clickable
+        v-close-popup
+        @click="
+          () =>
+            openURL(
+              `https://github.com/Server-Starter-for-Minecraft/ServerStarter2/releases/latest/download/${dist.fileName(
+                sysStore.latestProductVersion
+              )}`
+            )
+        "
+      >
+        <q-item-section>
           {{ dist.showingText }}
-        </q-btn>
-      </template>
-    </div>
+        </q-item-section>
+      </q-item>
+    </q-list>
   </q-btn-dropdown>
 </template>
 

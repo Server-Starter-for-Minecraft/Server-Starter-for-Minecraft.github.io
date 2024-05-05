@@ -16,7 +16,7 @@ const sysStore = useSystemStore();
   <q-drawer v-model="sysStore.drawer" side="right">
     <div class="vertical-scroll">
       <div class="row items-center q-ma-md">
-        <q-img src="/icons/systemLogo.svg" style="width: 1.5rem" />
+        <q-img src="/icons/systemLogo.svg" class="logo" />
         <q-space />
         <q-btn icon="close" flat dense @click="sysStore.drawer = false" />
       </div>
@@ -55,6 +55,11 @@ const sysStore = useSystemStore();
 </template>
 
 <style scoped lang="scss">
+.logo {
+  width: 1.5rem;
+  aspect-ratio: 57/72;
+}
+
 .page-selected-dark {
   color: $primary;
 }

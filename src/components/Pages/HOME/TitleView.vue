@@ -19,6 +19,7 @@ const sysStore = useSystemStore();
       src="/icons/systemLogo.svg"
       width="7rem"
       class="icon"
+      style="aspect-ratio: 57/72"
     />
     <div class="title" :style="{ fontSize: fontsize, lineHeight: fontsize }">
       Server Starter <span class="inTitle">for</span> Minecraft
