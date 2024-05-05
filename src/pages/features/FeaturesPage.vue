@@ -15,22 +15,27 @@ const cards: FeatureCardProp[] = [
   {
     i18nKey: 'create_world',
     faces: crafting_table,
+    to: '/features/create-world',
   },
   {
     i18nKey: 'open_server',
     faces: campfire,
+    to: '/intro/run-server',
   },
   {
     i18nKey: 'setting_world',
     faces: grindstone,
+    to: '/features/world-settings',
   },
   {
     i18nKey: 'open_port',
     faces: campfire,
+    to: '/features/auto-port-mapping',
   },
   {
     i18nKey: 'support_servers',
     faces: anvil,
+    to: '/features/servers',
   },
   {
     i18nKey: 'add_contents',
@@ -56,9 +61,14 @@ const cards: FeatureCardProp[] = [
     </p>
   </div>
 
-  <div class="q-gutter-x-md row">
-    <template v-for="card in cards" :key="card.i18nKey">
+  <div class="q-gutter-md row justify-center">
+    <div
+      v-for="card in cards"
+      :key="card.i18nKey"
+      class="col"
+      style="min-width: max(15rem, 20vw); max-width: max(15rem, 20vw);"
+    >
       <FeatureCard :i18n-key="card.i18nKey" :faces="card.faces" :to="card.to" />
-    </template>
+    </div>
   </div>
 </template>

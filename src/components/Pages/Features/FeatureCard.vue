@@ -15,11 +15,8 @@ const hovered = ref(false);
   <SsCard
     @mouseover="() => (hovered = true)"
     @mouseleave="() => (hovered = false)"
-    style="min-width: min(20rem, 90%); height: fit-content"
-    class="col"
   >
     <McModel :duration="4" :paused="!hovered" :faces="faces" />
-    <!-- <div class="fit" style="aspect-ratio: 1;" /> -->
 
     <div
       class="absolute-bottom q-pa-md"
@@ -36,7 +33,7 @@ const hovered = ref(false);
       </p>
 
       <div class="full-width flex justify-end">
-        <SsRouterBtn to="intro">
+        <SsRouterBtn v-if="to" :to="to">
           {{ $t(`features.cards.${i18nKey}.linkBtn`) }}
         </SsRouterBtn>
       </div>
