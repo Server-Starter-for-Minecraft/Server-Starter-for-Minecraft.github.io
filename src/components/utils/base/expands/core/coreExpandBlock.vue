@@ -25,8 +25,8 @@ const isDark = () => $q.dark.isActive;
           :name="icon"
           size="1.5rem"
           class="col-1"
-          :style="{ 'color': color }"
-          style="width: 2.5rem;"
+          :style="{ color: color }"
+          style="width: 2.5rem"
         />
         <div class="column col">
           <span style="font-size: 1rem">{{ title }}</span>

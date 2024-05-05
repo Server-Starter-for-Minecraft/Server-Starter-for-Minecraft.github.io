@@ -21,6 +21,6 @@ const isDark = () => $q.dark.isActive;
 <style scoped lang="scss">
 .dark {
   background-color: white;
-  opacity: .1;
+  opacity: 0.1;
 }
 </style>

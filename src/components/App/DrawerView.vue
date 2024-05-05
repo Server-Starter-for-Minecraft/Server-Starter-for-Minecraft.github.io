@@ -26,7 +26,9 @@ const sysStore = useSystemStore();
           <q-item
             clickable
             :to="`/${page.key}`"
-            :active-class="$q.dark.isActive ? 'page-selected-dark' : 'page-selected-light'"
+            :active-class="
+              $q.dark.isActive ? 'page-selected-dark' : 'page-selected-light'
+            "
             style="font-size: 1rem"
           >
             <q-item-section avatar>
