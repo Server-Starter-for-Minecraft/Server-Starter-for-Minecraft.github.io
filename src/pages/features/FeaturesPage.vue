@@ -58,7 +58,7 @@ const cards: FeatureCardProp[] = [
     <SsTitle>機能一覧</SsTitle>
     <p>
       ServerStarterではマルチプレイのためのたくさんの機能を取り揃えています！<br />
-      たくさんの機能を使いこなして，快適なマルチプレライフを送りましょう！！
+      たくさんの機能を使いこなして，快適なマルチプレイライフを送りましょう！！
     </p>
   </div>
 
@@ -67,7 +67,7 @@ const cards: FeatureCardProp[] = [
       v-for="card in cards"
       :key="card.i18nKey"
       class="col"
-      style="min-width: max(15rem, 20vw)"
+      style="min-width: max(20rem, 20vw);max-width: max(20rem, 20vw)"
     >
       <FeatureCard :i18n-key="card.i18nKey" :faces="card.faces" :to="card.to" />
     </div>
