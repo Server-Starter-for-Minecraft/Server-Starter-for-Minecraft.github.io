@@ -6,6 +6,7 @@ import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
 import { crafting_table } from 'src/mcmodel/minecraft/mcmodels/block/crafting_table';
 import { campfire } from 'src/mcmodel/minecraft/mcmodels/block/campfire';
 import { grindstone } from 'src/mcmodel/minecraft/mcmodels/block/grindstone';
+import { chest_minecart } from 'src/mcmodel/serverstarter/mcmodels/block/chest_minecart';
 import { anvil } from 'src/mcmodel/minecraft/mcmodels/block/anvil';
 import { command_block } from 'src/mcmodel/minecraft/mcmodels/block/command_block';
 import { creeper } from 'src/mcmodel/serverstarter/mcmodels/block/creeper';
@@ -29,7 +30,7 @@ const cards: FeatureCardProp[] = [
   },
   {
     i18nKey: 'open_port',
-    faces: campfire,
+    faces: chest_minecart,
     to: '/features/auto-port-mapping',
   },
   {
