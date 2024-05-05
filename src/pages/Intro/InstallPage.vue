@@ -109,7 +109,7 @@ import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
 
     <SsError title="自動的に起動しない場合">
       <div class="row items-center q-gutter-md">
-        <SsImg path="/assets/Introduction/Install/icon.png" class="col-3" />
+        <SsImg path="/assets/Introduction/Install/Icon.png" class="col-3" />
         <p class="col">
           デスクトップにServerStarter2のアイコンがありますので，ダブルクリックで起動しましょう！
         </p>
