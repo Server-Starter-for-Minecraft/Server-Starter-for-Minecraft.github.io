@@ -137,7 +137,9 @@ async function cropAnimation(
   };
 
   for (const { image, time } of frames) {
-    const buf = await image.extract(area).toFormat('webp').toBuffer();
+    const buf = await image.extract(area).toFormat('webp',{
+      lossless:true
+    }).toBuffer();
 
     const frame = await Image.generateFrame({
       buffer: buf,
