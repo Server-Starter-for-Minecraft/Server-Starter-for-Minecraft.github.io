@@ -86,12 +86,12 @@ export async function run(models: string[]) {
 }
 
 run([
-  'block/acacia_slab',
-  'block/stone',
-  'block/brewing_stand_bottle0',
-  'block/slime_block',
-  'block/lantern_hanging',
-  'block/lectern',
-  'block/lily_of_the_valley',
+  'block/crafting_table',
   'block/campfire',
+  'block/grindstone',
+  'serverstarter:block/chest_minecart',
+  'block/anvil',
+  'block/command_block',
+  'serverstarter:block/creeper',
+  'block/bookshelf',
 ]);

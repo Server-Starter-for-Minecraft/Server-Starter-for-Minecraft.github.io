@@ -24,6 +24,7 @@ import { command_block } from 'src/mcmodel/minecraft/mcmodels/block/command_bloc
 import { bookshelf } from 'src/mcmodel/minecraft/mcmodels/block/bookshelf';
 
 import { creeper } from 'src/mcmodel/serverstarter/mcmodels/block/creeper';
+import { chest_minecart } from 'src/mcmodel/serverstarter/mcmodels/block/chest_minecart';
 
 const $q = useQuasar();
 
@@ -56,6 +57,7 @@ const models = [
   anvil,
   command_block,
   bookshelf,
+  chest_minecart,
 ];
 
 function rgbToHex(col: string) {

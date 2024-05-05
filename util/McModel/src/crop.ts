@@ -84,12 +84,24 @@ async function cropStatic(
 ) {
   const image = sharp(sourcePath); // トリミング
 
+  const { width, height } = await image.metadata();
+
+  if (width == undefined) throw new Error('assertion');
+  if (height == undefined) throw new Error('assertion');
+
+  const uv2 = [
+    (uv[0] * width) / 16,
+    (uv[1] * height) / 16,
+    (uv[2] * width) / 16,
+    (uv[3] * height) / 16,
+  ];
+
   await image
     .extract({
-      left: uv[0],
-      top: uv[1],
-      width: uv[2] - uv[0],
-      height: uv[3] - uv[1],
+      left: uv2[0],
+      top: uv2[1],
+      width: uv2[2] - uv2[0],
+      height: uv2[3] - uv2[1],
     })
     .toFormat('webp', { lossless: true })
     .toFile(targetPath);
@@ -108,11 +120,20 @@ async function cropAnimation(
 
   const webpframes: Frame[] = [];
 
+  const { width, height } = anim.metadata;
+
+  const uv2 = [
+    (uv[0] * width) / 16,
+    (uv[1] * height) / 16,
+    (uv[2] * width) / 16,
+    (uv[3] * height) / 16,
+  ];
+
   const area = {
-    left: uv[0],
-    top: uv[1],
-    width: uv[2] - uv[0],
-    height: uv[3] - uv[1],
+    left: uv2[0],
+    top: uv2[1],
+    width: uv2[2] - uv2[0],
+    height: uv2[3] - uv2[1],
   };
 
   for (const { image, time } of frames) {
