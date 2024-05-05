@@ -67,7 +67,7 @@ const cards: FeatureCardProp[] = [
       v-for="card in cards"
       :key="card.i18nKey"
       class="col"
-      style="min-width: max(15rem, 20vw); max-width: max(15rem, 20vw);"
+      style="min-width: max(15rem, 20vw); max-width: max(15rem, 20vw)"
     >
       <FeatureCard :i18n-key="card.i18nKey" :faces="card.faces" :to="card.to" />
     </div>
