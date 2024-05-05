@@ -45,6 +45,10 @@ const routes: RouteRecordRaw[] = [
         component: () => import('pages/features/FeaturesPage.vue'),
       },
       {
+        path: 'servers',
+        component: () => import('pages/features/ServersPage.vue'),
+      },
+      {
         path: 'create-world',
         component: () => import('pages/features/CreateWorldPage.vue'),
       },

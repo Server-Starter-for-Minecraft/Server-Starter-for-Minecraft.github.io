@@ -14,6 +14,17 @@ import ssError from 'src/components/utils/base/expands/ssError.vue';
 import ssInfo from 'src/components/utils/base/expands/ssInfo.vue';
 import SsImg from 'src/components/utils/base/SsImg.vue';
 import SsCard from 'src/components/utils/base/ssCard.vue';
+import McModel from 'src/components/utils/blocks/McModel.vue';
+
+import { crafting_table } from 'src/mcmodel/minecraft/mcmodels/block/crafting_table';
+import { campfire } from 'src/mcmodel/minecraft/mcmodels/block/campfire';
+import { grindstone } from 'src/mcmodel/minecraft/mcmodels/block/grindstone';
+import { anvil } from 'src/mcmodel/minecraft/mcmodels/block/anvil';
+import { command_block } from 'src/mcmodel/minecraft/mcmodels/block/command_block';
+import { bookshelf } from 'src/mcmodel/minecraft/mcmodels/block/bookshelf';
+
+import { creeper } from 'src/mcmodel/serverstarter/mcmodels/block/creeper';
+import { chest_minecart } from 'src/mcmodel/serverstarter/mcmodels/block/chest_minecart';
 
 const $q = useQuasar();
 
@@ -36,6 +47,17 @@ const colorThemes: () => { name: string; hexCode: string }[] = () => [
   { name: 'エラー', hexCode: getCssVar('negative') ?? 'Not Found' },
   { name: '警告', hexCode: getCssVar('warning') ?? 'Not Found' },
   { name: 'お知らせ', hexCode: getCssVar('info') ?? 'Not Found' },
+];
+
+const models = [
+  crafting_table,
+  campfire,
+  creeper,
+  grindstone,
+  anvil,
+  command_block,
+  bookshelf,
+  chest_minecart,
 ];
 
 function rgbToHex(col: string) {
@@ -159,6 +181,21 @@ function rgbToHex(col: string) {
     <div>
       <ssSubTitle>Image</ssSubTitle>
       <SsImg path="https://cdn.quasar.dev/img/parallax2.jpg" width="20rem" />
+    </div>
+
+    <div>
+      <ssSubTitle>3D models</ssSubTitle>
+      <div class="row q-gutter-md">
+        <McModel
+          v-for="(model, i) in models"
+          :duration="4"
+          :paused="false"
+          :faces="model"
+          :key="i"
+          class="col"
+          style="min-width: 10rem"
+        />
+      </div>
     </div>
   </div>
 </template>

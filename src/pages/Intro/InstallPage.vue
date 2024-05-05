@@ -163,7 +163,7 @@ import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
     <SsTitle>さあ！マルチプレイを始めましょう！</SsTitle>
     <p>
       インストール作業がすべて完了しました！<br />
-      ワールドを作成してマルチプレイを始めましょう！
+      ワールドを起動してマルチプレイを始めましょう！
     </p>
     <div class="flex justify-end">
       <SsRouterBtn to="/intro/run-server"> ワールドの起動方法 </SsRouterBtn>
