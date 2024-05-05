@@ -1,57 +1,102 @@
 import { RouteRecordRaw } from 'vue-router';
 
+type KeyA2U<T extends object[], K extends keyof T[number]> = {
+  [L in keyof T]: T[L][K];
+}[number];
+export type Page = KeyA2U<typeof routes, 'path'>;
+
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name: 'home',
-    component: () => import('pages/HomeView.vue'),
+    component: () => import('pages/HomePage.vue'),
+  },
+  {
+    path: '/design',
+    component: () => import('pages/DesignPage.vue'),
   },
   {
     path: '/intro',
-    name: 'intro',
-    component: () => import('pages/IntroductionView.vue'),
+    component: () => import('pages/IntroPage.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('pages/Intro/IntroPage.vue'),
+      },
+      {
+        path: 'install',
+        component: () => import('pages/Intro/InstallPage.vue'),
+      },
+      {
+        path: 'run-server',
+        component: () => import('pages/Intro/RunServer.vue'),
+      },
+      {
+        path: 'join-server',
+        component: () => import('pages/Intro/JoinServer.vue'),
+      },
+    ],
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import('pages/AboutView.vue'),
-  },
-  // {
-  //   path: '/main',
-  //   name: 'main',
-  //   component: () => import('pages/MainWindow.vue')
-  // },
-  // {
-  //   path: '/world',
-  //   name: 'world',
-  //   component: () => import('pages/WorldSettings.vue')
-  // },
-  // {
-  //   path: '/system',
-  //   name: 'system',
-  //   component: () => import('pages/SystemSettings.vue')
-  // },
-  {
-    path: '/funcs',
-    component: () => import('pages/FuncsView.vue'),
-  },
-  {
-    path: '/ShareWorld',
-    name: 'sw',
-    component: () => import('pages/ShareWorld.vue'),
+    path: '/features',
+    component: () => import('pages/FeaturesPage.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('pages/features/FeaturesPage.vue'),
+      },
+      {
+        path: 'servers',
+        component: () => import('pages/features/ServersPage.vue'),
+      },
+      {
+        path: 'create-world',
+        component: () => import('pages/features/CreateWorldPage.vue'),
+      },
+      {
+        path: 'world-settings',
+        component: () => import('pages/features/WorldSettingsPage.vue'),
+      },
+      {
+        path: 'auto-port-mapping',
+        component: () => import('pages/features/AutoPortMappingPage.vue'),
+      },
+    ],
   },
   {
-    path: '/PortMapping',
-    name: 'apm',
-    component: () => import('pages/AutoPortMapping.vue'),
+    path: '/q-a',
+    component: () => import('pages/QAPage.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('pages/q-a/QAPage.vue'),
+      },
+      {
+        path: 'failed-join-server',
+        component: () => import('pages/q-a/FailedJoinServerPage.vue'),
+      },
+    ],
   },
   {
-    path: '/credit',
-    name: 'credit',
-    component: () => import('pages/CreditPage.vue'),
+    path: '/terms',
+    component: () => import('pages/TermsPage.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('pages/terms/TermsPage.vue'),
+      },
+      {
+        path: 'use',
+        component: () => import('pages/terms/TermsOfUse.vue'),
+      },
+      {
+        path: 'privacy',
+        component: () => import('pages/terms/PrivacyPolicy.vue'),
+      },
+      {
+        path: 'broadcast',
+        component: () => import('pages/terms/TermsOfBroadcast.vue'),
+      },
+    ],
   },
 
   // Always leave this as last one,

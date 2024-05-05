@@ -1,7 +1,14 @@
-// This is just an example,
-// so you can safely delete all default props below
+import { MessageSchema } from 'src/boot/i18n';
+import { enUSGeneral } from './Other/general';
+import { enUSLayout } from './Pages/layout';
+import { enHome } from './Pages/home';
+import { enFeatures } from './Pages/features';
+import { enUSTerms } from './Pages/terms';
 
-export default {
-  failed: 'Action failed',
-  success: 'Action was successful',
+export const enUS: MessageSchema = {
+  general: enUSGeneral,
+  layout: enUSLayout,
+  home: enHome,
+  features: enFeatures,
+  terms: enUSTerms,
 };
