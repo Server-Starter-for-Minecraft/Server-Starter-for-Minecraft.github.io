@@ -66,6 +66,7 @@ a:visited {
 .logo {
   margin-right: 1rem;
   width: 1.3rem;
+  aspect-ratio: 57/72;
 }
 
 .logo-text {
