@@ -12,7 +12,10 @@ defineProps<Prop>();
 
 <template>
   <div>
-    <svg style="width: 100%; height: 100%;" :style="{ ...imgStyle, ...{ fill: color } }">
+    <svg
+      style="width: 100%; height: 100%"
+      :style="{ ...imgStyle, ...{ fill: color } }"
+    >
       <use :xlink:href="`${src}#${imgId}`" />
     </svg>
   </div>

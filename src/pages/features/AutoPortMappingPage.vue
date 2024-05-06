@@ -147,22 +147,22 @@ const rows: Row[] = [
           <SsImg
             path="/assets/Features/AutoPortMapping/PortNum.png"
             class="col"
-            style="min-width: min(25rem, 90%);"
+            style="min-width: min(25rem, 90%)"
           />
           <SsImg
             path="/assets/Features/AutoPortMapping/PortRange.png"
             class="col"
-            style="min-width: min(25rem, 90%);"
+            style="min-width: min(25rem, 90%)"
           />
           <SsImg
             path="/assets/Features/AutoPortMapping/PortTarget.png"
             class="col"
-            style="min-width: min(25rem, 90%);"
+            style="min-width: min(25rem, 90%)"
           />
           <SsImg
             path="/assets/Features/AutoPortMapping/PortName.png"
             class="col"
-            style="min-width: min(25rem, 90%);"
+            style="min-width: min(25rem, 90%)"
           />
         </div>
       </li>

@@ -125,7 +125,7 @@ const rows: Row[] = [
   /* specifying max-width so the example can
     highlight the sticky column on any browser window */
   max-width: 90vw
-    
+
   tr:first-child th:first-child
     /* highest z-index */
     z-index: 3

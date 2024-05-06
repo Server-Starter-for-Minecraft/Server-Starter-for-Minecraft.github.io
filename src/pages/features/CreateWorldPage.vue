@@ -8,7 +8,7 @@ import IndentLine from 'src/components/utils/blocks/IndentLine.vue';
   <div>
     <SsTitle>ワールドを作成する</SsTitle>
     <p>
-      ワールドを作成する際には，画面左下の「ワールドを追加」をクリックしましょう！<br>
+      ワールドを作成する際には，画面左下の「ワールドを追加」をクリックしましょう！<br />
       右側にメニューが表示されるため，やりたい内容に沿って追加モードを選択してください
     </p>
   </div>
@@ -21,9 +21,7 @@ import IndentLine from 'src/components/utils/blocks/IndentLine.vue';
     <ul>
       <li>
         <IndentLine title="新規ワールドを追加" max-width="10rem">
-          <p>
-            バニラサーバーの完全に新しいワールドを新規作成
-          </p>
+          <p>バニラサーバーの完全に新しいワールドを新規作成</p>
         </IndentLine>
       </li>
       <li>
@@ -55,11 +53,11 @@ import IndentLine from 'src/components/utils/blocks/IndentLine.vue';
     img-path="/assets/Features/createWorld/existWorld.png"
   >
     <p>
-      インターネット等からワールドデータを入手した（配布ワールド等の）場合は，画面上部の「配布ワールドを導入」を利用してください！<br>
+      インターネット等からワールドデータを入手した（配布ワールド等の）場合は，画面上部の「配布ワールドを導入」を利用してください！<br />
       ファイルは展開済みであっても，展開前のZipの状態であっても導入することができます
     </p>
     <p>
-      また，PC内にMinecraftのシングルプレイワールドが存在する場合は，画面下部から導入したいワールドを選択して，マルチプレイをすることができます！<br>
+      また，PC内にMinecraftのシングルプレイワールドが存在する場合は，画面下部から導入したいワールドを選択して，マルチプレイをすることができます！<br />
       個人で発展させたワールドをご友人らと楽しむ際にぜひご活用ください
     </p>
   </ImgTxtBlock>
@@ -73,7 +71,7 @@ import IndentLine from 'src/components/utils/blocks/IndentLine.vue';
       ワールドの追加方法の一つである「バックアップワールドを導入」に出てくるバックアップワールドは，画像のように「その他の設定」タブから作成することができます！
     </p>
     <p>
-      「バックアップを作成」ボタンを押すことで，押した時点でのバックアップデータを作成します<br>
+      「バックアップを作成」ボタンを押すことで，押した時点でのバックアップデータを作成します<br />
       作成が完了すると「○○のバックアップを作成しました」というメッセージが表示されます
     </p>
   </ImgTxtBlock>
