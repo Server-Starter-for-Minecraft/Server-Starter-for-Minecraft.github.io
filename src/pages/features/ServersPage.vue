@@ -1,18 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { QTableProps } from 'quasar';
 import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
 import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
 import ImgTxtBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
-
-type Column = {
-  name: string;
-  label: string;
-  field: string | ((row: any) => any);
-  required?: boolean;
-  align?: 'left' | 'right' | 'center';
-  sortable?: boolean;
-};
 
 type Row = {
   name: string;
@@ -27,7 +19,7 @@ const pagination = ref({
   rowsPerPage: 6,
 });
 
-const columns: Column[] = [
+const columns: QTableProps['columns'] = [
   {
     name: 'server',
     required: true,
