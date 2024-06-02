@@ -18,6 +18,11 @@ import FooterBtn from './core/FooterBtn.vue';
           link="https://twitter.com/CivilT_T"
           icon-path="/icons/outers/x-logo.svg"
         />
+        <FooterBtn
+          name="Discord"
+          link="https://discord.gg/CpcGpu6PaV"
+          icon-path="/icons/outers/discord-mark-white.svg"
+        />
       </div>
 
       <div class="col text-desc text-right text-white">
