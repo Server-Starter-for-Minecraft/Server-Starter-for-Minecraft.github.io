@@ -14,7 +14,7 @@ export async function initProcess(ua: string) {
  */
 async function getProductVersion() {
   const jsonObj = await fetch(
-    'https://api.github.com/repos/CivilTT/ServerStarter2/releases/latest'
+    'https://api.github.com/repos/Server-Starter-for-minecraft/ServerStarter2/releases/latest'
   );
 
   const sysStore = useSystemStore();
