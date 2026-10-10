@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { QTableProps } from 'quasar';
-import SsImg from 'src/components/utils/base/SsImg.vue';
-import SsSvg from 'src/components/utils/base/SsSvg.vue';
-import SsA from 'src/components/utils/base/texts/ssA.vue';
-import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
-import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
-import ImgTxtBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
+import SsImg from '@/components/utils/base/SsImg.vue';
+import SsSvg from '@/components/utils/base/SsSvg.vue';
+import SsA from '@/components/utils/base/texts/ssA.vue';
+import SsSubTitle from '@/components/utils/base/texts/ssSubTitle.vue';
+import SsTitle from '@/components/utils/base/texts/ssTitle.vue';
+import ImgTxtBlock from '@/components/utils/blocks/ImgTxtBlock.vue';
 
 type Row = {
   index: string;

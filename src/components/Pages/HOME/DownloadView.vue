@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import SsA from 'src/components/utils/base/texts/ssA.vue';
-import SsStrong from 'src/components/utils/base/texts/ssStrong.vue';
-import { isLinux, isMac, isWindows } from 'src/scripts/checkDevice';
+import SsA from '@/components/utils/base/texts/ssA.vue';
+import SsStrong from '@/components/utils/base/texts/ssStrong.vue';
+import { isLinux, isMac, isWindows } from '@/scripts/checkDevice';
 import WindowsBtn from './core/btns/WindowsBtn.vue';
 import MacBtn from './core/btns/MacBtn.vue';
 import LinuxBtn from './core/btns/LinuxBtn.vue';

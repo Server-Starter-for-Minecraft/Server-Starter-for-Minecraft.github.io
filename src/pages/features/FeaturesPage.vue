@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { FeatureCardProp } from 'src/components/Pages/Features/iFeatureCard';
-import FeatureCard from 'src/components/Pages/Features/FeatureCard.vue';
-import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
+import { FeatureCardProp } from '@/components/Pages/Features/iFeatureCard';
+import FeatureCard from '@/components/Pages/Features/FeatureCard.vue';
+import SsTitle from '@/components/utils/base/texts/ssTitle.vue';
 
-import { crafting_table } from 'src/mcmodel/minecraft/mcmodels/block/crafting_table';
-import { campfire } from 'src/mcmodel/minecraft/mcmodels/block/campfire';
-import { grindstone } from 'src/mcmodel/minecraft/mcmodels/block/grindstone';
-import { chest_minecart } from 'src/mcmodel/serverstarter/mcmodels/block/chest_minecart';
-import { anvil } from 'src/mcmodel/minecraft/mcmodels/block/anvil';
-import { command_block } from 'src/mcmodel/minecraft/mcmodels/block/command_block';
-import { creeper } from 'src/mcmodel/serverstarter/mcmodels/block/creeper';
-import { bookshelf } from 'src/mcmodel/minecraft/mcmodels/block/bookshelf';
+import { crafting_table } from '@/mcmodel/minecraft/mcmodels/block/crafting_table';
+import { campfire } from '@/mcmodel/minecraft/mcmodels/block/campfire';
+import { grindstone } from '@/mcmodel/minecraft/mcmodels/block/grindstone';
+import { chest_minecart } from '@/mcmodel/serverstarter/mcmodels/block/chest_minecart';
+import { anvil } from '@/mcmodel/minecraft/mcmodels/block/anvil';
+import { command_block } from '@/mcmodel/minecraft/mcmodels/block/command_block';
+import { creeper } from '@/mcmodel/serverstarter/mcmodels/block/creeper';
+import { bookshelf } from '@/mcmodel/minecraft/mcmodels/block/bookshelf';
 
 const cards: FeatureCardProp[] = [
   {

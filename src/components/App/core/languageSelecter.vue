@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { Locale } from 'src/i18n';
-import SsSelect from 'src/components/utils/base/expands/ssSelect.vue';
+import { Locale } from '@/i18n';
+import SsSelect from '@/components/utils/base/expands/ssSelect.vue';
 
 interface Prop {
   dark?: boolean;

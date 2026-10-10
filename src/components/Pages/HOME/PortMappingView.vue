@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import SsLinkBtn from 'src/components/utils/base/btns/ssLinkBtn.vue';
-import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
-import SsA from 'src/components/utils/base/texts/ssA.vue';
-import ssSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
+import SsLinkBtn from '@/components/utils/base/btns/ssLinkBtn.vue';
+import SsRouterBtn from '@/components/utils/base/btns/ssRouterBtn.vue';
+import SsA from '@/components/utils/base/texts/ssA.vue';
+import ssSubTitle from '@/components/utils/base/texts/ssSubTitle.vue';
 </script>
 
 <template>

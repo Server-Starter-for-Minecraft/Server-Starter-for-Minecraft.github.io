@@ -31,21 +31,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
-      - name: Setup NodeJS Environment 18
-        uses: actions/setup-node@v4
+      # Quasar CLI（@quasar/app-vite 3）は Node.js 22.22 以上が必要なため明示的にセットアップする
+      - name: Setup NodeJS Environment 24
+        uses: actions/setup-node@v7
         with:
-          node-version: 18
-          cache: 'yarn'
+          node-version: 24
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: package.json
 
       - name: Build
         run: |
-          yarn install
-          yarn build
+          bun install --frozen-lockfile
+          bun run build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: "dist/spa"
 
@@ -58,7 +63,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
     outputs:
       page_url: ${{ steps.deployment.outputs.page_url }}
 
@@ -67,7 +72,7 @@ jobs:
     needs: deploy
     if: always()
     steps:
-      - uses: technote-space/workflow-conclusion-action@v1
+      - uses: technote-space/workflow-conclusion-action@v3
       - name: notify discord
         uses: sarisia/actions-status-discord@v1
         with:

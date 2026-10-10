@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
-import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
+import SsRouterBtn from '@/components/utils/base/btns/ssRouterBtn.vue';
+import SsSubTitle from '@/components/utils/base/texts/ssSubTitle.vue';
 import ServerCard from './core/ServerCard.vue';
-import SsStrong from 'src/components/utils/base/texts/ssStrong.vue';
+import SsStrong from '@/components/utils/base/texts/ssStrong.vue';
 
 type ServerList = { name: string; url: string };
 

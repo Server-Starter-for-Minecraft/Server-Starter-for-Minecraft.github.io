@@ -33,7 +33,7 @@ const resourceTypeMap = {
 };
 
 export class ResourceLocator<
-  T extends Record<string, ResourceInfo> = typeof resourceTypeMap
+  T extends Record<string, ResourceInfo> = typeof resourceTypeMap,
 > {
   readonly basePath: string;
   readonly resourceInfo: T;

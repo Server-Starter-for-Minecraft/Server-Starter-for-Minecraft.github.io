@@ -2,7 +2,7 @@
 import { useQuasar } from 'quasar';
 import { initProcess } from './scripts/init';
 import { Page } from './router/routes';
-import HeaderView from 'src/components/App/HeaderView.vue';
+import HeaderView from '@/components/App/HeaderView.vue';
 import DrawerView from './components/App/DrawerView.vue';
 import FooterView from './components/App/FooterView.vue';
 

@@ -1,4 +1,4 @@
-import type { ModelFaces } from 'src/mcmodel/mcmodel';
+import type { ModelFaces } from '@/mcmodel/mcmodel';
 export const brewing_stand_bottle0: ModelFaces = [
   {
     texture: '/assets/McModel/minecraft/textures/block/brewing_stand.008g.webp',

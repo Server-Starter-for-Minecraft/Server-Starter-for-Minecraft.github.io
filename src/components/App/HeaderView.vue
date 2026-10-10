@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { getCssVar } from 'quasar';
-import { useSystemStore } from 'src/stores/SystemStore';
-import { Page } from 'src/router/routes';
+import { useSystemStore } from '@/stores/SystemStore';
+import { Page } from '@/router/routes';
 import TitleView from '../Pages/HOME/TitleView.vue';
 import colorThemeBtn from './core/colorThemeBtn.vue';
 import languageSelecter from './core/languageSelecter.vue';
@@ -19,7 +19,11 @@ const sysStore = useSystemStore();
     <q-toolbar>
       <q-btn no-caps flat to="/">
         <div class="row items-center text-left">
-          <q-img src="/icons/systemLogo.svg" class="col-1 logo" />
+          <q-img
+            src="/icons/systemLogo.svg"
+            :ratio="57 / 72"
+            class="col-1 logo"
+          />
           <div class="col logo-text">
             <TitleView fontsize="1.3rem" />
           </div>
@@ -66,7 +70,6 @@ a:visited {
 .logo {
   margin-right: 1rem;
   width: 1.3rem;
-  aspect-ratio: 57/72;
 }
 
 .logo-text {

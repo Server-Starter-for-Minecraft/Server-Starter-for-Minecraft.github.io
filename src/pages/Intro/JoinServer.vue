@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import SsLinkBtn from 'src/components/utils/base/btns/ssLinkBtn.vue';
-import SsA from 'src/components/utils/base/texts/ssA.vue';
-import SsStrong from 'src/components/utils/base/texts/ssStrong.vue';
-import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
-import ImgTxtBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
-import IndentLine from 'src/components/utils/blocks/IndentLine.vue';
+import SsLinkBtn from '@/components/utils/base/btns/ssLinkBtn.vue';
+import SsA from '@/components/utils/base/texts/ssA.vue';
+import SsStrong from '@/components/utils/base/texts/ssStrong.vue';
+import SsTitle from '@/components/utils/base/texts/ssTitle.vue';
+import ImgTxtBlock from '@/components/utils/blocks/ImgTxtBlock.vue';
+import IndentLine from '@/components/utils/blocks/IndentLine.vue';
 </script>
 
 <template>

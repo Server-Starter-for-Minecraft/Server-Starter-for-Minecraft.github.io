@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { FeatureCardProp } from './iFeatureCard';
-import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
-import SsCard from 'src/components/utils/base/ssCard.vue';
-import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
-import McModel from 'src/components/utils/blocks/McModel.vue';
+import SsRouterBtn from '@/components/utils/base/btns/ssRouterBtn.vue';
+import SsCard from '@/components/utils/base/ssCard.vue';
+import SsSubTitle from '@/components/utils/base/texts/ssSubTitle.vue';
+import McModel from '@/components/utils/blocks/McModel.vue';
 
 defineProps<FeatureCardProp>();
 

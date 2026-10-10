@@ -2,7 +2,7 @@
 import { useQuasar } from 'quasar';
 interface Prop {
   icon?: string;
-  label?: string;
+  label?: string | undefined;
   dense?: boolean;
   color?: string;
   width?: string;

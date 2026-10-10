@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useQuasar } from 'quasar';
-import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
-import ssSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
+import SsRouterBtn from '@/components/utils/base/btns/ssRouterBtn.vue';
+import ssSubTitle from '@/components/utils/base/texts/ssSubTitle.vue';
 
 interface Prop {
   title: string;

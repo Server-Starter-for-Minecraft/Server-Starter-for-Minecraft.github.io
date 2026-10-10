@@ -1,4 +1,4 @@
-import type { ModelFaces } from 'src/mcmodel/mcmodel';
+import type { ModelFaces } from '@/mcmodel/mcmodel';
 export const lectern: ModelFaces = [
   {
     texture: '/assets/McModel/minecraft/textures/block/lectern_base.0egg.webp',

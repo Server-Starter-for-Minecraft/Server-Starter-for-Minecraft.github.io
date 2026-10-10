@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
-import SsStrong from 'src/components/utils/base/texts/ssStrong.vue';
-import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
-import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
-import WindowsBtn from 'src/components/Pages/HOME/core/btns/WindowsBtn.vue';
-import MacBtn from 'src/components/Pages/HOME/core/btns/MacBtn.vue';
-import LinuxBtn from 'src/components/Pages/HOME/core/btns/LinuxBtn.vue';
+import SsRouterBtn from '@/components/utils/base/btns/ssRouterBtn.vue';
+import SsStrong from '@/components/utils/base/texts/ssStrong.vue';
+import SsSubTitle from '@/components/utils/base/texts/ssSubTitle.vue';
+import SsTitle from '@/components/utils/base/texts/ssTitle.vue';
+import WindowsBtn from '@/components/Pages/HOME/core/btns/WindowsBtn.vue';
+import MacBtn from '@/components/Pages/HOME/core/btns/MacBtn.vue';
+import LinuxBtn from '@/components/Pages/HOME/core/btns/LinuxBtn.vue';
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { isMobile } from 'src/scripts/checkDevice';
-import SsLinkBtn from 'src/components/utils/base/btns/ssLinkBtn.vue';
-import SsCard from 'src/components/utils/base/ssCard.vue';
+import { isMobile } from '@/scripts/checkDevice';
+import SsLinkBtn from '@/components/utils/base/btns/ssLinkBtn.vue';
+import SsCard from '@/components/utils/base/ssCard.vue';
 
 interface Prop {
   name: string;

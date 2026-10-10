@@ -1,4 +1,4 @@
-import { MessageSchema } from 'src/boot/i18n';
+import { MessageSchema } from '@/boot/i18n';
 
 export const enHome: MessageSchema['home'] = {
   download_btn: {

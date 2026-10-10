@@ -45,7 +45,7 @@ SVGデータはベクター画像の一種であり，HTMLなどと同じよう�
 
 ```html
 <script setup lang="ts">
-import SsImg from 'src/components/utils/base/SsImg.vue';
+import SsImg from '@/components/utils/base/SsImg.vue';
 </script>
 
 <template>

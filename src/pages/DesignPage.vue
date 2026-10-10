@@ -1,46 +1,48 @@
 <script setup lang="ts">
 import { getCssVar, useQuasar } from 'quasar';
-import ssTitle from 'src/components/utils/base/texts/ssTitle.vue';
-import ssSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
-import ssStrong from 'src/components/utils/base/texts/ssStrong.vue';
-import WindowsBtn from 'src/components/Pages/HOME/core/btns/WindowsBtn.vue';
-import MacBtn from 'src/components/Pages/HOME/core/btns/MacBtn.vue';
-import LinuxBtn from 'src/components/Pages/HOME/core/btns/LinuxBtn.vue';
-import ssLinkBtn from 'src/components/utils/base/btns/ssLinkBtn.vue';
-import ssA from 'src/components/utils/base/texts/ssA.vue';
-import ssRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
-import ssWarning from 'src/components/utils/base/expands/ssWarning.vue';
-import ssError from 'src/components/utils/base/expands/ssError.vue';
-import ssInfo from 'src/components/utils/base/expands/ssInfo.vue';
-import SsImg from 'src/components/utils/base/SsImg.vue';
-import SsCard from 'src/components/utils/base/ssCard.vue';
-import McModel from 'src/components/utils/blocks/McModel.vue';
+import ssTitle from '@/components/utils/base/texts/ssTitle.vue';
+import ssSubTitle from '@/components/utils/base/texts/ssSubTitle.vue';
+import ssStrong from '@/components/utils/base/texts/ssStrong.vue';
+import WindowsBtn from '@/components/Pages/HOME/core/btns/WindowsBtn.vue';
+import MacBtn from '@/components/Pages/HOME/core/btns/MacBtn.vue';
+import LinuxBtn from '@/components/Pages/HOME/core/btns/LinuxBtn.vue';
+import ssLinkBtn from '@/components/utils/base/btns/ssLinkBtn.vue';
+import ssA from '@/components/utils/base/texts/ssA.vue';
+import ssRouterBtn from '@/components/utils/base/btns/ssRouterBtn.vue';
+import ssWarning from '@/components/utils/base/expands/ssWarning.vue';
+import ssError from '@/components/utils/base/expands/ssError.vue';
+import ssInfo from '@/components/utils/base/expands/ssInfo.vue';
+import SsImg from '@/components/utils/base/SsImg.vue';
+import SsCard from '@/components/utils/base/ssCard.vue';
+import McModel from '@/components/utils/blocks/McModel.vue';
 
-import { crafting_table } from 'src/mcmodel/minecraft/mcmodels/block/crafting_table';
-import { campfire } from 'src/mcmodel/minecraft/mcmodels/block/campfire';
-import { grindstone } from 'src/mcmodel/minecraft/mcmodels/block/grindstone';
-import { anvil } from 'src/mcmodel/minecraft/mcmodels/block/anvil';
-import { command_block } from 'src/mcmodel/minecraft/mcmodels/block/command_block';
-import { bookshelf } from 'src/mcmodel/minecraft/mcmodels/block/bookshelf';
+import { crafting_table } from '@/mcmodel/minecraft/mcmodels/block/crafting_table';
+import { campfire } from '@/mcmodel/minecraft/mcmodels/block/campfire';
+import { grindstone } from '@/mcmodel/minecraft/mcmodels/block/grindstone';
+import { anvil } from '@/mcmodel/minecraft/mcmodels/block/anvil';
+import { command_block } from '@/mcmodel/minecraft/mcmodels/block/command_block';
+import { bookshelf } from '@/mcmodel/minecraft/mcmodels/block/bookshelf';
 
-import { creeper } from 'src/mcmodel/serverstarter/mcmodels/block/creeper';
-import { chest_minecart } from 'src/mcmodel/serverstarter/mcmodels/block/chest_minecart';
+import { creeper } from '@/mcmodel/serverstarter/mcmodels/block/creeper';
+import { chest_minecart } from '@/mcmodel/serverstarter/mcmodels/block/chest_minecart';
 
 const $q = useQuasar();
 
 const thisWindow = document.getElementsByTagName('body')[0];
 const backgroundColor = () =>
-  thisWindow !== null
+  thisWindow !== undefined
     ? window.getComputedStyle(thisWindow).backgroundColor
     : 'Not Found';
 const textColor = () =>
-  thisWindow !== null ? window.getComputedStyle(thisWindow).color : 'Not Found';
+  thisWindow !== undefined
+    ? window.getComputedStyle(thisWindow).color
+    : 'Not Found';
 
 const colorThemes: () => { name: string; hexCode: string }[] = () => [
   { name: '背景色', hexCode: rgbToHex(backgroundColor()) },
   {
     name: 'ブロック要素',
-    hexCode: $q.dark.isActive ? getCssVar('dark') ?? 'Not Found' : '#ffffff',
+    hexCode: $q.dark.isActive ? (getCssVar('dark') ?? 'Not Found') : '#ffffff',
   },
   { name: '強調', hexCode: getCssVar('primary') ?? 'Not Found' },
   { name: '文字', hexCode: rgbToHex(textColor()) },
@@ -67,9 +69,15 @@ function rgbToHex(col: string) {
       .replace('rgba(', '')
       .replace(')', '')
       .split(',');
-    const r = parseInt(sepCol[0], 10).toString(16).padStart(2, '0');
-    const g = parseInt(sepCol[1], 10).toString(16).padStart(2, '0');
-    const b = parseInt(sepCol[2], 10).toString(16).padStart(2, '0');
+    const r = parseInt(sepCol[0] ?? '', 10)
+      .toString(16)
+      .padStart(2, '0');
+    const g = parseInt(sepCol[1] ?? '', 10)
+      .toString(16)
+      .padStart(2, '0');
+    const b = parseInt(sepCol[2] ?? '', 10)
+      .toString(16)
+      .padStart(2, '0');
     return `#${r}${g}${b}`;
   }
 

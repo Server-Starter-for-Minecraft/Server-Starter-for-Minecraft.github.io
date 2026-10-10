@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { isMobile } from 'src/scripts/checkDevice';
-import { useSystemStore } from 'src/stores/SystemStore';
+import { isMobile } from '@/scripts/checkDevice';
+import { useSystemStore } from '@/stores/SystemStore';
 
 interface Prop {
   fontsize: string;
@@ -19,7 +19,7 @@ const sysStore = useSystemStore();
       src="/icons/systemLogo.svg"
       width="7rem"
       class="icon"
-      style="aspect-ratio: 57/72"
+      :ratio="57 / 72"
     />
     <div class="title" :style="{ fontSize: fontsize, lineHeight: fontsize }">
       Server Starter <span class="inTitle">for</span> Minecraft

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ModelFaces } from 'src/mcmodel/mcmodel';
+import { ModelFaces } from '@/mcmodel/mcmodel';
 import { ref } from 'vue';
 
 export interface Props {

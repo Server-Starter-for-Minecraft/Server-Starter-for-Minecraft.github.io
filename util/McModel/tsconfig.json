@@ -1,0 +1,15 @@
+{
+  // McModel 生成スクリプト（`bun run mcmodel`）用の設定。
+  // アプリ本体（.quasar/tsconfig.json）とは実行環境が異なるため独立させている
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "types": ["node"],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  "files": ["src/main.ts"],
+  "include": ["src/@types/**/*.d.ts"]
+}

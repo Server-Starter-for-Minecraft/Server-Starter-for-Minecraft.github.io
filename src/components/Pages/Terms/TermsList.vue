@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { Page } from 'src/router/routes';
-import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
-import SsCard from 'src/components/utils/base/ssCard.vue';
-import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
-import SsLinkBtn from 'src/components/utils/base/btns/ssLinkBtn.vue';
+import { Page } from '@/router/routes';
+import SsRouterBtn from '@/components/utils/base/btns/ssRouterBtn.vue';
+import SsCard from '@/components/utils/base/ssCard.vue';
+import SsSubTitle from '@/components/utils/base/texts/ssSubTitle.vue';
+import SsLinkBtn from '@/components/utils/base/btns/ssLinkBtn.vue';
 
 type TermsID =
-  | { type: 'page'; key: Page }
-  | { type: 'link'; key: string; url: string };
+  { type: 'page'; key: Page } | { type: 'link'; key: string; url: string };
 const cards: TermsID[] = [
   {
     type: 'link',

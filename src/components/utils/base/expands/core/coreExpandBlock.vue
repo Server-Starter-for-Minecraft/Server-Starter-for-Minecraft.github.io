@@ -4,7 +4,7 @@ interface Prop {
   icon: string;
   color: string;
   title: string;
-  caption?: string;
+  caption?: string | undefined;
 }
 defineProps<Prop>();
 

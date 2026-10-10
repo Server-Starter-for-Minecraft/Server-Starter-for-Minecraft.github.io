@@ -1,4 +1,4 @@
-import type { ModelFaces } from 'src/mcmodel/mcmodel';
+import type { ModelFaces } from '@/mcmodel/mcmodel';
 export const stone: ModelFaces = [
   {
     texture: '/assets/McModel/minecraft/textures/block/stone.00gg.webp',

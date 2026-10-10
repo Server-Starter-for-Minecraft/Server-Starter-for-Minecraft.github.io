@@ -8,7 +8,7 @@ const prop = defineProps<MemberProp>();
 const $q = useQuasar();
 
 const defaultColor = () =>
-  !$q.dark.isActive ? getCssVar('dark') ?? 'Not Found' : '#ffffff';
+  !$q.dark.isActive ? (getCssVar('dark') ?? 'Not Found') : '#ffffff';
 
 const borderLineStyle = () => {
   switch (prop.role) {

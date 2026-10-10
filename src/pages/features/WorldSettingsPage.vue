@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
-import ImgTxtBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
+import SsTitle from '@/components/utils/base/texts/ssTitle.vue';
+import ImgTxtBlock from '@/components/utils/blocks/ImgTxtBlock.vue';
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SsTooltip from 'src/components/utils/base/ssTooltip.vue';
+import SsTooltip from '@/components/utils/base/ssTooltip.vue';
 
 interface Prop {
   name: string;
