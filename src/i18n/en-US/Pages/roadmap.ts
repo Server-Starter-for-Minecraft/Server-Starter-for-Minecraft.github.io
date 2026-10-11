@@ -15,6 +15,8 @@ export const enUSRoadmap: MessageSchema['roadmap'] = {
   versionTBD: 'Version TBD',
   detailBtn: 'See details',
   mediaIndex: 'Image {n} / {total}',
+  prevImage: 'Previous image',
+  nextImage: 'Next image',
   backBtn: 'Back to roadmap',
   relatedLinks: 'Related pages',
   sourceLinks: 'Development status (GitHub): ',
@@ -168,6 +170,31 @@ export const enUSRoadmap: MessageSchema['roadmap'] = {
       title: 'Linux support',
       summary:
         'ServerStarter2 is now available on Linux as well as Windows and Mac.',
+    },
+    'ngrok-windows': {
+      title: 'Port mapping free on more environments',
+      summary:
+        'Fixed an issue where port mapping free (Ngrok) could not be used on some Windows PCs by bundling the required runtime with the app.',
+    },
+    'fix-world-duplicate-layout': {
+      title: 'Fixes for world duplication and settings layout',
+      summary:
+        'Fixed the dialog not closing after duplicating a world and the system settings layout breaking depending on the window width.',
+    },
+    'open-app-log': {
+      title: 'Button to open the app log file',
+      summary:
+        'Added a button to open the log file of ServerStarter2 itself, which is useful when reporting a problem.',
+    },
+    'fix-port-forge': {
+      title: 'Fixes for port number and old Forge',
+      summary:
+        'Fixed the server port number changing every time when Ngrok is not set up, and Forge 1.10 or earlier failing to start.',
+    },
+    'fix-world-folder': {
+      title: 'Fix for switching the world folder',
+      summary:
+        'Fixed an issue where clicking a world folder card did not switch the save location.',
     },
     'port-mapping-free': {
       title: 'No need for port mapping',

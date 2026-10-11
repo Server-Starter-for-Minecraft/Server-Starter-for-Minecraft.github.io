@@ -65,8 +65,10 @@ defineProps<Prop>();
   line-height: 1.5rem;
 }
 
+// タイトルと区別できるよう，説明文は少し透過させて控えめなトーンにする
 .summary {
   font-size: 0.9rem;
+  opacity: 0.72;
 }
 
 .more {

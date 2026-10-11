@@ -166,6 +166,44 @@ export const roadmapItems: RoadmapItem[] = [
     issues: [114],
   },
 
+  // ---------- v2.1.4 ----------
+  {
+    id: 'ngrok-windows',
+    status: 'released',
+    version: '2.1.4',
+    releasedAt: '2024-02-18',
+    issues: [110],
+  },
+  {
+    id: 'fix-world-duplicate-layout',
+    status: 'released',
+    version: '2.1.4',
+    releasedAt: '2024-02-18',
+    issues: [139, 120],
+  },
+
+  // ---------- v2.1.2 ----------
+  {
+    id: 'open-app-log',
+    status: 'released',
+    version: '2.1.2',
+    releasedAt: '2024-01-14',
+  },
+  {
+    id: 'fix-port-forge',
+    status: 'released',
+    version: '2.1.2',
+    releasedAt: '2024-01-14',
+  },
+
+  // ---------- v2.1.1 ----------
+  {
+    id: 'fix-world-folder',
+    status: 'released',
+    version: '2.1.1',
+    releasedAt: '2024-01-07',
+  },
+
   // ---------- v2.1.0 ----------
   {
     id: 'port-mapping-free',

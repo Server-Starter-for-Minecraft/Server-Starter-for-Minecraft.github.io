@@ -22,6 +22,8 @@ export const jaRoadmap = {
   versionTBD: 'バージョン未定',
   detailBtn: '詳細を見る',
   mediaIndex: '画像 {n} / {total}',
+  prevImage: '前の画像',
+  nextImage: '次の画像',
   backBtn: 'ロードマップに戻る',
   relatedLinks: '関連ページ',
   sourceLinks: '開発状況（GitHub）：',
@@ -174,6 +176,31 @@ export const jaRoadmap = {
     linux: {
       title: 'Linuxに対応',
       summary: 'Windows・Macに加えて，Linuxでも利用できるようになりました',
+    },
+    'ngrok-windows': {
+      title: 'ポート開放不要化を利用できる環境の拡大',
+      summary:
+        '一部のWindows環境でポート開放不要化（Ngrok）を利用できなかった問題を，必要なランタイムをアプリに同梱することで解消しました',
+    },
+    'fix-world-duplicate-layout': {
+      title: 'ワールドの複製と設定画面の表示を改善',
+      summary:
+        'ワールドの複製後に確認画面が閉じない問題や，画面の幅によってシステム設定のレイアウトが崩れる問題を修正しました',
+    },
+    'open-app-log': {
+      title: 'アプリのログファイルを開くボタン',
+      summary:
+        '不具合を報告する際などに役立つ，ServerStarter2本体のログファイルを開くボタンを追加しました',
+    },
+    'fix-port-forge': {
+      title: 'ポート番号と古いForgeの起動に関する修正',
+      summary:
+        'Ngrokを設定していない場合にサーバーのポート番号が毎回変わってしまう問題と，1.10以前のForgeを起動できない問題を修正しました',
+    },
+    'fix-world-folder': {
+      title: 'ワールドの保存場所の切り替えを修正',
+      summary:
+        'ワールドの保存場所のカードをクリックしても，保存場所が切り替わらない問題を修正しました',
     },
     'port-mapping-free': {
       title: 'ポート開放不要化',
