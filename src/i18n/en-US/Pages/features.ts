@@ -31,10 +31,10 @@ export const enFeatures: MessageSchema['features'] = {
       linkBtn: 'Port opening',
     },
     support_servers: {
-      title: 'Compatible with  6 types of servers',
+      title: 'Compatible with {n} types of servers',
       desc: '\
-          Vanilla/Forge/Spigot\n \
-          Mohist/Paper/Fabric',
+          Vanilla/Spigot/Paper/Forge\n \
+          NeoForge/Mohist/Fabric',
       linkBtn: 'Supported servers',
     },
     add_contents: {

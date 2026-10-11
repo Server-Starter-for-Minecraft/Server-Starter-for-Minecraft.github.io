@@ -14,20 +14,22 @@
 ### 主なディレクトリ
 
 - `src/pages/` … ページコンポーネント
-  - 直下の `*Page.vue` は各セクションの親ページ、サブディレクトリ（`Intro/`・`features/`・`q-a/`・`terms/`）に子ページを配置
+  - 直下の `*Page.vue` は各セクションの親ページ、サブディレクトリ（`Intro/`・`features/`・`q-a/`・`terms/`・`roadmap/`）に子ページを配置
 - `src/router/routes.ts` … ルーティング定義（ページ追加時はここに登録する）
 - `src/components/`
   - `App/` … ヘッダー・フッター・ドロワーなどのレイアウト部品
-  - `Pages/` … 各ページ専用のコンポーネント（`HOME/`・`Features/`・`Terms/`）
+  - `Pages/` … 各ページ専用のコンポーネント（`HOME/`・`Features/`・`Terms/`・`Roadmap/`）
   - `utils/` … 共通コンポーネント（`base/` の `ss*` 系ボタン・テキスト・カード、`blocks/`、`baseDialog/` など）。新規 UI はまずここの部品の利用を検討する
 - `src/i18n/` … 翻訳テキスト（`ja/` と `en-US/` を同じ構成で管理。文言追加時は両方に追加する）
 - `src/css/` … グローバルスタイル（`app.scss`）・Quasar 変数（`quasar.variables.scss`）・フォント
 - `src/stores/` … Pinia ストア
-- `src/scripts/` … 初期化処理・端末判定（`checkDevice.ts`）などのユーティリティ
+- `src/scripts/` … 初期化処理・端末判定（`checkDevice.ts`）・対応サーバーの定義（`serverTypes.ts`）などのユーティリティ
+- `src/roadmap/` … ロードマップ（`/roadmap`）に掲載する項目の定義（`items.ts`）と並べ替えなどの処理
 - `src/mcmodel/` … Minecraft ブロックモデルデータ（`bun run mcmodel` による自動生成物。手動編集しない）
 - `public/assets/` … 画像などの静的アセット（ページごとにサブディレクトリを分ける）
 - `util/McModel/` … `src/mcmodel/` を生成するためのスクリプト
 - `.github/workflows/` … CI（Deploy・Linter・Formatter）
+- `.claude/skills/update-site-for-release/` … 本体アプリのリリースに合わせたサイト更新・ロードマップ追加・スクリーンショット取得の手順（SKILL）
 
 ### 主なコマンド
 

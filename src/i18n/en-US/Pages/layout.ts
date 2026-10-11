@@ -5,6 +5,7 @@ export const enUSLayout: MessageSchema['layout'] = {
     pages: {
       intro: 'Introduction',
       features: 'Features',
+      roadmap: 'Roadmap',
       'q-a': 'Q & A',
       terms: 'Terms',
     },

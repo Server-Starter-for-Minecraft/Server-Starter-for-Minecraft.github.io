@@ -3,6 +3,7 @@ export const jaLayout = {
     pages: {
       intro: 'はじめに',
       features: '機能一覧',
+      roadmap: 'ロードマップ',
       'q-a': 'Q&A',
       terms: '規約',
     },

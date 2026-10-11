@@ -5,8 +5,12 @@ import SsRouterBtn from '@/components/utils/base/btns/ssRouterBtn.vue';
 import SsCard from '@/components/utils/base/ssCard.vue';
 import SsSubTitle from '@/components/utils/base/texts/ssSubTitle.vue';
 import McModel from '@/components/utils/blocks/McModel.vue';
+import { serverTypes } from '@/scripts/serverTypes';
 
 defineProps<FeatureCardProp>();
+
+// 各カードの文言に埋め込む値（例：{n} は対応サーバーの種類数）
+const i18nParams = { n: serverTypes.length };
 
 const hovered = ref(false);
 </script>
@@ -24,7 +28,7 @@ const hovered = ref(false);
       style="border-radius: 5px"
     >
       <SsSubTitle>
-        {{ $t(`features.cards.${i18nKey}.title`) }}
+        {{ $t(`features.cards.${i18nKey}.title`, i18nParams) }}
       </SsSubTitle>
       <p style="white-space: pre-line">
         {{ $t(`features.cards.${i18nKey}.desc`) }}

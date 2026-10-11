@@ -60,6 +60,29 @@ const routes: RouteRecordRaw[] = [
         path: 'auto-port-mapping',
         component: () => import('@/pages/features/AutoPortMappingPage.vue'),
       },
+      {
+        path: 'players',
+        component: () => import('@/pages/features/PlayersPage.vue'),
+      },
+      {
+        path: 'contents',
+        component: () => import('@/pages/features/ContentsPage.vue'),
+      },
+    ],
+  },
+  {
+    path: '/roadmap',
+    component: () => import('@/pages/RoadmapPage.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('@/pages/roadmap/RoadmapPage.vue'),
+      },
+      {
+        // 項目の識別子は src/roadmap/items.ts の id
+        path: ':id',
+        component: () => import('@/pages/roadmap/RoadmapDetailPage.vue'),
+      },
     ],
   },
   {
