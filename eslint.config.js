@@ -60,6 +60,9 @@ export default defineConfigWithVueTs(
     rules: {
       'prefer-promise-reject-errors': 'off',
 
+      // defineProps などのコンパイラマクロは import 不要（import すると Vue のコンパイル時に警告が出る）
+      'vue/no-import-compiler-macros': 'error',
+
       // クォートなどの整形ルールは Prettier（.prettierrc の singleQuote）に任せる。
       // 末尾の prettierSkipFormatting が整形系ルールを無効化するため、ここでは指定しない
 
