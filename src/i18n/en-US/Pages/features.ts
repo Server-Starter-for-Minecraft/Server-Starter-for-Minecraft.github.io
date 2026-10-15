@@ -33,8 +33,8 @@ export const enFeatures: MessageSchema['features'] = {
     support_servers: {
       title: 'Compatible with {n} types of servers',
       desc: '\
-          Vanilla/Spigot/Paper/Forge\n \
-          NeoForge/Mohist/Fabric',
+          Vanilla/Forge/Spigot\n \
+          Mohist/Paper/Fabric',
       linkBtn: 'Supported servers',
     },
     add_contents: {

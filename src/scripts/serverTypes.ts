@@ -1,11 +1,12 @@
 /**
  * ServerStarter2 が対応しているサーバーの種類の定義
  *
- * トップページのサーバー紹介・機能一覧のカード・サーバー一覧ページの対応表は
- * すべてこの定義から描画するため，対応サーバーが増えた場合はここに1件追加し，
+ * トップページのサーバー紹介・サーバー一覧ページの対応表・各所の対応サーバー数は
+ * この定義から描画するため，対応サーバーが増えた場合はここに1件追加し，
  * 併せて以下を用意する
  * - アイコン画像：`public/assets/servers/{name}.png`
  * - 表示名と説明：i18n の `home.servers.serverType.{name}` と `home.servers.serverDescription.{name}`
+ * - 機能一覧のカードに並べたサーバー名：i18n の `features.cards.support_servers.desc`（手書きのため個別に更新する）
  */
 export type ServerType = {
   /** i18n のキーとアイコンのファイル名に用いる識別子 */
@@ -45,13 +46,6 @@ export const serverTypes: ServerType[] = [
   {
     name: 'forge',
     url: 'https://files.minecraftforge.net/net/minecraftforge/forge/',
-    datapack: true,
-    plugin: false,
-    mod: true,
-  },
-  {
-    name: 'neoforge',
-    url: 'https://neoforged.net',
     datapack: true,
     plugin: false,
     mod: true,

@@ -60,14 +60,6 @@ const routes: RouteRecordRaw[] = [
         path: 'auto-port-mapping',
         component: () => import('@/pages/features/AutoPortMappingPage.vue'),
       },
-      {
-        path: 'players',
-        component: () => import('@/pages/features/PlayersPage.vue'),
-      },
-      {
-        path: 'contents',
-        component: () => import('@/pages/features/ContentsPage.vue'),
-      },
     ],
   },
   {

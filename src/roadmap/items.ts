@@ -18,29 +18,19 @@ export const roadmapItems: RoadmapItem[] = [
     issues: [37, 38],
   },
   {
-    id: 'bore',
-    status: 'planned',
-    issues: [267],
-  },
-  {
     id: 'auto-backup',
     status: 'planned',
     issues: [50],
   },
   {
-    id: 'scheduler',
-    status: 'planned',
-    issues: [57],
-  },
-  {
-    id: 'server-status',
-    status: 'planned',
-    issues: [56],
-  },
-  {
     id: 'custom-version',
     status: 'planned',
     issues: [218],
+  },
+  {
+    id: 'bedrock',
+    status: 'planned',
+    issues: [55],
   },
 
   // ---------- v2.3.0 ----------
@@ -51,7 +41,7 @@ export const roadmapItems: RoadmapItem[] = [
     major: true,
     media: [
       {
-        src: '/assets/Features/servers/selectServer.png',
+        src: `${IMG}/neoforge/serverTypes.png`,
         caption: 'serverTypes',
       },
       { src: `${IMG}/neoforge/version.png`, caption: 'version' },
@@ -68,13 +58,10 @@ export const roadmapItems: RoadmapItem[] = [
     version: '2.3.0',
     major: true,
     media: [
-      { src: '/assets/Features/players/list.png', caption: 'list' },
-      { src: '/assets/Features/players/group.png', caption: 'group' },
+      { src: `${IMG}/player-list/list.png`, caption: 'list' },
+      { src: `${IMG}/player-list/group.png`, caption: 'group' },
     ],
-    links: [
-      { to: '/features/players', label: 'players' },
-      { to: '/intro/join-server', label: 'joinServer' },
-    ],
+    links: [{ to: '/intro/join-server', label: 'joinServer' }],
     issues: [191, 246, 88],
   },
   {
@@ -83,7 +70,7 @@ export const roadmapItems: RoadmapItem[] = [
     version: '2.3.0',
     major: true,
     media: [
-      { src: '/assets/Introduction/RunServer/console.png', caption: 'console' },
+      { src: `${IMG}/console/console.png`, caption: 'console' },
       { src: `${IMG}/console/search.png`, caption: 'search' },
     ],
     links: [{ to: '/intro/run-server', label: 'runServer' }],
@@ -95,13 +82,10 @@ export const roadmapItems: RoadmapItem[] = [
     version: '2.3.0',
     major: true,
     media: [
-      { src: '/assets/Features/contents/list.png', caption: 'list' },
-      { src: '/assets/Features/contents/search.png', caption: 'search' },
+      { src: `${IMG}/contents-list/list.png`, caption: 'list' },
+      { src: `${IMG}/contents-list/search.png`, caption: 'search' },
     ],
-    links: [
-      { to: '/features/contents', label: 'contents' },
-      { to: '/features/servers', label: 'servers' },
-    ],
+    links: [{ to: '/features/servers', label: 'servers' }],
     issues: [275, 96],
   },
   {

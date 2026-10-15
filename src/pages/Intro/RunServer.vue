@@ -48,13 +48,6 @@ import ImgTxtBlock from '@/components/utils/blocks/ImgTxtBlock.vue';
       <SsStrong>say Hello</SsStrong>
       と入力すると，ゲーム内のプレイヤー全員に「Hello」というメッセージを送ることができます
     </p>
-    <p>
-      コンソールのログは読みやすい等幅フォントで表示され，サーバーが出力する文字色もそのまま表示されます．
-      過去のログを読んでいる間は，新しいログが出力されてもスクロール位置が保たれます
-    </p>
-    <p>
-      入力欄の左にある<SsStrong>道具箱</SsStrong>からは，サーバーの再起動やコンソール内の検索ができます
-    </p>
   </ImgTxtBlock>
 
   <ImgTxtBlock

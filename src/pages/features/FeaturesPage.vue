@@ -41,12 +41,10 @@ const cards: FeatureCardProp[] = [
   {
     i18nKey: 'add_contents',
     faces: command_block,
-    to: '/features/contents',
   },
   {
     i18nKey: 'manage_players',
     faces: creeper,
-    to: '/features/players',
   },
   {
     i18nKey: 'make_backup',

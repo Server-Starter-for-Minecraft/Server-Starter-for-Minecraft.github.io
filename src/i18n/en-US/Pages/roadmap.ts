@@ -25,8 +25,6 @@ export const enUSRoadmap: MessageSchema['roadmap'] = {
     intro: 'Introduction',
     features: 'Features',
     servers: 'Server types',
-    players: 'Managing players',
-    contents: 'Additional contents',
     joinServer: 'Join the server',
     runServer: 'Run the server',
     autoPortMapping: 'No need for port mapping',
@@ -39,30 +37,20 @@ export const enUSRoadmap: MessageSchema['roadmap'] = {
       summary:
         'Save world data to a remote such as GitHub so that the same world can be run in turns on multiple PCs.',
     },
-    bore: {
-      title: 'Bore option for port mapping free',
-      summary:
-        'In addition to Ngrok, you will be able to choose Bore, which requires no account and has no traffic limits.',
-    },
     'auto-backup': {
       title: 'Automatic backups',
       summary:
         'Create world backups automatically when the server starts or stops, or at regular intervals.',
     },
-    scheduler: {
-      title: 'Scheduler',
-      summary:
-        'Run commands and start, stop or restart the server automatically at a specified time or timer.',
-    },
-    'server-status': {
-      title: 'Server and PC status',
-      summary:
-        'Check CPU and memory usage, uptime and more while the server is running.',
-    },
     'custom-version': {
       title: 'Custom versions',
       summary:
         'Register a jar file to run server types that ServerStarter2 does not support.',
+    },
+    bedrock: {
+      title: 'Bedrock Edition support',
+      summary:
+        'In addition to Java Edition, you will be able to start multiplayer servers for Bedrock Edition.',
     },
     neoforge: {
       title: 'NeoForge support',

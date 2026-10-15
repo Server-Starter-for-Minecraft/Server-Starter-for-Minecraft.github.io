@@ -45,8 +45,11 @@ gh pr view <番号> -R $R                                  # 主要な PR の概
 
 - 本体アプリの文言は本体の `src/i18n/ja/` が正なので，ボタン名・タブ名はそこに合わせる
   （`git -C <本体クローン> show origin/main:src/i18n/ja/Pages/World/player.ts` など）
+- **未リリースの機能は既存ページ（トップ・はじめに・機能一覧など）に書かない**
+  - 開発中（`developing`）の機能はロードマップにのみ掲載し，既存ページへの加筆・新しい機能ページの追加・スクリーンショットの差し替えは，そのバージョンのリリース時に行う
+  - リリース前に既存ページの更新を準備する場合は，別ブランチに分けるなど公開済みのサイトに出ないようにする
 - よく古くなる箇所
-  - 対応サーバーの種類と数 → `src/scripts/serverTypes.ts` に1件追加するだけで，トップページ・機能一覧・サーバー一覧に反映される（アイコンを `public/assets/servers/{name}.png` に置き，i18n の `home.servers.serverType` / `serverDescription` に追記）
+  - 対応サーバーの種類と数 → `src/scripts/serverTypes.ts` に1件追加すると，トップページ・サーバー一覧・各所の対応サーバー数に反映される（アイコンを `public/assets/servers/{name}.png` に置き，i18n の `home.servers.serverType` / `serverDescription` に追記。機能一覧カードのサーバー名 `features.cards.support_servers.desc` は手書きのため個別に更新する）
   - 画面構成が変わった機能の説明文とスクリーンショット（`public/assets/Features/` など）
   - 機能一覧のカード（`src/pages/features/FeaturesPage.vue`）のリンク先
 - 新しい機能ページを作る場合は `src/pages/features/` に追加し，`src/router/routes.ts` に登録する
@@ -58,7 +61,9 @@ gh pr view <番号> -R $R                                  # 主要な PR の概
 
 - 項目のデータ：`src/roadmap/items.ts`（型は `src/roadmap/types.ts`）
 - 文言：`src/i18n/ja/Pages/roadmap.ts` と `src/i18n/en-US/Pages/roadmap.ts` の `items.{id}`
-- 画像：`public/assets/Roadmap/{id}/`（機能ページと同じ画像はそちらを参照して重複させない）
+- 画像：`public/assets/Roadmap/{id}/`
+  - 未リリースの項目の画像は，機能ページの画像を上書きせずに必ずここに置く（機能ページはリリース済みの画面のままにする）
+  - リリース後に機能ページの画像を差し替えた場合は，同じ画像を重複させないよう機能ページの画像を参照する形に変えてよい
 
 ### 項目の追加
 

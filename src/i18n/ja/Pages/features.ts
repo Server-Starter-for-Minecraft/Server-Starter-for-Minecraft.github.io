@@ -31,8 +31,8 @@ export const jaFeatures = {
     support_servers: {
       title: '{n}種類のサーバーに対応',
       desc: '\
-        Vanilla/Spigot/Paper/Forge\n \
-        NeoForge/Mohist/Fabric',
+        Vanilla/Forge/Spigot\n \
+        Mohist/Paper/Fabric',
       linkBtn: '対応サーバー',
     },
     add_contents: {

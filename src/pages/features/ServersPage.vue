@@ -102,12 +102,8 @@ const rows: ServerType[] = serverTypes;
           ServerStarter2ではサーバー種類に対応していない追加コンテンツは導入できないようになっているため，安心してご利用いただくことができます！
         </p>
         <p>
-          なお，Forge・NeoForge・Fabricは「前提MOD」と呼ばれるMODを導入するためにベースとなるサーバーの種類になりますので，
+          なお，ForgeやFabricは「前提MOD」と呼ばれるMODを導入するためにベースとなるサーバーの種類になりますので，
           ご利用のMODが対応しているサーバー種類をお確かめの上，ご利用ください
-        </p>
-        <p>
-          特にNeoForgeはForgeから派生したサーバーですが，Forge向けのMODとの互換性はありません．
-          NeoForgeでワールドを起動する際は，NeoForgeに対応したMODをご用意ください
         </p>
       </div>
     </div>

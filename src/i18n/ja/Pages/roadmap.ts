@@ -32,8 +32,6 @@ export const jaRoadmap = {
     intro: 'はじめに',
     features: '機能一覧',
     servers: 'サーバー一覧',
-    players: 'プレイヤーの管理',
-    contents: '追加コンテンツの導入',
     joinServer: 'サーバーに参加する',
     runServer: 'サーバーを起動する',
     autoPortMapping: 'ポート開放不要化',
@@ -46,30 +44,20 @@ export const jaRoadmap = {
       summary:
         'GitHubなどのリモートにワールドデータを保存し，複数のPCで同じワールドを交代で起動できるようにする機能です',
     },
-    bore: {
-      title: 'ポート開放不要化にBoreを追加',
-      summary:
-        'Ngrokに加えて，アカウント登録不要で通信量の制限もないBoreをポート開放不要化の方法として選べるようにします',
-    },
     'auto-backup': {
       title: 'バックアップの自動作成',
       summary:
         'サーバーの起動時・終了時や一定期間ごとに，ワールドのバックアップを自動で作成できるようにします',
     },
-    scheduler: {
-      title: 'スケジューラー',
-      summary:
-        '時刻やタイマーを指定して，コマンドの実行やサーバーの起動・停止・再起動を自動で行えるようにします',
-    },
-    'server-status': {
-      title: 'サーバーとPCのステータス表示',
-      summary:
-        'サーバーの起動中に，CPU・メモリの使用率や起動時間などを確認できるようにします',
-    },
     'custom-version': {
       title: 'カスタムバージョンの登録',
       summary:
         'ServerStarter2が対応していない種類のサーバーも，jarファイルを登録して起動できるようにします',
+    },
+    bedrock: {
+      title: '統合版に対応',
+      summary:
+        'Java版に加えて，統合版（Bedrock Edition）のマルチプレイサーバーも起動できるようにします',
     },
     neoforge: {
       title: 'NeoForgeに対応',
