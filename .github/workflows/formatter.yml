@@ -9,20 +9,22 @@ jobs:
   prettier:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.head_ref }} # 自動コミットをPRのブランチへpushするため
       - uses: technote-space/get-diff-action@v6 #差分を取得する
         with:
           PATTERNS: |
             **/*.{ts,tsx,js,jsx,json,vue}
-      - uses: actions/setup-node@v3 #nodeをインストール & キャッシュを取得
+      - uses: oven-sh/setup-bun@v2 #bunをインストール
         with:
-          node-version: 18
-          cache: 'yarn'
+          bun-version-file: package.json
+        if: env.GIT_DIFF
       - name: Run Prettier # prettier自体を実行
         run: |
-          yarn
-          yarn prettier --write ${{ env.GIT_DIFF_FILTERED }} --ignore-path .gitignore # 環境変数GIT_DIFF_FILTEREDに差分のあるファイルが列挙されている
+          bun install --frozen-lockfile --ignore-scripts # Prettierのみ使うためpostinstall(quasar prepare)は不要
+          bunx prettier --write ${{ env.GIT_DIFF_FILTERED }} --ignore-path .gitignore # 環境変数GIT_DIFF_FILTEREDに差分のあるファイルが列挙されている
         if: env.GIT_DIFF
-      - uses: stefanzweifel/git-auto-commit-action@v4 # フォーマットしたファイルをコミット
+      - uses: stefanzweifel/git-auto-commit-action@v7 # フォーマットしたファイルをコミット
         with:
           commit_message: 🚨 Apply Prettier Change

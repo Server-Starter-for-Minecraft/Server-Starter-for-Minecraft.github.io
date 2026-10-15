@@ -1,4 +1,4 @@
-import type { ModelFaces } from 'src/mcmodel/mcmodel';
+import type { ModelFaces } from '@/mcmodel/mcmodel';
 export const bookshelf: ModelFaces = [
   {
     texture: '/assets/McModel/minecraft/textures/block/oak_planks.00gg.webp',

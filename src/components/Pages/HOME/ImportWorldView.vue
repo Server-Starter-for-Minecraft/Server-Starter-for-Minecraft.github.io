@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ImgTxtBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
+import ImgTxtBlock from '@/components/utils/blocks/ImgTxtBlock.vue';
 </script>
 
 <template>

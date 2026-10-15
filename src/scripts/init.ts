@@ -1,4 +1,4 @@
-import { useSystemStore } from 'src/stores/SystemStore';
+import { useSystemStore } from '@/stores/SystemStore';
 import { setUserAgent } from './checkDevice';
 
 /** ホームページの起動時処理を記述 */

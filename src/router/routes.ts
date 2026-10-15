@@ -8,93 +8,108 @@ export type Page = KeyA2U<typeof routes, 'path'>;
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('pages/HomePage.vue'),
+    component: () => import('@/pages/HomePage.vue'),
   },
   {
     path: '/design',
-    component: () => import('pages/DesignPage.vue'),
+    component: () => import('@/pages/DesignPage.vue'),
   },
   {
     path: '/intro',
-    component: () => import('pages/IntroPage.vue'),
+    component: () => import('@/pages/IntroPage.vue'),
     children: [
       {
         path: '',
-        component: () => import('pages/Intro/IntroPage.vue'),
+        component: () => import('@/pages/Intro/IntroPage.vue'),
       },
       {
         path: 'install',
-        component: () => import('pages/Intro/InstallPage.vue'),
+        component: () => import('@/pages/Intro/InstallPage.vue'),
       },
       {
         path: 'run-server',
-        component: () => import('pages/Intro/RunServer.vue'),
+        component: () => import('@/pages/Intro/RunServer.vue'),
       },
       {
         path: 'join-server',
-        component: () => import('pages/Intro/JoinServer.vue'),
+        component: () => import('@/pages/Intro/JoinServer.vue'),
       },
     ],
   },
   {
     path: '/features',
-    component: () => import('pages/FeaturesPage.vue'),
+    component: () => import('@/pages/FeaturesPage.vue'),
     children: [
       {
         path: '',
-        component: () => import('pages/features/FeaturesPage.vue'),
+        component: () => import('@/pages/features/FeaturesPage.vue'),
       },
       {
         path: 'servers',
-        component: () => import('pages/features/ServersPage.vue'),
+        component: () => import('@/pages/features/ServersPage.vue'),
       },
       {
         path: 'create-world',
-        component: () => import('pages/features/CreateWorldPage.vue'),
+        component: () => import('@/pages/features/CreateWorldPage.vue'),
       },
       {
         path: 'world-settings',
-        component: () => import('pages/features/WorldSettingsPage.vue'),
+        component: () => import('@/pages/features/WorldSettingsPage.vue'),
       },
       {
         path: 'auto-port-mapping',
-        component: () => import('pages/features/AutoPortMappingPage.vue'),
+        component: () => import('@/pages/features/AutoPortMappingPage.vue'),
+      },
+    ],
+  },
+  {
+    path: '/roadmap',
+    component: () => import('@/pages/RoadmapPage.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('@/pages/roadmap/RoadmapPage.vue'),
+      },
+      {
+        // 項目の識別子は src/roadmap/items.ts の id
+        path: ':id',
+        component: () => import('@/pages/roadmap/RoadmapDetailPage.vue'),
       },
     ],
   },
   {
     path: '/q-a',
-    component: () => import('pages/QAPage.vue'),
+    component: () => import('@/pages/QAPage.vue'),
     children: [
       {
         path: '',
-        component: () => import('pages/q-a/QAPage.vue'),
+        component: () => import('@/pages/q-a/QAPage.vue'),
       },
       {
         path: 'failed-join-server',
-        component: () => import('pages/q-a/FailedJoinServerPage.vue'),
+        component: () => import('@/pages/q-a/FailedJoinServerPage.vue'),
       },
     ],
   },
   {
     path: '/terms',
-    component: () => import('pages/TermsPage.vue'),
+    component: () => import('@/pages/TermsPage.vue'),
     children: [
       {
         path: '',
-        component: () => import('pages/terms/TermsPage.vue'),
+        component: () => import('@/pages/terms/TermsPage.vue'),
       },
       {
         path: 'use',
-        component: () => import('pages/terms/TermsOfUse.vue'),
+        component: () => import('@/pages/terms/TermsOfUse.vue'),
       },
       {
         path: 'privacy',
-        component: () => import('pages/terms/PrivacyPolicy.vue'),
+        component: () => import('@/pages/terms/PrivacyPolicy.vue'),
       },
       {
         path: 'broadcast',
-        component: () => import('pages/terms/TermsOfBroadcast.vue'),
+        component: () => import('@/pages/terms/TermsOfBroadcast.vue'),
       },
     ],
   },
@@ -103,7 +118,7 @@ const routes: RouteRecordRaw[] = [
   // but you can also remove it
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue'),
+    component: () => import('@/pages/ErrorNotFound.vue'),
   },
 ];
 

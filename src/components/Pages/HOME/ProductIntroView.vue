@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import SsA from 'src/components/utils/base/texts/ssA.vue';
-import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
+import SsA from '@/components/utils/base/texts/ssA.vue';
+import SsTitle from '@/components/utils/base/texts/ssTitle.vue';
 </script>
 
 <template>

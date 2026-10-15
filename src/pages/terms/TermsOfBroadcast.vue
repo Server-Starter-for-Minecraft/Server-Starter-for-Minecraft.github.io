@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
-import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
-import LogoCard from 'src/components/Pages/Terms/LogoCard.vue';
+import SsTitle from '@/components/utils/base/texts/ssTitle.vue';
+import SsSubTitle from '@/components/utils/base/texts/ssSubTitle.vue';
+import LogoCard from '@/components/Pages/Terms/LogoCard.vue';
 </script>
 
 <template>

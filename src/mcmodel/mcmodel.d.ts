@@ -16,7 +16,7 @@ export type ModelFace = {
     number,
     number,
     number,
-    number
+    number,
   ];
   brightness: {
     // brightness = x => base + amp * sin(x + phase * 2 * pi)

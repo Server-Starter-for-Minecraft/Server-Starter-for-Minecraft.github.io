@@ -1,4 +1,4 @@
-import { MessageSchema } from 'src/boot/i18n';
+import { MessageSchema } from '@/boot/i18n';
 
 export const enHome: MessageSchema['home'] = {
   download_btn: {
@@ -7,6 +7,13 @@ export const enHome: MessageSchema['home'] = {
     linux: 'Download for Linux',
   },
   servers: {
+    title: 'Supports {n} types of servers!!',
+    desc: 'ServerStarter supports {n} types of servers!',
+    desc2:
+      'Enjoy multiplayer more with not only {vanilla} servers but also {mod}s and {plugin}s.',
+    vanilla: 'vanilla',
+    plugin: 'plugin',
+    linkBtn: 'Server types',
     serverType: {
       vanilla: 'Vanilla (Official)',
       spigot: 'Spigot',

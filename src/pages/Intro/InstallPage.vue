@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { isLinux, isMac, isWindows } from 'src/scripts/checkDevice';
-import SsImg from 'src/components/utils/base/SsImg.vue';
-import SsError from 'src/components/utils/base/expands/ssError.vue';
-import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
-import ImgTxtBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
-import SsStrong from 'src/components/utils/base/texts/ssStrong.vue';
-import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
+import { isLinux, isMac, isWindows } from '@/scripts/checkDevice';
+import SsImg from '@/components/utils/base/SsImg.vue';
+import SsError from '@/components/utils/base/expands/ssError.vue';
+import SsTitle from '@/components/utils/base/texts/ssTitle.vue';
+import ImgTxtBlock from '@/components/utils/blocks/ImgTxtBlock.vue';
+import SsStrong from '@/components/utils/base/texts/ssStrong.vue';
+import SsRouterBtn from '@/components/utils/base/btns/ssRouterBtn.vue';
 </script>
 
 <template>

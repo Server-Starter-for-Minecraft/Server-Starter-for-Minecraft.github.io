@@ -1,4 +1,4 @@
-import type { ModelFaces } from 'src/mcmodel/mcmodel';
+import type { ModelFaces } from '@/mcmodel/mcmodel';
 export const command_block: ModelFaces = [
   {
     texture:

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Page } from 'src/router/routes';
-import { useSystemStore } from 'src/stores/SystemStore';
+import { Page } from '@/router/routes';
+import { useSystemStore } from '@/stores/SystemStore';
 import ColorThemeBtn from './core/colorThemeBtn.vue';
 import LanguageSelecter from './core/languageSelecter.vue';
 
@@ -16,7 +16,7 @@ const sysStore = useSystemStore();
   <q-drawer v-model="sysStore.drawer" side="right">
     <div class="vertical-scroll">
       <div class="row items-center q-ma-md">
-        <q-img src="/icons/systemLogo.svg" class="logo" />
+        <q-img src="/icons/systemLogo.svg" :ratio="57 / 72" class="logo" />
         <q-space />
         <q-btn icon="close" flat dense @click="sysStore.drawer = false" />
       </div>
@@ -57,7 +57,6 @@ const sysStore = useSystemStore();
 <style scoped lang="scss">
 .logo {
   width: 1.5rem;
-  aspect-ratio: 57/72;
 }
 
 .page-selected-dark {

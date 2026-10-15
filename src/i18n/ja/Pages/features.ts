@@ -29,7 +29,7 @@ export const jaFeatures = {
       linkBtn: 'ポート開放不要化',
     },
     support_servers: {
-      title: '6種類のサーバーに対応',
+      title: '{n}種類のサーバーに対応',
       desc: '\
         Vanilla/Forge/Spigot\n \
         Mohist/Paper/Fabric',

@@ -1,47 +1,27 @@
 <script setup lang="ts">
-import SsRouterBtn from 'src/components/utils/base/btns/ssRouterBtn.vue';
-import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
+import { serverTypes } from '@/scripts/serverTypes';
+import SsRouterBtn from '@/components/utils/base/btns/ssRouterBtn.vue';
+import SsSubTitle from '@/components/utils/base/texts/ssSubTitle.vue';
 import ServerCard from './core/ServerCard.vue';
-import SsStrong from 'src/components/utils/base/texts/ssStrong.vue';
-
-type ServerList = { name: string; url: string };
-
-const serverTypes: ServerList[] = [
-  {
-    name: 'vanilla',
-    url: 'https://www.minecraft.net/ja-jp/download/server',
-  },
-  {
-    name: 'forge',
-    url: 'https://files.minecraftforge.net/net/minecraftforge/forge/',
-  },
-  {
-    name: 'spigot',
-    url: 'https://www.spigotmc.org',
-  },
-  {
-    name: 'mohistmc',
-    url: 'https://mohistmc.com',
-  },
-  {
-    name: 'papermc',
-    url: 'https://papermc.io',
-  },
-  {
-    name: 'fabric',
-    url: 'https://fabricmc.net',
-  },
-];
+import SsStrong from '@/components/utils/base/texts/ssStrong.vue';
 </script>
 
 <template>
   <div>
-    <SsSubTitle> 6種類のサーバーに対応 ！！ </SsSubTitle>
+    <SsSubTitle>
+      {{ $t('home.servers.title', { n: serverTypes.length }) }}
+    </SsSubTitle>
     <p>
-      ServerStarterは6種類のサーバーに対応しています！<br />
-      <SsStrong>バニラ</SsStrong>のサーバーだけでなく <SsStrong>Mod</SsStrong>や
-      <SsStrong>プラグイン</SsStrong>
-      を使って、もっとマルチプレイを楽しみましょう。
+      {{ $t('home.servers.desc', { n: serverTypes.length }) }}<br />
+      <i18n-t keypath="home.servers.desc2" tag="span" scope="global">
+        <template #vanilla>
+          <SsStrong>{{ $t('home.servers.vanilla') }}</SsStrong>
+        </template>
+        <template #mod><SsStrong>Mod</SsStrong></template>
+        <template #plugin>
+          <SsStrong>{{ $t('home.servers.plugin') }}</SsStrong>
+        </template>
+      </i18n-t>
     </p>
     <div class="row q-gutter-lg justify-center">
       <template v-for="server in serverTypes" :key="server.name">
@@ -49,7 +29,9 @@ const serverTypes: ServerList[] = [
       </template>
     </div>
     <div class="flex justify-end q-py-md">
-      <SsRouterBtn to="/features/servers"> サーバーの種類 </SsRouterBtn>
+      <SsRouterBtn to="/features/servers">
+        {{ $t('home.servers.linkBtn') }}
+      </SsRouterBtn>
     </div>
   </div>
 </template>

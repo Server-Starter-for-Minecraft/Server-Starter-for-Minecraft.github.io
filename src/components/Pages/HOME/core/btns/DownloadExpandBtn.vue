@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useSystemStore } from 'src/stores/SystemStore';
+import { useSystemStore } from '@/stores/SystemStore';
 import { BtnProp } from './iBtn';
 
 type Distribution = {

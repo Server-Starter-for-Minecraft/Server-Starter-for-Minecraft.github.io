@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import SsBtn from 'src/components/utils/base/btns/ssBtn.vue';
-import SsCard from 'src/components/utils/base/ssCard.vue';
-import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
+import SsBtn from '@/components/utils/base/btns/ssBtn.vue';
+import SsCard from '@/components/utils/base/ssCard.vue';
+import SsSubTitle from '@/components/utils/base/texts/ssSubTitle.vue';
 
 interface Prop {
   textKey: string;

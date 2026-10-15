@@ -1,4 +1,4 @@
-import type { ModelFaces } from 'src/mcmodel/mcmodel';
+import type { ModelFaces } from '@/mcmodel/mcmodel';
 export const campfire: ModelFaces = [
   {
     texture: '/assets/McModel/minecraft/textures/block/campfire_log.0448.webp',

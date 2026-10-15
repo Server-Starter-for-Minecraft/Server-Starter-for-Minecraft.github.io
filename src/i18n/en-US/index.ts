@@ -1,8 +1,9 @@
-import { MessageSchema } from 'src/boot/i18n';
+import { MessageSchema } from '@/boot/i18n';
 import { enUSGeneral } from './Other/general';
 import { enUSLayout } from './Pages/layout';
 import { enHome } from './Pages/home';
 import { enFeatures } from './Pages/features';
+import { enUSRoadmap } from './Pages/roadmap';
 import { enUSTerms } from './Pages/terms';
 
 export const enUS: MessageSchema = {
@@ -10,5 +11,6 @@ export const enUS: MessageSchema = {
   layout: enUSLayout,
   home: enHome,
   features: enFeatures,
+  roadmap: enUSRoadmap,
   terms: enUSTerms,
 };

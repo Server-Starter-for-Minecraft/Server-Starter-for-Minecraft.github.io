@@ -11,7 +11,7 @@ type NestedTuple<T extends number, U extends number> = ToTupleNum<
 
 type Flatten<
   T extends readonly any[],
-  A extends readonly any[] = []
+  A extends readonly any[] = [],
 > = T extends [infer F, ...infer R]
   ? Flatten<R, F extends readonly any[] ? [...A, ...F] : [...A, F]>
   : A;

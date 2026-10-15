@@ -1,4 +1,4 @@
-import type { ModelFaces } from 'src/mcmodel/mcmodel';
+import type { ModelFaces } from '@/mcmodel/mcmodel';
 export const grindstone: ModelFaces = [
   {
     texture: '/assets/McModel/minecraft/textures/block/dark_oak_log.294g.webp',

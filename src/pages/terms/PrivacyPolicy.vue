@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import SsA from 'src/components/utils/base/texts/ssA.vue';
-import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
-import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
-import SsStrong from 'src/components/utils/base/texts/ssStrong.vue';
-import IndentLine from 'src/components/utils/blocks/IndentLine.vue';
+import SsA from '@/components/utils/base/texts/ssA.vue';
+import SsTitle from '@/components/utils/base/texts/ssTitle.vue';
+import SsSubTitle from '@/components/utils/base/texts/ssSubTitle.vue';
+import SsStrong from '@/components/utils/base/texts/ssStrong.vue';
+import IndentLine from '@/components/utils/blocks/IndentLine.vue';
 </script>
 
 <template>

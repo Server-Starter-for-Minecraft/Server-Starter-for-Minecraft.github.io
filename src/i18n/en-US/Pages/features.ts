@@ -1,4 +1,4 @@
-import { MessageSchema } from 'src/boot/i18n';
+import { MessageSchema } from '@/boot/i18n';
 
 export const enFeatures: MessageSchema['features'] = {
   cards: {
@@ -31,7 +31,7 @@ export const enFeatures: MessageSchema['features'] = {
       linkBtn: 'Port opening',
     },
     support_servers: {
-      title: 'Compatible with  6 types of servers',
+      title: 'Compatible with {n} types of servers',
       desc: '\
           Vanilla/Forge/Spigot\n \
           Mohist/Paper/Fabric',

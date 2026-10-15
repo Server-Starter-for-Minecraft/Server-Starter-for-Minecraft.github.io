@@ -2,21 +2,16 @@
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { QTableProps } from 'quasar';
-import SsSubTitle from 'src/components/utils/base/texts/ssSubTitle.vue';
-import SsTitle from 'src/components/utils/base/texts/ssTitle.vue';
-import ImgTxtBlock from 'src/components/utils/blocks/ImgTxtBlock.vue';
-
-type Row = {
-  name: string;
-  datapack: boolean;
-  plugin: boolean;
-  mod: boolean;
-};
+import SsSubTitle from '@/components/utils/base/texts/ssSubTitle.vue';
+import SsTitle from '@/components/utils/base/texts/ssTitle.vue';
+import ImgTxtBlock from '@/components/utils/blocks/ImgTxtBlock.vue';
+import { ServerType, serverTypes } from '@/scripts/serverTypes';
 
 const $t = useI18n();
 const pagination = ref({
   page: 1,
-  rowsPerPage: 6,
+  // 対応サーバーをすべて1ページに表示する
+  rowsPerPage: serverTypes.length,
 });
 
 const columns: QTableProps['columns'] = [
@@ -25,46 +20,41 @@ const columns: QTableProps['columns'] = [
     required: true,
     label: 'サーバー種類',
     align: 'left',
-    field: (row: Row) => $t.t(`home.servers.serverType.${row.name}`),
+    field: (row: ServerType) => $t.t(`home.servers.serverType.${row.name}`),
   },
   {
     name: 'datapack',
     align: 'center',
     label: 'データパック',
-    field: (row: Row) => (row.datapack ? '〇' : '－'),
+    field: (row: ServerType) => (row.datapack ? '〇' : '－'),
     sortable: true,
   },
   {
     name: 'plugin',
     align: 'center',
     label: 'プラグイン',
-    field: (row: Row) => (row.plugin ? '〇' : '－'),
+    field: (row: ServerType) => (row.plugin ? '〇' : '－'),
     sortable: true,
   },
   {
     name: 'mod',
     align: 'center',
     label: 'MOD',
-    field: (row: Row) => (row.mod ? '〇' : '－'),
+    field: (row: ServerType) => (row.mod ? '〇' : '－'),
     sortable: true,
   },
 ];
 
-const rows: Row[] = [
-  { name: 'vanilla', datapack: true, plugin: false, mod: false },
-  { name: 'spigot', datapack: true, plugin: true, mod: false },
-  { name: 'papermc', datapack: true, plugin: true, mod: false },
-  { name: 'forge', datapack: true, plugin: false, mod: true },
-  { name: 'mohistmc', datapack: true, plugin: true, mod: true },
-  { name: 'fabric', datapack: true, plugin: false, mod: true },
-];
+const rows: ServerType[] = serverTypes;
 </script>
 
 <template>
   <div>
     <SsTitle>サーバー一覧</SsTitle>
     <p>
-      ServerStarter2ではJava版Minecraftにおけるマルチプレイに向けた6種類のサーバーをサポートしています<br />
+      ServerStarter2ではJava版Minecraftにおけるマルチプレイに向けた{{
+        serverTypes.length
+      }}種類のサーバーをサポートしています<br />
       ご自身の目的に合わせたサーバーを活用して，快適にマルチプレイを楽しみましょう！
     </p>
   </div>

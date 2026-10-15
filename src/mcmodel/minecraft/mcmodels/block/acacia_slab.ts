@@ -1,4 +1,4 @@
-import type { ModelFaces } from 'src/mcmodel/mcmodel';
+import type { ModelFaces } from '@/mcmodel/mcmodel';
 export const acacia_slab: ModelFaces = [
   {
     texture: '/assets/McModel/minecraft/textures/block/acacia_planks.00gg.webp',

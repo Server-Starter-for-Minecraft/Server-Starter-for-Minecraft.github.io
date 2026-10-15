@@ -1,10 +1,11 @@
-import { MessageSchema } from 'src/boot/i18n';
+import { MessageSchema } from '@/boot/i18n';
 
 export const enUSLayout: MessageSchema['layout'] = {
   header: {
     pages: {
       intro: 'Introduction',
       features: 'Features',
+      roadmap: 'Roadmap',
       'q-a': 'Q & A',
       terms: 'Terms',
     },

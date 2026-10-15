@@ -1,6 +1,6 @@
 <template>
   <h1 class="row items-center q-mt-md q-mb-xl">
-    <q-img src="/icons/systemLogo.svg" class="icon col-1" />
+    <q-img src="/icons/systemLogo.svg" :ratio="57 / 72" class="icon col-1" />
     <span class="text col">
       <slot />
     </span>
@@ -11,7 +11,6 @@
 .icon {
   margin-right: 1rem;
   width: 3.2rem;
-  aspect-ratio: 57/72;
 }
 
 .text {
