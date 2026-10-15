@@ -6,6 +6,10 @@ export const enHome: MessageSchema['home'] = {
     mac: 'Download for Mac',
     linux: 'Download for Linux',
   },
+  mac_arch: {
+    silicon: 'Apple Silicon (M1 or later)',
+    intel: 'Intel',
+  },
   servers: {
     title: 'Supports {n} types of servers!!',
     desc: 'ServerStarter supports {n} types of servers!',
