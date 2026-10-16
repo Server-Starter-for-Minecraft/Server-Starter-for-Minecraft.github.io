@@ -4,6 +4,11 @@ export const jaHome = {
     mac: 'Mac版をダウンロード',
     linux: 'Linux版をダウンロード',
   },
+  // Mac版のダウンロードで選択するアーキテクチャ
+  mac_arch: {
+    silicon: 'Apple Silicon（M1 以降）',
+    intel: 'Intel',
+  },
   servers: {
     // {n} には対応しているサーバーの種類数が入る
     title: '{n}種類のサーバーに対応 ！！',
