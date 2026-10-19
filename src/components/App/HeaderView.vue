@@ -37,6 +37,7 @@ const sysStore = useSystemStore();
           <span v-if="idx > 0" class="q-mx-sm">/</span>
           <RouterLink
             :to="`/${page}`"
+            class="page-link"
             :class="$route.path.includes(`/${page}`) ? 'select-page' : ''"
           >
             {{ $t(`layout.header.pages.${page}`) }}
@@ -79,6 +80,11 @@ a:visited {
 .line {
   position: relative;
   top: 1px;
+}
+
+// ページ名の途中で改行されないようにし，折り返す場合はページ単位で折り返す
+.page-link {
+  white-space: nowrap;
 }
 
 .select-page {
