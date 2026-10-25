@@ -2,8 +2,10 @@
 <html lang="">
   <head>
     <script>
+      // GitHub Pages では SPA の各ページの URL が 404 となるため，ハッシュ形式の URL に変換してトップへ移動する
+      // （index.html でハッシュを元のパスに戻す）。寄付金額の指定（?amount=500）などのクエリも引き継ぐ（ハッシュは引き継がない）
       (function (l) {
-        l.replace(l.origin + '/#' + l.pathname);
+        l.replace(l.origin + '/#' + l.pathname + l.search);
       })(window.location);
     </script>
   </head>

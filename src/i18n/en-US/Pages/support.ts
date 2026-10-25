@@ -14,6 +14,12 @@ export const enUSSupport: MessageSchema['support'] = {
       large: { desc: 'Give development a big boost' },
       custom: { title: 'Custom amount', desc: 'Donate any amount you like' },
     },
+    redirect: {
+      title: 'Moving to the payment page',
+      desc: 'If you are not redirected automatically, please open the payment page with the button below',
+      btn: 'Open the payment page',
+      backBtn: 'Back to the support page',
+    },
   },
   others: {
     title: 'Other ways to support us',

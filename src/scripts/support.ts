@@ -1,3 +1,4 @@
+import type { LocationQuery } from 'vue-router';
 import type { MessageSchema } from '@/boot/i18n';
 
 /** 公式サイトの URL（SNS でのシェアに用いる） */
@@ -11,8 +12,8 @@ type DonationOptionId = keyof MessageSchema['support']['donation']['options'];
 /**
  * 「プロジェクトを応援！」ページに表示する寄付の選択肢
  *
- * 選択肢ごとに作成済みの Square リンク決済のページを開く
- * （本体アプリ ServerStarter2 の寄付ダイアログと同じ決済ページを用いる）
+ * 選択肢ごとに作成済みの Square リンク決済のページを開く。
+ * 本体アプリ ServerStarter2 の寄付ダイアログも，`DONATE_REDIRECT_PATH` のページを経由して同じ決済ページを開く
  */
 export interface DonationOption {
   /** 選択肢の識別子（i18n の `support.donation.options.{id}` の参照にも使う） */
@@ -20,7 +21,9 @@ export interface DonationOption {
   /**
    * 寄付金額（円）。未指定の場合は寄付者が決済ページで金額を入力する
    *
-   * 金額を指定した選択肢は金額を，未指定の選択肢は i18n の `title` を見出しとして表示する
+   * 金額を指定した選択肢は金額を，未指定の選択肢は i18n の `title` を見出しとして表示する。
+   * 本体アプリから `?amount={金額}` で参照される公開 API でもあるため，
+   * リリース済みのアプリが使う金額は削除・変更しないこと（対応する決済ページの URL の差し替えは自由）
    */
   amount?: number;
   /** カードに表示するアイコン（Material Icons の名前） */
@@ -33,6 +36,7 @@ export interface DonationOption {
  * 寄付の選択肢の一覧（表示順）
  *
  * 選択肢を追加・変更する場合はこの配列と i18n の文言のみを変更すればよい
+ * （ただし金額の削除・変更は `DonationOption.amount` の注意を参照）
  */
 export const donationOptions: readonly DonationOption[] = [
   {
@@ -59,6 +63,36 @@ export const donationOptions: readonly DonationOption[] = [
     url: 'https://square.link/u/RhX4i7G1',
   },
 ];
+
+/**
+ * 寄付金額を指定して寄付の決済ページへ移動するためのページ（`/support/donate`）のパス
+ *
+ * 本体アプリ（ServerStarter2）の寄付ダイアログはこのページを開き，決済ページの URL は本サイトで管理する。
+ * 寄付金額はクエリパラメータ `amount`（円）で指定し（例：`/support/donate?amount=500`），
+ * 省略した場合は金額を指定しない選択肢（寄付者が決済ページで金額を入力するもの）として扱う。
+ * 該当する選択肢がない場合は「プロジェクトを応援！」ページ（`/support`）へ移動する。
+ */
+export const DONATE_REDIRECT_PATH = '/support/donate';
+
+/**
+ * `DONATE_REDIRECT_PATH` のページのクエリから，指定された寄付の選択肢を探す
+ *
+ * @param query ページのクエリ。`amount` がない場合は金額を指定しない選択肢を探す
+ * @returns 対応する寄付の選択肢。該当するものがない場合
+ *          （`?amount` のように値がない場合や，`amount` が複数指定された場合を含む）は `undefined`
+ */
+export function findDonationOptionByQuery(
+  query: LocationQuery
+): DonationOption | undefined {
+  if (!('amount' in query)) {
+    return donationOptions.find((o) => o.amount === void 0);
+  }
+  const amount = query.amount;
+  if (typeof amount !== 'string') return void 0;
+  return donationOptions.find(
+    (o) => o.amount !== void 0 && String(o.amount) === amount
+  );
+}
 
 /**
  * 寄付金額を表示用の文字列（例：`¥1,000`）に変換する
