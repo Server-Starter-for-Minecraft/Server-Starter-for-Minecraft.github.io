@@ -18,6 +18,12 @@ export const jaSupport = {
       large: { desc: '開発を大きく後押し' },
       custom: { title: '金額を指定', desc: 'お好きな金額で応援' },
     },
+    redirect: {
+      title: '決済ページへ移動しています',
+      desc: '自動で移動しない場合は，下のボタンから決済ページを開いてください',
+      btn: '決済ページを開く',
+      backBtn: '応援ページへ戻る',
+    },
   },
   others: {
     title: '寄付以外の応援方法',
