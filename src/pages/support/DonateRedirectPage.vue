@@ -8,7 +8,9 @@
 import { computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { findDonationOptionByQuery } from '@/scripts/support';
-import SsRouterBtn from '@/components/utils/base/btns/ssRouterBtn.vue';
+import LoadingLogo from '@/components/utils/animation/LoadingLogo.vue';
+import SsBtn from '@/components/utils/base/btns/ssBtn.vue';
+import SsA from '@/components/utils/base/texts/ssA.vue';
 import SsTitle from '@/components/utils/base/texts/ssTitle.vue';
 
 const route = useRoute();
@@ -21,30 +23,31 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-if="option" class="mainField">
-    <div class="column items-center text-center q-gutter-y-md">
-      <q-spinner color="primary" size="3rem" />
-      <SsTitle>{{ $t('support.donation.redirect.title') }}</SsTitle>
-      <p class="q-mb-none">{{ $t('support.donation.redirect.desc') }}</p>
-      <!-- スマホ幅でボタンが並ばない場合は折り返して縦に並べる -->
-      <div class="row justify-center q-gutter-md">
-        <!--
-          自動で移動しなかった場合の手動の導線。自動の移動と同じく同じタブで開く
-          （共通部品の SsBtn はリンク（href）に対応していないため q-btn を用いる）
-        -->
-        <q-btn
-          unelevated
-          no-caps
-          color="primary"
-          icon="open_in_new"
-          :href="option.url"
-          :label="$t('support.donation.redirect.btn')"
-          class="text-bold"
-        />
-        <SsRouterBtn to="/support">
-          {{ $t('support.donation.redirect.backBtn') }}
-        </SsRouterBtn>
-      </div>
+  <!-- タイトル・説明文・ボタンをひとまとまりとして画面の中央に表示する -->
+  <div v-if="option" class="mainField redirect">
+    <div class="column items-center text-center">
+      <SsTitle>
+        <!-- 決済ページへの移動中であることを，ロゴを描くアニメーションで示す -->
+        <template #icon><LoadingLogo /></template>
+        {{ $t('support.donation.redirect.title') }}
+      </SsTitle>
+      <p>{{ $t('support.donation.redirect.desc') }}</p>
+      <!-- 自動で移動しなかった場合の手動の導線（自動の移動と同じく同じタブで開く） -->
+      <SsBtn
+        icon="open_in_new"
+        :href="option.url"
+        :label="$t('support.donation.redirect.btn')"
+      />
+      <SsA url="/support" class="q-mt-lg">
+        {{ $t('support.donation.redirect.backBtn') }}
+      </SsA>
     </div>
   </div>
 </template>
+
+<style scoped lang="scss">
+.redirect {
+  // 縦幅が足りない場合に上側が画面外へはみ出して見えなくならないよう safe を付ける
+  justify-content: safe center;
+}
+</style>
