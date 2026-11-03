@@ -4,6 +4,7 @@ import { jaHome } from './Pages/home';
 import { jaTerms } from './Pages/terms';
 import { jaFeatures } from './Pages/features';
 import { jaRoadmap } from './Pages/roadmap';
+import { jaSupport } from './Pages/support';
 
 export const ja = {
   general: jaGeneral,
@@ -11,5 +12,6 @@ export const ja = {
   home: jaHome,
   features: jaFeatures,
   roadmap: jaRoadmap,
+  support: jaSupport,
   terms: jaTerms,
 };

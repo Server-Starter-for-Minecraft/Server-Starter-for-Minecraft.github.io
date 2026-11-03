@@ -11,6 +11,7 @@ const pages: { key: Page; icon: string }[] = [
   { key: 'intro', icon: 'flag' },
   { key: 'features', icon: 'category' },
   { key: 'roadmap', icon: 'timeline' },
+  { key: 'support', icon: 'volunteer_activism' },
   // { key: 'q-a', icon: 'help' },
   { key: 'terms', icon: 'gavel' },
 ];

@@ -4,6 +4,7 @@ export const jaLayout = {
       intro: 'はじめに',
       features: '機能一覧',
       roadmap: 'ロードマップ',
+      support: '応援する',
       'q-a': 'Q&A',
       terms: '規約',
     },
