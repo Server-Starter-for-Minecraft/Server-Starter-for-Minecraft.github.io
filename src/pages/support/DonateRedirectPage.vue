@@ -1,33 +1,33 @@
 <!--
-  寄付金額を指定して寄付の決済ページへ移動するページ（`/support/donate?amount={金額}`）
+  寄付サービスを指定して寄付ページへ移動するページ（`/support/donate?service={識別子}`）
 
-  本体アプリの寄付ダイアログから開かれ，指定された金額に対応する決済ページへ移動する。
-  対応する選択肢がない場合はルート定義（`src/router/routes.ts`）で応援ページへ移動するため，このページは描画されない。
+  本体アプリの寄付ダイアログから開かれ，指定されたサービスの寄付ページへ移動する。
+  対応するサービスがない場合はルート定義（`src/router/routes.ts`）で応援ページへ移動するため，このページは描画されない。
 -->
 <script setup lang="ts">
 import { computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
-import { findDonationOptionByQuery } from '@/scripts/support';
+import { findDonationServiceByQuery } from '@/scripts/support';
 import LoadingLogo from '@/components/utils/animation/LoadingLogo.vue';
 import SsBtn from '@/components/utils/base/btns/ssBtn.vue';
 import SsA from '@/components/utils/base/texts/ssA.vue';
 import SsTitle from '@/components/utils/base/texts/ssTitle.vue';
 
 const route = useRoute();
-const option = computed(() => findDonationOptionByQuery(route.query));
+const service = computed(() => findDonationServiceByQuery(route.query));
 
 onMounted(() => {
   // 戻るボタンでこのページに戻って再び移動しないよう，履歴を置き換えて移動する
-  if (option.value) window.location.replace(option.value.url);
+  if (service.value) window.location.replace(service.value.url);
 });
 </script>
 
 <template>
   <!-- タイトル・説明文・ボタンをひとまとまりとして画面の中央に表示する -->
-  <div v-if="option" class="mainField redirect">
+  <div v-if="service" class="mainField redirect">
     <div class="column items-center text-center">
       <SsTitle>
-        <!-- 決済ページへの移動中であることを，ロゴを描くアニメーションで示す -->
+        <!-- 寄付ページへの移動中であることを，ロゴを描くアニメーションで示す -->
         <template #icon><LoadingLogo /></template>
         {{ $t('support.donation.redirect.title') }}
       </SsTitle>
@@ -35,7 +35,7 @@ onMounted(() => {
       <!-- 自動で移動しなかった場合の手動の導線（自動の移動と同じく同じタブで開く） -->
       <SsBtn
         icon="open_in_new"
-        :href="option.url"
+        :href="service.url"
         :label="$t('support.donation.redirect.btn')"
       />
       <SsA url="/support" class="q-mt-lg">

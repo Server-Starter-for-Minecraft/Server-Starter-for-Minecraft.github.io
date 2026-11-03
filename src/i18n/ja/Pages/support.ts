@@ -1,7 +1,7 @@
 /**
  * 「プロジェクトを応援！」ページの文言
  *
- * - `donation.options` のキーは `src/scripts/support.ts` の `donationOptions` の `id` と一致させる
+ * - `donation.services` のキーは `src/scripts/support.ts` の `donationServices` の `id` と一致させる
  * - `others.ways` のキーは `src/scripts/support.ts` の `supportWays` の `id` と一致させる
  */
 export const jaSupport = {
@@ -10,18 +10,23 @@ export const jaSupport = {
   donation: {
     title: '寄付で応援する',
     desc: 'いただいたご寄付は，今後の開発や運営に大切に使わせていただきます．\nアプリ内の「プロジェクトを応援！」ボタンからも同じページで寄付いただけます．',
-    select: '応援する金額を選んでください',
-    note: 'Squareの決済ページが新しいタブで開きます（クレジットカード・Apple Pay・Google Pay に対応）',
-    options: {
-      small: { desc: 'コーヒー1杯分の応援' },
-      medium: { desc: 'ランチ1回分の応援' },
-      large: { desc: '開発を大きく後押し' },
-      custom: { title: '金額を指定', desc: 'お好きな金額で応援' },
+    note: '寄付ページが新しいタブで開きます',
+    services: {
+      ofuse: {
+        title: 'OFUSEで応援する',
+        desc: 'お好きな金額で，メッセージを添えて応援できます',
+        btn: 'OFUSEを開く',
+      },
+      githubSponsors: {
+        title: 'GitHub Sponsorsで応援する',
+        desc: 'GitHubアカウントで，毎月または1回限りの応援ができます',
+        btn: 'GitHub Sponsorsを開く',
+      },
     },
     redirect: {
-      title: '決済ページへ移動しています',
-      desc: '自動で移動しない場合は，下のボタンから決済ページを開いてください',
-      btn: '決済ページを開く',
+      title: '寄付ページへ移動しています',
+      desc: '自動で移動しない場合は，下のボタンから寄付ページを開いてください',
+      btn: '寄付ページを開く',
       backBtn: '応援ページへ戻る',
     },
   },

@@ -5,103 +5,82 @@ import type { MessageSchema } from '@/boot/i18n';
 export const SITE_URL = 'https://server-starter-for-minecraft.github.io/';
 
 /**
- * 寄付の選択肢の識別子（i18n の `support.donation.options` に文言が定義されているもの）
+ * 寄付サービスの識別子（i18n の `support.donation.services` に文言が定義されているもの）
  */
-type DonationOptionId = keyof MessageSchema['support']['donation']['options'];
+type DonationServiceId = keyof MessageSchema['support']['donation']['services'];
 
 /**
- * 「プロジェクトを応援！」ページに表示する寄付の選択肢
+ * 「プロジェクトを応援！」ページに表示する寄付サービス
  *
- * 選択肢ごとに作成済みの Square リンク決済のページを開く。
- * 本体アプリ ServerStarter2 の寄付ダイアログも，`DONATE_REDIRECT_PATH` のページを経由して同じ決済ページを開く
+ * 選択するとサービスの寄付ページ（OFUSE など）を開く。
+ * 本体アプリ ServerStarter2 の寄付ダイアログも，`DONATE_REDIRECT_PATH` のページを経由して同じ寄付ページを開く
  */
-export interface DonationOption {
-  /** 選択肢の識別子（i18n の `support.donation.options.{id}` の参照にも使う） */
-  id: DonationOptionId;
+export interface DonationService {
   /**
-   * 寄付金額（円）。未指定の場合は寄付者が決済ページで金額を入力する
+   * サービスの識別子（i18n の `support.donation.services.{id}` の参照にも使う）
    *
-   * 金額を指定した選択肢は金額を，未指定の選択肢は i18n の `title` を見出しとして表示する。
-   * 本体アプリから `?amount={金額}` で参照される公開 API でもあるため，
-   * リリース済みのアプリが使う金額は削除・変更しないこと（対応する決済ページの URL の差し替えは自由）
+   * 本体アプリから `?service={識別子}` で参照される公開 API でもあるため，
+   * リリース済みのアプリが使う識別子は削除・変更しないこと（対応する寄付ページの URL の差し替えは自由）
    */
-  amount?: number;
+  id: DonationServiceId;
   /** カードに表示するアイコン（Material Icons の名前） */
   icon: string;
-  /** 寄付ページ（Square リンク決済）の URL */
+  /** サービスの寄付ページの URL */
   url: string;
+  /**
+   * 応援ページに表示するか
+   *
+   * 準備中のサービスは `false` にしておき，受付を開始したら `true` にする
+   */
+  visible: boolean;
 }
 
 /**
- * 寄付の選択肢の一覧（表示順）
+ * 寄付サービスの一覧（表示順）
  *
- * 選択肢を追加・変更する場合はこの配列と i18n の文言のみを変更すればよい
- * （ただし金額の削除・変更は `DonationOption.amount` の注意を参照）
+ * サービスを追加・変更する場合はこの配列と i18n の文言のみを変更すればよい
+ * （ただし識別子の削除・変更は `DonationService.id` の注意を参照）
  */
-export const donationOptions: readonly DonationOption[] = [
+export const donationServices: readonly DonationService[] = [
   {
-    id: 'small',
-    amount: 500,
-    icon: 'local_cafe',
-    url: 'https://square.link/u/BlJBjzvq',
+    id: 'ofuse',
+    icon: 'mail',
+    url: 'https://ofuse.me/e/421347',
+    visible: true,
   },
   {
-    id: 'medium',
-    amount: 1000,
-    icon: 'lunch_dining',
-    url: 'https://square.link/u/ASAPhIgk',
-  },
-  {
-    id: 'large',
-    amount: 2000,
-    icon: 'celebration',
-    url: 'https://square.link/u/cFtKreQC',
-  },
-  {
-    id: 'custom',
-    icon: 'edit',
-    url: 'https://square.link/u/RhX4i7G1',
+    // 受付開始までは非表示にしておく
+    id: 'githubSponsors',
+    icon: 'favorite',
+    url: 'https://github.com/sponsors/CivilTT',
+    visible: false,
   },
 ];
 
 /**
- * 寄付金額を指定して寄付の決済ページへ移動するためのページ（`/support/donate`）のパス
+ * 寄付サービスを指定して寄付ページへ移動するためのページ（`/support/donate`）のパス
  *
- * 本体アプリ（ServerStarter2）の寄付ダイアログはこのページを開き，決済ページの URL は本サイトで管理する。
- * 寄付金額はクエリパラメータ `amount`（円）で指定し（例：`/support/donate?amount=500`），
- * 省略した場合は金額を指定しない選択肢（寄付者が決済ページで金額を入力するもの）として扱う。
- * 該当する選択肢がない場合は「プロジェクトを応援！」ページ（`/support`）へ移動する。
+ * 本体アプリ（ServerStarter2）の寄付ダイアログはこのページを開き，寄付ページの URL は本サイトで管理する。
+ * 寄付サービスはクエリパラメータ `service`（`DonationService.id`）で指定する（例：`/support/donate?service=ofuse`）。
+ * 該当するサービスがない場合は「プロジェクトを応援！」ページ（`/support`）へ移動する。
  */
 export const DONATE_REDIRECT_PATH = '/support/donate';
 
 /**
- * `DONATE_REDIRECT_PATH` のページのクエリから，指定された寄付の選択肢を探す
+ * `DONATE_REDIRECT_PATH` のページのクエリから，指定された寄付サービスを探す
  *
- * @param query ページのクエリ。`amount` がない場合は金額を指定しない選択肢を探す
- * @returns 対応する寄付の選択肢。該当するものがない場合
- *          （`?amount` のように値がない場合や，`amount` が複数指定された場合を含む）は `undefined`
+ * 応援ページで非表示（`visible: false`）のサービスも，本体アプリ側の公開に備えて対象とする
+ *
+ * @param query ページのクエリ
+ * @returns 対応する寄付サービス。該当するものがない場合
+ *          （`service` がない・値がない場合や，複数指定された場合を含む）は `undefined`
  */
-export function findDonationOptionByQuery(
+export function findDonationServiceByQuery(
   query: LocationQuery
-): DonationOption | undefined {
-  if (!('amount' in query)) {
-    return donationOptions.find((o) => o.amount === void 0);
-  }
-  const amount = query.amount;
-  if (typeof amount !== 'string') return void 0;
-  return donationOptions.find(
-    (o) => o.amount !== void 0 && String(o.amount) === amount
-  );
-}
-
-/**
- * 寄付金額を表示用の文字列（例：`¥1,000`）に変換する
- *
- * @param amount 寄付金額（円）
- * @returns 円記号と桁区切りを付けた金額
- */
-export function formatYen(amount: number): string {
-  return `¥${amount.toLocaleString('ja-JP')}`;
+): DonationService | undefined {
+  const id = query.service;
+  if (typeof id !== 'string') return void 0;
+  return donationServices.find((s) => s.id === id);
 }
 
 /**

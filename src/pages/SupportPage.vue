@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { donationOptions, supportWays } from '@/scripts/support';
-import DonationOptionCard from '@/components/Pages/Support/DonationOptionCard.vue';
+import { donationServices, supportWays } from '@/scripts/support';
+import DonationServiceCard from '@/components/Pages/Support/DonationServiceCard.vue';
 import SupportIcon from '@/components/Pages/Support/SupportIcon.vue';
 import SupportWayCard from '@/components/Pages/Support/SupportWayCard.vue';
 import SsRouterBtn from '@/components/utils/base/btns/ssRouterBtn.vue';
 import SsSubTitle from '@/components/utils/base/texts/ssSubTitle.vue';
 import SsTitle from '@/components/utils/base/texts/ssTitle.vue';
+
+/** 応援ページに表示する（受付中の）寄付サービス */
+const visibleServices = donationServices.filter((s) => s.visible);
 </script>
 
 <template>
@@ -15,7 +18,7 @@ import SsTitle from '@/components/utils/base/texts/ssTitle.vue';
       <p class="pre-line">{{ $t('support.desc') }}</p>
     </div>
 
-    <!-- 寄付（本体アプリの寄付ダイアログと同じ選択肢・決済ページ） -->
+    <!-- 寄付（本体アプリの寄付ダイアログと同じ寄付サービス） -->
     <section>
       <SsSubTitle>{{ $t('support.donation.title') }}</SsSubTitle>
       <div class="row items-center no-wrap q-mb-lg">
@@ -28,15 +31,14 @@ import SsTitle from '@/components/utils/base/texts/ssTitle.vue';
         <p class="pre-line q-mb-none">{{ $t('support.donation.desc') }}</p>
       </div>
 
-      <div class="select q-mb-sm">{{ $t('support.donation.select') }}</div>
-      <!-- PC 幅では4列，タブレット・スマホ幅では2列に並べる -->
-      <div class="row q-col-gutter-md">
+      <!-- サービスが1つの場合も見栄えがよいよう中央に寄せ，PC 幅では2列まで並べる -->
+      <div class="row justify-center q-col-gutter-md">
         <div
-          v-for="option in donationOptions"
-          :key="option.id"
-          class="col-6 col-md-3"
+          v-for="service in visibleServices"
+          :key="service.id"
+          class="col-12 col-md-6"
         >
-          <DonationOptionCard :option="option" />
+          <DonationServiceCard :service="service" />
         </div>
       </div>
 
@@ -68,11 +70,6 @@ import SsTitle from '@/components/utils/base/texts/ssTitle.vue';
 <style scoped lang="scss">
 .pre-line {
   white-space: pre-line;
-}
-
-.select {
-  font-family: 'Genokaku JP';
-  font-weight: 600;
 }
 
 .note {
