@@ -23,6 +23,12 @@ export const jaSupport = {
         btn: 'GitHub Sponsorsを開く',
       },
     },
+    redirect: {
+      title: '寄付ページへ移動しています',
+      desc: '自動で移動しない場合は，下のボタンから寄付ページを開いてください',
+      btn: '寄付ページを開く',
+      backBtn: '応援ページへ戻る',
+    },
   },
   others: {
     title: '寄付以外の応援方法',

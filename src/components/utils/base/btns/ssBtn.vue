@@ -10,6 +10,8 @@ interface Prop {
   loading?: boolean;
   isCapital?: boolean;
   to?: string;
+  /** 外部ページなどへのリンク（同じタブで開く） */
+  href?: string;
   onClick?: () => void;
 }
 defineProps<Prop>();
@@ -28,6 +30,7 @@ const isDark = () => $q.dark.isActive;
     :loading="loading"
     :no-caps="!isCapital"
     :to="to"
+    :href="href"
     @click="onClick"
     :color="isDark() ? 'primary' : ''"
     :class="isDark() ? '' : 'light'"

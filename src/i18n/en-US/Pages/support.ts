@@ -19,6 +19,12 @@ export const enUSSupport: MessageSchema['support'] = {
         btn: 'Open GitHub Sponsors',
       },
     },
+    redirect: {
+      title: 'Moving to the donation page',
+      desc: 'If you are not redirected automatically, please open the donation page with the button below',
+      btn: 'Open the donation page',
+      backBtn: 'Back to the support page',
+    },
   },
   others: {
     title: 'Other ways to support us',

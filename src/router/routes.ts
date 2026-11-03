@@ -1,4 +1,8 @@
 import { RouteRecordRaw } from 'vue-router';
+import {
+  DONATE_REDIRECT_PATH,
+  findDonationServiceByQuery,
+} from '@/scripts/support';
 
 type KeyA2U<T extends object[], K extends keyof T[number]> = {
   [L in keyof T]: T[L][K];
@@ -80,6 +84,16 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/support',
     component: () => import('@/pages/SupportPage.vue'),
+  },
+  {
+    // 本体アプリなどから寄付サービスを指定して寄付ページへ移動する
+    path: DONATE_REDIRECT_PATH,
+    // 対応するサービスがない場合は，ページを描画する前に応援ページへ移動して選び直してもらう
+    beforeEnter: (to) =>
+      findDonationServiceByQuery(to.query)
+        ? true
+        : { path: '/support', replace: true },
+    component: () => import('@/pages/support/DonateRedirectPage.vue'),
   },
   {
     path: '/q-a',
