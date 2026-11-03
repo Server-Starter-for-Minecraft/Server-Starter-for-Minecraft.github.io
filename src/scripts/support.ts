@@ -37,7 +37,7 @@ export interface DonationService {
 export const donationServices: readonly DonationService[] = [
   {
     id: 'ofuse',
-    icon: 'mail',
+    icon: 'redeem',
     url: 'https://ofuse.me/e/421347',
     visible: true,
   },
