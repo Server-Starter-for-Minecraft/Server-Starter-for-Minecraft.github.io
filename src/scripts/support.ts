@@ -4,71 +4,51 @@ import type { MessageSchema } from '@/boot/i18n';
 export const SITE_URL = 'https://server-starter-for-minecraft.github.io/';
 
 /**
- * 寄付の選択肢の識別子（i18n の `support.donation.options` に文言が定義されているもの）
+ * 寄付サービスの識別子（i18n の `support.donation.services` に文言が定義されているもの）
  */
-type DonationOptionId = keyof MessageSchema['support']['donation']['options'];
+type DonationServiceId = keyof MessageSchema['support']['donation']['services'];
 
 /**
- * 「プロジェクトを応援！」ページに表示する寄付の選択肢
+ * 「プロジェクトを応援！」ページに表示する寄付サービス
  *
- * 選択肢ごとに作成済みの Square リンク決済のページを開く
- * （本体アプリ ServerStarter2 の寄付ダイアログと同じ決済ページを用いる）
+ * 選択するとサービスの寄付ページ（OFUSE など）を開く
+ * （本体アプリ ServerStarter2 の寄付ダイアログと同じ寄付ページを用いる）
  */
-export interface DonationOption {
-  /** 選択肢の識別子（i18n の `support.donation.options.{id}` の参照にも使う） */
-  id: DonationOptionId;
-  /**
-   * 寄付金額（円）。未指定の場合は寄付者が決済ページで金額を入力する
-   *
-   * 金額を指定した選択肢は金額を，未指定の選択肢は i18n の `title` を見出しとして表示する
-   */
-  amount?: number;
+export interface DonationService {
+  /** サービスの識別子（i18n の `support.donation.services.{id}` の参照にも使う） */
+  id: DonationServiceId;
   /** カードに表示するアイコン（Material Icons の名前） */
   icon: string;
-  /** 寄付ページ（Square リンク決済）の URL */
+  /** サービスの寄付ページの URL */
   url: string;
+  /**
+   * 応援ページに表示するか
+   *
+   * 準備中のサービスは `false` にしておき，受付を開始したら `true` にする
+   */
+  visible: boolean;
 }
 
 /**
- * 寄付の選択肢の一覧（表示順）
+ * 寄付サービスの一覧（表示順）
  *
- * 選択肢を追加・変更する場合はこの配列と i18n の文言のみを変更すればよい
+ * サービスを追加・変更する場合はこの配列と i18n の文言のみを変更すればよい
  */
-export const donationOptions: readonly DonationOption[] = [
+export const donationServices: readonly DonationService[] = [
   {
-    id: 'small',
-    amount: 500,
-    icon: 'local_cafe',
-    url: 'https://square.link/u/BlJBjzvq',
+    id: 'ofuse',
+    icon: 'mail',
+    url: 'https://ofuse.me/e/421347',
+    visible: true,
   },
   {
-    id: 'medium',
-    amount: 1000,
-    icon: 'lunch_dining',
-    url: 'https://square.link/u/ASAPhIgk',
-  },
-  {
-    id: 'large',
-    amount: 2000,
-    icon: 'celebration',
-    url: 'https://square.link/u/cFtKreQC',
-  },
-  {
-    id: 'custom',
-    icon: 'edit',
-    url: 'https://square.link/u/RhX4i7G1',
+    // 受付開始までは非表示にしておく
+    id: 'githubSponsors',
+    icon: 'favorite',
+    url: 'https://github.com/sponsors/CivilTT',
+    visible: false,
   },
 ];
-
-/**
- * 寄付金額を表示用の文字列（例：`¥1,000`）に変換する
- *
- * @param amount 寄付金額（円）
- * @returns 円記号と桁区切りを付けた金額
- */
-export function formatYen(amount: number): string {
-  return `¥${amount.toLocaleString('ja-JP')}`;
-}
 
 /**
  * 寄付以外の応援方法の識別子（i18n の `support.others.ways` に文言が定義されているもの）
