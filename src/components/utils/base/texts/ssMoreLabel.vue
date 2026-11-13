@@ -1,8 +1,10 @@
 <script setup lang="ts">
 /**
- * リンクになっているカードの右下に添える「詳細を見る」などの案内（カード全体がリンクであることを示す）
+ * リンクになっているカード（SsLinkCard）の右下に添える「詳細を見る」などの案内
  *
- * @prop icon 文言の右に添えるアイコン（Material Icons の名前。ページ遷移は `navigate_next`，外部サイトは `open_in_new` など）
+ * カード全体がリンクであることを示す
+ *
+ * @prop icon 文言の右に添えるアイコン（Material Icons の名前。ページ遷移は `navigate_next`）
  * @slot default 案内の文言
  */
 interface Prop {
@@ -22,9 +24,6 @@ defineProps<Prop>();
 .more {
   font-family: 'Genokaku JP';
   font-size: 0.85rem;
-  // カードの高さがそろっている場合も，案内は常にカードの下端に置く
-  margin-top: auto;
-  padding-top: 0.5rem;
   color: $primary;
 }
 

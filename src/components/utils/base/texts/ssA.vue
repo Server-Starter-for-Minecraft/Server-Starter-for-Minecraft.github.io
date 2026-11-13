@@ -17,6 +17,7 @@ const isOuterSite = () => prop.url.slice(0, 4) === 'http';
     v-if="isOuterSite()"
     :href="url"
     target="_blank"
+    rel="noopener noreferrer"
     :class="isDark() ? 'dark' : 'light'"
   >
     <slot name="default" />

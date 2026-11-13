@@ -2,12 +2,13 @@
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { SupportWay } from '@/scripts/support';
-import SsLinkCard from '@/components/utils/base/ssLinkCard.vue';
+import SsCard from '@/components/utils/base/ssCard.vue';
+import SsOuterLink from '@/components/utils/base/texts/ssOuterLink.vue';
 
 /**
  * 寄付以外の応援方法1つ分のカード
  *
- * クリックすると応援方法のリンク先（GitHub・X・Discord など）を新しいタブで開く
+ * 右下のリンクから応援方法のリンク先（GitHub・X・Discord など）を新しいタブで開く
  *
  * @prop way 表示する応援方法
  */
@@ -26,7 +27,8 @@ const url = computed(() =>
 </script>
 
 <template>
-  <SsLinkCard :url="url" :more-label="$t(`support.others.ways.${way.id}.btn`)">
+  <!-- 並べたカードの高さをそろえ，右下のリンクの位置もそろえる -->
+  <SsCard fill>
     <div class="row items-center no-wrap">
       <q-icon :name="way.icon" size="1.5rem" class="icon q-mr-sm" />
       <div class="card-title">
@@ -36,7 +38,13 @@ const url = computed(() =>
     <p class="card-desc q-mt-sm q-mb-none">
       {{ $t(`support.others.ways.${way.id}.desc`) }}
     </p>
-  </SsLinkCard>
+
+    <template #actions>
+      <SsOuterLink :url="url">
+        {{ $t(`support.others.ways.${way.id}.btn`) }}
+      </SsOuterLink>
+    </template>
+  </SsCard>
 </template>
 
 <style scoped lang="scss">

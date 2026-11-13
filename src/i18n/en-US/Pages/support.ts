@@ -29,7 +29,7 @@ export const enUSSupport: MessageSchema['support'] = {
     title: 'Other ways to support us',
     desc: 'Besides donating, you can also support the project in the following ways!',
     shareText:
-      'ServerStarter2 - launch a Minecraft multiplayer server with one click!',
+      'ServerStarter2 is a free app that launches a Minecraft multiplayer server in one click. Play with friends without setting up port forwarding, with support for mods and plugins!\n\n*Posted from the support page of the official ServerStarter website',
     ways: {
       star: {
         title: 'Star us on GitHub',

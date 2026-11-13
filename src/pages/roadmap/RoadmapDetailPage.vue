@@ -12,6 +12,7 @@ import RoadmapMediaView from '@/components/Pages/Roadmap/RoadmapMediaView.vue';
 import RoadmapStatusBadge from '@/components/Pages/Roadmap/RoadmapStatusBadge.vue';
 import SsRouterBtn from '@/components/utils/base/btns/ssRouterBtn.vue';
 import SsA from '@/components/utils/base/texts/ssA.vue';
+import SsOuterLink from '@/components/utils/base/texts/ssOuterLink.vue';
 import SsSubTitle from '@/components/utils/base/texts/ssSubTitle.vue';
 import SsTitle from '@/components/utils/base/texts/ssTitle.vue';
 
@@ -77,10 +78,9 @@ const paragraphs = computed(() => {
       <div class="row items-center q-gutter-md">
         <template v-for="link in item.links" :key="link.to">
           <!-- 外部サイトは新しいタブで開くテキストリンク，サイト内はボタンで表示する -->
-          <span v-if="isExternalLink(link.to)">
-            <SsA :url="link.to">{{ $t(`roadmap.links.${link.label}`) }}</SsA>
-            <q-icon name="open_in_new" class="q-ml-xs" />
-          </span>
+          <SsOuterLink v-if="isExternalLink(link.to)" :url="link.to">
+            {{ $t(`roadmap.links.${link.label}`) }}
+          </SsOuterLink>
           <SsRouterBtn v-else :to="link.to">
             {{ $t(`roadmap.links.${link.label}`) }}
           </SsRouterBtn>

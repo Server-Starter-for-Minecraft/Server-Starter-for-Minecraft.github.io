@@ -52,7 +52,7 @@ export const donationServices: readonly DonationService[] = [
     id: 'ofuse',
     icon: 'redeem',
     logo: '/icons/outers/ofuse.png',
-    url: 'https://ofuse.me/e/421347',
+    url: 'https://ofuse.me/civiltt/letter',
     visible: true,
   },
   {

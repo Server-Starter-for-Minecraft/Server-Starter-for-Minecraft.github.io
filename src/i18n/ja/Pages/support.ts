@@ -33,7 +33,7 @@ export const jaSupport = {
     title: '寄付以外の応援方法',
     desc: '寄付以外にも，こんな方法でプロジェクトを応援していただけます！',
     shareText:
-      'ワンクリックでMinecraftのマルチプレイサーバーを起動できる「ServerStarter2」',
+      'Minecraftのマルチプレイサーバーをワンクリックで立てられる無料アプリ「ServerStarter2」．ポート開放の設定なしで友達と遊べて，Modやプラグインにも対応しています！\n\n※ServerStarter公式サイトの応援ページからの投稿です',
     ways: {
       star: {
         title: 'GitHubでスターをつける',
