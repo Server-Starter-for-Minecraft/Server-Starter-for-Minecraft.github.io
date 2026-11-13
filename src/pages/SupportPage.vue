@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { donationServices, supportWays } from '@/scripts/support';
 import DonationServiceCard from '@/components/Pages/Support/DonationServiceCard.vue';
-import SupportIcon from '@/components/Pages/Support/SupportIcon.vue';
 import SupportWayCard from '@/components/Pages/Support/SupportWayCard.vue';
 import SsRouterBtn from '@/components/utils/base/btns/ssRouterBtn.vue';
 import SsSubTitle from '@/components/utils/base/texts/ssSubTitle.vue';
@@ -21,25 +20,15 @@ const visibleServices = donationServices.filter((s) => s.visible);
     <!-- 寄付（本体アプリの寄付ダイアログと同じ寄付サービス） -->
     <section>
       <SsSubTitle>{{ $t('support.donation.title') }}</SsSubTitle>
-      <div class="row items-center no-wrap q-mb-lg">
-        <!-- スマホ幅では本文の幅を確保するためにアイコンを小さくする -->
-        <SupportIcon
-          icon="volunteer_activism"
-          :size="$q.screen.xs ? '3rem' : '4rem'"
-          class="q-mr-md"
-        />
-        <p class="pre-line q-mb-none">{{ $t('support.donation.desc') }}</p>
-      </div>
+      <p class="pre-line">{{ $t('support.donation.desc') }}</p>
 
-      <!-- サービスが1つの場合も見栄えがよいよう中央に寄せ，PC 幅では2列まで並べる -->
-      <div class="row justify-center q-col-gutter-md">
-        <div
+      <!-- 寄付サービスは横長のカードを縦に並べる -->
+      <div class="column q-gutter-md">
+        <DonationServiceCard
           v-for="service in visibleServices"
           :key="service.id"
-          class="col-12 col-md-6"
-        >
-          <DonationServiceCard :service="service" />
-        </div>
+          :service="service"
+        />
       </div>
 
       <div class="row items-center no-wrap q-mt-md text-desc note">

@@ -23,8 +23,14 @@ export interface DonationService {
    * リリース済みのアプリが使う識別子は削除・変更しないこと（対応する寄付ページの URL の差し替えは自由）
    */
   id: DonationServiceId;
-  /** カードに表示するアイコン（Material Icons の名前） */
+  /** カードに表示するアイコン（Material Icons の名前。`logo` がない場合に表示する） */
   icon: string;
+  /**
+   * カードに表示するサービスのロゴ画像のパス（`public` からの絶対パス）
+   *
+   * 配布元のロゴを加工せずに表示するため，ある場合は `icon` より優先して表示する
+   */
+  logo?: string;
   /** サービスの寄付ページの URL */
   url: string;
   /**
@@ -45,6 +51,7 @@ export const donationServices: readonly DonationService[] = [
   {
     id: 'ofuse',
     icon: 'redeem',
+    logo: '/icons/outers/ofuse.png',
     url: 'https://ofuse.me/e/421347',
     visible: true,
   },

@@ -1,30 +1,54 @@
 <script setup lang="ts">
+import SsCard from './ssCard.vue';
+import SsMoreLabel from './texts/ssMoreLabel.vue';
+
 /**
- * カード全体が外部サイトへのリンクになるカード
+ * カード全体がリンクになるカード（ロードマップの主要な項目・応援ページの応援方法などで共通）
  *
- * リンク先は新しいタブで開く。ホバー時・キーボードでのフォーカス時にテーマ色の枠線で強調し，
- * 選択できることが伝わるようにする
+ * ホバー時・フォーカス時に少し浮かせ，右下に案内（`moreLabel`）を添えてリンクであることを示す。
+ * `to` を指定するとサイト内のページへ移動し，`url` を指定すると外部サイトを新しいタブで開く
  *
- * @prop url リンク先（外部サイトの URL）
+ * @prop to リンク先（サイト内のページのパス）
+ * @prop url リンク先（外部サイトの URL）。`to` がある場合は `to` を優先する
+ * @prop moreLabel 右下に添える案内の文言（例：「詳細を見る」「リポジトリを開く」）
+ * @prop lineColor カードの左に引く線の色（SsCard の `lineColor` と同じ）
+ * @slot default カードの中身
  */
 interface Prop {
-  url: string;
+  to?: string | undefined;
+  url?: string | undefined;
+  moreLabel: string;
+  lineColor?: string | undefined;
 }
-defineProps<Prop>();
+const prop = defineProps<Prop>();
+
+/** サイト内のページへのリンクか（外部サイトへのリンクでないか） */
+const isInternal = () => prop.to !== undefined;
 </script>
 
 <template>
-  <q-card
-    tag="a"
+  <RouterLink
+    v-if="isInternal()"
+    :to="to ?? ''"
+    class="block full-height link-card"
+  >
+    <SsCard class="full-height card" v-bind="lineColor ? { lineColor } : {}">
+      <slot />
+      <SsMoreLabel icon="navigate_next">{{ moreLabel }}</SsMoreLabel>
+    </SsCard>
+  </RouterLink>
+  <a
+    v-else
     :href="url"
     target="_blank"
     rel="noopener noreferrer"
-    flat
-    bordered
-    class="link-card"
+    class="block full-height link-card"
   >
-    <slot />
-  </q-card>
+    <SsCard class="full-height card" v-bind="lineColor ? { lineColor } : {}">
+      <slot />
+      <SsMoreLabel icon="open_in_new">{{ moreLabel }}</SsMoreLabel>
+    </SsCard>
+  </a>
 </template>
 
 <style scoped lang="scss">
@@ -32,51 +56,34 @@ defineProps<Prop>();
 .link-card,
 .link-card:hover,
 .link-card:visited {
-  display: block;
   color: inherit;
   text-decoration: none;
 }
 
-.link-card {
-  height: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  transition:
-    border-color 0.15s,
-    transform 0.15s;
+.card {
+  transition: transform 0.2s;
 
-  &:hover,
-  &:focus-visible {
-    border-color: $primary;
-    transform: translateY(-2px);
-  }
-
-  // キーボード操作時にどのカードを選択しているかが分かるよう，枠線の外側にも強調線を表示する
-  &:focus-visible {
-    outline: 2px solid $primary;
-    outline-offset: 2px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-
-    &:hover,
-    &:focus-visible {
-      transform: none;
-    }
+  // 中身を縦に並べ，右下の案内（SsMoreLabel）をカードの下端に寄せられるようにする
+  :deep(.q-card__section) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 }
 
-// ライトモードでは明るいテーマ色が白背景に埋もれるため，テーマ色に黒を混ぜた濃い緑で強調する
-// （Sass の darken() は非推奨のため，CSS 標準の color-mix() を用いる）
-body.body--light .link-card {
-  &:hover,
-  &:focus-visible {
-    border-color: color-mix(in srgb, $primary 50%, black);
+.link-card:hover .card,
+.link-card:focus-visible .card {
+  transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
   }
 
-  &:focus-visible {
-    outline-color: color-mix(in srgb, $primary 50%, black);
+  .link-card:hover .card,
+  .link-card:focus-visible .card {
+    transform: none;
   }
 }
 </style>

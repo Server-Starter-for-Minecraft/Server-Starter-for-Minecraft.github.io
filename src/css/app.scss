@@ -27,6 +27,20 @@ body {
   font-size: 0.8rem;
 }
 
+// カード（SsCard）の中の見出し（ロードマップ・応援ページの項目カードで共通）
+.card-title {
+  font-family: 'Genokaku JP';
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+}
+
+// カードの中の説明文（見出しと区別できるよう，少し透過させて控えめなトーンにする）
+.card-desc {
+  font-size: 0.9rem;
+  opacity: 0.72;
+}
+
 // テキストを１行に制限してはみ出した分は省略する
 .text-omit {
   white-space: nowrap;

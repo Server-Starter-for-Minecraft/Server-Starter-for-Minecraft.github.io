@@ -8,8 +8,8 @@
 import { computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { findDonationServiceByQuery } from '@/scripts/support';
+import DonationServiceCard from '@/components/Pages/Support/DonationServiceCard.vue';
 import LoadingLogo from '@/components/utils/animation/LoadingLogo.vue';
-import SsBtn from '@/components/utils/base/btns/ssBtn.vue';
 import SsA from '@/components/utils/base/texts/ssA.vue';
 import SsTitle from '@/components/utils/base/texts/ssTitle.vue';
 
@@ -23,7 +23,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <!-- タイトル・説明文・ボタンをひとまとまりとして画面の中央に表示する -->
+  <!-- タイトル・説明文・移動先のカードをひとまとまりとして画面の中央に表示する -->
   <div v-if="service" class="mainField redirect">
     <div class="column items-center text-center">
       <SsTitle>
@@ -32,11 +32,14 @@ onMounted(() => {
         {{ $t('support.donation.redirect.title') }}
       </SsTitle>
       <p>{{ $t('support.donation.redirect.desc') }}</p>
-      <!-- 自動で移動しなかった場合の手動の導線（自動の移動と同じく同じタブで開く） -->
-      <SsBtn
-        icon="open_in_new"
-        :href="service.url"
-        :label="$t('support.donation.redirect.btn')"
+      <!--
+        自動で移動しなかった場合の手動の導線として，応援ページと同じ寄付サービスのカードで移動先を示す
+        （自動の移動と同じく同じタブで開く）
+      -->
+      <DonationServiceCard
+        :service="service"
+        same-tab
+        class="full-width service-card text-left"
       />
       <SsA url="/support" class="q-mt-lg">
         {{ $t('support.donation.redirect.backBtn') }}
@@ -49,5 +52,9 @@ onMounted(() => {
 .redirect {
   // 縦幅が足りない場合に上側が画面外へはみ出して見えなくならないよう safe を付ける
   justify-content: safe center;
+}
+
+.service-card {
+  max-width: 40rem;
 }
 </style>
