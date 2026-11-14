@@ -28,8 +28,9 @@ export const enUSSupport: MessageSchema['support'] = {
   others: {
     title: 'Other ways to support us',
     desc: 'Besides donating, you can also support the project in the following ways!',
+    // X の投稿文（末尾に改行と公式サイトの URL が付く）。X の上限（URL は23文字と数えて280文字）に収めること
     shareText:
-      'ServerStarter2 is a free app that launches a Minecraft multiplayer server in one click. Play with friends without setting up port forwarding, with support for mods and plugins!\n\n*Posted from the support page of the official ServerStarter website',
+      "[One-click server launch!]\n\nLet's all use ServerStarter2 to easily host a Minecraft multiplayer server!\n\nJust press the start button and you're ready to play!\n\nGet it from the official site!\n\n*This post was generated via the official site's share link",
     ways: {
       star: {
         title: 'Star us on GitHub',

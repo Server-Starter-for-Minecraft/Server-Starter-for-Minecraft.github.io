@@ -125,10 +125,10 @@ export const supportWays: readonly SupportWay[] = [
     id: 'share',
     icon: 'share',
     // 表示言語に合わせた紹介文と公式サイトの URL を入力した状態で X の投稿画面を開く
+    // （`url` パラメータを使うと URL が本文の末尾と同じ行に付くため，最後の行に URL を置けるよう改行して本文に含める）
     url: (shareText) =>
       `https://twitter.com/intent/tweet?${new URLSearchParams({
-        text: shareText,
-        url: SITE_URL,
+        text: `${shareText}\n${SITE_URL}`,
       }).toString()}`,
   },
   {
