@@ -78,6 +78,10 @@ const routes: RouteRecordRaw[] = [
     ],
   },
   {
+    path: '/support',
+    component: () => import('@/pages/SupportPage.vue'),
+  },
+  {
     path: '/q-a',
     component: () => import('@/pages/QAPage.vue'),
     children: [
