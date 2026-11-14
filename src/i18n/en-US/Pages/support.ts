@@ -19,12 +19,18 @@ export const enUSSupport: MessageSchema['support'] = {
         btn: 'Open GitHub Sponsors',
       },
     },
+    redirect: {
+      title: 'Moving to the donation page',
+      desc: 'If you are not redirected automatically, please open the donation page with the button below',
+      backBtn: 'Back to the support page',
+    },
   },
   others: {
     title: 'Other ways to support us',
     desc: 'Besides donating, you can also support the project in the following ways!',
+    // X の投稿文（末尾に改行と公式サイトの URL が付く）。X の上限（URL は23文字と数えて280文字）に収めること
     shareText:
-      'ServerStarter2 - launch a Minecraft multiplayer server with one click!',
+      "[One-click server launch!]\n\nLet's all use #ServerStarter2 to easily host a #Minecraft multiplayer server!\n\nJust press the start button and you're ready to play!\n\nGet it from the official site!\n\n*This post was generated via the official site's share link",
     ways: {
       star: {
         title: 'Star us on GitHub',

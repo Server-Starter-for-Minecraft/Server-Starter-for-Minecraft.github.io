@@ -23,12 +23,18 @@ export const jaSupport = {
         btn: 'GitHub Sponsorsを開く',
       },
     },
+    redirect: {
+      title: '寄付ページへ移動しています',
+      desc: '自動で移動しない場合は，下のボタンから寄付ページを開いてください',
+      backBtn: '応援ページへ戻る',
+    },
   },
   others: {
     title: '寄付以外の応援方法',
     desc: '寄付以外にも，こんな方法でプロジェクトを応援していただけます！',
+    // X の投稿文（末尾に改行と公式サイトの URL が付く）。X の上限（全角は2文字，URL は23文字と数えて280文字）に収めること
     shareText:
-      'ワンクリックでMinecraftのマルチプレイサーバーを起動できる「ServerStarter2」',
+      '【ワンクリックでサーバー起動！】\n\n#Minecraft のマルチプレイサーバーを簡単に立てられる #ServerStarter2 をみんなで使おう！\n\n起動ボタンを押すだけで準備完了！\n\n公式HPからダウンロードしてチェック！\n\n※このポストは公式HPの共有リンクから生成しています',
     ways: {
       star: {
         title: 'GitHubでスターをつける',
