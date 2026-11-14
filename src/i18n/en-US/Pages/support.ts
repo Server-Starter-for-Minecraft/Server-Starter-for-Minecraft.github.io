@@ -30,7 +30,7 @@ export const enUSSupport: MessageSchema['support'] = {
     desc: 'Besides donating, you can also support the project in the following ways!',
     // X の投稿文（末尾に改行と公式サイトの URL が付く）。X の上限（URL は23文字と数えて280文字）に収めること
     shareText:
-      "[One-click server launch!]\n\nLet's all use ServerStarter2 to easily host a Minecraft multiplayer server!\n\nJust press the start button and you're ready to play!\n\nGet it from the official site!\n\n*This post was generated via the official site's share link",
+      "[One-click server launch!]\n\nLet's all use #ServerStarter2 to easily host a #Minecraft multiplayer server!\n\nJust press the start button and you're ready to play!\n\nGet it from the official site!\n\n*This post was generated via the official site's share link",
     ways: {
       star: {
         title: 'Star us on GitHub',
