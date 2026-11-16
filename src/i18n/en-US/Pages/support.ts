@@ -7,23 +7,9 @@ export const enUSSupport: MessageSchema['support'] = {
     title: 'Support with a donation',
     desc: 'Your donation will be used for future development and operation.\nYou can also donate on the same page from the "Support us!" button in the app.',
     note: 'The donation page will open in a new tab',
-    services: {
-      ofuse: {
-        title: 'Support us on OFUSE',
-        desc: 'Donate any amount you like, along with a message',
-        btn: 'Open OFUSE',
-      },
-      githubSponsors: {
-        title: 'Support us on GitHub Sponsors',
-        desc: 'Sponsor us monthly or once with your GitHub account',
-        btn: 'Open GitHub Sponsors',
-      },
-    },
-    redirect: {
-      title: 'Moving to the donation page',
-      desc: 'If you are not redirected automatically, please open the donation page with the button below',
-      backBtn: 'Back to the support page',
-    },
+    // 寄付サービスの一覧と説明文は OuterResources の donation.json で管理する（src/scripts/donation.ts）
+    serviceTitle: 'Support us on {name}',
+    serviceBtn: 'Open {name}',
   },
   others: {
     title: 'Other ways to support us',

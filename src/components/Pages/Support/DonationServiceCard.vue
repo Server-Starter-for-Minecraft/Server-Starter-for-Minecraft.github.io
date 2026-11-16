@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { DonationService } from '@/scripts/support';
+import { useI18n } from 'vue-i18n';
+import { DonationService, resolveLocalizedText } from '@/scripts/donation';
 import SsBtn from '@/components/utils/base/btns/ssBtn.vue';
 import SsCard from '@/components/utils/base/ssCard.vue';
 
@@ -9,14 +10,13 @@ import SsCard from '@/components/utils/base/ssCard.vue';
  * 応援ページの中で最も目立たせたい項目のため，左にテーマ色の線を引いて強調し，
  * 右側にサービスの寄付ページ（OFUSE など）を開くボタンを置く
  *
- * @prop service 表示する寄付サービス
- * @prop sameTab 寄付ページを同じタブで開くか（既定は新しいタブで開く）
+ * @prop service 表示する寄付サービス（寄付ページは新しいタブで開く）
  */
 interface Prop {
   service: DonationService;
-  sameTab?: boolean;
 }
 defineProps<Prop>();
+const { locale } = useI18n();
 </script>
 
 <template>
@@ -27,14 +27,14 @@ defineProps<Prop>();
         （SsImg はダークモードで膜を重ねてロゴの色が変わるため，素の img を用いる）
       -->
       <img v-if="service.logo" :src="service.logo" alt="" class="logo" />
-      <q-icon v-else :name="service.icon" size="3rem" class="icon" />
+      <q-icon v-else name="volunteer_activism" size="3rem" class="icon" />
 
       <div class="col info">
         <div class="card-title">
-          {{ $t(`support.donation.services.${service.id}.title`) }}
+          {{ $t('support.donation.serviceTitle', { name: service.name }) }}
         </div>
         <p class="card-desc q-mt-xs q-mb-none">
-          {{ $t(`support.donation.services.${service.id}.desc`) }}
+          {{ resolveLocalizedText(service.description, locale) }}
         </p>
       </div>
 
@@ -42,8 +42,8 @@ defineProps<Prop>();
       <SsBtn
         icon="open_in_new"
         :href="service.url"
-        :target="sameTab ? undefined : '_blank'"
-        :label="$t(`support.donation.services.${service.id}.btn`)"
+        :target="'_blank'"
+        :label="$t('support.donation.serviceBtn', { name: service.name })"
         class="q-ml-auto"
       />
     </div>
