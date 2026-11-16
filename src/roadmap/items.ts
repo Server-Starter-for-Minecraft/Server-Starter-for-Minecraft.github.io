@@ -36,8 +36,9 @@ export const roadmapItems: RoadmapItem[] = [
   // ---------- v2.3.0 ----------
   {
     id: 'neoforge',
-    status: 'developing',
+    status: 'released',
     version: '2.3.0',
+    releasedAt: '2026-11-28',
     major: true,
     media: [
       {
@@ -54,8 +55,9 @@ export const roadmapItems: RoadmapItem[] = [
   },
   {
     id: 'player-list',
-    status: 'developing',
+    status: 'released',
     version: '2.3.0',
+    releasedAt: '2026-11-28',
     major: true,
     media: [
       { src: `${IMG}/player-list/list.png`, caption: 'list' },
@@ -66,8 +68,9 @@ export const roadmapItems: RoadmapItem[] = [
   },
   {
     id: 'console',
-    status: 'developing',
+    status: 'released',
     version: '2.3.0',
+    releasedAt: '2026-11-28',
     major: true,
     media: [
       { src: `${IMG}/console/console.png`, caption: 'console' },
@@ -78,8 +81,9 @@ export const roadmapItems: RoadmapItem[] = [
   },
   {
     id: 'contents-list',
-    status: 'developing',
+    status: 'released',
     version: '2.3.0',
+    releasedAt: '2026-11-28',
     major: true,
     media: [
       { src: `${IMG}/contents-list/list.png`, caption: 'list' },
@@ -90,26 +94,44 @@ export const roadmapItems: RoadmapItem[] = [
   },
   {
     id: 'online-players',
-    status: 'developing',
+    status: 'released',
     version: '2.3.0',
+    releasedAt: '2026-11-28',
     issues: [270],
   },
   {
     id: 'world-folder-select',
-    status: 'developing',
+    status: 'released',
     version: '2.3.0',
+    releasedAt: '2026-11-28',
     issues: [192, 200],
   },
   {
     id: 'update-safety',
-    status: 'developing',
+    status: 'released',
     version: '2.3.0',
+    releasedAt: '2026-11-28',
     issues: [272, 144],
   },
   {
-    id: 'donation',
-    status: 'developing',
+    id: 'single-world-folder',
+    status: 'released',
     version: '2.3.0',
+    releasedAt: '2026-11-28',
+    issues: [278],
+  },
+  {
+    id: 'mac-arch',
+    status: 'released',
+    version: '2.3.0',
+    releasedAt: '2026-11-28',
+    issues: [283, 175],
+  },
+  {
+    id: 'donation',
+    status: 'released',
+    version: '2.3.0',
+    releasedAt: '2026-11-28',
     issues: [260],
   },
 

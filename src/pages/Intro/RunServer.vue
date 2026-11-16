@@ -48,6 +48,10 @@ import ImgTxtBlock from '@/components/utils/blocks/ImgTxtBlock.vue';
       <SsStrong>say Hello</SsStrong>
       と入力すると，ゲーム内のプレイヤー全員に「Hello」というメッセージを送ることができます
     </p>
+    <p>
+      ログはサーバーが出力した文字色のまま表示されるため，警告やエラーも見分けやすくなっています<br />
+      過去のログを読んでいる間は，新しいログが出力されてもスクロール位置がそのまま保たれます
+    </p>
   </ImgTxtBlock>
 
   <ImgTxtBlock
@@ -60,6 +64,11 @@ import ImgTxtBlock from '@/components/utils/blocks/ImgTxtBlock.vue';
     </p>
     <p>
       データをきちんと保存するためにも，遊び終わったら必ず停止ボタンを押しましょう！
+    </p>
+    <p>
+      停止ボタンの隣にある<SsStrong>道具箱</SsStrong>からは，サーバーの
+      <SsStrong>再起動</SsStrong>や，コンソールに表示されたログの
+      <SsStrong>検索</SsStrong>ができます
     </p>
   </ImgTxtBlock>
 

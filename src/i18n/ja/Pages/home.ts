@@ -24,6 +24,7 @@ export const jaHome = {
       spigot: 'Spigot',
       papermc: 'PaperMC',
       forge: 'Forge',
+      neoforge: 'NeoForge',
       mohistmc: 'MohistMC',
       fabric: 'Fabric',
     },
@@ -34,6 +35,8 @@ export const jaHome = {
         '代表的なサードパーティーサーバー。\nプラグインの導入ができるようになる。',
       papermc: 'Spigotをより軽量にしたサーバー。',
       forge: 'MODの前提サーバーとして、\n最も一般的なMODサーバー。',
+      neoforge:
+        'Forgeの後継サーバー。\nForge向けMODとの互換性はない新しいMODサーバー。',
       mohistmc:
         'Forgeをベースとしつつ、MODとプラグインの両者を導入可能としたサーバー。',
       fabric: 'MODの前提サーバー。\nForgeとは別のシステムとなっている。',

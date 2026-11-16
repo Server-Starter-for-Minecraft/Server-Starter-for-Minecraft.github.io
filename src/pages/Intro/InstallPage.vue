@@ -142,10 +142,8 @@ import SsRouterBtn from '@/components/utils/base/btns/ssRouterBtn.vue';
           ServerStarter2では<SsStrong>ポート開放をせず</SsStrong>に，マルチプレイを楽しむことができます！
         </p>
         <p>
-          画面に表示されるセットアップ手順に従い，必要な設定を進めることができます
-        </p>
-        <p>
-          ※この手順をスキップした場合，<SsStrong>ホーム画面</SsStrong>で再登録することができます
+          <SsStrong>「ホーム」タブ</SsStrong
+          >にある「ポート開放不要の設定をする」ボタンを押し，画面に表示されるセットアップ手順に従って必要な設定を進めることができます
         </p>
       </div>
 

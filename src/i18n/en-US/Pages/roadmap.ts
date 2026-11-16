@@ -55,7 +55,7 @@ export const enUSRoadmap: MessageSchema['roadmap'] = {
     neoforge: {
       title: 'NeoForge support',
       summary:
-        'You will be able to run worlds with NeoForge, a mod server developed as the successor to Forge.',
+        'You can now run worlds with NeoForge, a mod server developed as the successor to Forge.',
       detail: [
         'NeoForge joins the server types supported by ServerStarter2!',
         'NeoForge is a mod server forked from Forge, and many mods for the latest Minecraft are released for NeoForge.',
@@ -125,6 +125,16 @@ export const enUSRoadmap: MessageSchema['roadmap'] = {
       title: 'Safer automatic updates',
       summary:
         'Even if an automatic update fails, ServerStarter2 starts without repeating the update and guides you to the download page.',
+    },
+    'single-world-folder': {
+      title: 'Choose where to load single-player worlds',
+      summary:
+        'Fixed single-player worlds not appearing in "Import existing world", and you can now add or hide the folders to load them from in the system settings.',
+    },
+    'mac-arch': {
+      title: 'Apple Silicon Mac support',
+      summary:
+        'Separate apps are now provided for Apple Silicon (M1 or later) and Intel Macs, so you can download the one that fits your Mac.',
     },
     donation: {
       title: 'Donation page',

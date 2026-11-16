@@ -23,6 +23,7 @@ export const enHome: MessageSchema['home'] = {
       spigot: 'Spigot',
       papermc: 'PaperMC',
       forge: 'Forge',
+      neoforge: 'NeoForge',
       mohistmc: 'MohistMC',
       fabric: 'Fabric',
     },
@@ -32,6 +33,8 @@ export const enHome: MessageSchema['home'] = {
       spigot: 'Typical third party server. \nAllows plugins to be installed.',
       papermc: 'A server that makes Spigot run more lightly.',
       forge: 'Most common servers that the base for mods.',
+      neoforge:
+        'Successor to Forge. \nA new mod server that is not compatible with Forge mods.',
       mohistmc:
         'Server based on Forge, but allows both mods and plugins to be installed.',
       fabric:
