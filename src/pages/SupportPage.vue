@@ -1,13 +1,29 @@
 <script setup lang="ts">
-import { donationServices, supportWays } from '@/scripts/support';
+import { computed, onMounted, ref } from 'vue';
+import {
+  DonationService,
+  fallbackDonationServices,
+  fetchDonationServices,
+} from '@/scripts/donation';
+import { supportWays } from '@/scripts/support';
 import DonationServiceCard from '@/components/Pages/Support/DonationServiceCard.vue';
 import SupportWayCard from '@/components/Pages/Support/SupportWayCard.vue';
 import SsRouterBtn from '@/components/utils/base/btns/ssRouterBtn.vue';
 import SsSubTitle from '@/components/utils/base/texts/ssSubTitle.vue';
 import SsTitle from '@/components/utils/base/texts/ssTitle.vue';
 
+/**
+ * 寄付サービスの一覧（本体アプリと同じ配布ファイルから取得する）
+ *
+ * 取得するまでは，取得できない場合と同じ一覧を表示しておく
+ */
+const services = ref<readonly DonationService[]>(fallbackDonationServices);
+onMounted(async () => {
+  services.value = await fetchDonationServices();
+});
+
 /** 応援ページに表示する（受付中の）寄付サービス */
-const visibleServices = donationServices.filter((s) => s.visible);
+const visibleServices = computed(() => services.value.filter((s) => s.visible));
 </script>
 
 <template>

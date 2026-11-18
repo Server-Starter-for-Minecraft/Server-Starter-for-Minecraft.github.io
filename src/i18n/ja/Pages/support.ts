@@ -1,7 +1,6 @@
 /**
  * 「プロジェクトを応援！」ページの文言
  *
- * - `donation.services` のキーは `src/scripts/support.ts` の `donationServices` の `id` と一致させる
  * - `others.ways` のキーは `src/scripts/support.ts` の `supportWays` の `id` と一致させる
  */
 export const jaSupport = {
@@ -11,23 +10,9 @@ export const jaSupport = {
     title: '寄付で応援する',
     desc: 'いただいたご寄付は，今後の開発や運営に大切に使わせていただきます．\nアプリ内の「プロジェクトを応援！」ボタンからも同じページで寄付いただけます．',
     note: '寄付ページが新しいタブで開きます',
-    services: {
-      ofuse: {
-        title: 'OFUSEで応援する',
-        desc: 'お好きな金額で，メッセージを添えて応援できます',
-        btn: 'OFUSEを開く',
-      },
-      githubSponsors: {
-        title: 'GitHub Sponsorsで応援する',
-        desc: 'GitHubアカウントで，毎月または1回限りの応援ができます',
-        btn: 'GitHub Sponsorsを開く',
-      },
-    },
-    redirect: {
-      title: '寄付ページへ移動しています',
-      desc: '自動で移動しない場合は，下のボタンから寄付ページを開いてください',
-      backBtn: '応援ページへ戻る',
-    },
+    // 寄付サービスの一覧と説明文は OuterResources の donation.json で管理する（src/scripts/donation.ts）
+    serviceTitle: '{name}で応援する',
+    serviceBtn: '{name}を開く',
   },
   others: {
     title: '寄付以外の応援方法',
