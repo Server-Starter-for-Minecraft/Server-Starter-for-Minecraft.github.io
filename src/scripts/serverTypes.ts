@@ -51,6 +51,13 @@ export const serverTypes: ServerType[] = [
     mod: true,
   },
   {
+    name: 'neoforge',
+    url: 'https://neoforged.net',
+    datapack: true,
+    plugin: false,
+    mod: true,
+  },
+  {
     name: 'mohistmc',
     url: 'https://mohistmc.com',
     datapack: true,
